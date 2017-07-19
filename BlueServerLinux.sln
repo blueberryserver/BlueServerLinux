@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlueCore", "BlueCore\BlueCore.vcxproj", "{49BA7F73-5846-4F24-955C-BCBC8E4AB101}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlueServer", "BlueServer\BlueServer.vcxproj", "{8557D7E9-5373-4884-A1AF-150BB687721A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{49BA7F73-5846-4F24-955C-BCBC8E4AB101} = {49BA7F73-5846-4F24-955C-BCBC8E4AB101}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

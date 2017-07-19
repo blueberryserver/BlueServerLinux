@@ -7,13 +7,12 @@ using namespace BLUE_BERRY;
 int main(int argc, char *argv[])
 {
 
-	std::cout << "start blue server" << std::endl;
 	IOService::setIOService(new IOService(4));
 
 	Logger::setLogger(new Logger(T_CF_, L_ALL_, "BlueServerLog"));
 	Logger::getLogger()->start();
 
-	LOG(L_INFO_, "BlueServer Logger", "thread count", 4);
+	LOG(L_INFO_, "BlueServer Worker start", "thread count", 4);
 
 	//Server server;
 	//server.start();
@@ -21,7 +20,7 @@ int main(int argc, char *argv[])
 	//main thread waiting
 	getchar();
 
-	LOG(L_INFO_, "BlueServer Close", "", "");
+	LOG(L_INFO_, "BlueServer close");
 
 	getchar();
 

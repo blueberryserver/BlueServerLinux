@@ -47,9 +47,9 @@ void Logger::addLogWriter(_LogType type_, LogWriter* writer_)
 }
 
 template<>
-void Logger::write(_LogLevel level_, const std::string& file_, int line_, const std::string& desc_)
+void Logger::write(_LogLevel level_, const std::string& file_, int line_, int thread_, const std::string& desc_)
 {
-	auto data = new LogData(_instanceId, _no++, line_, level_, file_, desc_);
+	auto data = new LogData(_instanceId, _no++, line_, thread_, level_, file_, desc_);
 
 	_logs.push(data);
 }
@@ -89,7 +89,7 @@ void Logger::tick()
 {
 	while (true)
 	{
-		std::cout << std::this_thread::get_id() << " Logger::tick" << std::endl;
+		//std::cout << std::this_thread::get_id() << " Logger::tick" << std::endl;
 		std::this_thread::sleep_for(std::chrono::seconds(1));
 		workLogData();
 

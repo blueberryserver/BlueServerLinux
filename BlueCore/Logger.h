@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <atomic>
 #include <iostream>
+#include <thread>
 #include "LogHelper.h"
 #include "LockFreeQueue.h"
 
@@ -21,13 +22,20 @@ public:
 	void addLogWriter(_LogType type_, LogWriter* writer_);
 
 	template<typename ...ARGS>
-	void write(_LogLevel level_, const std::string& file_, int line_, const std::string& desc_, ARGS&&... args_)
+	void write(_LogLevel level_, const std::string& file_, int line_, int thread_, const std::string& desc_, ARGS&&... args_)
 	{
-		auto data = new LogData(_instanceId, _no++, line_, level_, file_, desc_);
+		auto data = new LogData(_instanceId, _no++, line_, thread_, level_, file_, desc_);
 		AddJsonObject(data->_objects, args_...);
 
 		_logs.push(data);
-		std::cout << std::this_thread::get_id() << "Logger::write" << std::endl;
+		//std::cout << std::this_thread::get_id() << "Logger::write" << std::endl;
+	}
+
+	void write(_LogLevel level_, const std::string& file_, int line_, int thread_, const std::string& desc_)
+	{
+		auto data = new LogData(_instanceId, _no++, line_, thread_, level_, file_, desc_);
+
+		_logs.push(data);
 	}
 
 	void start();
@@ -58,8 +66,12 @@ public:
 //EXTERN_MGR(Logger);
 extern Logger* ___Logger;
 
+#define __THREADID__ ( static_cast<int>(std::this_thread::get_id()) % 1000 )
+//#define __THREADID__ ( 0 )
 #define __FILENAME__ ( strrchr(__FILE__,'\\') == 0 ? __FILE__ : strrchr(__FILE__,'\\') + 1 )
-#define LOG(__level__, __desc__, ...) ___Logger->write(__level__, __FILENAME__, __LINE__, __desc__, __VA_ARGS__)
+#define LOG(__level__, __desc__, ...) ___Logger->write(__level__, __FILENAME__, __LINE__, __THREADID__, __desc__, ##__VA_ARGS__)
+
+
 
 
 }

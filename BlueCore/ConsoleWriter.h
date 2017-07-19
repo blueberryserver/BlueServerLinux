@@ -6,6 +6,13 @@ namespace BLUE_BERRY
 {
 
 
+static std::string getDateTime(std::time_t time_)
+{
+	char time[2048];
+	std::strftime(time, sizeof(time), "%Y-%m-%d %H:%M:%S", std::localtime(&time_));
+	return std::string(time);
+}
+
 class ConsoleWriter : public LogWriter
 {
 public:
@@ -13,17 +20,14 @@ public:
 	{
 		//auto time = DateTime(data_->_time);
 		//auto strTime = time.format();
+		auto strTime = getDateTime(data_->_time);
 
 		std::string log;
-		//log = strTime + " ";
+		log = strTime + " ";
+		log = log + std::to_string(data_->_thread) + " ";
 		log = log + ToStrLogLevel(data_->_level) + " ";
 		log = log + data_->_desc + " ";
 
-		//for (size_t i = 0; i < data_->_params.size(); i++)
-		//{
-		//	//log = log + data_._params[i]._type + " ";
-		//	log = log + "[" + data_->_params[i]._comment + ":" + data_->_params[i]._value + "]";
-		//}
 		if (false == data_->_objects.empty())
 			log = log + Json(data_->_objects).dump();
 
