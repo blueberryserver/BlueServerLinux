@@ -6,7 +6,7 @@ using boost::asio::ip::tcp;
 class Session : public std::enable_shared_from_this<Session>
 {
 public:
-	Session(tcp::socket socket_);
+	Session(boost::asio::io_service& io_);
 	~Session();
 
 	// address function
@@ -28,6 +28,11 @@ public:
 	virtual void onAcceptComplete();
 	virtual void onConnectComplete();
 
+	tcp::socket& socket()
+	{
+		return _socket;
+	}
+
 
 private:
 	void postRecv();
@@ -36,5 +41,6 @@ private:
 	tcp::socket _socket;
 	char _buffer[1024];
 };
+typedef std::shared_ptr<Session> SessionPtr;
 
 }

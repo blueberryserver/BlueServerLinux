@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 
 	LOG(L_INFO_, "BlueServer Worker start", "thread count", 4);
 
-	//Server server;
-	//server.start();
+	Server server;
+	server.start(12300);
 
 	//main thread waiting
 	getchar();
@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 	LOG(L_INFO_, "BlueServer close");
 
 	getchar();
+	server.stop();
 
 	Logger::getLogger()->stop();
 	IOService::deleteIOService();

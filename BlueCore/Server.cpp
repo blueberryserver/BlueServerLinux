@@ -1,6 +1,7 @@
 #include "Server.h"
 #include <iostream>
-#include <boost/asio.hpp>
+#include "Logger.h"
+#include "IOService.h"
 using boost::asio::ip::tcp;
 
 namespace BLUE_BERRY
@@ -9,19 +10,23 @@ namespace BLUE_BERRY
 
 Server::Server()
 {
-	std::cout << "start server ...." << std::endl;
 }
-
 
 Server::~Server()
 {
-	std::cout << "stop server ...." << std::endl;
-}
-void Server::start()
-{
-	boost::asio::io_service io;
 
-	_acceptor = std::make_shared<Acceptor>(io, 12300);
-	_acceptor->start();
 }
+void Server::start(short port_)
+{
+	_acceptor = std::make_shared<Acceptor>(IOService::getIOService()->getIO(), port_);
+	_acceptor->start();
+	LOG(L_INFO_, "Start Server");
+}
+
+void Server::stop()
+{
+	_acceptor->stop();
+	LOG(L_INFO_, "Stop Server");
+}
+
 }

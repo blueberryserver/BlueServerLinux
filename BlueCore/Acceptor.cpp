@@ -1,12 +1,11 @@
 #include "Acceptor.h"
 #include "Session.h"
-#include <thread>
-#include <boost/thread.hpp>
+#include "Logger.h"
 namespace BLUE_BERRY
 {
 
 Acceptor::Acceptor(boost::asio::io_service& io_, short port_)
-	:_acceptor(io_, tcp::endpoint(tcp::v4(), port_)), _socket(io_)
+	:_acceptor(io_, tcp::endpoint(tcp::v4(), port_))//, _socket(io_)
 {
 }
 
@@ -18,30 +17,28 @@ Acceptor::~Acceptor()
 void Acceptor::start()
 {
 	asyncAccept();
+	//_acceptor.get_io_service().run();
+}
 
-	boost::thread thread(std::bind(&Acceptor::run, this));
-
-	thread.join();
+void Acceptor::stop()
+{
+	//_acceptor.get_io_service().stop();
 }
 
 void Acceptor::asyncAccept()
 {
-	_acceptor.async_accept(_socket, std::bind(&Acceptor::onAccept, this, std::placeholders::_1));
+	auto session = std::make_shared<Session>(_acceptor.get_io_service());
+	_acceptor.async_accept(session->socket(), std::bind(&Acceptor::onAccept, this, session, std::placeholders::_1));
 }
 
-void Acceptor::onAccept(boost::system::error_code errCode_)
+void Acceptor::onAccept(SessionPtr session_, boost::system::error_code errCode_)
 {
 	if (!errCode_)
 	{
-		std::make_shared<Session>(std::move(_socket))->onAcceptComplete();
+		session_->onAcceptComplete();
 	}
 
 	asyncAccept();
-}
-
-void Acceptor::run()
-{
-	_acceptor.get_io_service().run();
 }
 
 }

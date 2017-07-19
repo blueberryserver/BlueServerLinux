@@ -23,6 +23,11 @@ public:
 		_ioService.post(handler_);
 	}
 
+	io_service& getIO()
+	{
+		return _ioService;
+	}
+
 private:
 	io_service _ioService;
 	io_service::work _worker;

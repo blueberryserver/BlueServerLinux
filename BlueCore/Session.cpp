@@ -1,10 +1,11 @@
 #include "Session.h"
 #include <iostream>
+#include "Logger.h"
 namespace BLUE_BERRY
 {
 
-Session::Session(tcp::socket socket_)
-	: _socket(std::move(socket_))
+Session::Session(boost::asio::io_service& io_)
+	: _socket(io_)
 {
 }
 
@@ -15,7 +16,9 @@ Session::~Session()
 
 void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t length_)
 {
-	std::cout << "recv complete" << std::endl;
+	LOG(L_INFO_, "Recv Complete ", "socket", (int)_socket.native(), "length", (int)length_);
+	if (length_ == 0) return;
+	postRecv();
 }
 
 void Session::onSendComplete()
@@ -25,7 +28,8 @@ void Session::onSendComplete()
 
 void Session::onAcceptComplete()
 {
-	std::cout << "accept complete socket: " << 10 <<  std::endl;
+	LOG(L_INFO_, "Accept Complete ", "socket", (int)_socket.native());
+	postRecv();
 }
 
 void Session::onConnectComplete()
@@ -35,9 +39,7 @@ void Session::onConnectComplete()
 
 void Session::postRecv()
 {
-	_socket.async_receive(boost::asio::buffer(_buffer, 1024), std::bind(&Session::onRecvComplete, this, std::placeholders::_1, std::placeholders::_2));
-
-	postRecv();
+	_socket.async_receive(boost::asio::buffer(_buffer, 1024), std::bind(&Session::onRecvComplete, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
 }
 
 }
