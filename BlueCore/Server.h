@@ -14,7 +14,6 @@ public:
 	void stop();
 
 private:
-	//boost::asio::io_service _ioService;
 	AcceptorPtr _acceptor;
 };
 

@@ -27,9 +27,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{49ba7f73-5846-4f24-955c-bcbc8e4ab101}</ProjectGuid>
+    <ProjectGuid>{23f1981e-375e-47f0-a0f9-242181ccc958}</ProjectGuid>
     <Keyword>Linux</Keyword>
-    <RootNamespace>BlueCore</RootNamespace>
+    <RootNamespace>BlueTest</RootNamespace>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <ApplicationType>Linux</ApplicationType>
     <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
@@ -51,7 +51,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <UseDebugLibraries>true</UseDebugLibraries>
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -61,50 +60,16 @@
   <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>
-    </LibraryPath>
-    <OutDir>$(ProjectDir)\..\lib\</OutDir>
-    <TargetExt>.so</TargetExt>
-  </PropertyGroup>
   <ItemGroup>
-    <ClInclude Include="Acceptor.h" />
-    <ClInclude Include="BufferPool.h" />
-    <ClInclude Include="CircularBuffer.h" />
-    <ClInclude Include="concurrentqueue.h" />
-    <ClInclude Include="ConsoleWriter.h" />
-    <ClInclude Include="FileWriter.h" />
-    <ClInclude Include="IOService.h" />
-    <ClInclude Include="Job.h" />
-    <ClInclude Include="JobHelper.h" />
-    <ClInclude Include="json11.hpp" />
-    <ClInclude Include="LockFreeQueue.h" />
-    <ClInclude Include="Logger.h" />
-    <ClInclude Include="LogHelper.h" />
-    <ClInclude Include="Macro.h" />
-    <ClInclude Include="MemoryPool.h" />
-    <ClInclude Include="Server.h" />
-    <ClInclude Include="Session.h" />
-    <ClInclude Include="Worker.h" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Acceptor.cpp" />
-    <ClCompile Include="BufferPool.cpp" />
-    <ClCompile Include="FileWriter.cpp" />
-    <ClCompile Include="IOService.cpp" />
-    <ClCompile Include="json11.cpp" />
-    <ClCompile Include="Logger.cpp" />
-    <ClCompile Include="MemoryPool.cpp" />
-    <ClCompile Include="Server.cpp" />
-    <ClCompile Include="Session.cpp" />
+    <ClInclude Include="Buffer_Test.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
-      <PositionIndependentCode>true</PositionIndependentCode>
-    </ClCompile>
     <Link>
-      <LibraryDependencies>boost_system;boost_thread;boost_filesystem</LibraryDependencies>
+      <LibraryDependencies>gtest;BlueCore;boost_system;boost_thread;boost_filesystem;pthread</LibraryDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$HOME/projects/lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

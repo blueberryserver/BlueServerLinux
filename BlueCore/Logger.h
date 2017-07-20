@@ -1,9 +1,10 @@
 #pragma once
 #include <unordered_map>
 #include <atomic>
-#include <iostream>
 #include <thread>
 #include <boost/lexical_cast.hpp>
+
+#include "Macro.h"
 #include "LogHelper.h"
 #include "LockFreeQueue.h"
 
@@ -66,14 +67,10 @@ public:
 	LockFreeQueue<LogData*> _logs;
 
 public:
-	//DECLARE_MGR(Logger);
-	static Logger* getLogger();
-	static void setLogger(Logger* mgr_);
-	static void deleteLogger();
+	DECLARE_MGR(Logger)
 };
 
-//EXTERN_MGR(Logger);
-extern Logger* ___Logger;
+EXTERN_MGR(Logger);
 
 #define __FILENAME__ ( strrchr(__FILE__,'\\') == 0 ? __FILE__ : strrchr(__FILE__,'\\') + 1 )
 #define LOG(__level__, __desc__, ...) ___Logger->write(__level__, __FILENAME__, __LINE__, __desc__, ##__VA_ARGS__)

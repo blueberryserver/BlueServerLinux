@@ -8,20 +8,7 @@
 namespace BLUE_BERRY
 {
 
-//DEFINE_MGR(Logger);
-Logger* ___Logger = nullptr;
-Logger* Logger::getLogger()
-{
-	return ___Logger; 
-}
-void Logger::setLogger(Logger* mgr_)
-{
-	___Logger = mgr_; 
-}
-void Logger::deleteLogger()
-{
-	delete ___Logger;
-}
+DEFINE_MGR(Logger)
 
 Logger::Logger(_LogType type_, _LogLevel level_, const char* name_)
 	: _instanceId(0), _no(0), _type(type_), _level(level_)

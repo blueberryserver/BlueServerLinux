@@ -4,19 +4,7 @@
 namespace BLUE_BERRY
 {
 
-IOService* ___IOService = nullptr;
-IOService* IOService::getIOService()
-{
-	return ___IOService;
-}
-void IOService::setIOService(IOService* mgr_)
-{
-	___IOService = mgr_;
-}
-void IOService::deleteIOService()
-{
-	delete ___IOService;
-}
+DEFINE_MGR(IOService)
 
 IOService::IOService(unsigned long threadCount_)
 : _worker(_ioService)
@@ -37,13 +25,5 @@ IOService::~IOService()
 {
 	stop();
 }
-
-void IOService::stop()
-{
-	_ioService.reset();
-	_ioService.stop();
-	_pool.join_all();
-}
-
 
 }

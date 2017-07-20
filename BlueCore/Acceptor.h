@@ -1,5 +1,6 @@
 #pragma once
 #include <boost/asio.hpp>
+
 #include "Session.h"
 using boost::asio::ip::tcp;
 
@@ -20,8 +21,8 @@ private:
 
 private:
 	tcp::acceptor _acceptor;
-	//tcp::socket _socket;
 };
 
-typedef std::shared_ptr<Acceptor> AcceptorPtr;
+//typedef std::shared_ptr<Acceptor> AcceptorPtr;
+DECLARE_SMART_PTR(Acceptor);
 }
