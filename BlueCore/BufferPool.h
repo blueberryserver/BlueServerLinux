@@ -5,6 +5,7 @@
 #include "MemoryPool.h"
 
 namespace BLUE_BERRY {
+
 class Buffer
 {
 public:
@@ -60,8 +61,13 @@ public:
 		}
 	}
 
-	void incRefCount();
+	void incRefCount()
+	{
+		_refCount.fetch_add(1);
+	}
+
 	void decRefCount();
+
 	// 스레드 로컬 스토리지(TLS) 함수
 	DECLARE_TLS(Buffer)
 };
@@ -70,12 +76,6 @@ EXTERN_TLS(Buffer)
 class BufferPool
 {	
 private:
-	//enum { MEMORY_CHUNK_COUNT = 256, }; // 256b
-	enum { MEMORY_CHUNK_COUNT = 4, }; // 256b
-	//enum { THREAD_COUNT = 8, };
-	enum { THREAD_COUNT = 1, };
-	enum { PAGE_SIZE = 64 * 1024 * 16 }; // 1024k
-
 	enum { BUFFER_SIZE = 64 * 1024 * 2, };	// 128k
 	boost::pool<>* _pool;
 
@@ -86,6 +86,7 @@ public:
 	}
 	virtual ~BufferPool()
 	{
+		_pool->release_memory();
 		delete _pool;
 	}
 

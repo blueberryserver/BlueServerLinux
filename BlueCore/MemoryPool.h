@@ -1,8 +1,12 @@
 #pragma once
 #include <string.h>
+#include <unordered_map>
 #include <boost/pool/pool.hpp>
 
 #include "Macro.h"
+#include "ThreadUtil.h"
+#include "LockFreeQueue.h"
+
 namespace BLUE_BERRY
 {
 enum
@@ -45,8 +49,64 @@ class MemoryPool
 		POOL_SIZE = 64,
 		CHUNK_TABLE_SIZE = 1024,
 	};
+
+	struct ThreadPool
+	{
+		std::unordered_map<int, boost::pool<>*> _pool;
+		LockFreeQueue<void*> _restorePool;
+		size_t _chunkSize;
+	public:
+		ThreadPool(size_t chunkSize_)
+			: _chunkSize(chunkSize_)
+		{
+			_pool[getThreadId()] = new boost::pool<>(_chunkSize);
+		}
+
+		~ThreadPool()
+		{
+			for (auto it : _pool)
+			{
+				it.second->release_memory();
+				delete it.second;
+			}
+		}
+
+		void* malloc()
+		{
+			// check restore pool
+			void* mem = nullptr;
+			if (_restorePool.pop(mem) == true)
+			{
+				return mem;
+			}
+
+			if (_pool[getThreadId()] == nullptr)
+			{
+				_pool[getThreadId()] = new boost::pool<>(_chunkSize);
+			}
+
+			return _pool[getThreadId()]->ordered_malloc();
+		}
+
+		void free(void* mem_)
+		{
+			while(_restorePool.push(mem_) == false )
+			{
+				std::this_thread::sleep_for(std::chrono::milliseconds(10));
+			}
+
+			//if (_pool[getThreadId()] == nullptr)
+			//{
+			//	return;
+			//}
+			//
+			//_pool[getThreadId()]->free(mem_);
+		}
+
+	};
+
 public:
-	MemoryPool()
+	MemoryPool(unsigned long threadCount_ = 0)
 	{
 		memset(_chunkTable, 0, sizeof(_chunkTable));
 
@@ -57,7 +117,7 @@ public:
 
 			if (chunk_size % MEMORY_ALLOCATION_ALIGNMENT == 0)
 			{
-				_pool[i] = new boost::pool<>(chunk_size);
+				_pool[i] = new ThreadPool(chunk_size);
 				while (index < chunk_size / CHUNK_TABLE_SIZE)
 				{
 					_chunkTable[index++] = _pool[i];
@@ -69,6 +129,14 @@ public:
 			}
 		}
 		_chunkTable[0] = _chunkTable[1];
+	}
+
+	~MemoryPool()
+	{
+		for (int i = 0; i < POOL_SIZE; ++i)
+		{
+			delete _pool[i];
+		}
 	}
 
 	void* alloc(size_t size_)
@@ -83,6 +151,11 @@ public:
 		}
 		
 		header = static_cast<MemoryHeader*>(_chunkTable[index]->malloc());
+
+		if (header == nullptr)
+		{
+			return nullptr;
+		}
 
 		return allocMemoryHeader(header, chunkSize);
 	}
@@ -110,8 +183,8 @@ public:
 	DECLARE_MGR(MemoryPool);
 
 private:
-	boost::pool<>* _chunkTable[CHUNK_TABLE_SIZE];
-	boost::pool<>* _pool[POOL_SIZE];
+	ThreadPool* _chunkTable[CHUNK_TABLE_SIZE];
+	ThreadPool* _pool[POOL_SIZE];
 };
 
 EXTERN_MGR(MemoryPool);

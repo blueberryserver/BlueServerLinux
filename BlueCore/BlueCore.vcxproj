@@ -85,6 +85,7 @@
     <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="Session.h" />
+    <ClInclude Include="ThreadUtil.h" />
     <ClInclude Include="Worker.h" />
   </ItemGroup>
   <ItemGroup>

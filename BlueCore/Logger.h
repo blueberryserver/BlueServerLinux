@@ -1,25 +1,15 @@
 #pragma once
 #include <unordered_map>
 #include <atomic>
-#include <thread>
-#include <boost/lexical_cast.hpp>
 
 #include "Macro.h"
 #include "LogHelper.h"
 #include "LockFreeQueue.h"
+#include "ThreadUtil.h"
 
 namespace BLUE_BERRY {
 
 typedef std::unordered_map<int, LogWriter*> LogWriterMap;
-
-// casting thread id unsigned long
-static int getThreadId() {
-	std::string threadId = boost::lexical_cast<std::string>(std::this_thread::get_id());
-	unsigned int threadNumber = 0;
-	sscanf(threadId.c_str(), "%lx", &threadNumber);
-	return static_cast<int>(threadNumber % 1000);
-}
-
 
 class Logger /*: public asyncJob*/
 {
