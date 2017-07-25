@@ -1,7 +1,10 @@
 #include <cstdio>
 #include <gtest/gtest.h>
 
-#include "Buffer_Test.h"
+//#include "Buffer_Test.h"
+//#include "Mutex_Test.h"
+//#include "Timer_Test.h"
+#include "Logger_Test.h"
 
 TEST(SAMPLE, TEST1)
 {

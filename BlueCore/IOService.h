@@ -19,6 +19,20 @@ public:
 		_ioService.post(handler_);
 	}
 
+	template <typename CompletionHandler>
+	void asyncWait(std::shared_ptr<boost::asio::deadline_timer>& t_, BOOST_ASIO_MOVE_ARG(CompletionHandler) handler_)
+	{
+		auto h = [handler_](const boost::system::error_code& err_)
+		{
+			handler_->onExecute();
+			delete handler_;
+		};
+
+		t_->async_wait(h);
+	}
+
+
+
 	void stop()
 	{
 		_ioService.reset();

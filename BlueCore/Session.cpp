@@ -96,6 +96,8 @@ void Session::postRecv()
 
 void Session::postSend()
 {
+	_sending.store(true);
+
 	if(_connected.load() == false)
 	{
 		return;

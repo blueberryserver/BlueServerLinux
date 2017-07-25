@@ -36,6 +36,7 @@ void Logger::addLogWriter(_LogType type_, LogWriter* writer_)
 template<>
 void Logger::write(_LogLevel level_, const std::string& file_, int line_, const std::string& desc_)
 {
+	if (_running.load() == false) return;
 	auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, file_, desc_);
 
 	_logs.push(data);
@@ -43,7 +44,7 @@ void Logger::write(_LogLevel level_, const std::string& file_, int line_, const 
 
 void Logger::start()
 {
-	IOService::getIOService()->post(boost::bind(&Logger::tick, ___Logger));
+	doTimer(1000, true, &Logger::tick);
 	_running.store(true);
 }
 
@@ -74,13 +75,7 @@ void Logger::workLogData()
 
 void Logger::tick()
 {
-	while (true)
-	{
-		std::this_thread::sleep_for(std::chrono::seconds(1));
-		workLogData();
-
-		if(_running.load() == false) break;
-	}
+	workLogData();
 }
 
 }

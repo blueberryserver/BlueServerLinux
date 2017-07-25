@@ -6,12 +6,13 @@
 #include "LogHelper.h"
 #include "LockFreeQueue.h"
 #include "ThreadUtil.h"
+#include "JobExec.h"
 
 namespace BLUE_BERRY {
 
 typedef std::unordered_map<int, LogWriter*> LogWriterMap;
 
-class Logger /*: public asyncJob*/
+class Logger : public TimerExec
 {
 public:
 	explicit Logger(_LogType type_, _LogLevel level_, const char* name_);
@@ -25,6 +26,8 @@ public:
 	template<typename ...ARGS>
 	void write(_LogLevel level_, const std::string& file_, int line_, const std::string& desc_, ARGS&&... args_)
 	{
+		if (_running.load() == false) return;
+
 		auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, file_, desc_);
 		AddJsonObject(data->_objects, args_...);
 
@@ -33,6 +36,8 @@ public:
 
 	void write(_LogLevel level_, const std::string& file_, int line_, const std::string& desc_)
 	{
+		if (_running.load() == false) return;
+
 		auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, file_, desc_);
 
 		_logs.push(data);

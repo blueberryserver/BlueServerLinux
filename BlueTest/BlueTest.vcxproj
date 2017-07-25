@@ -65,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer_Test.h" />
+    <ClInclude Include="Logger_Test.h" />
+    <ClInclude Include="Mutex_Test.h" />
+    <ClInclude Include="Timer_Test.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>

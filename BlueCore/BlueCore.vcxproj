@@ -86,7 +86,7 @@
     <ClInclude Include="Server.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="ThreadUtil.h" />
-    <ClInclude Include="Worker.h" />
+    <ClInclude Include="JobExec.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp" />

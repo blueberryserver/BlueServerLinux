@@ -135,13 +135,11 @@ TEST(Buffer, BufferHelper)
 
 			}
 		});
-
-
-
-		t.join();
-		t1.join();
-		t2.join();
-		t3.join();
+		
+		if (t.joinable() == true) t.join();
+		if (t1.joinable() == true) t1.join();
+		if (t2.joinable() == true) t2.join();
+		if (t3.joinable() == true) t3.join();
 	}
 }
 
