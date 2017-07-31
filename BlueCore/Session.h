@@ -1,5 +1,6 @@
 #pragma once
 #include <boost/asio.hpp>
+#include <functional>
 
 #include "Macro.h"
 #include "CircularBuffer.h"
@@ -32,7 +33,7 @@ public:
 	virtual void onRecvComplete(boost::system::error_code errCode_, std::size_t length_);
 	virtual void onSendComplete(boost::system::error_code errCode_, std::size_t length_);
 	virtual void onAcceptComplete();
-	virtual void onConnectComplete();
+	virtual void onConnectComplete(boost::system::error_code errCode_);
 
 	// socket
 	tcp::socket& socket()
@@ -40,12 +41,21 @@ public:
 		return _socket;
 	}
 
+	// recv data proc
+	virtual void recvPacketProc();
+	void setPacketProcHandler(std::function<void(CircularBuffer*)> handler_) { _packetProc = handler_; }
 
 	// send data
 	void send(BufferHelperPtr sendBuff_);
 
 	// close network
 	void disconnect();
+
+	bool isConnected();
+
+	// connection
+	void connect(const char* addr_, short port_);
+
 
 private:
 	void postRecv();
@@ -71,6 +81,9 @@ protected:
 
 	// send buffer
 	CircularBuffer* _sendBuff;
+
+	// packet proc func
+	std::function<void(CircularBuffer*)> _packetProc;
 
 };
 //typedef std::shared_ptr<Session> SessionPtr;

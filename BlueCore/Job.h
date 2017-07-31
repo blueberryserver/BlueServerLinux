@@ -13,6 +13,7 @@ public:
 	int _repeat;
 public:
 	Job() : _executedCount(0), _repeat(0) {}
+	virtual ~Job() {}
 
 	// 작업 실행
 	virtual void onExecute() = 0;

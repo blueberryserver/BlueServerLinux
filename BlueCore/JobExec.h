@@ -69,7 +69,7 @@ public:
 		t->expires_from_now(boost::posix_time::milliseconds(time_));
 		if (repeat_ == false) time_ = 0;
 
-		auto job = makeTimerJob(time_, t, static_cast<_T*>(this), memFunc_, std::forward<_ARGS>(args_)...);
+		auto job = makeTimerJob((int)time_, t, static_cast<_T*>(this), memFunc_, std::forward<_ARGS>(args_)...);
 		IOService::getIOService()->asyncWait(t, job);
 	}
 
@@ -81,7 +81,7 @@ public:
 		t->expires_from_now(boost::posix_time::milliseconds(time_));
 		if (repeat_ == false) time_ = 0;
 
-		auto job = makeTimerJob(time_, t, func_, std::forward<_ARGS>(args_)...);
+		auto job = makeTimerJob((int)time_, t, func_, std::forward<_ARGS>(args_)...);
 		IOService::getIOService()->asyncWait(t, job);
 	}
 

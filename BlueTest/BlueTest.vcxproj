@@ -61,19 +61,34 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="..\cpp\test.pb.cc" />
+    <ClCompile Include="..\cpp\test2.pb.cc" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\cpp\test.pb.h" />
+    <ClInclude Include="..\cpp\test2.pb.h" />
+    <ClInclude Include="..\mysqldriver\mysql_connection.h" />
+    <ClInclude Include="..\mysqldriver\mysql_driver.h" />
+    <ClInclude Include="..\mysqldriver\mysql_error.h" />
     <ClInclude Include="Buffer_Test.h" />
+    <ClInclude Include="Chrono_Test.h" />
     <ClInclude Include="Logger_Test.h" />
     <ClInclude Include="Mutex_Test.h" />
+    <ClInclude Include="Mysql_Test.h" />
+    <ClInclude Include="Protobuf_Test.h" />
+    <ClInclude Include="Redis_Test.h" />
     <ClInclude Include="Timer_Test.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
-      <LibraryDependencies>gtest;BlueCore;boost_system;boost_thread;boost_filesystem;pthread</LibraryDependencies>
+      <LibraryDependencies>gtest;BlueCore;boost_system;boost_thread;boost_filesystem;pthread;protobuf;mysqlcppconn</LibraryDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$HOME/projects/lib</AdditionalLibraryDirectories>
     </Link>
+    <ClCompile>
+      <CppLanguageStandard>c++1y</CppLanguageStandard>
+      <PreprocessorDefinitions>_DEBUG;</PreprocessorDefinitions>
+    </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

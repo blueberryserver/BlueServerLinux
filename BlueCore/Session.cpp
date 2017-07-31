@@ -5,7 +5,7 @@ namespace BLUE_BERRY
 {
 
 Session::Session(boost::asio::io_service& io_)
-	: _socket(io_)
+	: _socket(io_), _packetProc(nullptr)
 {
 	_recvBuff = new CircularBuffer();
 	_sendBuff = new CircularBuffer();
@@ -27,7 +27,18 @@ void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t len
 
 	LOG(L_INFO_, "Recv Complete", "socket", (int)_socket.native(), "length", (int)length_);
 
+	_recvBuff->commit(length_);
+
+
 	// recv packet proc
+	if (_packetProc != nullptr)
+	{
+		_packetProc(_recvBuff);
+	}
+	else
+	{
+		recvPacketProc();
+	}
 
 	// call async recv
 	postRecv();
@@ -47,13 +58,18 @@ void Session::onAcceptComplete()
 {
 	LOG(L_INFO_, "Accept Complete", "socket", (int)_socket.native());
 	_connected.store(true);
+
+	// call async recv
 	postRecv();
 }
 
-void Session::onConnectComplete()
+void Session::onConnectComplete(boost::system::error_code errCode_)
 {
 	LOG(L_INFO_, "Connect Complete", "socket", (int)_socket.native());
 	_connected.store(true);
+
+	// call async recv
+	postRecv();
 }
 
 void Session::send(BufferHelperPtr sendBuff_)
@@ -65,6 +81,7 @@ void Session::send(BufferHelperPtr sendBuff_)
 
 	if (_reservedSendBuffCount.load() >= SHRT_MAX)
 	{
+		LOG(L_INFO_, "disconnect", "socket", (int)_socket.native());
 		disconnect();
 		return;
 	}
@@ -84,6 +101,23 @@ void Session::disconnect()
 	_connected.store(false);
 }
 
+bool Session::isConnected()
+{
+	return _connected.load() == true;
+}
+
+void Session::connect(const char * addr_, short port_)
+{
+	//boost::asio::ip::tcp::endpoint endPoint(boost::asio::ip::address::from_string(addr_), port_);
+	//_socket.async_connect(endPoint, std::bind(&Session::onConnectComplete, shared_from_this(), std::placeholders::_1));
+
+	boost::asio::ip::tcp::resolver resolver(_socket.get_io_service());
+	boost::asio::ip::tcp::resolver::query query(addr_, std::to_string(port_));
+
+	auto endpointIt = resolver.resolve(query);
+	boost::asio::async_connect(_socket, endpointIt, std::bind(&Session::onConnectComplete, shared_from_this(), std::placeholders::_1));
+}
+
 void Session::postRecv()
 {
 	auto bufferSize = _recvBuff->getFreeSize();
@@ -96,15 +130,18 @@ void Session::postRecv()
 
 void Session::postSend()
 {
-	_sending.store(true);
+	//LOG(L_INFO_, "post Send", "reservedCount", (int)_reservedSendBuffCount.load());
 
+	_sending.store(true);
 	if(_connected.load() == false)
 	{
+		_sending.store(false);
 		return;
 	}
 
 	if (_reservedSendBuffCount.load() == 0)
 	{
+		_sending.store(false);
 		return;
 	}
 
@@ -146,4 +183,17 @@ void Session::postSend()
 		std::bind(&Session::onSendComplete, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
 }
 
+
+void Session::recvPacketProc()
+{
+	auto rBufferPoint = _recvBuff->getReadableBuffer();
+	auto recvBuffSize = _recvBuff->getContiguiousBytes();
+
+	char buff[1024] = { 0, };
+	memcpy(buff, rBufferPoint, recvBuffSize);
+
+	LOG(L_INFO_, "Recv Complete", "buff size", (int)recvBuffSize, "data", buff);
+
+	_recvBuff->remove(recvBuffSize);
+}
 }

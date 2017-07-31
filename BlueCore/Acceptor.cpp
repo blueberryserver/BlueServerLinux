@@ -5,7 +5,7 @@ namespace BLUE_BERRY
 {
 
 Acceptor::Acceptor(boost::asio::io_service& io_, short port_)
-	:_acceptor(io_, tcp::endpoint(tcp::v4(), port_))//, _socket(io_)
+	:_acceptor(io_, tcp::endpoint(tcp::v4(), port_))
 {
 }
 
@@ -17,12 +17,10 @@ Acceptor::~Acceptor()
 void Acceptor::start()
 {
 	asyncAccept();
-	//_acceptor.get_io_service().run();
 }
 
 void Acceptor::stop()
 {
-	//_acceptor.get_io_service().stop();
 }
 
 void Acceptor::asyncAccept()

@@ -70,9 +70,11 @@
   <ItemGroup>
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="BufferPool.h" />
+    <ClInclude Include="Callback.h" />
     <ClInclude Include="CircularBuffer.h" />
     <ClInclude Include="concurrentqueue.h" />
     <ClInclude Include="ConsoleWriter.h" />
+    <ClInclude Include="DateTime.h" />
     <ClInclude Include="FileWriter.h" />
     <ClInclude Include="IOService.h" />
     <ClInclude Include="Job.h" />
@@ -83,14 +85,19 @@
     <ClInclude Include="LogHelper.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="MemoryPool.h" />
+    <ClInclude Include="RedisClient.h" />
+    <ClInclude Include="RedisHelper.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="Session.h" />
+    <ClInclude Include="StringUtil.h" />
+    <ClInclude Include="SyncJobHelper.h" />
     <ClInclude Include="ThreadUtil.h" />
     <ClInclude Include="JobExec.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp" />
     <ClCompile Include="BufferPool.cpp" />
+    <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="FileWriter.cpp" />
     <ClCompile Include="IOService.cpp" />
     <ClCompile Include="json11.cpp" />
@@ -98,14 +105,16 @@
     <ClCompile Include="MemoryPool.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SyncJobHelper.cpp" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <CppLanguageStandard>c++1y</CppLanguageStandard>
       <PositionIndependentCode>true</PositionIndependentCode>
+      <PreprocessorDefinitions>_DEBUG;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <LibraryDependencies>boost_system;boost_thread;boost_filesystem</LibraryDependencies>
+      <LibraryDependencies>boost_system;boost_thread;boost_filesystem;pthread</LibraryDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

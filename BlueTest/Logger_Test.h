@@ -4,20 +4,20 @@
 #include <gtest/gtest.h>
 
 
-#include "../BlueCore/Logger.h"
-#include "../BlueCore/ThreadUtil.h"
-#include "../BlueCore/IOService.h"
-#include "../BlueCore/JobExec.h"
+#include "../../BlueCore/Logger.h"
+#include "../../BlueCore/ThreadUtil.h"
+#include "../../BlueCore/IOService.h"
+#include "../../BlueCore/JobExec.h"
 using namespace BLUE_BERRY;
 
-void GlobalLoading()
+void GlobalLoadingLoggerTest()
 {
 	IOService::setIOService(new IOService(4));
 }
 
 TEST(Logger, Test)
 {
-	GlobalLoading();
+	GlobalLoadingLoggerTest();
 	Logger::setLogger(new Logger(T_CF_, L_ALL_, "BlueTestLog"));
 	Logger::getLogger()->start();
 
