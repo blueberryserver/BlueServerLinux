@@ -23,7 +23,7 @@ public:
 		_SSession = std::make_shared<T>(io_);
 		_SubSession = std::make_shared<T>(io_);
 
-		_MSession->setPacketProcHandler( std::bind(&RedisClient::recvPacketProc, this, std::placeholders::_1) );
+		_MSession->setPacketProcHandler(std::bind(&RedisClient::recvPacketProc, this, std::placeholders::_1));
 		_SSession->setPacketProcHandler(std::bind(&RedisClient::recvPacketProc, this, std::placeholders::_1));
 		_SubSession->setPacketProcHandler(std::bind(&RedisClient::recvPacketProc, this, std::placeholders::_1));
 
@@ -645,12 +645,13 @@ private:
 	}
 
 
-	TPtr _MSession;	// master
-	TPtr _SSession;	// slave
+private:
+	TPtr _MSession;	// master session
+	TPtr _SSession;	// slave session
 
-	TPtr _SubSession;	// subscribe
+	TPtr _SubSession;	// subscribe session
 
-	//std::deque<size_t> _keys;
+	// redis request keys
 	LockFreeQueue<size_t> _keys;
 };
 

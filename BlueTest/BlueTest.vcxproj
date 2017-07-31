@@ -68,9 +68,6 @@
   <ItemGroup>
     <ClInclude Include="..\cpp\test.pb.h" />
     <ClInclude Include="..\cpp\test2.pb.h" />
-    <ClInclude Include="..\mysqldriver\mysql_connection.h" />
-    <ClInclude Include="..\mysqldriver\mysql_driver.h" />
-    <ClInclude Include="..\mysqldriver\mysql_error.h" />
     <ClInclude Include="Buffer_Test.h" />
     <ClInclude Include="Chrono_Test.h" />
     <ClInclude Include="Logger_Test.h" />

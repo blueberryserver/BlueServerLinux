@@ -8,10 +8,12 @@
 #include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
 
-#include "../mysqldriver/mysql_driver.h"
-#include "../mysqldriver/mysql_connection.h"
+#include "../../BlueCore/mysqldriver/mysql_driver.h"
+#include "../../BlueCore/mysqldriver/mysql_connection.h"
 
 #include "../../BlueCore/DateTime.h"
+#include "../../BlueCore/MysqlClient.h"
+
 using namespace BLUE_BERRY;
 
 TEST(Mysql, Connect)
@@ -97,5 +99,63 @@ TEST(Mysql, Query)
 	delete prepStmt;
 	con->close();
 	delete con;
+
+}
+
+
+TEST(Mysql, MysqlDriver)
+{
+	MysqlDriver::setMysqlDriver(new MysqlDriver(4));
+
+	// 0 -> doz2
+	auto reault1 = MysqlDriver::getMysqlDriver()->connect(0, "tcp://ec2-52-79-55-103.ap-northeast-2.compute.amazonaws.com:3306", "root", "rlawoans!1234A", "doz2");
+
+	// 1 -> blueberry
+	auto reault2 = MysqlDriver::getMysqlDriver()->connect(1, "tcp://ec2-52-79-55-103.ap-northeast-2.compute.amazonaws.com:3306", "root", "rlawoans!1234A", "blueberry");
+
+
+	MysqlClient conDoz2(0);
+	auto preStmt = conDoz2.preparedStatment("SELECT * FROM cw_itemtype");
+	{
+		ResultSetPtr res(preStmt->executeQuery());
+
+		auto i = 0;
+		while (res->next())
+		{
+			auto no = res->getInt("no");
+			auto item_type = res->getInt("item_type");
+			auto item_name = res->getString("item_name");
+			auto disp_name = res->getString("disp_name");
+
+			std::cout << "no: " << no << " item_type: " << item_type << " item_name: " << item_name << " dp_name: " << disp_name << std::endl;
+
+			i++;
+			if (i > 10) break;
+		}
+	}
+
+	MysqlClient conBlueberry(1);
+
+	//conBlueberry.close();
+	if (conBlueberry.checkConnection() == false)
+	{
+		auto reconnect = conBlueberry.reconnect();
+		if (reconnect == false)
+		{
+			return;		
+		}
+	}
+
+	auto stmt = conBlueberry.createStatement();
+	{
+		ResultSetPtr res(stmt->executeQuery("SELECT * FROM test"));
+		while (res->next())
+		{
+			auto id = res->getInt("id");
+			auto label = res->getString("label");
+
+			std::cout << "id: " << id << " label: " << label << std::endl;
+		}
+	}
 
 }
