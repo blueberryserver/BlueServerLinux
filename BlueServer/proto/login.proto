@@ -1,0 +1,26 @@
+syntax="proto2";
+
+import "common.proto";
+package MSG;
+
+
+// sample mseeage
+message PingReq {
+	required uint32 dummy = 1;
+}
+
+message PongAns {
+	required ErrorCode err = 1;	
+}
+
+
+// login request
+message LoginReq {
+	required string id = 1;
+}
+
+// login answer
+message LoginAns {
+	required ErrorCode err = 1;
+	optional UserData_ data = 2;
+}

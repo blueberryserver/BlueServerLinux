@@ -146,16 +146,29 @@ TEST(Mysql, MysqlDriver)
 		}
 	}
 
-	auto stmt = conBlueberry.createStatement();
+	try
 	{
-		ResultSetPtr res(stmt->executeQuery("SELECT * FROM test"));
-		while (res->next())
-		{
-			auto id = res->getInt("id");
-			auto label = res->getString("label");
 
-			std::cout << "id: " << id << " label: " << label << std::endl;
+		{
+			ResultSetPtr res = conBlueberry.executeQuery("SELECT * FROM test");
+			while (res->next())
+			{
+				auto id = res->getInt("id");
+				auto label = res->getString("label");
+
+				std::cout << "id: " << id << " label: " << label << std::endl;
+			}
 		}
+	}
+	catch (sql::SQLException& e)
+	{
+		if (MysqlDriver::checkReconnect(e) == true)
+		{
+			conBlueberry.reconnect();
+		}
+		// error logging
+		std::cout << "error msg: " << e.what() << " error code: " << e.getErrorCode() << " query: " << conBlueberry.lastQuery() << std::endl;
+
 	}
 
 }

@@ -66,11 +66,28 @@
     </LibraryPath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="BlueSession.cpp" />
+    <ClCompile Include="cpp\common.pb.cc" />
+    <ClCompile Include="cpp\login.pb.cc" />
+    <ClCompile Include="LoginHandler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="User.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BlueSession.h" />
+    <ClInclude Include="cpp\common.pb.h" />
+    <ClInclude Include="cpp\login.pb.h" />
+    <ClInclude Include="LoginHandler.h" />
+    <ClInclude Include="User.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="proto\build.bat" />
+    <None Include="proto\common.proto" />
+    <None Include="proto\login.proto" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
-      <LibraryDependencies>BlueCore;boost_system;boost_thread;boost_filesystem;protobuf</LibraryDependencies>
+      <LibraryDependencies>BlueCore;boost_system;boost_thread;boost_filesystem;pthread;protobuf</LibraryDependencies>
       <AdditionalDependencies>$(StlAdditionalDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$HOME/projects/lib</AdditionalLibraryDirectories>
     </Link>

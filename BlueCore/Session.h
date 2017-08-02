@@ -14,7 +14,7 @@ class Session : public std::enable_shared_from_this<Session>
 {
 public:
 	Session(boost::asio::io_service& io_);
-	~Session();
+	virtual ~Session();
 
 	// address function
 	

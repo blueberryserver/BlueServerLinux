@@ -85,10 +85,12 @@
     <ClInclude Include="LogHelper.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="MemoryPool.h" />
+    <ClInclude Include="MsgHandler.h" />
     <ClInclude Include="MysqlClient.h" />
     <ClInclude Include="mysqldriver\mysql_connection.h" />
     <ClInclude Include="mysqldriver\mysql_driver.h" />
     <ClInclude Include="mysqldriver\mysql_error.h" />
+    <ClInclude Include="Packet.h" />
     <ClInclude Include="RedisClient.h" />
     <ClInclude Include="RedisHelper.h" />
     <ClInclude Include="Server.h" />
@@ -99,7 +101,6 @@
     <ClInclude Include="JobExec.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Acceptor.cpp" />
     <ClCompile Include="BufferPool.cpp" />
     <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="FileWriter.cpp" />
@@ -108,7 +109,6 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="MemoryPool.cpp" />
     <ClCompile Include="MysqlClient.cpp" />
-    <ClCompile Include="Server.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SyncJobHelper.cpp" />
   </ItemGroup>

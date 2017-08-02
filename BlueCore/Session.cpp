@@ -1,6 +1,9 @@
 #include "Session.h"
 #include <iostream>
 #include "Logger.h"
+#include "Packet.h"
+#include "MsgHandler.h"
+
 namespace BLUE_BERRY
 {
 
@@ -46,7 +49,7 @@ void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t len
 
 void Session::onSendComplete(boost::system::error_code errCode_, std::size_t length_)
 {
-	LOG(L_INFO_, "Send Complete", "socket", (int)_socket.native());
+	LOG(L_INFO_, "Send Complete", "socket", (int)_socket.native(), "length", (int)length_);
 	_sending.store(false);
 
 	_sendBuff->remove(length_);
@@ -188,6 +191,19 @@ void Session::recvPacketProc()
 {
 	auto rBufferPoint = _recvBuff->getReadableBuffer();
 	auto recvBuffSize = _recvBuff->getContiguiousBytes();
+
+	Packet packet(rBufferPoint, recvBuffSize);
+	while (packet.next())
+	{
+		/*char* packet =
+		size_t restBuffSize = packet.getPacket();*/
+
+		//__msgHandler->execute(shared_from_this(), packet.getId(), packet.getData(), packet.getDataLength());
+
+		//recvBuffSize -= header->_len;
+		_recvBuff->remove(packet.getPacketLength());
+	}
+
 
 	char buff[1024] = { 0, };
 	memcpy(buff, rBufferPoint, recvBuffSize);

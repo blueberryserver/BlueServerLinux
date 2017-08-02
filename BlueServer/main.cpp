@@ -1,8 +1,11 @@
 #include <iostream>
 #include "../BlueCore/MemoryPool.h"
-#include "../BlueCore/Server.h"
 #include "../BlueCore/IOService.h"
 #include "../BlueCore/Logger.h"
+#include "../BlueCore/Server.h"
+#include "BlueSession.h"
+#include "LoginHandler.h"
+
 
 using namespace BLUE_BERRY;
 int main(int argc, char *argv[])
@@ -10,6 +13,9 @@ int main(int argc, char *argv[])
 
 	// alloc memory pool 
 	MemoryPool::setMemoryPool(new MemoryPool());
+
+	// buffer pool
+	BufferPool::setBufferPool(new BufferPool());
 
 	// create io service
 	IOService::setIOService(new IOService(4));
@@ -21,8 +27,10 @@ int main(int argc, char *argv[])
 	LOG(L_INFO_, "BlueServer Worker start", "thread count", 4);
 
 	//server start
-	Server server;
-	server.start(12300);
+	auto server = new Server<BlueSession>();
+	server->start(12300);
+
+	BlueSession::setMsgHandler(new LoginHandler());
 
 
 	//main thread waiting
@@ -31,7 +39,8 @@ int main(int argc, char *argv[])
 	LOG(L_INFO_, "BlueServer close");
 
 	getchar();
-	server.stop();
+	server->stop();
+	delete server;
 
 	Logger::getLogger()->stop();
 	IOService::deleteIOService();
