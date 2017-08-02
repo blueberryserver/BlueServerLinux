@@ -4,6 +4,8 @@
 #include "mysqldriver/mysql_driver.h"
 #include "mysqldriver/mysql_connection.h"
 #include <cppconn/resultset.h>
+#include <cppconn/statement.h>
+#include <cppconn/prepared_statement.h>
 
 namespace BLUE_BERRY
 {
@@ -40,6 +42,18 @@ public:
 public:
 	DECLARE_MGR(MysqlDriver)
 
+
+public:
+	static bool checkReconnect(sql::SQLException& e_)
+	{
+		// 2006 server has gone away
+		// 2013 lost connection to mysql during query
+		if (e_.getErrorCode() == 2006 || e_.getErrorCode() == 2013)
+			return true;
+		return false;
+	}
+
+
 private:
 	int _poolCount;
 	sql::mysql::MySQL_Driver* _driver;
@@ -74,6 +88,11 @@ public:
 		return _con->isValid();
 	}
 
+	bool checkClosed()
+	{
+		return _con->isClosed();
+	}
+
 	// reconnect
 	bool reconnect()
 	{
@@ -82,6 +101,7 @@ public:
 			MysqlDriver::getMysqlDriver()->reConnect(_serverNo, _con);
 			return true;
 		}
+		return true;
 	}
 
 	void close()
@@ -89,22 +109,55 @@ public:
 		_con->close();
 	}
 
+	std::string schema()
+	{
+		return std::string(_con->getSchema());
+	}
+
 	std::string debugString()
 	{
-		return std::string(_con->getWarnings());
+		return std::string(_con->getWarnings()->getMessage());
+	}
+
+	std::string lastQuery()
+	{
+		return _query;
+	}
+
+	ResultSetPtr executeQuery(const char* statement_)
+	{
+		_query = statement_;
+		auto stmt = StatementPtr(_con->createStatement());
+		if(stmt != nullptr ) return ResultSetPtr(stmt->executeQuery(statement_));
+		return ResultSetPtr();
+	}
+
+	int executeUpdate(const char* statement_)
+	{
+		_query = statement_;
+		auto stmt = StatementPtr(_con->createStatement());
+		if (stmt != nullptr) return stmt->executeUpdate(statement_);
+		return 0;
 	}
 
 	PreparedStatementPtr preparedStatment(const char* statement_)
 	{
+		_query = statement_;
 		return PreparedStatementPtr(_con->prepareStatement(statement_));
 	}
-	StatementPtr createStatement()
-	{
-		return StatementPtr(_con->createStatement());
-	}
+
+private:
+
+	// auto commit
+	// rollback
+	// commit
+	// query string
+
+
 	
 private:
 	int _serverNo;
+	std::string _query;
 	sql::Connection* _con;
 };
 
