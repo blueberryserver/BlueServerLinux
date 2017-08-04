@@ -69,6 +69,7 @@
     <ClCompile Include="BlueSession.cpp" />
     <ClCompile Include="cpp\common.pb.cc" />
     <ClCompile Include="cpp\login.pb.cc" />
+    <ClCompile Include="DBQueryUser.cpp" />
     <ClCompile Include="LoginHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="User.cpp" />
@@ -77,6 +78,7 @@
     <ClInclude Include="BlueSession.h" />
     <ClInclude Include="cpp\common.pb.h" />
     <ClInclude Include="cpp\login.pb.h" />
+    <ClInclude Include="DBQueryUser.h" />
     <ClInclude Include="LoginHandler.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
@@ -87,7 +89,7 @@
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
-      <LibraryDependencies>BlueCore;boost_system;boost_thread;boost_filesystem;pthread;protobuf</LibraryDependencies>
+      <LibraryDependencies>BlueCore;boost_system;boost_thread;boost_filesystem;pthread;protobuf;mysqlcppconn</LibraryDependencies>
       <AdditionalDependencies>$(StlAdditionalDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$HOME/projects/lib</AdditionalLibraryDirectories>
     </Link>

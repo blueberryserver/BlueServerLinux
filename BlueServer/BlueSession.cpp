@@ -44,4 +44,21 @@ void BlueSession::recvPacketProc()
 
 
 
+void BlueSession::SendPacket(short id_, google::protobuf::Message* msg_)
+{
+	char buffer[1024] = { 0, };
+	msg_->SerializeToArray(buffer, sizeof(buffer));
+
+
+	BufferHelperPtr packet(new BufferHelper(msg_->ByteSize() + sizeof(Header)));
+
+	auto header = packet->getHeader<Header>();
+	header->_id = id_;
+	header->_len = (unsigned short)packet->_len;
+
+	auto body = packet->getBody<Header>();
+	memcpy(body, buffer, msg_->ByteSize());
+	send(packet);
+}
+
 }

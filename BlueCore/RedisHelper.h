@@ -24,7 +24,7 @@ public:
 	// add move operator
 
 	REPLY_TYPE _type;
-	int _integer;
+	int64_t _integer;
 	std::string _string;
 	std::vector<_RedisReply> _array;
 
@@ -185,7 +185,7 @@ static bool redisReplyParsing(_RedisReply& replay_, const char* buff_, size_t le
 
 		if (result == true)
 		{
-			replay_._integer = std::stoi(temp);
+			replay_._integer = std::stoll(temp);
 			return true;
 		}
 		else

@@ -20,6 +20,7 @@ public:
 
 	// recv data proc
 	virtual void recvPacketProc() override;
+	virtual void SendPacket(short id_, google::protobuf::Message* msg_) override;
 
 	// setting handler
 	static void setMsgHandler(MsgHandler<Session>* handler_);

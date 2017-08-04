@@ -7,28 +7,36 @@
 #include "Session.h"
 #include "RedisHelper.h"
 #include "SyncJobHelper.h"
-
+#include "Macro.h"
 
 namespace BLUE_BERRY
 {
+
 template<typename T>
-class RedisClient
+class RedisConntion
 {
 public:
+	enum REDIS_CONN_TYPE
+	{
+		MASTER_CONN = 1,
+		SLAVE_CONN = 2,
+		PUBSUB_CONN = 3,
+	};
+
 	typedef typename std::shared_ptr<T> TPtr;
 
-	RedisClient(boost::asio::io_service& io_) 
+	RedisConntion(boost::asio::io_service& io_)
 	{
 		_MSession = std::make_shared<T>(io_);
 		_SSession = std::make_shared<T>(io_);
 		_SubSession = std::make_shared<T>(io_);
 
-		_MSession->setPacketProcHandler(std::bind(&RedisClient::recvPacketProc, this, std::placeholders::_1));
-		_SSession->setPacketProcHandler(std::bind(&RedisClient::recvPacketProc, this, std::placeholders::_1));
-		_SubSession->setPacketProcHandler(std::bind(&RedisClient::recvPacketProc, this, std::placeholders::_1));
+		_MSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProc, this, std::placeholders::_1));
+		_SSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProc, this, std::placeholders::_1));
+		_SubSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProc, this, std::placeholders::_1));
 
 	}
-	~RedisClient()
+	~RedisConntion()
 	{}
 
 
@@ -40,14 +48,27 @@ public:
 		_SubSession->connect(addr_, port_);
 		return true;
 	}
-
 	void close()
 	{
 		_MSession->disconnect();
 		_SSession->disconnect();
 		_SubSession->disconnect();
 	}
-
+	bool checkConnection(REDIS_CONN_TYPE type_ = MASTER_CONN)
+	{
+		if (type_ == MASTER_CONN)
+		{
+			return _MSession->isConnected();
+		}
+		else if (type_ == SLAVE_CONN)
+		{
+			return _SSession->isConnected();
+		}
+		else
+		{
+			return _SubSession->isConnected();
+		}
+	}
 	// buffer proc
 	void recvPacketProc(CircularBuffer* buff_)
 	{
@@ -64,7 +85,7 @@ public:
 				// debuging reply log write
 				if (reply._type == REPY_INTEGER)
 				{
-					LOG(L_DEBUG_, "replay", "result", reply._integer);
+					LOG(L_DEBUG_, "replay", "result", (int)reply._integer);
 				}
 				else if (reply._type == REPY_STRING || reply._type == REPY_ERROR || reply._type == REPY_BULKSTRING)
 				{
@@ -86,7 +107,7 @@ public:
 						Callback* job;
 						if (SyncJobManager::getSyncJobManager()->getPostJob(key, job) == true)
 						{
-							executePostJob(job, reply);
+							if( job != nullptr) executePostJob(job, reply);
 						}
 					}
 				}
@@ -301,7 +322,6 @@ public:
 	}
 
 
-
 	size_t hset(const char* key_, const char* field_, const char* value_)
 	{
 		std::stringstream ss;
@@ -470,8 +490,6 @@ public:
 	}
 
 
-
-
 	// expire key
 	size_t expire(const char* key_, int timeOut_)
 	{
@@ -492,7 +510,6 @@ public:
 		return sendMsg(ss.str());
 
 	}
-
 	size_t persist(const char* key_)
 	{
 		std::stringstream ss;
@@ -537,10 +554,9 @@ public:
 		ss << "$" << strlen(data_) << "\r\n";
 		ss << data_ << "\r\n";
 
-		return sendMsg(ss.str(), false);
+		return sendMsg(ss.str(), PUBSUB_CONN);
 
 	}
-
 	size_t subscribe(std::vector<std::string>& channels_)
 	{
 		std::stringstream ss;
@@ -556,9 +572,8 @@ public:
 			ss << std::to_string(i + 1) << "\r\n";
 		}
 
-		return sendMsg(ss.str());
+		return sendMsg(ss.str(), PUBSUB_CONN);
 	}
-
 	size_t unsubscribe(std::vector<std::string>& channels_)
 	{
 		std::stringstream ss;
@@ -574,9 +589,8 @@ public:
 			ss << std::to_string(i + 1) << "\r\n";
 		}
 
-		return sendMsg(ss.str());
+		return sendMsg(ss.str(), PUBSUB_CONN);
 	}
-
 	size_t psubscribe(std::vector<std::string>& patterns_)
 	{
 		std::stringstream ss;
@@ -591,9 +605,8 @@ public:
 			ss << "$" << std::to_string(i + 1).length() << "\r\n";
 			ss << std::to_string(i + 1) << "\r\n";
 		}
-		return sendMsg(ss.str());
+		return sendMsg(ss.str(), PUBSUB_CONN);
 	}
-
 	size_t punsubscribe(std::vector<std::string>& patterns_)
 	{
 		std::stringstream ss;
@@ -608,12 +621,12 @@ public:
 			ss << "$" << std::to_string(i + 1).length() << "\r\n";
 			ss << std::to_string(i + 1) << "\r\n";
 		}
-		return sendMsg(ss.str());
+		return sendMsg(ss.str(), PUBSUB_CONN);
 	}
 
 
 private:
-	size_t sendMsg(const std::string& msg_, bool sendMaster_ = true)
+	size_t sendMsg(const std::string& msg_, REDIS_CONN_TYPE type_ = MASTER_CONN)
 	{
 		auto key = std::hash<std::string>{}(msg_);
 		_keys.push(key);
@@ -622,28 +635,21 @@ private:
 		BufferHelperPtr packet(new BufferHelper(msg_.length()));
 		packet->write(const_cast<char*>(msg_.c_str()), static_cast<short>(msg_.length()));
 
-		if (sendMaster_ == true)
+		if (type_ == MASTER_CONN)
 		{
 			_MSession->send(packet);
 			return key;
 		}
-
-		_SSession->send(packet);
+		else if (type_ == SLAVE_CONN)
+		{
+			_SSession->send(packet);
+		}
+		else
+		{
+			_SubSession->send(packet);
+		}
 		return key;
 	}
-
-	size_t sendSubMsg(const std::string& msg_)
-	{
-		auto key = std::hash<std::string>{}(msg_);
-		_keys.push(key);
-		LOG(L_INFO_, "redis", "cmd", msg_, "key", (int)key);
-
-		BufferHelperPtr packet(new BufferHelper(msg_.length()));
-		packet->write(const_cast<char*>(msg_.c_str()), static_cast<short>(msg_.length()));
-		_SubSession->send(packet);
-		return key;
-	}
-
 
 private:
 	TPtr _MSession;	// master session
@@ -653,6 +659,94 @@ private:
 
 	// redis request keys
 	LockFreeQueue<size_t> _keys;
+};
+
+
+class RedisPool
+{
+	enum { MAX_SERVER_SIZE = 10, };
+	struct RedisServerAddr
+	{
+	public:
+		RedisServerAddr() {}
+		RedisServerAddr(const char* addr_, short port_, int db_)
+			: _addr(addr_), _port(port_), _dbNo(db_) {}
+
+		std::string _addr;
+		short _port;
+		int _dbNo;
+	};
+
+public:
+	RedisPool(int poolCount_)
+		: _poolCount(poolCount_) {}
+
+	bool connect(boost::asio::io_service& io_, int serverNo_, const char* addr_, short port_, int db_)
+	{
+		if (serverNo_ > MAX_SERVER_SIZE || serverNo_ < 0) return false;
+
+		for (int i = 0; i < _poolCount; i++)
+		{
+			auto client = std::make_shared< RedisConntion<Session> >(io_);
+			auto result = client->connect(addr_, port_);
+			if (result == true)
+			{
+				_connAddrInfos[serverNo_] = RedisServerAddr(addr_, port_, db_);
+				_pool[serverNo_].push(client);
+			}
+		}
+		return !_pool[serverNo_].empty();
+	}
+
+
+	std::shared_ptr< RedisConntion<Session> > acquire(int serverNo_)
+	{
+		std::shared_ptr< RedisConntion<Session> > client;
+		if (_pool[serverNo_].pop(client) == true) return client;
+
+		return client;
+	}
+
+	void release(int serverNo_, std::shared_ptr< RedisConntion<Session> > client_)
+	{
+		if (client_->checkConnection() == false)
+		{
+			client_->close();
+			client_->connect(_connAddrInfos[serverNo_]._addr.c_str(), _connAddrInfos[serverNo_]._port);
+		}
+
+		if (_pool[serverNo_].push(client_) == false)
+		{
+			// err
+		}
+	}
+
+
+public:
+	DECLARE_MGR(RedisPool)
+
+private:
+	int _poolCount;
+	RedisServerAddr _connAddrInfos[MAX_SERVER_SIZE];
+	LockFreeQueue< std::shared_ptr< RedisConntion<Session> > > _pool[MAX_SERVER_SIZE];
+
+};
+
+class RedisClientPtr
+{
+public:
+	RedisClientPtr(int serverNo_ = 0)
+		: _serverNo(serverNo_), _con(RedisPool::getRedisPool()->acquire(serverNo_)){}
+	~RedisClientPtr()
+	{
+		RedisPool::getRedisPool()->release(_serverNo, _con);
+	}
+	
+	std::shared_ptr< RedisConntion<Session> > operator->() { return _con; }
+	std::shared_ptr< RedisConntion<Session> > get() { return _con; }
+private:
+	int _serverNo;
+	std::shared_ptr< RedisConntion<Session> > _con;
 };
 
 }

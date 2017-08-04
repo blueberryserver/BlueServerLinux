@@ -71,6 +71,7 @@
     <ClInclude Include="Buffer_Test.h" />
     <ClInclude Include="Chrono_Test.h" />
     <ClInclude Include="Contents_Test.h" />
+    <ClInclude Include="Cpp_Test.h" />
     <ClInclude Include="Logger_Test.h" />
     <ClInclude Include="Mutex_Test.h" />
     <ClInclude Include="Mysql_Test.h" />

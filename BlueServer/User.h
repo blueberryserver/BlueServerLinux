@@ -13,6 +13,7 @@ class User : public JsonValue
 public:
 	User();
 	User(const MSG::UserData_& data_);
+	User(const Json& data_);
 	virtual ~User();
 
 public:

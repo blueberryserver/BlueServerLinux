@@ -1,4 +1,5 @@
 #pragma once
+#include "JobHelper.h"
 
 namespace BLUE_BERRY
 {
@@ -40,11 +41,14 @@ static decltype(auto) makePostJob(T* t_, void (T::*func_)(A...))
 template<typename... A>
 class PostJobStatic : public Callback
 {
-	typedef void(*Func)(A...);
+	//typedef void(*Func)(A...);
 	typedef std::tuple<A...> TupleArgs;
 
 public:
-	explicit PostJobStatic(Func func_)
+	//explicit PostJobStatic(Func func_)
+	//	: _func(func_) {}
+
+	explicit PostJobStatic(std::function<void(A...)> func_)
 		: _func(func_) {}
 
 	virtual void execute(void* param_)
@@ -53,7 +57,8 @@ public:
 	}
 
 public:
-	Func _func;
+	//Func _func;
+	std::function<void(A...)> _func;
 	TupleArgs _args;
 };
 
@@ -63,7 +68,11 @@ static decltype(auto) makePostJobStatic(void (*func_)(A...))
 	return new PostJobStatic<A...>(func_);
 }
 
-
+template<class... A>
+static decltype(auto) makePostJobStatic( std::function<void(A...)> func_)
+{
+	return new PostJobStatic<A...>(func_);
+}
 
 template<typename T, typename... A>
 static void executePostJob(T* t_, A... a_)

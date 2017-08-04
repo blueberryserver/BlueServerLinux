@@ -24,11 +24,12 @@ void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t len
 {
 	if (length_ == 0)
 	{
-		LOG(L_INFO_, "Disconnect", "socket", (int)_socket.native(), "length", (int)length_);
+		LOG(L_DEBUG_, "Disconnect", "socket", (int)_socket.native(), "length", (int)length_);
+		_connected.store(false);
 		return;
 	}
 
-	LOG(L_INFO_, "Recv Complete", "socket", (int)_socket.native(), "length", (int)length_);
+	LOG(L_DEBUG_, "Recv Complete", "socket", (int)_socket.native(), "length", (int)length_);
 
 	_recvBuff->commit(length_);
 
@@ -49,7 +50,7 @@ void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t len
 
 void Session::onSendComplete(boost::system::error_code errCode_, std::size_t length_)
 {
-	LOG(L_INFO_, "Send Complete", "socket", (int)_socket.native(), "length", (int)length_);
+	LOG(L_DEBUG_, "Send Complete", "socket", (int)_socket.native(), "length", (int)length_);
 	_sending.store(false);
 
 	_sendBuff->remove(length_);
@@ -59,7 +60,7 @@ void Session::onSendComplete(boost::system::error_code errCode_, std::size_t len
 
 void Session::onAcceptComplete()
 {
-	LOG(L_INFO_, "Accept Complete", "socket", (int)_socket.native());
+	LOG(L_DEBUG_, "Accept Complete", "socket", (int)_socket.native());
 	_connected.store(true);
 
 	// call async recv
@@ -68,7 +69,7 @@ void Session::onAcceptComplete()
 
 void Session::onConnectComplete(boost::system::error_code errCode_)
 {
-	LOG(L_INFO_, "Connect Complete", "socket", (int)_socket.native());
+	LOG(L_DEBUG_, "Connect Complete", "socket", (int)_socket.native());
 	_connected.store(true);
 
 	// call async recv
@@ -84,7 +85,7 @@ void Session::send(BufferHelperPtr sendBuff_)
 
 	if (_reservedSendBuffCount.load() >= SHRT_MAX)
 	{
-		LOG(L_INFO_, "disconnect", "socket", (int)_socket.native());
+		LOG(L_DEBUG_, "disconnect", "socket", (int)_socket.native());
 		disconnect();
 		return;
 	}
@@ -208,8 +209,11 @@ void Session::recvPacketProc()
 	char buff[1024] = { 0, };
 	memcpy(buff, rBufferPoint, recvBuffSize);
 
-	LOG(L_INFO_, "Recv Complete", "buff size", (int)recvBuffSize, "data", buff);
+	LOG(L_DEBUG_, "Recv Complete", "buff size", (int)recvBuffSize, "data", buff);
 
 	_recvBuff->remove(recvBuffSize);
 }
+
 }
+
+

@@ -16,7 +16,11 @@ public:
 	DECLARE_HANDLER(SessionPtr, LoginReq);
 	DECLARE_HANDLER(SessionPtr, PingReq);
 
-	static void SendPacket(SessionPtr session_, short id_, char* buffer_, short len_);
+	// db query proc function
+	static void dbSelectUser(SessionPtr session_, std::string id_);
+
+	// redis query proc function
+	static void redisSelectUser(SessionPtr session_, std::string id_);
 };
 
 }

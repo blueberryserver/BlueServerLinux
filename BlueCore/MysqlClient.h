@@ -72,7 +72,7 @@ typedef std::shared_ptr<sql::ResultSet>  ResultSetPtr;
 class MysqlClient
 {
 public:
-	MysqlClient(int serverNo_)
+	MysqlClient(int serverNo_ = 0)
 		: _serverNo(serverNo_), _con(MysqlDriver::getMysqlDriver()->acquire(serverNo_))
 	{}
 

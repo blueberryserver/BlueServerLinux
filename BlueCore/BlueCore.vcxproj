@@ -109,6 +109,7 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="MemoryPool.cpp" />
     <ClCompile Include="MysqlClient.cpp" />
+    <ClCompile Include="RedisClient.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SyncJobHelper.cpp" />
   </ItemGroup>

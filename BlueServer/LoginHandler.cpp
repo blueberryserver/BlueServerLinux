@@ -5,8 +5,13 @@
 #include "../BlueCore/DateTime.h"
 #include "../BlueCore/Packet.h"
 #include "../BlueCore/Logger.h"
+#include "../BlueCore/JobExec.h"
+#include "../BlueCore/SyncJobHelper.h"
+#include "../BlueCore/RedisClient.h"
 
 #include "User.h"
+#include "DBQueryUser.h"
+
 namespace BLUE_BERRY
 {
 
@@ -24,6 +29,94 @@ bool LoginHandler::execute(SessionPtr session_, unsigned short id_, char * buff_
 	return _table[id_](session_, buff_, len_);
 }
 
+void LoginHandler::dbSelectUser(SessionPtr session_, std::string id_)
+{
+	// db select	
+	DBQueryUser query;
+	MSG::UserData_ data;
+	data.set_name(id_);
+	query.setData(data);
+
+	if (query.selectData() == false)
+	{
+		MSG::LoginAns ans;
+		ans.set_err(MSG::ERR_AUTHORITY_FAIL);
+		session_->SendPacket(MSG::LOGIN_ANS, &ans);
+		return;
+	}
+
+	if (query.haveData() == false)
+	{
+		if (query.insertData() == false)
+		{
+			MSG::LoginAns ans;
+			ans.set_err(MSG::ERR_LOGIN_FAIL);
+			session_->SendPacket(MSG::LOGIN_ANS, &ans);
+			return;
+		}
+	}
+	query.getData(data);
+
+
+	User user(data);
+	auto jUser = user.to_json();
+	LOG(L_INFO_, "User", "data", jUser);
+
+
+	MSG::LoginAns ans;
+	ans.set_err(MSG::ERR_SUCCESS);
+	auto userData = ans.mutable_data();
+	userData->CopyFrom(user.toProtoSerialize());
+
+	session_->SendPacket(MSG::LOGIN_ANS, &ans);
+}
+
+void LoginHandler::redisSelectUser(SessionPtr session_, std::string id_)
+{
+	RedisClientPtr client;
+	auto keyHGetName = client->hget("blue_server.UserData.name", id_.c_str());
+	auto hGetPostJobName = LamdaToFuncObj([&](_RedisReply reply_) -> void {
+
+		RedisClientPtr client;
+		// no caching data
+		if (reply_._type == REPY_NIL)
+		{
+			LOG(L_INFO_, "UserData.Name", "ErrorMsg", "no caching data");
+			return;
+		}
+
+		LOG(L_INFO_, "UserData.Name", "data", reply_);
+
+		auto uid = reply_._string;
+		auto keyHGetJson = client->hget("blue_server.UserData.json", uid.c_str());
+
+		auto hGetPostJobJson = LamdaToFuncObj([&](_RedisReply reply_) -> void {
+			// no caching data
+			if (reply_._type == REPY_NIL)
+			{
+				LOG(L_INFO_, "UserData.Json", "ErrorMsg", "no caching data");
+				return;
+			}
+
+			LOG(L_INFO_, "UserData.Json", "data", reply_);
+			User user(reply_.to_json());
+
+			MSG::LoginAns ans;
+			ans.set_err(MSG::ERR_SUCCESS);
+			auto userData = ans.mutable_data();
+			userData->CopyFrom(user.toProtoSerialize());
+
+			session_->SendPacket(MSG::LOGIN_ANS, &ans);
+		});
+
+		SyncJobManager::getSyncJobManager()->addJob(
+			std::make_shared<SyncJobHelper>(keyHGetJson, makePostJobStatic(hGetPostJobJson), nullptr));
+	});
+
+	SyncJobManager::getSyncJobManager()->addJob(
+		std::make_shared<SyncJobHelper>(keyHGetName, makePostJobStatic(hGetPostJobName), nullptr));
+}
+
 
 DEFINE_HANDLER(LoginHandler, SessionPtr, LoginReq)
 {
@@ -33,24 +126,21 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, LoginReq)
 	LOG(L_INFO_, "LoginReq ", "id", req.id());
 
 
-	MSG::LoginAns ans;
-	ans.set_err(MSG::ERR_SUCCESS);
-	auto userData = ans.mutable_data();
-
-	userData->set_uid(10);
-	userData->set_name("noom");
-	userData->set_did("ios8");
-
-	User user(*userData);
-	auto jUser = user.to_json();
-	LOG(L_INFO_, "User", "data", jUser);
+	{
+		// request db select job
+		auto asyncJob = makeAsyncJob(&LoginHandler::redisSelectUser, std::move(session_), std::move(const_cast<std::string&>(req.id())));
+		IOService::getIOService()->post(boost::bind(&Job::onExecute, asyncJob));
+	}
 
 
-	char buffer[1024] = { 0, };
-	ans.SerializeToArray(buffer, sizeof(buffer));
-
-
-	SendPacket(session_, MSG::LOGIN_ANS, buffer, ans.ByteSize());
+	/*
+	{
+		// request db select job
+		auto asyncJob = makeAsyncJob(&LoginHandler::dbSelectUser, std::move(session_), std::move(const_cast<std::string&>(req.id())));
+		IOService::getIOService()->post(boost::bind(&Job::onExecute, asyncJob));
+	}
+	*/
+	
 	return true;
 }
 
@@ -64,25 +154,8 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, PingReq)
 
 	MSG::PongAns ans;
 	ans.set_err(MSG::ERR_SUCCESS);
-	char buffer[1024] = { 0, };
-	ans.SerializeToArray(buffer, sizeof(buffer));
-
-	SendPacket(session_, MSG::PONG_ANS, buffer, ans.ByteSize());
+	session_->SendPacket(MSG::PONG_ANS, &ans);
 	return true;
 }
 
-
-void LoginHandler::SendPacket(SessionPtr session_, short id_, char* buffer_, short len_)
-{
-	BufferHelperPtr packet(new BufferHelper(len_ + sizeof(Header)));
-
-	auto header = packet->getHeader<Header>();
-	header->_id = id_;
-	header->_len = (unsigned short)packet->_len;
-
-	auto body = packet->getBody<Header>();
-	memcpy(body, buffer_, len_);
-
-	session_->send(packet);
-}
 }

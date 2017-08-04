@@ -27,11 +27,16 @@ void GlobalLoading()
 	//Logger::setLogger(new Logger(T_CF_, L_ALL_, "BlueTestLog"));
 	Logger::setLogger(new Logger(T_CF_, L_INFO_, "BlueTestLog"));
 	Logger::getLogger()->start();
+
+	RedisPool::setRedisPool(new RedisPool(1));
+	RedisPool::getRedisPool()->connect(IOService::getIOService()->getIO(), 0, "127.0.0.1", 6379, 0);
 	
 }
 
 void GlobalUnloading()
 {
+	RedisPool::deleteRedisPool();
+
 	SyncJobManager::getSyncJobManager()->stop();
 	SyncJobManager::deleteSyncJobManager();
 
@@ -42,7 +47,9 @@ void GlobalUnloading()
 	MemoryPool::deleteMemoryPool();
 
 	IOService::getIOService()->stop();
-	IOService::deleteIOService();
+
+	std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+	//IOService::deleteIOService();
 }
 
 
@@ -61,32 +68,32 @@ TEST(Redis, Simple)
 	GlobalLoading();
 	{
 
-		RedisClient<Session> rclient(IOService::getIOService()->getIO());
-		rclient.connect("52.79.55.103", 6379);
-		//rclient.connect("127.0.0.1", 12300);
+		RedisClientPtr rclient;
 
 		LOG(L_INFO_, "connect wait");
 		std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
-		auto key = rclient.select(0);
-
-		auto post = makePostJobStatic(&RedisReplay);
-		auto job = std::make_shared<SyncJobHelper>(key, post, nullptr);
+		auto key = rclient->select(0);
+		auto job = std::make_shared<SyncJobHelper>(key, nullptr, nullptr);
 		SyncJobManager::getSyncJobManager()->addJob(job);
 
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
+		auto replayLog = [](_RedisReply& reply_) -> void {
+			LOG(L_INFO_, "Return2", "replay", reply_);
+		};
 
-		auto key2 = rclient.hget("apk_hash_hash", "i1.2.5");
+		std::function<void(_RedisReply&)> f = RedisReplay2;
+
+		auto key2 = rclient->hget("apk_hash_hash", "i1.2.5");
 		auto post2 = makePostJobStatic(&RedisReplay2);
+
 		auto job2 = std::make_shared<SyncJobHelper>(key2, post2, nullptr);
 		SyncJobManager::getSyncJobManager()->addJob(job2);
 
 		//
 		std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-
-		rclient.close();
 	}
 
 	GlobalUnloading();

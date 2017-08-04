@@ -1,6 +1,7 @@
 #pragma once
-#include <boost/asio.hpp>
 #include <functional>
+#include <boost/asio.hpp>
+#include <google/protobuf/message.h>
 
 #include "Macro.h"
 #include "CircularBuffer.h"
@@ -35,6 +36,8 @@ public:
 	virtual void onAcceptComplete();
 	virtual void onConnectComplete(boost::system::error_code errCode_);
 
+	virtual void recvPacketProc();
+	virtual void SendPacket(short id_, google::protobuf::Message* msg_) {}
 	// socket
 	tcp::socket& socket()
 	{
@@ -42,7 +45,6 @@ public:
 	}
 
 	// recv data proc
-	virtual void recvPacketProc();
 	void setPacketProcHandler(std::function<void(CircularBuffer*)> handler_) { _packetProc = handler_; }
 
 	// send data

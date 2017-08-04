@@ -3,6 +3,10 @@
 #include "../BlueCore/IOService.h"
 #include "../BlueCore/Logger.h"
 #include "../BlueCore/Server.h"
+#include "../BlueCore/MysqlClient.h"
+#include "../BlueCore/SyncJobHelper.h"
+#include "../BlueCore/RedisClient.h"
+
 #include "BlueSession.h"
 #include "LoginHandler.h"
 
@@ -23,6 +27,16 @@ int main(int argc, char *argv[])
 	// create blogger
 	Logger::setLogger(new Logger(T_CF_, L_ALL_, "BlueServerLog"));
 	Logger::getLogger()->start();
+
+	SyncJobManager::setSyncJobManager(new SyncJobManager());
+	SyncJobManager::getSyncJobManager()->start();
+
+
+	MysqlDriver::setMysqlDriver(new MysqlDriver(4));
+	MysqlDriver::getMysqlDriver()->connect(0, "tcp://ec2-52-79-55-103.ap-northeast-2.compute.amazonaws.com:3306", "root", "rlawoans!1234A", "blueberry");
+
+	RedisPool::setRedisPool(new RedisPool(1));
+	RedisPool::getRedisPool()->connect(IOService::getIOService()->getIO(), 0, "127.0.0.1", 6379, 0);
 
 	LOG(L_INFO_, "BlueServer Worker start", "thread count", 4);
 

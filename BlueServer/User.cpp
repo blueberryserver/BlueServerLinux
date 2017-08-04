@@ -13,6 +13,13 @@ User::User(const MSG::UserData_ & data_)
 {
 }
 
+User::User(const Json& data_)
+{
+	_uId = data_["uid"].number_value();
+	_name = data_["name"].string_value();
+	_deviceId = data_["did"].string_value();
+}
+
 
 User::~User()
 {
