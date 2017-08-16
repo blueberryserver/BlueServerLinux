@@ -21,6 +21,11 @@ BlueSession::~BlueSession()
 {
 }
 
+void BlueSession::onClose()
+{
+	__msgHandler->execute(shared_from_this(), CLOSED, nullptr, 0);
+}
+
 void BlueSession::recvPacketProc()
 {
 	auto rBufferPoint = _recvBuff->getReadableBuffer();
@@ -34,12 +39,12 @@ void BlueSession::recvPacketProc()
 	}
 
 
-	char buff[1024] = { 0, };
-	memcpy(buff, rBufferPoint, recvBuffSize);
+	//char buff[1024] = { 0, };
+	//memcpy(buff, rBufferPoint, recvBuffSize);
 
-	LOG(L_INFO_, "Recv Complete", "buff size", (int)recvBuffSize, "data", buff);
+	//LOG(L_DEBUG_, "Recv Complete", "buff size", (int)recvBuffSize, "data", buff);
 
-	_recvBuff->remove(recvBuffSize);
+	//_recvBuff->remove(recvBuffSize);
 }
 
 

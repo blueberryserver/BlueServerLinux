@@ -97,6 +97,7 @@ void FileWriter::writeJson(const LogData* data_)
 	jMap["no"] = std::to_string(data_->_no);
 	jMap["date"] = strTime;
 	jMap["file"] = data_->_file;
+	jMap["func"] = data_->_func;
 	jMap["line"] = std::to_string(data_->_line);
 	jMap["level"] = std::to_string(data_->_level);
 	jMap["desc"] = data_->_desc;

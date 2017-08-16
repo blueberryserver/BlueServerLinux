@@ -51,6 +51,7 @@ public:
 	void start();
 	void stop();
 	void addJob(SyncJobHelperPtr job_);
+	void addJob(size_t key_, Callback* post_, Job* timeOut_);
 	bool getPostJob(size_t hashKey_, Callback*& postJob_);
 
 public:

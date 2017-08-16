@@ -79,6 +79,7 @@ static void executePostJob(T* t_, A... a_)
 {
 	std::tuple<A...> args(std::forward<A>(a_)...);
 	t_->execute(reinterpret_cast<void*>(&args));
+	delete t_;
 }
 
 

@@ -15,9 +15,10 @@ public:
 public:
 	DECLARE_HANDLER(SessionPtr, LoginReq);
 	DECLARE_HANDLER(SessionPtr, PingReq);
+	DECLARE_HANDLER(SessionPtr, Closed);
 
 	// db query proc function
-	static void dbSelectUser(SessionPtr session_, std::string id_);
+	static void dbSelectUser(const SessionPtr session_, const std::string id_);
 
 	// redis query proc function
 	static void redisSelectUser(SessionPtr session_, std::string id_);

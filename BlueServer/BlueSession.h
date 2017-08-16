@@ -7,11 +7,13 @@ namespace BLUE_BERRY
 
 class BlueSession : public Session
 {
+	enum { CLOSED = 10000, };
 public:
 	BlueSession(boost::asio::io_service& io_);
 	virtual ~BlueSession();
 
 	// io complete function
+	virtual void onClose() override;
 	//virtual void onRecvComplete(boost::system::error_code errCode_, std::size_t length_);
 	//virtual void onSendComplete(boost::system::error_code errCode_, std::size_t length_);
 	//virtual void onAcceptComplete();

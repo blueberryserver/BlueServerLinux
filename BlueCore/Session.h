@@ -31,6 +31,7 @@ public:
 	// recv buffer
 
 	// io complete function
+	virtual void onClose() {}
 	virtual void onRecvComplete(boost::system::error_code errCode_, std::size_t length_);
 	virtual void onSendComplete(boost::system::error_code errCode_, std::size_t length_);
 	virtual void onAcceptComplete();

@@ -24,3 +24,5 @@ message LoginAns {
 	required ErrorCode err = 1;
 	optional UserData_ data = 2;
 }
+
+

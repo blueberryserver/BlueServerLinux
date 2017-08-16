@@ -107,7 +107,10 @@ public:
 						Callback* job;
 						if (SyncJobManager::getSyncJobManager()->getPostJob(key, job) == true)
 						{
-							if( job != nullptr) executePostJob(job, reply);
+							if (job != nullptr)
+							{
+								executePostJob(job, reply);
+							}
 						}
 					}
 				}

@@ -72,13 +72,14 @@ namespace BLUE_BERRY
 		_LogLevel _level;
 		//int _group;
 		time_t _time;
+		std::string _func;
 		std::string _file;
 		std::string _desc;
 		ParamVec _params;
 		objects _objects;
 	public:
-		LogData( int id_, int no_, int line_, int thread_, _LogLevel level_, const std::string& file_, const std::string& desc_)
-			: _id(id_), _no(no_), _line(line_), _thread(thread_), _level(level_), _file(file_), _desc(desc_)
+		LogData( int id_, int no_, int line_, int thread_, _LogLevel level_, const std::string& func_,  const std::string& file_, const std::string& desc_)
+			: _id(id_), _no(no_), _line(line_), _thread(thread_), _level(level_), _func(func_), _file(file_), _desc(desc_)
 		{
 			time(&_time);
 		}

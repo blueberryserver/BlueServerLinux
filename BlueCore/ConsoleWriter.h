@@ -26,6 +26,7 @@ public:
 		log = strTime + " ";
 		log = log + std::to_string(data_->_thread) + " ";
 		log = log + ToStrLogLevel(data_->_level) + " ";
+		log = log + "[" + data_->_func + "] ";
 		log = log + data_->_desc + " ";
 
 		if (false == data_->_objects.empty())

@@ -25,7 +25,8 @@ int main(int argc, char *argv[])
 	IOService::setIOService(new IOService(4));
 
 	// create blogger
-	Logger::setLogger(new Logger(T_CF_, L_ALL_, "BlueServerLog"));
+	Logger::setLogger(new Logger(T_CF_, L_INFO_, "BlueServerLog"));
+	Logger::getLogger()->setLogLevel(L_INFO_);
 	Logger::getLogger()->start();
 
 	SyncJobManager::setSyncJobManager(new SyncJobManager());

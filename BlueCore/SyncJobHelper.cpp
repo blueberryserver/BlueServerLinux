@@ -73,6 +73,11 @@ void SyncJobManager::addJob(SyncJobHelperPtr job_)
 	LOG(L_DEBUG_, "add job", "count", (int)_jobs.size(), "key", (int)job_->_hashKey);
 }
 
+void SyncJobManager::addJob(size_t key_, Callback* post_, Job* timeOut_)
+{
+	addJob(std::make_shared<SyncJobHelper>(key_, post_, timeOut_));
+}
+
 bool SyncJobManager::getPostJob(size_t hashKey_, Callback*& postJob_)
 {
 	std::lock_guard<std::recursive_mutex> guard(_mtx);

@@ -20,6 +20,17 @@ public:
 	}
 
 	template <typename CompletionHandler>
+	void asyncJob(BOOST_ASIO_MOVE_ARG(CompletionHandler) handler_)
+	{
+		auto h = [handler_]()
+		{
+			handler_->onExecute();
+			delete handler_;
+		};
+		_ioService.post(h);
+	}
+
+	template <typename CompletionHandler>
 	void asyncWait(std::shared_ptr<boost::asio::deadline_timer>& t_, BOOST_ASIO_MOVE_ARG(CompletionHandler) handler_)
 	{
 		auto h = [handler_](const boost::system::error_code& err_)

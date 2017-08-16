@@ -3,8 +3,8 @@ package MSG;
 
 // sample type
 enum MsgId {
-	TYPE_1 = 0;								// ��� ������ ��ǥ
-	TYPE_2 = 1;
+	CLOSED = 10000;
+
 	LOGIN_REQ = 10101;
 	LOGIN_ANS = 10102;
 
@@ -15,10 +15,10 @@ enum MsgId {
 
 // Error type
 enum ErrorCode {
-	ERR_SUCCESS = 0;						// ����
-	ERR_LOGIN_FAIL = 1;						// �α��� ����
-	ERR_ARGUMENT_FAIL = 2;					// �Ķ���� ����
-	ERR_AUTHORITY_FAIL = 3;					// ���� ����
+	ERR_SUCCESS = 0;
+	ERR_LOGIN_FAIL = 1;
+	ERR_ARGUMENT_FAIL = 2;
+	ERR_AUTHORITY_FAIL = 3;
 }
 
 

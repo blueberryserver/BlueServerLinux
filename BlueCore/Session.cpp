@@ -4,6 +4,7 @@
 #include "Packet.h"
 #include "MsgHandler.h"
 
+
 namespace BLUE_BERRY
 {
 
@@ -12,10 +13,12 @@ Session::Session(boost::asio::io_service& io_)
 {
 	_recvBuff = new CircularBuffer();
 	_sendBuff = new CircularBuffer();
+	_reservedSendBuffCount.store(0);
 }
 
 Session::~Session()
 {
+	std::cout << "destory session" << std::endl;
 	delete _recvBuff;
 	delete _sendBuff;
 }
@@ -26,6 +29,7 @@ void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t len
 	{
 		LOG(L_DEBUG_, "Disconnect", "socket", (int)_socket.native(), "length", (int)length_);
 		_connected.store(false);
+		onClose();
 		return;
 	}
 

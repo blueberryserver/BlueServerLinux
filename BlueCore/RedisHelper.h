@@ -111,7 +111,10 @@ public:
 			}
 			str += "]";
 		}
-		return Json(str);
+		//return Json(str);
+		std::string err;
+		auto json = Json::parse(str, err, JsonParse::COMMENTS);
+		return json;
 	}
 };
 

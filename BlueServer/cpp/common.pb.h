@@ -40,15 +40,14 @@ void protobuf_ShutdownFile_common_2eproto();
 class UserData_;
 
 enum MsgId {
-  TYPE_1 = 0,
-  TYPE_2 = 1,
+  CLOSED = 10000,
   LOGIN_REQ = 10101,
   LOGIN_ANS = 10102,
   PING_REQ = 10103,
   PONG_ANS = 10104
 };
 bool MsgId_IsValid(int value);
-const MsgId MsgId_MIN = TYPE_1;
+const MsgId MsgId_MIN = CLOSED;
 const MsgId MsgId_MAX = PONG_ANS;
 const int MsgId_ARRAYSIZE = MsgId_MAX + 1;
 

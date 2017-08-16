@@ -89,12 +89,12 @@ void protobuf_AddDesc_common_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014common.proto\022\003MSG\"3\n\tUserData_\022\013\n\003uid\030"
-    "\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\013\n\003did\030\003 \002(\t*]\n\005MsgI"
-    "d\022\n\n\006TYPE_1\020\000\022\n\n\006TYPE_2\020\001\022\016\n\tLOGIN_REQ\020\365"
-    "N\022\016\n\tLOGIN_ANS\020\366N\022\r\n\010PING_REQ\020\367N\022\r\n\010PONG"
-    "_ANS\020\370N*_\n\tErrorCode\022\017\n\013ERR_SUCCESS\020\000\022\022\n"
-    "\016ERR_LOGIN_FAIL\020\001\022\025\n\021ERR_ARGUMENT_FAIL\020\002"
-    "\022\026\n\022ERR_AUTHORITY_FAIL\020\003", 264);
+    "\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\013\n\003did\030\003 \002(\t*R\n\005MsgI"
+    "d\022\013\n\006CLOSED\020\220N\022\016\n\tLOGIN_REQ\020\365N\022\016\n\tLOGIN_"
+    "ANS\020\366N\022\r\n\010PING_REQ\020\367N\022\r\n\010PONG_ANS\020\370N*_\n\t"
+    "ErrorCode\022\017\n\013ERR_SUCCESS\020\000\022\022\n\016ERR_LOGIN_"
+    "FAIL\020\001\022\025\n\021ERR_ARGUMENT_FAIL\020\002\022\026\n\022ERR_AUT"
+    "HORITY_FAIL\020\003", 253);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   UserData_::default_instance_ = new UserData_();
@@ -114,8 +114,7 @@ const ::google::protobuf::EnumDescriptor* MsgId_descriptor() {
 }
 bool MsgId_IsValid(int value) {
   switch(value) {
-    case 0:
-    case 1:
+    case 10000:
     case 10101:
     case 10102:
     case 10103:

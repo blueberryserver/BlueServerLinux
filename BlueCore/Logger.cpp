@@ -34,10 +34,12 @@ void Logger::addLogWriter(_LogType type_, LogWriter* writer_)
 }
 
 template<>
-void Logger::write(_LogLevel level_, const std::string& file_, int line_, const std::string& desc_)
+void Logger::write(_LogLevel level_, const std::string& func_, const std::string& file_, int line_, const std::string& desc_)
 {
 	if (_running.load() == false) return;
-	auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, file_, desc_);
+	if ((_level & level_) == false) return;
+
+	auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, func_, file_, desc_);
 
 	_logs.push(data);
 }
