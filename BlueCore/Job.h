@@ -51,6 +51,11 @@ public:
 	explicit AsyncJob(func func_, args args_)
 		: _obj(nullptr), _memFunc(nullptr), _func(func_), _args(args_) {}
 
+	virtual ~AsyncJob() {
+		_memFunc = nullptr; 
+		_func = nullptr;
+	}
+
 	virtual void onExecute()
 	{
 		if (_obj != nullptr)
@@ -95,6 +100,10 @@ public:
 	explicit AsyncJobStc(func func_, args args_)
 		: _func(func_), _args(args_) {}
 
+	virtual ~AsyncJobStc() {
+		_func = nullptr;
+	}
+
 	virtual void onExecute()
 	{
 		doExecute(_func, _args);
@@ -133,6 +142,10 @@ public:
 		: _t(t_), _obj(obj_), _memFunc(memFunc_), _args(args_) { _repeat = repeat_; }
 
 
+	virtual ~TimerJob() {
+		_memFunc = nullptr;
+	}
+
 	virtual void onExecute()
 	{
 		doExecute(_obj, _memFunc, _args);
@@ -169,6 +182,10 @@ public:
 
 	explicit TimerJobStc(int repeat_, _Timer t_, func func_, args args_)
 		: _t(t_), _func(func_), _args(args_) {	_repeat = repeat_; }
+
+	virtual ~TimerJobStc() {
+		_func = nullptr;
+	}
 
 	virtual void onExecute()
 	{

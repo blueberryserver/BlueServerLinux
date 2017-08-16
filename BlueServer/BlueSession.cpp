@@ -19,6 +19,7 @@ BlueSession::BlueSession(boost::asio::io_service& io_)
 
 BlueSession::~BlueSession()
 {
+	LOG(L_INFO_, " ");
 }
 
 void BlueSession::onClose()

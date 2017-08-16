@@ -18,7 +18,7 @@ Session::Session(boost::asio::io_service& io_)
 
 Session::~Session()
 {
-	std::cout << "destory session" << std::endl;
+	//std::cout << "destory session" << std::endl;
 	delete _recvBuff;
 	delete _sendBuff;
 }

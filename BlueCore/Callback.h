@@ -7,6 +7,7 @@ namespace BLUE_BERRY
 class Callback
 {
 public:
+	virtual ~Callback() {}
 	virtual void execute(void* param_) {}
 };
 
@@ -20,6 +21,7 @@ class PostJob : public Callback
 public:
 	explicit PostJob(T* t_, MemberFunc func_)
 		: _t(t_), _memFunc(func_) {}
+	virtual ~PostJob() { _memFunc = nullptr; }
 
 	virtual void execute(void* param_)
 	{
@@ -50,6 +52,7 @@ public:
 
 	explicit PostJobStatic(std::function<void(A...)> func_)
 		: _func(func_) {}
+	virtual ~PostJobStatic() { _func = nullptr; }
 
 	virtual void execute(void* param_)
 	{

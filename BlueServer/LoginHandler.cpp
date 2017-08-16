@@ -117,9 +117,9 @@ void LoginHandler::redisSelectUser(SessionPtr session_, std::string id_)
 
 		LOG(L_INFO_, "Redis", "hget", "blue_server.UserData.name", "reply", reply_);
 
-		LOG(L_INFO_, "Session2", "usecount", (int)session_.use_count());
+		//LOG(L_INFO_, "Session2", "usecount", (int)session_.use_count());
 
-		/*
+		//*
 		// hget user data
 		auto uid = reply_._string;
 		auto keyHGetJson = client->hget("blue_server.UserData.json", uid.c_str());
@@ -146,11 +146,11 @@ void LoginHandler::redisSelectUser(SessionPtr session_, std::string id_)
 		});
 
 		SyncJobManager::getSyncJobManager()->addJob(keyHGetJson, makePostJobStatic(hGetPostJobJson), nullptr);
-		*/
+		/**/
 	});
 
 	SyncJobManager::getSyncJobManager()->addJob(keyHGetName, makePostJobStatic(hGetPostJobName), nullptr);
-	LOG(L_INFO_, "Session3", "usecount", (int)session_.use_count());
+	//LOG(L_INFO_, "Session3", "usecount", (int)session_.use_count());
 }
 
 
@@ -160,13 +160,13 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, LoginReq)
 	req.ParseFromArray(body_, len_);
 
 	LOG(L_INFO_, "recv packet", "id", req.id());
-	LOG(L_INFO_, "Session1", "usecount", (int)session_.use_count());
+	//LOG(L_INFO_, "Session1", "usecount", (int)session_.use_count());
 
 	{
 		// request db select job
 		asyncJob(&LoginHandler::redisSelectUser, std::move(const_cast<SessionPtr&>(session_)), std::move(const_cast<std::string&>(req.id())));
 	}
-	LOG(L_INFO_, "Session2", "usecount", (int)session_.use_count());
+	//LOG(L_INFO_, "Session2", "usecount", (int)session_.use_count());
 	
 	return true;
 }
@@ -188,7 +188,7 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, PingReq)
 DEFINE_HANDLER(LoginHandler, SessionPtr, Closed)
 {
 	LOG(L_INFO_, " ");
-	LOG(L_INFO_, "Session", "usecount", (int)session_.use_count());
+	//LOG(L_INFO_, "Session", "usecount", (int)session_.use_count());
 	session_->disconnect();
 }
 
