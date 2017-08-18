@@ -9,6 +9,7 @@
 
 #include "BlueSession.h"
 #include "LoginHandler.h"
+#include "UserManager.h"
 
 
 using namespace BLUE_BERRY;
@@ -47,6 +48,8 @@ int main(int argc, char *argv[])
 
 	BlueSession::setMsgHandler(new LoginHandler());
 
+	UserManager::setUserManager(new UserManager());
+	UserManager::getUserManager()->start();
 
 	//main thread waiting
 	getchar();
@@ -55,6 +58,10 @@ int main(int argc, char *argv[])
 
 	getchar();
 	server->stop();
+
+	UserManager::deleteUserManager();
+	BlueSession::deleteMsgHandler();
+
 	delete server;
 
 	Logger::getLogger()->stop();

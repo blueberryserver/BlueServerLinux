@@ -26,6 +26,7 @@ public:
 
 	// setting handler
 	static void setMsgHandler(MsgHandler<Session>* handler_);
+	static void deleteMsgHandler();
 };
 
 DECLARE_SMART_PTR(BlueSession);

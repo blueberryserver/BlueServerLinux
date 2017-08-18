@@ -1,6 +1,7 @@
 #pragma once
 #include "../BlueCore/Macro.h"
 #include "../BlueCore/json11.hpp"
+#include "../BlueCore/DateTime.h"
 
 #include "cpp/common.pb.h"
 
@@ -59,12 +60,14 @@ public:
 	}
 
 	// set get function
-	void setSession(SessionPtr session_) { _session = session_; }
+	void setSession(const SessionPtr& session_) { _session = session_; }
 	SessionPtr getSession() { return _session; }
 
-	void setSessionKey(std::string key_) { _sessionKey = key_; }
+	void setSessionKey(const std::string& key_) { _sessionKey = key_; }
 	std::string getSessionKey() { return _sessionKey; }
 
+	int64_t getPingTime() { return _pingTime; }
+	void setPingTime(const int64_t time_) { _pingTime = time_; }
 public:
 	// session key
 	std::string _sessionKey;
@@ -75,7 +78,8 @@ public:
 	// session
 	SessionPtr _session;
 
-
+	// ping time
+	int64_t _pingTime;
 };
 
 DECLARE_SMART_PTR(User)

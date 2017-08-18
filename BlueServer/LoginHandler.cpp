@@ -8,7 +8,7 @@
 #include "../BlueCore/SyncJobHelper.h"
 #include "../BlueCore/RedisClient.h"
 
-#include "User.h"
+#include "UserManager.h"
 #include "DBQueryUser.h"
 
 namespace BLUE_BERRY
@@ -59,9 +59,12 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 	query.getData(data);
 
 
-	User user(data);
-	LOG(L_INFO_, "User", "key", user.getSessionKey(), "data", user.to_json());
+	auto user = std::make_shared<User>(data);
+	user->setSession(session_);
+	//User user(data);
+	LOG(L_INFO_, "User", "key", user->getSessionKey(), "data", user->to_json());
 
+	UserManager::getUserManager()->add(user);
 
 	// redis caching
 	{
@@ -74,7 +77,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 
 
 		std::string jsonStr;
-		user.dump(jsonStr);
+		user->dump(jsonStr);
 		auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(data.uid()).c_str(), jsonStr.c_str() );
 		auto hSetPostJobJson = LamdaToFuncObj([&](_RedisReply reply_) -> void {
 			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
@@ -86,8 +89,8 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 	MSG::LoginAns ans;
 	ans.set_err(MSG::ERR_SUCCESS);
 	auto userData = ans.mutable_data();
-	userData->CopyFrom(user.getData());
-	ans.set_session_key(user.getSessionKey());
+	userData->CopyFrom(user->getData());
+	ans.set_session_key(user->getSessionKey());
 
 	session_->SendPacket(MSG::LOGIN_ANS, &ans);
 }
@@ -225,6 +228,18 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, PingReq)
 	LOG(L_INFO_, "recv packet", "key", req.session_key(), "time", DateTime::getCurrentDateTime().format());
 
 	// find user by session key
+	auto user = UserManager::getUserManager()->find(req.session_key());
+	if (user == nullptr)
+	{
+		MSG::PongAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::PONG_ANS, &ans);
+		return true;
+	}
+
+	// update session key time out
+	user->setPingTime(DateTime::GetTickCount() + 1000 * 1000 * 60);
+	if (user->getSession() == nullptr) user->setSession(session_);
 
 	MSG::PongAns ans;
 	ans.set_err(MSG::ERR_SUCCESS);
@@ -252,6 +267,14 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, RegistReq)
 DEFINE_HANDLER(LoginHandler, SessionPtr, Closed)
 {
 	LOG(L_INFO_, " ");
+
+	auto user = UserManager::getUserManager()->find(session_.get());
+	if (user != nullptr)
+	{
+		//UserManager::getUserManager()->remove(session_.get());
+		user->setSession(nullptr);
+	}
+
 	session_->disconnect();
 }
 

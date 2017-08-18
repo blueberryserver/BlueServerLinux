@@ -11,6 +11,12 @@ void BlueSession::setMsgHandler(MsgHandler<Session>* handler_)
 	__msgHandler = handler_;
 }
 
+void BlueSession::deleteMsgHandler()
+{
+	if( __msgHandler)
+		delete __msgHandler;
+}
+
 BlueSession::BlueSession(boost::asio::io_service& io_)
 	: Session(io_)
 {
