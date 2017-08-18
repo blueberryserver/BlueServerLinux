@@ -7,6 +7,7 @@
 using namespace json11;
 namespace BLUE_BERRY
 {
+FOWARD_DECLARE(Session)
 
 class User : public JsonValue
 {
@@ -17,7 +18,7 @@ public:
 	virtual ~User();
 
 public:
-	MSG::UserData_ toProtoSerialize();
+	MSG::UserData_ getData();
 
 	virtual Json::Type type() const
 	{
@@ -42,20 +43,39 @@ public:
 	Json to_json() const
 	{
 		Json::object jObj;
-		jObj["uid"] = std::to_string(_uId);
-		jObj["name"] = _name;
-		jObj["did"] = _deviceId;
+		jObj["uid"] = std::to_string(_data.uid());
+		jObj["name"] = _data.name();
+		jObj["did"] = _data.did();
+		jObj["platform"] = std::to_string(_data.platform());
+
+		jObj["login_date"] = _data.login_date();
+		jObj["logout_date"] = _data.logout_date();
+		jObj["reg_date"] = _data.reg_date();
+		jObj["vc1"] = std::to_string(_data.vc1());
+		jObj["vc2"] = std::to_string(_data.vc2());
+		jObj["vc3"] = std::to_string(_data.vc3());
 
 		return Json(jObj);
 	}
 
+	// set get function
+	void setSession(SessionPtr session_) { _session = session_; }
+	SessionPtr getSession() { return _session; }
+
+	void setSessionKey(std::string key_) { _sessionKey = key_; }
+	std::string getSessionKey() { return _sessionKey; }
+
 public:
-	// unique id
-	uint64_t _uId;
-	// user name
-	std::string _name;
-	// device unique id
-	std::string _deviceId;
+	// session key
+	std::string _sessionKey;
+
+	// user data
+	MSG::UserData_ _data;
+
+	// session
+	SessionPtr _session;
+
+
 };
 
 DECLARE_SMART_PTR(User)

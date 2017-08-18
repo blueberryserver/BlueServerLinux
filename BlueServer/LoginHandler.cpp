@@ -1,5 +1,4 @@
 #include "LoginHandler.h"
-#include "cpp/common.pb.h"
 #include "cpp/login.pb.h"
 
 #include "../BlueCore/DateTime.h"
@@ -18,8 +17,10 @@ namespace BLUE_BERRY
 LoginHandler::LoginHandler()
 {
 	REGIST_HANDLER(MSG::CLOSED, Closed);
+
 	REGIST_HANDLER(MSG::LOGIN_REQ, LoginReq);
 	REGIST_HANDLER(MSG::PING_REQ, PingReq);
+	REGIST_HANDLER(MSG::REGIST_REQ, RegistReq);
 }
 
 bool LoginHandler::execute(SessionPtr session_, unsigned short id_, char * buff_, unsigned short len_)
@@ -30,12 +31,12 @@ bool LoginHandler::execute(SessionPtr session_, unsigned short id_, char * buff_
 	return _table[id_](session_, buff_, len_);
 }
 
-void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string id_)
+void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string name_)
 {
 	// db select user data	
 	DBQueryUser query;
 	MSG::UserData_ data;
-	data.set_name(id_);
+	data.set_name(name_);
 	query.setData(data);
 
 	if (query.selectData() == false)
@@ -49,20 +50,17 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string id_
 	// not exist user data
 	if (query.haveData() == false)
 	{
-		if (query.insertData() == false)
-		{
-			MSG::LoginAns ans;
-			ans.set_err(MSG::ERR_LOGIN_FAIL);
-			session_->SendPacket(MSG::LOGIN_ANS, &ans);
-			return;
-		}
+		MSG::LoginAns ans;
+		ans.set_err(MSG::ERR_LOGIN_FAIL);
+		session_->SendPacket(MSG::LOGIN_ANS, &ans);
+		return;
 	}
+
 	query.getData(data);
 
 
 	User user(data);
-	auto jUser = user.to_json();
-	LOG(L_INFO_, "User", "data", jUser);
+	LOG(L_INFO_, "User", "key", user.getSessionKey(), "data", user.to_json());
 
 
 	// redis caching
@@ -88,18 +86,74 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string id_
 	MSG::LoginAns ans;
 	ans.set_err(MSG::ERR_SUCCESS);
 	auto userData = ans.mutable_data();
-	userData->CopyFrom(user.toProtoSerialize());
+	userData->CopyFrom(user.getData());
+	ans.set_session_key(user.getSessionKey());
 
 	session_->SendPacket(MSG::LOGIN_ANS, &ans);
 }
 
-void LoginHandler::redisSelectUser(SessionPtr session_, std::string id_)
+void LoginHandler::dbInsertUser(SessionPtr session_, MSG::UserData_ data_)
+{
+	// db select user data	
+	DBQueryUser query;
+	query.setData(data_);
+
+	if (query.insertData() == false)
+	{
+		MSG::RegistAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::REGIST_ANS, &ans);
+		return;
+	}
+
+	// not exist user data
+	if (query.haveData() == false)
+	{
+		MSG::RegistAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::REGIST_ANS, &ans);
+		return;
+	}
+	MSG::UserData_ data;
+	query.getData(data);
+
+
+	User user(data);
+	auto jUser = user.to_json();
+	LOG(L_INFO_, "User", "data", jUser);
+
+
+	// redis caching
+	{
+		RedisClientPtr client;
+		auto keyHGetName = client->hset("blue_server.UserData.name", data.name().c_str(), std::to_string(data.uid()).c_str());
+		auto hSetPostJobName = LamdaToFuncObj([&](_RedisReply reply_) -> void {
+			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.name", "reply", reply_);
+		});
+		SyncJobManager::getSyncJobManager()->addJob(keyHGetName, makePostJobStatic(hSetPostJobName), nullptr);
+
+
+		std::string jsonStr;
+		user.dump(jsonStr);
+		auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(data.uid()).c_str(), jsonStr.c_str());
+		auto hSetPostJobJson = LamdaToFuncObj([&](_RedisReply reply_) -> void {
+			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
+		});
+		SyncJobManager::getSyncJobManager()->addJob(keyHGetJon, makePostJobStatic(hSetPostJobJson), nullptr);
+	}
+
+
+	MSG::RegistAns ans;
+	ans.set_err(MSG::ERR_SUCCESS);
+	session_->SendPacket(MSG::REGIST_ANS, &ans);
+}
+
+void LoginHandler::redisSelectUser(SessionPtr session_, std::string name_)
 {
 	LOG(L_INFO_, " ");
-	LOG(L_INFO_, "Session1", "usecount", (int)session_.use_count());
 
 	RedisClientPtr client;
-	auto keyHGetName = client->hget("blue_server.UserData.name", id_.c_str());
+	auto keyHGetName = client->hget("blue_server.UserData.name", name_.c_str());
 
 	// redis key blue_server.UserData.name response 
 	auto hGetPostJobName = LamdaToFuncObj([=](_RedisReply reply_) -> void {
@@ -111,13 +165,11 @@ void LoginHandler::redisSelectUser(SessionPtr session_, std::string id_)
 			LOG(L_INFO_, "Redis", "hget", "blue_server.UserData.name", "reply", reply_);
 
 			// request select user data
-			asyncJob(&LoginHandler::dbSelectUser, std::move(const_cast<SessionPtr&>(session_)), std::move(const_cast<std::string&>(id_)));
+			asyncJob(&LoginHandler::dbSelectUser, std::move(const_cast<SessionPtr&>(session_)), std::move(const_cast<std::string&>(name_)));
 			return;
 		}
 
 		LOG(L_INFO_, "Redis", "hget", "blue_server.UserData.name", "reply", reply_);
-
-		//LOG(L_INFO_, "Session2", "usecount", (int)session_.use_count());
 
 		//*
 		// hget user data
@@ -140,7 +192,7 @@ void LoginHandler::redisSelectUser(SessionPtr session_, std::string id_)
 			MSG::LoginAns ans;
 			ans.set_err(MSG::ERR_SUCCESS);
 			auto userData = ans.mutable_data();
-			userData->CopyFrom(user.toProtoSerialize());
+			userData->CopyFrom(user.getData());
 
 			session_->SendPacket(MSG::LOGIN_ANS, &ans);
 		});
@@ -150,7 +202,6 @@ void LoginHandler::redisSelectUser(SessionPtr session_, std::string id_)
 	});
 
 	SyncJobManager::getSyncJobManager()->addJob(keyHGetName, makePostJobStatic(hGetPostJobName), nullptr);
-	//LOG(L_INFO_, "Session3", "usecount", (int)session_.use_count());
 }
 
 
@@ -159,25 +210,21 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, LoginReq)
 	MSG::LoginReq req;
 	req.ParseFromArray(body_, len_);
 
-	LOG(L_INFO_, "recv packet", "id", req.id());
-	//LOG(L_INFO_, "Session1", "usecount", (int)session_.use_count());
-
+	LOG(L_INFO_, "recv packet info", "id", req.name());
 	{
-		// request db select job
-		asyncJob(&LoginHandler::redisSelectUser, std::move(const_cast<SessionPtr&>(session_)), std::move(const_cast<std::string&>(req.id())));
+		asyncJob(&LoginHandler::dbSelectUser, std::move(const_cast<SessionPtr&>(session_)), std::move(const_cast<std::string&>(req.name())));
 	}
-	//LOG(L_INFO_, "Session2", "usecount", (int)session_.use_count());
 	
 	return true;
 }
-
 
 DEFINE_HANDLER(LoginHandler, SessionPtr, PingReq)
 {
 	MSG::PingReq req;
 	req.ParseFromArray(body_, len_);
-	LOG(L_INFO_, " ");
-	//LOG(L_INFO_, "recv packet", "time", DateTime::getCurrentDateTime().format());
+	LOG(L_INFO_, "recv packet", "key", req.session_key(), "time", DateTime::getCurrentDateTime().format());
+
+	// find user by session key
 
 	MSG::PongAns ans;
 	ans.set_err(MSG::ERR_SUCCESS);
@@ -185,10 +232,26 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, PingReq)
 	return true;
 }
 
+DEFINE_HANDLER(LoginHandler, SessionPtr, RegistReq)
+{
+	MSG::RegistReq req;
+	req.ParseFromArray(body_, len_);
+	LOG(L_INFO_, "recv packet info");
+
+	// check duplication 
+
+	// data insert
+	{
+		// request select user data
+		asyncJob(&LoginHandler::dbInsertUser, std::move(const_cast<SessionPtr&>(session_)), std::move(const_cast<MSG::UserData_&>(req.data())));
+	}
+	return true;
+}
+
+
 DEFINE_HANDLER(LoginHandler, SessionPtr, Closed)
 {
 	LOG(L_INFO_, " ");
-	//LOG(L_INFO_, "Session", "usecount", (int)session_.use_count());
 	session_->disconnect();
 }
 

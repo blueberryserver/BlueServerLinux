@@ -8,16 +8,30 @@ User::User()
 {
 }
 
-User::User(const MSG::UserData_ & data_)
-	: _uId(data_.uid()), _name(data_.name()), _deviceId(data_.did())
+User::User(const MSG::UserData_& data_)
+	: _data(data_)
 {
+	auto key = std::hash<std::string>()(to_json().dump());
+	_sessionKey = std::to_string(key);
 }
 
 User::User(const Json& data_)
 {
-	_uId = std::atoll(data_["uid"].string_value().c_str());
-	_name = data_["name"].string_value();
-	_deviceId = data_["did"].string_value();
+	_data.set_uid( std::atoll(data_["uid"].string_value().c_str()) );
+	_data.set_name( data_["name"].string_value() );
+	_data.set_did( data_["did"].string_value() );
+
+	_data.set_platform(static_cast<MSG::PlatForm>( std::atoi(data_["platform"].string_value().c_str())));
+	_data.set_login_date(data_["login_date"].string_value());
+	_data.set_logout_date(data_["logout_date"].string_value());
+	_data.set_reg_date(data_["reg_date"].string_value());
+
+	_data.set_vc1(std::atoi(data_["vc1"].string_value().c_str()));
+	_data.set_vc2(std::atoi(data_["vc2"].string_value().c_str()));
+	_data.set_vc3(std::atoi(data_["vc3"].string_value().c_str()));
+
+	auto key = std::hash<std::string>()(data_.dump());
+	_sessionKey = std::to_string(key);
 }
 
 
@@ -25,13 +39,9 @@ User::~User()
 {
 }
 
-MSG::UserData_ User::toProtoSerialize()
+MSG::UserData_ User::getData()
 {
-	auto data = MSG::UserData_();
-	data.set_uid(_uId);
-	data.set_name(_name);
-	data.set_did(_deviceId);
-	return data;
+	return _data;
 }
 
 }

@@ -80,6 +80,7 @@
     <ClInclude Include="Job.h" />
     <ClInclude Include="JobHelper.h" />
     <ClInclude Include="json11.hpp" />
+    <ClInclude Include="LockFreeMap.h" />
     <ClInclude Include="LockFreeQueue.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="LogHelper.h" />

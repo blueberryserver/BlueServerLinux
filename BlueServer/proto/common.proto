@@ -1,7 +1,7 @@
 syntax = "proto2";
 package MSG;
 
-// sample type
+// message type
 enum MsgId {
 	CLOSED = 10000;
 
@@ -11,6 +11,10 @@ enum MsgId {
 	PING_REQ = 10103;
 	PONG_ANS = 10104;
 
+	REGIST_REQ = 10105;
+	REGIST_ANS = 10106;
+
+
 }
 
 // Error type
@@ -19,6 +23,13 @@ enum ErrorCode {
 	ERR_LOGIN_FAIL = 1;
 	ERR_ARGUMENT_FAIL = 2;
 	ERR_AUTHORITY_FAIL = 3;
+	ERR_SESSIONKEY_FAIL = 4;
+}
+
+// platform type
+enum PlatForm {
+	IOS = 0;
+	ANDROID = 1;
 }
 
 
@@ -27,5 +38,15 @@ message UserData_ {
 
 	required uint64 uid = 1;
 	required string name = 2;
-	required string did = 3;
+	optional string did = 3;
+	optional PlatForm platform = 4;
+
+	optional string login_date = 5;
+	optional string logout_date = 6;
+	optional string reg_date = 7;
+
+	optional uint32 vc1 = 8;
+	optional uint32 vc2 = 9;
+	optional uint32 vc3 = 10;
+
 }

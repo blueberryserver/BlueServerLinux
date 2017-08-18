@@ -41,3 +41,7 @@
 	class___* class___ CC_GETTLS_NS(class___) () { return ___TLS ## class___; } \
 	void class___ CC_SETTLS_NS(class___) (class___* tls_) { ___TLS ## class___ = tls_; } \
    void class___ CC_DELETETLS_NS(class___) () { delete ___TLS ## class___; }
+
+
+
+#define FOWARD_DECLARE(class___) class class___; typedef std::shared_ptr<class___> class___ ## Ptr;

@@ -14,6 +14,7 @@ Session::Session(boost::asio::io_service& io_)
 	_recvBuff = new CircularBuffer();
 	_sendBuff = new CircularBuffer();
 	_reservedSendBuffCount.store(0);
+	_sending.store(false);
 }
 
 Session::~Session()

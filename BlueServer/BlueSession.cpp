@@ -38,14 +38,6 @@ void BlueSession::recvPacketProc()
 		__msgHandler->execute(shared_from_this(), packet.getId(), packet.getData(), packet.getDataLength());
 		_recvBuff->remove(packet.getPacketLength());
 	}
-
-
-	//char buff[1024] = { 0, };
-	//memcpy(buff, rBufferPoint, recvBuffSize);
-
-	//LOG(L_DEBUG_, "Recv Complete", "buff size", (int)recvBuffSize, "data", buff);
-
-	//_recvBuff->remove(recvBuffSize);
 }
 
 

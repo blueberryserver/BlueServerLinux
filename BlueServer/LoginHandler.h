@@ -1,6 +1,8 @@
 #pragma once
 #include "../BlueCore/MsgHandler.h"
 #include "../BlueCore/Session.h"
+#include "cpp/common.pb.h"
+
 
 namespace BLUE_BERRY
 {
@@ -15,13 +17,16 @@ public:
 public:
 	DECLARE_HANDLER(SessionPtr, LoginReq);
 	DECLARE_HANDLER(SessionPtr, PingReq);
+	DECLARE_HANDLER(SessionPtr, RegistReq);
+
 	DECLARE_HANDLER(SessionPtr, Closed);
 
 	// db query proc function
-	static void dbSelectUser(const SessionPtr session_, const std::string id_);
+	static void dbSelectUser(const SessionPtr session_, const std::string name_);
+	static void dbInsertUser(SessionPtr session_, MSG::UserData_ data_);
 
 	// redis query proc function
-	static void redisSelectUser(SessionPtr session_, std::string id_);
+	static void redisSelectUser(SessionPtr session_, std::string name_);
 };
 
 }

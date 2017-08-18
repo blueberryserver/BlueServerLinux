@@ -91,13 +91,17 @@ class AsyncJobStc : public Job
 	typedef std::tuple<_ARGS...> args;
 
 public:
-	func _func;
+	//func _func;
+	std::function<void(_ARGS...)> _func;
 	args _args;
 
-	explicit AsyncJobStc(func func_, _ARGS&&... args_)
+	explicit AsyncJobStc(std::function<void(_ARGS...)> func_, _ARGS&&... args_)
 		: _func(func_), _args(std::forward<_ARGS>(args_)...) {}
 
-	explicit AsyncJobStc(func func_, args args_)
+	//explicit AsyncJobStc(func func_, _ARGS&&... args_)
+	//	: _func(func_), _args(std::forward<_ARGS>(args_)...) {}
+
+	explicit AsyncJobStc(std::function<void(_ARGS...)> func_, args args_)
 		: _func(func_), _args(args_) {}
 
 	virtual ~AsyncJobStc() {
