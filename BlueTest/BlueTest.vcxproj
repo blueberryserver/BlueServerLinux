@@ -89,6 +89,12 @@
       <PreprocessorDefinitions>_DEBUG;</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$HOME/projects/lib</AdditionalLibraryDirectories>
+      <LibraryDependencies>gtest;BlueCore;boost_system;boost_thread;boost_filesystem;pthread;protobuf;mysqlcppconn</LibraryDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
 </Project>
