@@ -22,6 +22,14 @@ Session::~Session()
 	//std::cout << "destory session" << std::endl;
 	delete _recvBuff;
 	delete _sendBuff;
+	
+	std::vector<BufferHelperPtr> tempBuffers; tempBuffers.reserve(1024);
+	if (_reservedSendBuffs.popAll(tempBuffers) == true)
+	{		
+		tempBuffers.clear();
+		_reservedSendBuffCount.store(0);
+	}	
+	_packetProc = nullptr;
 }
 
 void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t length_)

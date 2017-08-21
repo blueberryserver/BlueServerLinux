@@ -13,7 +13,7 @@ private:
 public:
 
 	LockFreeQueue()
-		:_queue(600000)
+		:_queue()
 	{}
 
 	~LockFreeQueue()

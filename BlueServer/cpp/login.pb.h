@@ -410,7 +410,7 @@ class LoginAns : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::MSG::ErrorCode err() const;
   void set_err(::MSG::ErrorCode value);
 
-  // required string session_key = 2;
+  // optional string session_key = 2;
   bool has_session_key() const;
   void clear_session_key();
   static const int kSessionKeyFieldNumber = 2;
@@ -439,9 +439,6 @@ class LoginAns : public ::google::protobuf::Message /* @@protoc_insertion_point(
   inline void clear_has_session_key();
   inline void set_has_data();
   inline void clear_has_data();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
@@ -822,7 +819,7 @@ inline void LoginAns::set_err(::MSG::ErrorCode value) {
   // @@protoc_insertion_point(field_set:MSG.LoginAns.err)
 }
 
-// required string session_key = 2;
+// optional string session_key = 2;
 inline bool LoginAns::has_session_key() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

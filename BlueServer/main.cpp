@@ -66,5 +66,7 @@ int main(int argc, char *argv[])
 
 	Logger::getLogger()->stop();
 	IOService::deleteIOService();
+
+	MemoryPool::deleteMemoryPool();
     return 0;
 }

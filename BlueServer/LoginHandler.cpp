@@ -232,14 +232,17 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, PingReq)
 	if (user == nullptr)
 	{
 		MSG::PongAns ans;
-		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		ans.set_err(MSG::ERR_SESSIONKEY_FAIL);
 		session_->SendPacket(MSG::PONG_ANS, &ans);
 		return true;
 	}
 
 	// update session key time out
 	user->setPingTime(DateTime::GetTickCount() + 1000 * 1000 * 60);
-	if (user->getSession() == nullptr) user->setSession(session_);
+	if (user->getSession() == nullptr || user->getSession() != session_)
+	{
+		user->setSession(session_);
+	}
 
 	MSG::PongAns ans;
 	ans.set_err(MSG::ERR_SUCCESS);
@@ -276,6 +279,7 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, Closed)
 	}
 
 	session_->disconnect();
+	return true;
 }
 
 }

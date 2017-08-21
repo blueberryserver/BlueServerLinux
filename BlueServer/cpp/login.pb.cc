@@ -199,7 +199,7 @@ void protobuf_AddDesc_login_2eproto() {
     "Req\022\023\n\013session_key\030\001 \002(\t\"&\n\007PongAns\022\033\n\003e"
     "rr\030\001 \002(\0162\016.MSG.ErrorCode\"\030\n\010LoginReq\022\014\n\004"
     "name\030\001 \002(\t\"Z\n\010LoginAns\022\033\n\003err\030\001 \002(\0162\016.MS"
-    "G.ErrorCode\022\023\n\013session_key\030\002 \002(\t\022\034\n\004data"
+    "G.ErrorCode\022\023\n\013session_key\030\002 \001(\t\022\034\n\004data"
     "\030\003 \001(\0132\016.MSG.UserData_\")\n\tRegistReq\022\034\n\004d"
     "ata\030\001 \002(\0132\016.MSG.UserData_\"(\n\tRegistAns\022\033"
     "\n\003err\030\001 \002(\0162\016.MSG.ErrorCode", 307);
@@ -1261,7 +1261,7 @@ bool LoginAns::MergePartialFromCodedStream(
         break;
       }
 
-      // required string session_key = 2;
+      // optional string session_key = 2;
       case 2: {
         if (tag == 18) {
          parse_session_key:
@@ -1322,7 +1322,7 @@ void LoginAns::SerializeWithCachedSizes(
       1, this->err(), output);
   }
 
-  // required string session_key = 2;
+  // optional string session_key = 2;
   if (has_session_key()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->session_key().data(), this->session_key().length(),
@@ -1354,7 +1354,7 @@ void LoginAns::SerializeWithCachedSizes(
       1, this->err(), target);
   }
 
-  // required string session_key = 2;
+  // optional string session_key = 2;
   if (has_session_key()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->session_key().data(), this->session_key().length(),
@@ -1380,49 +1380,31 @@ void LoginAns::SerializeWithCachedSizes(
   return target;
 }
 
-int LoginAns::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.LoginAns)
-  int total_size = 0;
-
-  if (has_err()) {
-    // required .MSG.ErrorCode err = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
-  }
-
-  if (has_session_key()) {
-    // required string session_key = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->session_key());
-  }
-
-  return total_size;
-}
 int LoginAns::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.LoginAns)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .MSG.ErrorCode err = 1;
+  // required .MSG.ErrorCode err = 1;
+  if (has_err()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
-
-    // required string session_key = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->session_key());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
-  // optional .MSG.UserData_ data = 3;
-  if (has_data()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->data_);
-  }
+  if (_has_bits_[1 / 32] & 6u) {
+    // optional string session_key = 2;
+    if (has_session_key()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->session_key());
+    }
 
+    // optional .MSG.UserData_ data = 3;
+    if (has_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->data_);
+    }
+
+  }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1488,7 +1470,7 @@ void LoginAns::CopyFrom(const LoginAns& from) {
 }
 
 bool LoginAns::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   if (has_data()) {
     if (!this->data_->IsInitialized()) return false;
@@ -1545,7 +1527,7 @@ void LoginAns::clear_err() {
   // @@protoc_insertion_point(field_set:MSG.LoginAns.err)
 }
 
-// required string session_key = 2;
+// optional string session_key = 2;
 bool LoginAns::has_session_key() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
