@@ -3,7 +3,7 @@
 #include "concurrentqueue.h"
 namespace BLUE_BERRY {
 
-template<typename _T>
+template<typename _T, size_t _Size = 128>
 class LockFreeQueue
 {
 private:
@@ -13,7 +13,7 @@ private:
 public:
 
 	LockFreeQueue()
-		:_queue()
+		:_queue(_Size)
 	{}
 
 	~LockFreeQueue()
@@ -39,15 +39,17 @@ public:
 
 	bool popAll(std::vector<_T>& result_)
 	{
-		//_queue.try_dequeue_bulk(result_.begin(), 1000);
+		_T list[1000];
+		auto count = _queue.try_dequeue_bulk(list, 1000);
 
-		//*
+		/*
 		_T value;
 		while (_queue.try_dequeue(value))
 		{
 			result_.push_back(value);
 		}
 		/**/
+		result_.assign(list, list + count);
 
 		if (result_.empty() == false)
 			return true;

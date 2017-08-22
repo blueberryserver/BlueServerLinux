@@ -9,6 +9,7 @@ using namespace boost::filesystem;
 
 #include "FileWriter.h"
 #include "json11.hpp"
+#include "DateTime.h"
 using namespace json11;
 
 namespace BLUE_BERRY
@@ -20,13 +21,6 @@ static std::string getTime()
 
 	char time[2048];
 	std::strftime(time, sizeof(time), "%H_%M", std::localtime(&now));
-	return std::string(time);
-}
-
-static std::string getDateTime(std::time_t time_)
-{
-	char time[2048];
-	std::strftime(time, sizeof(time), "%Y-%m-%d %H:%M:%S", std::localtime(&time_));
 	return std::string(time);
 }
 
@@ -90,12 +84,12 @@ bool FileWriter::createFile()
 
 void FileWriter::writeJson(const LogData* data_)
 {
-	auto strTime = getDateTime(data_->_time);
+	auto now = DateTime(data_->_time).formatLocal();
 
 	Json::object jMap;
 	jMap["id"] = std::to_string(data_->_id);
 	jMap["no"] = std::to_string(data_->_no);
-	jMap["date"] = strTime;
+	jMap["date"] = now;
 	jMap["file"] = data_->_file;
 	jMap["func"] = data_->_func;
 	jMap["line"] = std::to_string(data_->_line);

@@ -1,6 +1,7 @@
 #pragma once
 #include <unordered_map>
 #include <atomic>
+#include <mutex>
 
 #include "Macro.h"
 #include "LogHelper.h"
@@ -32,7 +33,11 @@ public:
 		auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, func_, file_, desc_);
 		AddJsonObject(data->_objects, args_...);
 
-		_logs.push(data);
+		//std::lock_guard<std::recursive_mutex> guard(_mtx);
+		if (_logs.push(data) == false)
+		{
+			std::cout << "Logger::write fail" << std::endl;
+		}
 	}
 
 	void write(_LogLevel level_, const std::string& func_, const std::string& file_, int line_, const std::string& desc_)
@@ -42,7 +47,11 @@ public:
 
 		auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, func_, file_, desc_);
 
-		_logs.push(data);
+		//std::lock_guard<std::recursive_mutex> guard(_mtx);
+		if (_logs.push(data) == false)
+		{
+			std::cout << "Logger::write fail" << std::endl;
+		}
 	}
 
 	void start();
@@ -61,7 +70,8 @@ public:
 	LogWriterMap _writers;
 
 	std::atomic<bool> _running;
-	LockFreeQueue<LogData*> _logs;
+	//std::recursive_mutex _mtx;
+	LockFreeQueue<LogData*, 65536> _logs;
 
 public:
 	DECLARE_MGR(Logger)

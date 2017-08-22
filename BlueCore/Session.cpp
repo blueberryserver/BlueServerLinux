@@ -15,6 +15,7 @@ Session::Session(boost::asio::io_service& io_)
 	_sendBuff = new CircularBuffer();
 	_reservedSendBuffCount.store(0);
 	_sending.store(false);
+	_connected.store(false);
 }
 
 Session::~Session()
@@ -30,11 +31,12 @@ Session::~Session()
 		_reservedSendBuffCount.store(0);
 	}	
 	_packetProc = nullptr;
+	_socket.close();
 }
 
 void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t length_)
 {
-	if (length_ == 0)
+	if (errCode_ != nullptr && errCode_ != boost::asio::error::operation_aborted )
 	{
 		LOG(L_DEBUG_, "Disconnect", "socket", (int)_socket.native(), "length", (int)length_);
 		_connected.store(false);

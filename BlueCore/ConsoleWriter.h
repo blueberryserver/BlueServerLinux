@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "LogHelper.h"
-
+#include "DateTime.h"
 namespace BLUE_BERRY 
 {
 
@@ -18,12 +18,10 @@ class ConsoleWriter : public LogWriter
 public:
 	virtual void write(const LogData* data_)
 	{
-		//auto time = DateTime(data_->_time);
-		//auto strTime = time.format();
-		auto strTime = getDateTime(data_->_time);
+		auto now = DateTime(data_->_time).formatLocal();
 
 		std::string log;
-		log = strTime + " ";
+		log = now + " ";
 		log = log + std::to_string(data_->_thread) + " ";
 		log = log + ToStrLogLevel(data_->_level) + " ";
 		log = log + "[" + data_->_func + "] ";

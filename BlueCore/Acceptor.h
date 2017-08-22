@@ -17,6 +17,9 @@ public:
 	~Acceptor() {}
 	void start()
 	{
+		_acceptor.set_option(tcp::acceptor::reuse_address(true));
+		_acceptor.listen();
+
 		asyncAccept();
 	}
 	void stop()

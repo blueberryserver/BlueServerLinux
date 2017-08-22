@@ -76,7 +76,7 @@ protected:
 	CircularBuffer* _recvBuff;
 
 	// reserved send buff queue
-	LockFreeQueue<BufferHelperPtr> _reservedSendBuffs;
+	LockFreeQueue<BufferHelperPtr, 65536> _reservedSendBuffs;
 	std::atomic<long> _reservedSendBuffCount;
 
 	// sending status

@@ -41,7 +41,11 @@ void Logger::write(_LogLevel level_, const std::string& func_, const std::string
 
 	auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, func_, file_, desc_);
 
-	_logs.push(data);
+	//std::lock_guard<std::recursive_mutex> guard(_mtx);
+	if (_logs.push(data) == false)
+	{
+		std::cout << "Logger::write fail" << std::endl;
+	}
 }
 
 void Logger::start()
@@ -57,6 +61,7 @@ void Logger::stop()
 
 void Logger::workLogData()
 {
+	//std::lock_guard<std::recursive_mutex> guard(_mtx);
 	std::vector<LogData*> dataArray;
 	if (_logs.popAll(dataArray) == true)
 	{

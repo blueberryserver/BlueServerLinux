@@ -661,7 +661,7 @@ private:
 	TPtr _SubSession;	// subscribe session
 
 	// redis request keys
-	LockFreeQueue<size_t> _keys;
+	LockFreeQueue<size_t, 65536> _keys;
 };
 
 
@@ -731,7 +731,7 @@ public:
 private:
 	int _poolCount;
 	RedisServerAddr _connAddrInfos[MAX_SERVER_SIZE];
-	LockFreeQueue< std::shared_ptr< RedisConntion<Session> > > _pool[MAX_SERVER_SIZE];
+	LockFreeQueue< std::shared_ptr< RedisConntion<Session> >, 65536 > _pool[MAX_SERVER_SIZE];
 
 };
 

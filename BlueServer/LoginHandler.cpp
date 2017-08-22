@@ -58,6 +58,9 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 
 	query.getData(data);
 
+	// update login date
+	auto now = DateTime::getCurrentDateTime().formatLocal();
+	data.set_login_date(now.c_str());
 
 	auto user = std::make_shared<User>(data);
 	user->setSession(session_);
@@ -225,7 +228,7 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, PingReq)
 {
 	MSG::PingReq req;
 	req.ParseFromArray(body_, len_);
-	LOG(L_INFO_, "recv packet", "key", req.session_key(), "time", DateTime::getCurrentDateTime().format());
+	LOG(L_INFO_, "recv packet", "key", req.session_key(), "time", DateTime::getCurrentDateTime().formatLocal());
 
 	// find user by session key
 	auto user = UserManager::getUserManager()->find(req.session_key());

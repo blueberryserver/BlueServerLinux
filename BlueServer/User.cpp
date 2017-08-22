@@ -1,5 +1,9 @@
 #include "User.h"
 #include "../BlueCore/Logger.h"
+#include "../BlueCore/Session.h"
+#include "../BlueCore/RedisClient.h"
+
+#include "DBQueryUser.h"
 
 namespace BLUE_BERRY
 {
@@ -41,6 +45,35 @@ User::User(const Json& data_)
 User::~User()
 {
 	LOG(L_INFO_, " ");
+
+	// destruct proc
+	// check connected session
+	if (_session != nullptr)
+	{
+		// connected destroy
+		_session->disconnect();
+	}
+	auto now = DateTime::getCurrentDateTime().formatLocal();
+	_data.set_logout_date(now.c_str());
+
+	// cached data save
+	RedisClientPtr client;
+	std::string jsonStr;
+	dump(jsonStr);
+	auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(_data.uid()).c_str(), jsonStr.c_str());
+	auto hSetPostJobJson = LamdaToFuncObj([&](_RedisReply reply_) -> void {
+		LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
+	});
+	SyncJobManager::getSyncJobManager()->addJob(keyHGetJon, makePostJobStatic(hSetPostJobJson), nullptr);
+
+
+	// db save
+	DBQueryUser query;
+	query.setData(_data);
+	if (query.updateData() == false)
+	{
+		// fail log
+	}
 }
 
 MSG::UserData_ User::getData()

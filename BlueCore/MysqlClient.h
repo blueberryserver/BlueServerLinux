@@ -58,7 +58,7 @@ private:
 	int _poolCount;
 	sql::mysql::MySQL_Driver* _driver;
 	DBServerAddr _connAddrInfos[DB_SERVER_MAX];
-	LockFreeQueue<sql::Connection*> _pool[DB_SERVER_MAX];
+	LockFreeQueue<sql::Connection*, 65536> _pool[DB_SERVER_MAX];
 
 };
 EXTERN_MGR(MysqlDriver)

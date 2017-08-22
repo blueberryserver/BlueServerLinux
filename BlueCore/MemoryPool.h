@@ -53,7 +53,7 @@ class MemoryPool
 	struct ThreadPool
 	{
 		std::unordered_map<int, boost::pool<>*> _pool;
-		LockFreeQueue<void*> _restorePool;
+		LockFreeQueue<void*, 65536> _restorePool;
 		size_t _chunkSize;
 	public:
 		ThreadPool(size_t chunkSize_)
