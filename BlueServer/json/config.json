@@ -1,0 +1,44 @@
+{
+  "mysql": {
+    "pool": 4,
+    "connect_info": [
+      {
+        "connect_addr": "tcp://ec2-52-79-55-103.ap-northeast-2.compute.amazonaws.com:3306",
+        "database": "blueberry",
+        "desc": "game_db",
+        "pw": "rlawoans!1234A",
+        "region_no": 0,
+        "user": "root"
+      }
+    ]
+  },
+  "redis": {
+    "pool": 4,
+    "connect_info": [
+      {
+        "connect_addr": "127.0.0.1",
+        "database_no": 0,
+        "desc": "game_cache",
+        "port": 6379,
+        "region_no": 0
+      },
+      {
+        "connect_addr": "127.0.0.1",
+        "database_no": 0,
+        "desc": "user_cache",
+        "port": 6379,
+        "region_no": 1
+      }
+    ]
+  },
+  "server_info": {
+    "io_thread": 4,
+    "logger_info": {
+      "level": "all",
+      "name": "BlueServerLog",
+      "type": "cf"
+    },
+    "remark": "log_level=tarce debug info error all|log_type=console file nosql cf all",
+    "tcp_port": 12300
+  }
+}

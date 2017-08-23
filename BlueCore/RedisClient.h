@@ -633,7 +633,7 @@ private:
 	{
 		auto key = std::hash<std::string>{}(msg_);
 		_keys.push(key);
-		LOG(L_INFO_, "redis", "cmd", msg_, "key", (int)key);
+		LOG(L_INFO_, "redis", "cmd", msg_, "key", (uint)key);
 
 		BufferHelperPtr packet(new BufferHelper(msg_.length()));
 		packet->write(const_cast<char*>(msg_.c_str()), static_cast<short>(msg_.length()));

@@ -85,6 +85,7 @@
     <ClInclude Include="UserManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="json\config.json" />
     <None Include="proto\build.bat" />
     <None Include="proto\common.proto" />
     <None Include="proto\login.proto" />

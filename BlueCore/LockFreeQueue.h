@@ -41,14 +41,6 @@ public:
 	{
 		_T list[1000];
 		auto count = _queue.try_dequeue_bulk(list, 1000);
-
-		/*
-		_T value;
-		while (_queue.try_dequeue(value))
-		{
-			result_.push_back(value);
-		}
-		/**/
 		result_.assign(list, list + count);
 
 		if (result_.empty() == false)

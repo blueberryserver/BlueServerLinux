@@ -213,7 +213,7 @@ static bool redisReplyParsing(_RedisReply& replay_, const char* buff_, size_t le
 					i++;
 					isdollar = false;
 					charCount = std::stoi(strNum);
-					if (charCount == -1)
+					if (charCount == 0)
 					{
 						parsingSize_ = i + 1;
 						replay_._type = REPY_NIL;

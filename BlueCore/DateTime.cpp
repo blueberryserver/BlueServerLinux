@@ -138,7 +138,7 @@ DateTime DateTime::getCurrentDateTime()
 int DateTime::getGMTOff()
 {
 	std::time_t t = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-	return localtime(&t)->tm_gmtoff / (long int)3600;
+	return (int)( localtime(&t)->tm_gmtoff / 3600 );
 }
 
 int64_t DateTime::GetTickCount()

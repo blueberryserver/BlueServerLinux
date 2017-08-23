@@ -58,7 +58,7 @@ public:
 		}
 
 		// 패킷 길이와 받은 버퍼 길이 확인
-		if (_curPacketLen > static_cast<short>(_restBuffLen))
+		if (_curPacketLen > _restBuffLen)
 		{
 			return false;
 		}

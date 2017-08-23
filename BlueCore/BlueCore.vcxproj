@@ -85,6 +85,7 @@
     <ClInclude Include="Job.h" />
     <ClInclude Include="JobHelper.h" />
     <ClInclude Include="json11.hpp" />
+    <ClInclude Include="JsonFileLoader.h" />
     <ClInclude Include="LockFreeMap.h" />
     <ClInclude Include="LockFreeQueue.h" />
     <ClInclude Include="Logger.h" />
@@ -112,6 +113,7 @@
     <ClCompile Include="FileWriter.cpp" />
     <ClCompile Include="IOService.cpp" />
     <ClCompile Include="json11.cpp" />
+    <ClCompile Include="JsonFileLoader.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="MemoryPool.cpp" />
     <ClCompile Include="MysqlClient.cpp" />

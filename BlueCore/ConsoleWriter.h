@@ -5,14 +5,6 @@
 namespace BLUE_BERRY 
 {
 
-
-static std::string getDateTime(std::time_t time_)
-{
-	char time[2048];
-	std::strftime(time, sizeof(time), "%Y-%m-%d %H:%M:%S", std::localtime(&time_));
-	return std::string(time);
-}
-
 class ConsoleWriter : public LogWriter
 {
 public:
