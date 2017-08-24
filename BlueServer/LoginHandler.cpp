@@ -73,7 +73,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 	{
 		RedisClientPtr client;
 		auto keyHGetName = client->hset("blue_server.UserData.name", data.name().c_str(), std::to_string(data.uid()).c_str());
-		auto hSetPostJobName = LamdaToFuncObj([&](_RedisReply reply_) -> void {
+		auto hSetPostJobName = LamdaToFuncObj([](_RedisReply reply_) -> void {
 			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.name", "reply", reply_);
 		});
 		SyncJobManager::getSyncJobManager()->addJob(keyHGetName, makePostJobStatic(hSetPostJobName), nullptr);
@@ -82,7 +82,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 		std::string jsonStr;
 		user->dump(jsonStr);
 		auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(data.uid()).c_str(), jsonStr.c_str() );
-		auto hSetPostJobJson = LamdaToFuncObj([&](_RedisReply reply_) -> void {
+		auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
 			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
 		});
 		SyncJobManager::getSyncJobManager()->addJob( keyHGetJon, makePostJobStatic(hSetPostJobJson), nullptr);
@@ -133,7 +133,7 @@ void LoginHandler::dbInsertUser(SessionPtr session_, MSG::UserData_ data_)
 	{
 		RedisClientPtr client;
 		auto keyHGetName = client->hset("blue_server.UserData.name", data.name().c_str(), std::to_string(data.uid()).c_str());
-		auto hSetPostJobName = LamdaToFuncObj([&](_RedisReply reply_) -> void {
+		auto hSetPostJobName = LamdaToFuncObj([](_RedisReply reply_) -> void {
 			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.name", "reply", reply_);
 		});
 		SyncJobManager::getSyncJobManager()->addJob(keyHGetName, makePostJobStatic(hSetPostJobName), nullptr);
@@ -142,7 +142,7 @@ void LoginHandler::dbInsertUser(SessionPtr session_, MSG::UserData_ data_)
 		std::string jsonStr;
 		user.dump(jsonStr);
 		auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(data.uid()).c_str(), jsonStr.c_str());
-		auto hSetPostJobJson = LamdaToFuncObj([&](_RedisReply reply_) -> void {
+		auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
 			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
 		});
 		SyncJobManager::getSyncJobManager()->addJob(keyHGetJon, makePostJobStatic(hSetPostJobJson), nullptr);

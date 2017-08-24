@@ -10,6 +10,8 @@ template< typename T >
 class MsgHandler
 {
 public:
+	virtual ~MsgHandler() {}
+
 	enum { MAX_MSG_ID = 0xffff - 1, };
 	typedef std::function<bool(std::shared_ptr<T>, char*, unsigned short)> MSG_HANDLER_FUNCTION;
 
@@ -20,7 +22,7 @@ public:
 		_table[id_] = func_;
 	}
 
-	virtual bool execute(std::shared_ptr<T> session_, unsigned short id_, char* buff_, unsigned short  len_) = 0;
+	virtual bool execute(std::shared_ptr<T> session_, unsigned short id_, char* buff_, unsigned short  len_) { return false; }
 };
 
 #define REGIST_HANDLER(id___, func___) _table[id___] = func___

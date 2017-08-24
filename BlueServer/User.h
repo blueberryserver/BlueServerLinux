@@ -19,7 +19,10 @@ public:
 	virtual ~User();
 
 public:
-	MSG::UserData_ getData();
+	MSG::UserData_& getData()
+	{
+		return _data;
+	}
 
 	virtual Json::Type type() const
 	{

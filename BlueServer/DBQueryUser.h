@@ -9,8 +9,7 @@ class DBQueryUser
 {
 public:
 	DBQueryUser()
-	: _dataCount(0), _status(0)
-	{}
+	: _status(0), _dataCount(0) {}
 
 	// select
 	bool selectData();
