@@ -37,3 +37,13 @@ message RegistAns {
 	required ErrorCode err = 1;
 }
 
+// version
+message VersionReq {
+	required string version = 1;
+}
+
+message VersionAns {
+	required ErrorCode err = 1;
+	// available contents list
+	repeated Contents_ contents = 2;
+}

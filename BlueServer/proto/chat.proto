@@ -1,0 +1,93 @@
+syntax="proto2";
+
+import "common.proto";
+package MSG;
+
+
+// chat
+message ChatReq {
+	required string msg = 1;
+	required ChatType type = 2;
+}
+
+message ChatAns {
+	required ErrorCode err = 1;
+}
+
+message ChatNot {
+	required ChatData_ chats = 1;
+	required ChatType type = 2;
+}
+
+
+// create chat room
+message CreateChatRoomReq {
+	required string name = 1;
+	required string greeting = 2;
+}
+
+message CreateChatRoomAns {
+	required ErrorCode err = 1;
+	optional uint64 rid = 2;
+	optional string rkey = 3;
+}
+
+// invite chat room
+message InviteChatRoomReq {
+	// room info
+	required uint64 rid = 1;
+	required string rkey = 2;
+
+	// invite target info
+	required uint64 target_uid = 3;
+	required string target_name = 4;
+
+}
+
+message InviteChatRoomAns {
+	required ErrorCode err = 1;
+}
+
+message InviteChatRoomNot {
+	// room info
+	required uint64 rid = 1;
+	required string rkey = 2;
+
+	// room owner info
+	required uint64 owner_uid = 3;
+	required string owner_name = 4;
+
+}
+
+// enter chat room
+message EnterChatRoomReq {
+	// room info
+	required uint64 rid = 1;
+	required string rkey = 2;
+}
+
+message EnterChatRoomAns {
+	required ErrorCode err = 1;
+}
+
+message EnterChatRoomNot {
+	required uint64 uid = 1;
+	required string name = 2;
+}
+
+
+// leave chat room
+message LeaveChatRoomReq {
+	// room info
+	required uint64 rid = 1;
+	required string rkey = 2;
+}
+
+message LeaveChatRoomAns {
+	required ErrorCode err = 1;
+}
+
+message LeaveChatRoomNot {
+	required uint64 uid = 1;
+	required string name = 2;
+}

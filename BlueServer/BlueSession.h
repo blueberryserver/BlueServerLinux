@@ -16,7 +16,7 @@ public:
 	virtual void onClose() override;
 	//virtual void onRecvComplete(boost::system::error_code errCode_, std::size_t length_);
 	//virtual void onSendComplete(boost::system::error_code errCode_, std::size_t length_);
-	//virtual void onAcceptComplete();
+	virtual void onAcceptComplete() override;
 	//virtual void onConnectComplete(boost::system::error_code errCode_);
 
 
@@ -25,8 +25,9 @@ public:
 	virtual void SendPacket(short id_, google::protobuf::Message* msg_) override;
 
 	// setting handler
-	static void setMsgHandler(MsgHandler<Session>* handler_);
-	static void deleteMsgHandler();
+	void setMsgHandler(MsgHandler<Session>* handler_);
+private:
+	MsgHandler<Session>* _msgHandler;
 };
 
 DECLARE_SMART_PTR(BlueSession);

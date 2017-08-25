@@ -67,9 +67,12 @@
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="BlueSession.cpp" />
+    <ClCompile Include="ChatHandler.cpp" />
+    <ClCompile Include="cpp\chat.pb.cc" />
     <ClCompile Include="cpp\common.pb.cc" />
     <ClCompile Include="cpp\login.pb.cc" />
     <ClCompile Include="DBQueryUser.cpp" />
+    <ClCompile Include="DefaultHandler.cpp" />
     <ClCompile Include="LoginHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="User.cpp" />
@@ -77,9 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlueSession.h" />
+    <ClInclude Include="ChatHandler.h" />
+    <ClInclude Include="cpp\chat.pb.h" />
     <ClInclude Include="cpp\common.pb.h" />
     <ClInclude Include="cpp\login.pb.h" />
     <ClInclude Include="DBQueryUser.h" />
+    <ClInclude Include="DefaultHandler.h" />
     <ClInclude Include="LoginHandler.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserManager.h" />
@@ -88,6 +94,7 @@
     <None Include="json\config.json" />
     <None Include="proto\build.bat" />
     <None Include="proto\common.proto" />
+    <None Include="proto\chat.proto" />
     <None Include="proto\login.proto" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

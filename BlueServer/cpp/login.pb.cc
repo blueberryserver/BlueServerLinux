@@ -39,6 +39,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* RegistAns_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RegistAns_reflection_ = NULL;
+const ::google::protobuf::Descriptor* VersionReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  VersionReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* VersionAns_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  VersionAns_reflection_ = NULL;
 
 }  // namespace
 
@@ -142,6 +148,37 @@ void protobuf_AssignDesc_login_2eproto() {
       sizeof(RegistAns),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegistAns, _internal_metadata_),
       -1);
+  VersionReq_descriptor_ = file->message_type(6);
+  static const int VersionReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionReq, version_),
+  };
+  VersionReq_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      VersionReq_descriptor_,
+      VersionReq::default_instance_,
+      VersionReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionReq, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(VersionReq),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionReq, _internal_metadata_),
+      -1);
+  VersionAns_descriptor_ = file->message_type(7);
+  static const int VersionAns_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionAns, err_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionAns, contents_),
+  };
+  VersionAns_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      VersionAns_descriptor_,
+      VersionAns::default_instance_,
+      VersionAns_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionAns, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(VersionAns),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionAns, _internal_metadata_),
+      -1);
 }
 
 namespace {
@@ -167,6 +204,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
       RegistReq_descriptor_, &RegistReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       RegistAns_descriptor_, &RegistAns::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      VersionReq_descriptor_, &VersionReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      VersionAns_descriptor_, &VersionAns::default_instance());
 }
 
 }  // namespace
@@ -184,6 +225,10 @@ void protobuf_ShutdownFile_login_2eproto() {
   delete RegistReq_reflection_;
   delete RegistAns::default_instance_;
   delete RegistAns_reflection_;
+  delete VersionReq::default_instance_;
+  delete VersionReq_reflection_;
+  delete VersionAns::default_instance_;
+  delete VersionAns_reflection_;
 }
 
 void protobuf_AddDesc_login_2eproto() GOOGLE_ATTRIBUTE_COLD;
@@ -202,7 +247,10 @@ void protobuf_AddDesc_login_2eproto() {
     "G.ErrorCode\022\023\n\013session_key\030\002 \001(\t\022\034\n\004data"
     "\030\003 \001(\0132\016.MSG.UserData_\")\n\tRegistReq\022\034\n\004d"
     "ata\030\001 \002(\0132\016.MSG.UserData_\"(\n\tRegistAns\022\033"
-    "\n\003err\030\001 \002(\0162\016.MSG.ErrorCode", 307);
+    "\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\"\035\n\nVersionRe"
+    "q\022\017\n\007version\030\001 \002(\t\"K\n\nVersionAns\022\033\n\003err\030"
+    "\001 \002(\0162\016.MSG.ErrorCode\022 \n\010contents\030\002 \003(\0132"
+    "\016.MSG.Contents_", 415);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "login.proto", &protobuf_RegisterTypes);
   PingReq::default_instance_ = new PingReq();
@@ -211,12 +259,16 @@ void protobuf_AddDesc_login_2eproto() {
   LoginAns::default_instance_ = new LoginAns();
   RegistReq::default_instance_ = new RegistReq();
   RegistAns::default_instance_ = new RegistAns();
+  VersionReq::default_instance_ = new VersionReq();
+  VersionAns::default_instance_ = new VersionAns();
   PingReq::default_instance_->InitAsDefaultInstance();
   PongAns::default_instance_->InitAsDefaultInstance();
   LoginReq::default_instance_->InitAsDefaultInstance();
   LoginAns::default_instance_->InitAsDefaultInstance();
   RegistReq::default_instance_->InitAsDefaultInstance();
   RegistAns::default_instance_->InitAsDefaultInstance();
+  VersionReq::default_instance_->InitAsDefaultInstance();
+  VersionAns::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_login_2eproto);
 }
 
@@ -2200,6 +2252,676 @@ void RegistAns::clear_err() {
   set_has_err();
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.RegistAns.err)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int VersionReq::kVersionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+VersionReq::VersionReq()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:MSG.VersionReq)
+}
+
+void VersionReq::InitAsDefaultInstance() {
+}
+
+VersionReq::VersionReq(const VersionReq& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:MSG.VersionReq)
+}
+
+void VersionReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+VersionReq::~VersionReq() {
+  // @@protoc_insertion_point(destructor:MSG.VersionReq)
+  SharedDtor();
+}
+
+void VersionReq::SharedDtor() {
+  version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void VersionReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* VersionReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return VersionReq_descriptor_;
+}
+
+const VersionReq& VersionReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_login_2eproto();
+  return *default_instance_;
+}
+
+VersionReq* VersionReq::default_instance_ = NULL;
+
+VersionReq* VersionReq::New(::google::protobuf::Arena* arena) const {
+  VersionReq* n = new VersionReq;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void VersionReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:MSG.VersionReq)
+  if (has_version()) {
+    version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool VersionReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:MSG.VersionReq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string version = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_version()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->version().data(), this->version().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "MSG.VersionReq.version");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:MSG.VersionReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:MSG.VersionReq)
+  return false;
+#undef DO_
+}
+
+void VersionReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:MSG.VersionReq)
+  // required string version = 1;
+  if (has_version()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->version().data(), this->version().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.VersionReq.version");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->version(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:MSG.VersionReq)
+}
+
+::google::protobuf::uint8* VersionReq::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MSG.VersionReq)
+  // required string version = 1;
+  if (has_version()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->version().data(), this->version().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.VersionReq.version");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->version(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MSG.VersionReq)
+  return target;
+}
+
+int VersionReq::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:MSG.VersionReq)
+  int total_size = 0;
+
+  // required string version = 1;
+  if (has_version()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->version());
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void VersionReq::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MSG.VersionReq)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const VersionReq* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const VersionReq>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MSG.VersionReq)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MSG.VersionReq)
+    MergeFrom(*source);
+  }
+}
+
+void VersionReq::MergeFrom(const VersionReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MSG.VersionReq)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_version()) {
+      set_has_version();
+      version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void VersionReq::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MSG.VersionReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void VersionReq::CopyFrom(const VersionReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MSG.VersionReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VersionReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void VersionReq::Swap(VersionReq* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void VersionReq::InternalSwap(VersionReq* other) {
+  version_.Swap(&other->version_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata VersionReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = VersionReq_descriptor_;
+  metadata.reflection = VersionReq_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// VersionReq
+
+// required string version = 1;
+bool VersionReq::has_version() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void VersionReq::set_has_version() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void VersionReq::clear_has_version() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void VersionReq::clear_version() {
+  version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_version();
+}
+ const ::std::string& VersionReq::version() const {
+  // @@protoc_insertion_point(field_get:MSG.VersionReq.version)
+  return version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void VersionReq::set_version(const ::std::string& value) {
+  set_has_version();
+  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.VersionReq.version)
+}
+ void VersionReq::set_version(const char* value) {
+  set_has_version();
+  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.VersionReq.version)
+}
+ void VersionReq::set_version(const char* value, size_t size) {
+  set_has_version();
+  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.VersionReq.version)
+}
+ ::std::string* VersionReq::mutable_version() {
+  set_has_version();
+  // @@protoc_insertion_point(field_mutable:MSG.VersionReq.version)
+  return version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* VersionReq::release_version() {
+  // @@protoc_insertion_point(field_release:MSG.VersionReq.version)
+  clear_has_version();
+  return version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void VersionReq::set_allocated_version(::std::string* version) {
+  if (version != NULL) {
+    set_has_version();
+  } else {
+    clear_has_version();
+  }
+  version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), version);
+  // @@protoc_insertion_point(field_set_allocated:MSG.VersionReq.version)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int VersionAns::kErrFieldNumber;
+const int VersionAns::kContentsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+VersionAns::VersionAns()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:MSG.VersionAns)
+}
+
+void VersionAns::InitAsDefaultInstance() {
+}
+
+VersionAns::VersionAns(const VersionAns& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:MSG.VersionAns)
+}
+
+void VersionAns::SharedCtor() {
+  _cached_size_ = 0;
+  err_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+VersionAns::~VersionAns() {
+  // @@protoc_insertion_point(destructor:MSG.VersionAns)
+  SharedDtor();
+}
+
+void VersionAns::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void VersionAns::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* VersionAns::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return VersionAns_descriptor_;
+}
+
+const VersionAns& VersionAns::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_login_2eproto();
+  return *default_instance_;
+}
+
+VersionAns* VersionAns::default_instance_ = NULL;
+
+VersionAns* VersionAns::New(::google::protobuf::Arena* arena) const {
+  VersionAns* n = new VersionAns;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void VersionAns::Clear() {
+// @@protoc_insertion_point(message_clear_start:MSG.VersionAns)
+  err_ = 0;
+  contents_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool VersionAns::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:MSG.VersionAns)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .MSG.ErrorCode err = 1;
+      case 1: {
+        if (tag == 8) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::MSG::ErrorCode_IsValid(value)) {
+            set_err(static_cast< ::MSG::ErrorCode >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_contents;
+        break;
+      }
+
+      // repeated .MSG.Contents_ contents = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_contents:
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_contents:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_contents()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_loop_contents;
+        input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:MSG.VersionAns)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:MSG.VersionAns)
+  return false;
+#undef DO_
+}
+
+void VersionAns::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:MSG.VersionAns)
+  // required .MSG.ErrorCode err = 1;
+  if (has_err()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->err(), output);
+  }
+
+  // repeated .MSG.Contents_ contents = 2;
+  for (unsigned int i = 0, n = this->contents_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->contents(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:MSG.VersionAns)
+}
+
+::google::protobuf::uint8* VersionAns::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MSG.VersionAns)
+  // required .MSG.ErrorCode err = 1;
+  if (has_err()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->err(), target);
+  }
+
+  // repeated .MSG.Contents_ contents = 2;
+  for (unsigned int i = 0, n = this->contents_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, this->contents(i), false, target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MSG.VersionAns)
+  return target;
+}
+
+int VersionAns::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:MSG.VersionAns)
+  int total_size = 0;
+
+  // required .MSG.ErrorCode err = 1;
+  if (has_err()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
+  }
+  // repeated .MSG.Contents_ contents = 2;
+  total_size += 1 * this->contents_size();
+  for (int i = 0; i < this->contents_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->contents(i));
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void VersionAns::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MSG.VersionAns)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const VersionAns* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const VersionAns>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MSG.VersionAns)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MSG.VersionAns)
+    MergeFrom(*source);
+  }
+}
+
+void VersionAns::MergeFrom(const VersionAns& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MSG.VersionAns)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  contents_.MergeFrom(from.contents_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_err()) {
+      set_err(from.err());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void VersionAns::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MSG.VersionAns)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void VersionAns::CopyFrom(const VersionAns& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MSG.VersionAns)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VersionAns::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->contents())) return false;
+  return true;
+}
+
+void VersionAns::Swap(VersionAns* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void VersionAns::InternalSwap(VersionAns* other) {
+  std::swap(err_, other->err_);
+  contents_.UnsafeArenaSwap(&other->contents_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata VersionAns::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = VersionAns_descriptor_;
+  metadata.reflection = VersionAns_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// VersionAns
+
+// required .MSG.ErrorCode err = 1;
+bool VersionAns::has_err() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void VersionAns::set_has_err() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void VersionAns::clear_has_err() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void VersionAns::clear_err() {
+  err_ = 0;
+  clear_has_err();
+}
+ ::MSG::ErrorCode VersionAns::err() const {
+  // @@protoc_insertion_point(field_get:MSG.VersionAns.err)
+  return static_cast< ::MSG::ErrorCode >(err_);
+}
+ void VersionAns::set_err(::MSG::ErrorCode value) {
+  assert(::MSG::ErrorCode_IsValid(value));
+  set_has_err();
+  err_ = value;
+  // @@protoc_insertion_point(field_set:MSG.VersionAns.err)
+}
+
+// repeated .MSG.Contents_ contents = 2;
+int VersionAns::contents_size() const {
+  return contents_.size();
+}
+void VersionAns::clear_contents() {
+  contents_.Clear();
+}
+const ::MSG::Contents_& VersionAns::contents(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.VersionAns.contents)
+  return contents_.Get(index);
+}
+::MSG::Contents_* VersionAns::mutable_contents(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.VersionAns.contents)
+  return contents_.Mutable(index);
+}
+::MSG::Contents_* VersionAns::add_contents() {
+  // @@protoc_insertion_point(field_add:MSG.VersionAns.contents)
+  return contents_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::MSG::Contents_ >*
+VersionAns::mutable_contents() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.VersionAns.contents)
+  return &contents_;
+}
+const ::google::protobuf::RepeatedPtrField< ::MSG::Contents_ >&
+VersionAns::contents() const {
+  // @@protoc_insertion_point(field_list:MSG.VersionAns.contents)
+  return contents_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

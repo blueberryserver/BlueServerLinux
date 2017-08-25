@@ -14,6 +14,28 @@ enum MsgId {
 	REGIST_REQ = 10105;
 	REGIST_ANS = 10106;
 
+	VERSION_REQ = 10107;
+	VERSION_ANS = 10108;
+
+	CHAT_REQ = 20101;
+	CHAT_ANS = 20102;
+	CHAT_NOT = 20103;
+
+	CREATECHATROOM_REQ = 20111;
+	CREATECHATROOM_ANS = 20112;
+	CREATECHATROOM_NOT = 20113;
+
+	INVITECHATROOM_REQ = 20121;
+	INVITECHATROOM_ANS = 20122;
+	INVITECHATROOM_NOT = 20123;
+
+	ENTERCHATROOM_REQ = 20131;
+	ENTERCHATROOM_ANS = 20132;
+	ENTERCHATROOM_NOT = 20133;
+
+	LEAVECHATROOM_REQ = 20141;
+	LEAVECHATROOM_ANS = 20142;
+	LEAVECHATROOM_NOT = 20143;
 
 }
 
@@ -48,5 +70,85 @@ message UserData_ {
 	optional uint32 vc1 = 8;
 	optional uint32 vc2 = 9;
 	optional uint32 vc3 = 10;
+}
 
+// contents info data
+message Contents_ {
+	// contents type
+	enum ContentType {
+		// ingame
+		CT_INGAME = 1;
+
+		// outgame
+		CT_OUTGAME = 2;
+
+		// in app purchase
+		CT_INAPPBUY = 3;
+	}
+
+	required ContentType type = 1;
+	required string name = 2;
+	
+}
+
+// group memebr
+message GMember_ {
+	enum GradeType {
+		Grade_1 = 1;
+		Grade_2 = 2;
+		Grade_3 = 3;
+		Grade_4 = 4;
+		Grade_5 = 5;
+	}
+
+	required uint64 uid = 1;
+	required string name = 2;
+	required GradeType grade = 3;
+}
+
+// group
+message Group_ {
+	required uint64 gid = 1;
+	required string name = 2;
+	required string country = 3;
+	required uint64 leader = 4;
+
+
+	required uint32 limit = 5;
+	repeated GMember_ members = 6;
+}
+
+
+// chat type
+enum ChatType {
+	CHAT_CHANNEL = 1;
+	CHAT_GROUP = 2;
+	CHAT_ROOM = 3;
+}
+
+// chat 
+message ChatData_ {
+	required uint64 uid = 1;
+	required string name = 2;
+	required string group_name = 3;
+
+	required string languge = 4;
+	required string chat = 5;
+	required uint64 reg_date = 6;
+}
+
+// chat room
+message ChatRoom_ {
+	required uint64 rid = 1;
+	required string name = 2;
+
+	repeated ChatData_ chats = 3;
+}
+
+// chat channel
+message ChatChannel_ {
+	required uint64 cid = 1;
+	required string name = 2;
+	
+	repeated ChatData_ chats = 3;
 }

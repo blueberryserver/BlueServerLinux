@@ -1,26 +1,20 @@
 #include "BlueSession.h"
 #include "../BlueCore/Packet.h"
 #include "../BlueCore/Logger.h"
+#include "DefaultHandler.h"
+#include "LoginHandler.h"
 
 namespace BLUE_BERRY
 {
 
-static MsgHandler<Session>* __msgHandler = nullptr;
 void BlueSession::setMsgHandler(MsgHandler<Session>* handler_)
 {
-	__msgHandler = handler_;
-}
-
-void BlueSession::deleteMsgHandler()
-{
-	if( __msgHandler)
-		delete __msgHandler;
+	_msgHandler = handler_;
 }
 
 BlueSession::BlueSession(boost::asio::io_service& io_)
-	: Session(io_)
-{
-}
+	: Session(io_), _msgHandler(DefaultHandler::getDefaultHandler())
+{}
 
 
 BlueSession::~BlueSession()
@@ -30,7 +24,13 @@ BlueSession::~BlueSession()
 
 void BlueSession::onClose()
 {
-	__msgHandler->execute(shared_from_this(), CLOSED, nullptr, 0);
+	_msgHandler->execute(shared_from_this(), CLOSED, nullptr, 0);
+}
+
+void BlueSession::onAcceptComplete()
+{
+	setMsgHandler(LoginHandler::getLoginHandler());
+	Session::onAcceptComplete();
 }
 
 void BlueSession::recvPacketProc()
@@ -41,11 +41,10 @@ void BlueSession::recvPacketProc()
 	Packet packet(rBufferPoint, recvBuffSize);
 	while (packet.next())
 	{
-		__msgHandler->execute(shared_from_this(), packet.getId(), packet.getData(), packet.getDataLength());
+		_msgHandler->execute(shared_from_this(), packet.getId(), packet.getData(), packet.getDataLength());
 		_recvBuff->remove(packet.getPacketLength());
 	}
 }
-
 
 
 void BlueSession::SendPacket(short id_, google::protobuf::Message* msg_)

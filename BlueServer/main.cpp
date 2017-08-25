@@ -9,8 +9,11 @@
 #include "../BlueCore/JsonFileLoader.h"
 
 #include "BlueSession.h"
-#include "LoginHandler.h"
 #include "UserManager.h"
+
+#include "DefaultHandler.h"
+#include "LoginHandler.h"
+#include "ChatHandler.h"
 
 
 using namespace BLUE_BERRY;
@@ -90,7 +93,9 @@ int main(int argc, char *argv[])
 	auto server = new Server<BlueSession>();
 	server->start((short)tcpPort);
 
-	BlueSession::setMsgHandler(new LoginHandler());
+	DefaultHandler::setDefaultHandler(new DefaultHandler());
+	LoginHandler::setLoginHandler(new LoginHandler());
+	ChatHandler::setChatHandler(new ChatHandler());
 
 	UserManager::setUserManager(new UserManager());
 	UserManager::getUserManager()->start();
@@ -104,7 +109,6 @@ int main(int argc, char *argv[])
 	server->stop();
 
 	UserManager::deleteUserManager();
-	BlueSession::deleteMsgHandler();
 
 	delete server;
 

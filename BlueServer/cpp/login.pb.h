@@ -43,6 +43,8 @@ class PingReq;
 class PongAns;
 class RegistAns;
 class RegistReq;
+class VersionAns;
+class VersionReq;
 
 // ===================================================================
 
@@ -641,6 +643,210 @@ class RegistAns : public ::google::protobuf::Message /* @@protoc_insertion_point
   void InitAsDefaultInstance();
   static RegistAns* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class VersionReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.VersionReq) */ {
+ public:
+  VersionReq();
+  virtual ~VersionReq();
+
+  VersionReq(const VersionReq& from);
+
+  inline VersionReq& operator=(const VersionReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const VersionReq& default_instance();
+
+  void Swap(VersionReq* other);
+
+  // implements Message ----------------------------------------------
+
+  inline VersionReq* New() const { return New(NULL); }
+
+  VersionReq* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const VersionReq& from);
+  void MergeFrom(const VersionReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(VersionReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string version = 1;
+  bool has_version() const;
+  void clear_version();
+  static const int kVersionFieldNumber = 1;
+  const ::std::string& version() const;
+  void set_version(const ::std::string& value);
+  void set_version(const char* value);
+  void set_version(const char* value, size_t size);
+  ::std::string* mutable_version();
+  ::std::string* release_version();
+  void set_allocated_version(::std::string* version);
+
+  // @@protoc_insertion_point(class_scope:MSG.VersionReq)
+ private:
+  inline void set_has_version();
+  inline void clear_has_version();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr version_;
+  friend void  protobuf_AddDesc_login_2eproto();
+  friend void protobuf_AssignDesc_login_2eproto();
+  friend void protobuf_ShutdownFile_login_2eproto();
+
+  void InitAsDefaultInstance();
+  static VersionReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class VersionAns : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.VersionAns) */ {
+ public:
+  VersionAns();
+  virtual ~VersionAns();
+
+  VersionAns(const VersionAns& from);
+
+  inline VersionAns& operator=(const VersionAns& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const VersionAns& default_instance();
+
+  void Swap(VersionAns* other);
+
+  // implements Message ----------------------------------------------
+
+  inline VersionAns* New() const { return New(NULL); }
+
+  VersionAns* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const VersionAns& from);
+  void MergeFrom(const VersionAns& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(VersionAns* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .MSG.ErrorCode err = 1;
+  bool has_err() const;
+  void clear_err();
+  static const int kErrFieldNumber = 1;
+  ::MSG::ErrorCode err() const;
+  void set_err(::MSG::ErrorCode value);
+
+  // repeated .MSG.Contents_ contents = 2;
+  int contents_size() const;
+  void clear_contents();
+  static const int kContentsFieldNumber = 2;
+  const ::MSG::Contents_& contents(int index) const;
+  ::MSG::Contents_* mutable_contents(int index);
+  ::MSG::Contents_* add_contents();
+  ::google::protobuf::RepeatedPtrField< ::MSG::Contents_ >*
+      mutable_contents();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::Contents_ >&
+      contents() const;
+
+  // @@protoc_insertion_point(class_scope:MSG.VersionAns)
+ private:
+  inline void set_has_err();
+  inline void clear_has_err();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::Contents_ > contents_;
+  int err_;
+  friend void  protobuf_AddDesc_login_2eproto();
+  friend void protobuf_AssignDesc_login_2eproto();
+  friend void protobuf_ShutdownFile_login_2eproto();
+
+  void InitAsDefaultInstance();
+  static VersionAns* default_instance_;
+};
 // ===================================================================
 
 
@@ -994,7 +1200,128 @@ inline void RegistAns::set_err(::MSG::ErrorCode value) {
   // @@protoc_insertion_point(field_set:MSG.RegistAns.err)
 }
 
+// -------------------------------------------------------------------
+
+// VersionReq
+
+// required string version = 1;
+inline bool VersionReq::has_version() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void VersionReq::set_has_version() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void VersionReq::clear_has_version() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void VersionReq::clear_version() {
+  version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_version();
+}
+inline const ::std::string& VersionReq::version() const {
+  // @@protoc_insertion_point(field_get:MSG.VersionReq.version)
+  return version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void VersionReq::set_version(const ::std::string& value) {
+  set_has_version();
+  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.VersionReq.version)
+}
+inline void VersionReq::set_version(const char* value) {
+  set_has_version();
+  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.VersionReq.version)
+}
+inline void VersionReq::set_version(const char* value, size_t size) {
+  set_has_version();
+  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.VersionReq.version)
+}
+inline ::std::string* VersionReq::mutable_version() {
+  set_has_version();
+  // @@protoc_insertion_point(field_mutable:MSG.VersionReq.version)
+  return version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* VersionReq::release_version() {
+  // @@protoc_insertion_point(field_release:MSG.VersionReq.version)
+  clear_has_version();
+  return version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void VersionReq::set_allocated_version(::std::string* version) {
+  if (version != NULL) {
+    set_has_version();
+  } else {
+    clear_has_version();
+  }
+  version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), version);
+  // @@protoc_insertion_point(field_set_allocated:MSG.VersionReq.version)
+}
+
+// -------------------------------------------------------------------
+
+// VersionAns
+
+// required .MSG.ErrorCode err = 1;
+inline bool VersionAns::has_err() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void VersionAns::set_has_err() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void VersionAns::clear_has_err() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void VersionAns::clear_err() {
+  err_ = 0;
+  clear_has_err();
+}
+inline ::MSG::ErrorCode VersionAns::err() const {
+  // @@protoc_insertion_point(field_get:MSG.VersionAns.err)
+  return static_cast< ::MSG::ErrorCode >(err_);
+}
+inline void VersionAns::set_err(::MSG::ErrorCode value) {
+  assert(::MSG::ErrorCode_IsValid(value));
+  set_has_err();
+  err_ = value;
+  // @@protoc_insertion_point(field_set:MSG.VersionAns.err)
+}
+
+// repeated .MSG.Contents_ contents = 2;
+inline int VersionAns::contents_size() const {
+  return contents_.size();
+}
+inline void VersionAns::clear_contents() {
+  contents_.Clear();
+}
+inline const ::MSG::Contents_& VersionAns::contents(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.VersionAns.contents)
+  return contents_.Get(index);
+}
+inline ::MSG::Contents_* VersionAns::mutable_contents(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.VersionAns.contents)
+  return contents_.Mutable(index);
+}
+inline ::MSG::Contents_* VersionAns::add_contents() {
+  // @@protoc_insertion_point(field_add:MSG.VersionAns.contents)
+  return contents_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::Contents_ >*
+VersionAns::mutable_contents() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.VersionAns.contents)
+  return &contents_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::Contents_ >&
+VersionAns::contents() const {
+  // @@protoc_insertion_point(field_list:MSG.VersionAns.contents)
+  return contents_;
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
