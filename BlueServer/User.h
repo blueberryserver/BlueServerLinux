@@ -1,4 +1,5 @@
 #pragma once
+#include <unordered_set>
 #include "../BlueCore/Macro.h"
 #include "../BlueCore/json11.hpp"
 #include "../BlueCore/DateTime.h"
@@ -9,6 +10,7 @@ using namespace json11;
 namespace BLUE_BERRY
 {
 FOWARD_DECLARE(Session)
+FOWARD_DECLARE(ChatRoom)
 
 class User : public JsonValue
 {
@@ -47,7 +49,7 @@ public:
 	Json to_json() const
 	{
 		Json::object jObj;
-		jObj["uid"] = std::to_string(_data.uid());
+		jObj["uid"] = Json((double)_data.uid());
 		jObj["name"] = _data.name();
 		jObj["did"] = _data.did();
 		jObj["platform"] = std::to_string(_data.platform());
@@ -55,9 +57,12 @@ public:
 		jObj["login_date"] = _data.login_date();
 		jObj["logout_date"] = _data.logout_date();
 		jObj["reg_date"] = _data.reg_date();
-		jObj["vc1"] = std::to_string(_data.vc1());
-		jObj["vc2"] = std::to_string(_data.vc2());
-		jObj["vc3"] = std::to_string(_data.vc3());
+		jObj["vc1"] = Json((int)_data.vc1());
+		jObj["vc2"] = Json((int)_data.vc2());
+		jObj["vc3"] = Json((int)_data.vc3());
+
+		jObj["group_name"] = _data.group_name();
+		jObj["language"] = _data.language();
 
 		return Json(jObj);
 	}
@@ -71,6 +76,9 @@ public:
 
 	int64_t getPingTime() { return _pingTime; }
 	void setPingTime(const int64_t time_) { _pingTime = time_; }
+
+	void joinRoom(ChatRoomPtr room_);
+	void leaveRoom(ChatRoomPtr room_);
 public:
 	// session key
 	std::string _sessionKey;
@@ -83,6 +91,9 @@ public:
 
 	// ping time
 	int64_t _pingTime;
+
+	// join room
+	std::unordered_set<ChatRoomPtr> _rooms;
 };
 
 DECLARE_SMART_PTR(User)

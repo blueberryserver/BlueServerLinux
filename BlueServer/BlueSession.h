@@ -25,7 +25,7 @@ public:
 	virtual void SendPacket(short id_, google::protobuf::Message* msg_) override;
 
 	// setting handler
-	void setMsgHandler(MsgHandler<Session>* handler_);
+	virtual void setMsgHandler(MsgHandler<Session>* handler_);
 private:
 	MsgHandler<Session>* _msgHandler;
 };

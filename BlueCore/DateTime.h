@@ -9,6 +9,7 @@ typedef std::chrono::hours _hours;
 typedef std::chrono::minutes _minutes;
 typedef std::chrono::seconds _seconds;
 typedef std::chrono::milliseconds _milliseconds;
+typedef std::chrono::microseconds _microseconds;
 
 class DateTime
 {
@@ -63,6 +64,7 @@ public:
 	static DateTime getCurrentDateTime();
 	static int getGMTOff();
 	static int64_t GetTickCount();
+	static int64_t GetTickCountM();
 
 	// friend 
 	friend std::ostream& operator<<(std::ostream& s_, const DateTime& time_);

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "JsonFileLoader.h"
+#include "DateTime.h"
 
 namespace BLUE_BERRY
 {
@@ -16,7 +17,7 @@ JsonFileLoader::~JsonFileLoader()
 
 void JsonFileLoader::start()
 {
-	doTimer(1000 * 60, true, &JsonFileLoader::tick);
+	doTimer(std::chrono::duration_cast<_seconds>(_minutes(1)).count(), true, &JsonFileLoader::tick);
 }
 
 void JsonFileLoader::stop()

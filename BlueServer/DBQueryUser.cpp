@@ -12,7 +12,7 @@ bool DBQueryUser::selectData()
 
 	try
 	{
-		auto pstmt = dbcon.preparedStatment("SELECT uid, name, did, platform, login_date, logout_date, reg_date, vc1, vc2, vc3 FROM UserData WHERE name=?");
+		auto pstmt = dbcon.preparedStatment("SELECT uid, name, did, platform, login_date, logout_date, reg_date, vc1, vc2, vc3, group_name, language FROM UserData WHERE name=?");
 		pstmt->setString(1, _userData.name());
 
 		auto resultSet = pstmt->executeQuery();
@@ -28,6 +28,8 @@ bool DBQueryUser::selectData()
 			_userData.set_vc1(resultSet->getUInt(8));
 			_userData.set_vc2(resultSet->getUInt(9));
 			_userData.set_vc3(resultSet->getUInt(10));
+			_userData.set_group_name(resultSet->getString(11));
+			_userData.set_language(resultSet->getString(12));
 
 			_dataCount++;
 			return true;
@@ -53,7 +55,7 @@ bool DBQueryUser::updateData()
 
 	try
 	{
-		auto pstmt = dbcon.preparedStatment("UPDATE UserData SET name=?, did=?, platform=?, login_date=?, logout_date=?, reg_date=?, vc1=?, vc2=?, vc3=? WHERE uid=?");
+		auto pstmt = dbcon.preparedStatment("UPDATE UserData SET name=?, did=?, platform=?, login_date=?, logout_date=?, reg_date=?, vc1=?, vc2=?, vc3=?, group_name=?, language=? WHERE uid=?");
 		pstmt->setString(1, _userData.name());
 		pstmt->setString(2, _userData.did());
 		pstmt->setUInt(3, _userData.platform());
@@ -63,8 +65,10 @@ bool DBQueryUser::updateData()
 		pstmt->setUInt(7, _userData.vc1());
 		pstmt->setUInt(8, _userData.vc2());
 		pstmt->setUInt(9, _userData.vc3());
+		pstmt->setString(10, _userData.group_name());
+		pstmt->setString(11, _userData.language());
 
-		pstmt->setUInt64(10, _userData.uid());
+		pstmt->setUInt64(12, _userData.uid());
 
 
 		auto updateRows = pstmt->executeUpdate();
@@ -91,7 +95,7 @@ bool DBQueryUser::insertData()
 
 	try
 	{
-		auto pstmt = dbcon.preparedStatment("INSERT INTO UserData(uid, name, did, platform, login_date, logout_date, reg_date, vc1, vc2, vc3) VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		auto pstmt = dbcon.preparedStatment("INSERT INTO UserData(uid, name, did, platform, login_date, logout_date, reg_date, vc1, vc2, vc3, group_name, language) VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		pstmt->setString(1, _userData.name());
 		pstmt->setString(2, _userData.did());
 		pstmt->setUInt(3, _userData.platform());
@@ -101,6 +105,8 @@ bool DBQueryUser::insertData()
 		pstmt->setUInt(7, _userData.vc1());
 		pstmt->setUInt(8, _userData.vc2());
 		pstmt->setUInt(9, _userData.vc3());
+		pstmt->setString(10, _userData.group_name());
+		pstmt->setString(11, _userData.language());
 
 
 		auto updateRows = pstmt->executeUpdate();

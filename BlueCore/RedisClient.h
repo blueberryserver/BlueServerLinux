@@ -33,7 +33,7 @@ public:
 
 		_MSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProc, this, std::placeholders::_1));
 		_SSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProc, this, std::placeholders::_1));
-		_SubSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProc, this, std::placeholders::_1));
+		_SubSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProcByPublish, this, std::placeholders::_1));
 
 	}
 	~RedisConntion()
@@ -113,6 +113,10 @@ public:
 							}
 						}
 					}
+					else
+					{
+						LOG(L_INFO_, "key pop fail");
+					}
 				}
 			}
 
@@ -121,6 +125,45 @@ public:
 		}
 	}
 
+	void setChannelMsgJob(Callback* job_) { _channelMsgJob = job_; }
+	void recvPacketProcByPublish(CircularBuffer* buff_)
+	{
+		size_t recvBuffSize = buff_->getContiguiousBytes();
+
+		while (recvBuffSize >= 1)
+		{
+			size_t len = 0;
+			auto cmd = buff_->getReadableBuffer();
+			LOG(L_DEBUG_, "replay", "origin str", std::string(cmd, recvBuffSize));
+
+			_RedisReply reply;
+			if (true == redisReplyParsing(reply, cmd, recvBuffSize, len))
+			{
+				// debuging reply log write
+				if (reply._type == REPY_INTEGER)
+				{
+					LOG(L_DEBUG_, "replay", "result", (int)reply._integer);
+				}
+				else if (reply._type == REPY_STRING || reply._type == REPY_ERROR || reply._type == REPY_BULKSTRING)
+				{
+					LOG(L_DEBUG_, "replay", "result", &reply._string[0]);
+				}
+				else if (reply._type == REPY_NIL)
+				{
+					LOG(L_DEBUG_, "replay", "result", "nil");
+				}
+				else if (reply._type == REPY_ARRAY)
+				{
+					LOG(L_DEBUG_, "replay", "array", reply.to_json());
+				}
+
+				executePostJobNoDelete(_channelMsgJob, reply);
+			}
+
+			recvBuffSize -= len;
+			buff_->remove(len);
+		}
+	}
 
 	// server command
 	size_t select(int index_)
@@ -557,30 +600,30 @@ public:
 		ss << "$" << strlen(data_) << "\r\n";
 		ss << data_ << "\r\n";
 
-		return sendMsg(ss.str(), PUBSUB_CONN);
+		return sendMsg(ss.str());
 
 	}
-	size_t subscribe(std::vector<std::string>& channels_)
+	size_t subscribe(const std::vector<std::string>& channels_)
 	{
 		std::stringstream ss;
-		for (int i = 0; i < channels_.size(); i++)
+		for (size_t i = 0; i < channels_.size(); i++)
 		{
-			ss << "*3\r\n";
+			ss << "*2\r\n";
 			ss << "$9\r\n";
 			ss << "SUBSCRIBE\r\n";
 			ss << "$" << channels_[i].length() << "\r\n";
 			ss << channels_[i] << "\r\n";
 
-			ss << "$" << std::to_string(i + 1).length() << "\r\n";
-			ss << std::to_string(i + 1) << "\r\n";
+			//ss << "$" << std::to_string(i + 1).length() << "\r\n";
+			//ss << std::to_string(i + 1) << "\r\n";
 		}
 
 		return sendMsg(ss.str(), PUBSUB_CONN);
 	}
-	size_t unsubscribe(std::vector<std::string>& channels_)
+	size_t unsubscribe(const std::vector<std::string>& channels_)
 	{
 		std::stringstream ss;
-		for (int i = 0; i < channels_.size(); i++)
+		for (size_t i = 0; i < channels_.size(); i++)
 		{
 			ss << "*3\r\n";
 			ss << "$9\r\n";
@@ -588,16 +631,16 @@ public:
 			ss << "$" << channels_[i].length() << "\r\n";
 			ss << channels_[i] << "\r\n";
 
-			ss << "$" << std::to_string(i + 1).length() << "\r\n";
-			ss << std::to_string(i + 1) << "\r\n";
+			//ss << ":" << std::to_string(i + 1).length() << "\r\n";
+			ss << ":" << std::to_string(i + 1) << "\r\n";
 		}
 
 		return sendMsg(ss.str(), PUBSUB_CONN);
 	}
-	size_t psubscribe(std::vector<std::string>& patterns_)
+	size_t psubscribe(const std::vector<std::string>& patterns_)
 	{
 		std::stringstream ss;
-		for (int i = 0; i < patterns_.size(); i++)
+		for (size_t i = 0; i < patterns_.size(); i++)
 		{
 			ss << "*3\r\n";
 			ss << "$10\r\n";
@@ -605,15 +648,15 @@ public:
 			ss << "$" << patterns_[i].length() << "\r\n";
 			ss << patterns_[i] << "\r\n";
 
-			ss << "$" << std::to_string(i + 1).length() << "\r\n";
-			ss << std::to_string(i + 1) << "\r\n";
+			//ss << ":" << std::to_string(i + 1).length() << "\r\n";
+			ss << ":" << std::to_string(i + 1) << "\r\n";
 		}
 		return sendMsg(ss.str(), PUBSUB_CONN);
 	}
-	size_t punsubscribe(std::vector<std::string>& patterns_)
+	size_t punsubscribe(const std::vector<std::string>& patterns_)
 	{
 		std::stringstream ss;
-		for (int i = 0; i < patterns_.size(); i++)
+		for (size_t i = 0; i < patterns_.size(); i++)
 		{
 			ss << "*3\r\n";
 			ss << "$12\r\n";
@@ -621,8 +664,8 @@ public:
 			ss << "$" << patterns_[i].length() << "\r\n";
 			ss << patterns_[i] << "\r\n";
 
-			ss << "$" << std::to_string(i + 1).length() << "\r\n";
-			ss << std::to_string(i + 1) << "\r\n";
+			//ss << ":" << std::to_string(i + 1).length() << "\r\n";
+			ss << ":" << std::to_string(i + 1) << "\r\n";
 		}
 		return sendMsg(ss.str(), PUBSUB_CONN);
 	}
@@ -641,7 +684,6 @@ private:
 		if (type_ == MASTER_CONN)
 		{
 			_MSession->send(packet);
-			return key;
 		}
 		else if (type_ == SLAVE_CONN)
 		{
@@ -660,6 +702,7 @@ private:
 
 	TPtr _SubSession;	// subscribe session
 
+	Callback* _channelMsgJob;
 	// redis request keys
 	LockFreeQueue<size_t, 65536> _keys;
 };
@@ -706,7 +749,6 @@ public:
 	{
 		std::shared_ptr< RedisConntion<Session> > client;
 		if (_pool[serverNo_].pop(client) == true) return client;
-
 		return client;
 	}
 

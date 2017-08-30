@@ -354,6 +354,30 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::uint32 vc3() const;
   void set_vc3(::google::protobuf::uint32 value);
 
+  // optional string group_name = 11;
+  bool has_group_name() const;
+  void clear_group_name();
+  static const int kGroupNameFieldNumber = 11;
+  const ::std::string& group_name() const;
+  void set_group_name(const ::std::string& value);
+  void set_group_name(const char* value);
+  void set_group_name(const char* value, size_t size);
+  ::std::string* mutable_group_name();
+  ::std::string* release_group_name();
+  void set_allocated_group_name(::std::string* group_name);
+
+  // optional string language = 12;
+  bool has_language() const;
+  void clear_language();
+  static const int kLanguageFieldNumber = 12;
+  const ::std::string& language() const;
+  void set_language(const ::std::string& value);
+  void set_language(const char* value);
+  void set_language(const char* value, size_t size);
+  ::std::string* mutable_language();
+  ::std::string* release_language();
+  void set_allocated_language(::std::string* language);
+
   // @@protoc_insertion_point(class_scope:MSG.UserData_)
  private:
   inline void set_has_uid();
@@ -376,6 +400,10 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline void clear_has_vc2();
   inline void set_has_vc3();
   inline void clear_has_vc3();
+  inline void set_has_group_name();
+  inline void clear_has_group_name();
+  inline void set_has_language();
+  inline void clear_has_language();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -393,6 +421,8 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::internal::ArenaStringPtr reg_date_;
   ::google::protobuf::uint32 vc2_;
   ::google::protobuf::uint32 vc3_;
+  ::google::protobuf::internal::ArenaStringPtr group_name_;
+  ::google::protobuf::internal::ArenaStringPtr language_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -952,17 +982,17 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::std::string* release_group_name();
   void set_allocated_group_name(::std::string* group_name);
 
-  // required string languge = 4;
-  bool has_languge() const;
-  void clear_languge();
-  static const int kLangugeFieldNumber = 4;
-  const ::std::string& languge() const;
-  void set_languge(const ::std::string& value);
-  void set_languge(const char* value);
-  void set_languge(const char* value, size_t size);
-  ::std::string* mutable_languge();
-  ::std::string* release_languge();
-  void set_allocated_languge(::std::string* languge);
+  // required string language = 4;
+  bool has_language() const;
+  void clear_language();
+  static const int kLanguageFieldNumber = 4;
+  const ::std::string& language() const;
+  void set_language(const ::std::string& value);
+  void set_language(const char* value);
+  void set_language(const char* value, size_t size);
+  ::std::string* mutable_language();
+  ::std::string* release_language();
+  void set_allocated_language(::std::string* language);
 
   // required string chat = 5;
   bool has_chat() const;
@@ -991,8 +1021,8 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline void clear_has_name();
   inline void set_has_group_name();
   inline void clear_has_group_name();
-  inline void set_has_languge();
-  inline void clear_has_languge();
+  inline void set_has_language();
+  inline void clear_has_language();
   inline void set_has_chat();
   inline void clear_has_chat();
   inline void set_has_reg_date();
@@ -1007,7 +1037,7 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr group_name_;
-  ::google::protobuf::internal::ArenaStringPtr languge_;
+  ::google::protobuf::internal::ArenaStringPtr language_;
   ::google::protobuf::internal::ArenaStringPtr chat_;
   ::google::protobuf::uint64 reg_date_;
   friend void  protobuf_AddDesc_common_2eproto();
@@ -1664,6 +1694,114 @@ inline void UserData_::set_vc3(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:MSG.UserData_.vc3)
 }
 
+// optional string group_name = 11;
+inline bool UserData_::has_group_name() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void UserData_::set_has_group_name() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void UserData_::clear_has_group_name() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void UserData_::clear_group_name() {
+  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_name();
+}
+inline const ::std::string& UserData_::group_name() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.group_name)
+  return group_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserData_::set_group_name(const ::std::string& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.group_name)
+}
+inline void UserData_::set_group_name(const char* value) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.group_name)
+}
+inline void UserData_::set_group_name(const char* value, size_t size) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.group_name)
+}
+inline ::std::string* UserData_::mutable_group_name() {
+  set_has_group_name();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.group_name)
+  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UserData_::release_group_name() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.group_name)
+  clear_has_group_name();
+  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserData_::set_allocated_group_name(::std::string* group_name) {
+  if (group_name != NULL) {
+    set_has_group_name();
+  } else {
+    clear_has_group_name();
+  }
+  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.group_name)
+}
+
+// optional string language = 12;
+inline bool UserData_::has_language() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void UserData_::set_has_language() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void UserData_::clear_has_language() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void UserData_::clear_language() {
+  language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_language();
+}
+inline const ::std::string& UserData_::language() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.language)
+  return language_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserData_::set_language(const ::std::string& value) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.language)
+}
+inline void UserData_::set_language(const char* value) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.language)
+}
+inline void UserData_::set_language(const char* value, size_t size) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.language)
+}
+inline ::std::string* UserData_::mutable_language() {
+  set_has_language();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.language)
+  return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UserData_::release_language() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.language)
+  clear_has_language();
+  return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UserData_::set_allocated_language(::std::string* language) {
+  if (language != NULL) {
+    set_has_language();
+  } else {
+    clear_has_language();
+  }
+  language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.language)
+}
+
 // -------------------------------------------------------------------
 
 // Contents_
@@ -2204,58 +2342,58 @@ inline void ChatData_::set_allocated_group_name(::std::string* group_name) {
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.group_name)
 }
 
-// required string languge = 4;
-inline bool ChatData_::has_languge() const {
+// required string language = 4;
+inline bool ChatData_::has_language() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ChatData_::set_has_languge() {
+inline void ChatData_::set_has_language() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ChatData_::clear_has_languge() {
+inline void ChatData_::clear_has_language() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void ChatData_::clear_languge() {
-  languge_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_languge();
+inline void ChatData_::clear_language() {
+  language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_language();
 }
-inline const ::std::string& ChatData_::languge() const {
-  // @@protoc_insertion_point(field_get:MSG.ChatData_.languge)
-  return languge_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& ChatData_::language() const {
+  // @@protoc_insertion_point(field_get:MSG.ChatData_.language)
+  return language_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ChatData_::set_languge(const ::std::string& value) {
-  set_has_languge();
-  languge_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.ChatData_.languge)
+inline void ChatData_::set_language(const ::std::string& value) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.ChatData_.language)
 }
-inline void ChatData_::set_languge(const char* value) {
-  set_has_languge();
-  languge_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.ChatData_.languge)
+inline void ChatData_::set_language(const char* value) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.ChatData_.language)
 }
-inline void ChatData_::set_languge(const char* value, size_t size) {
-  set_has_languge();
-  languge_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void ChatData_::set_language(const char* value, size_t size) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.languge)
+  // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.language)
 }
-inline ::std::string* ChatData_::mutable_languge() {
-  set_has_languge();
-  // @@protoc_insertion_point(field_mutable:MSG.ChatData_.languge)
-  return languge_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* ChatData_::mutable_language() {
+  set_has_language();
+  // @@protoc_insertion_point(field_mutable:MSG.ChatData_.language)
+  return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ChatData_::release_languge() {
-  // @@protoc_insertion_point(field_release:MSG.ChatData_.languge)
-  clear_has_languge();
-  return languge_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* ChatData_::release_language() {
+  // @@protoc_insertion_point(field_release:MSG.ChatData_.language)
+  clear_has_language();
+  return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ChatData_::set_allocated_languge(::std::string* languge) {
-  if (languge != NULL) {
-    set_has_languge();
+inline void ChatData_::set_allocated_language(::std::string* language) {
+  if (language != NULL) {
+    set_has_language();
   } else {
-    clear_has_languge();
+    clear_has_language();
   }
-  languge_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), languge);
-  // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.languge)
+  language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
+  // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.language)
 }
 
 // required string chat = 5;

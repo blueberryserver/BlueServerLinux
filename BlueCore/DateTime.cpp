@@ -146,6 +146,11 @@ int64_t DateTime::GetTickCount()
 	return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
+int64_t DateTime::GetTickCountM()
+{
+	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+}
+
 std::ostream& operator<<(std::ostream& s_, const DateTime& time_)
 {
 	return s_ << time_.format();

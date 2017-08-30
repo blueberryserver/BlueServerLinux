@@ -7,6 +7,7 @@
 #include "CircularBuffer.h"
 #include "BufferPool.h"
 #include "LockFreeQueue.h"
+#include "MsgHandler.h"
 
 namespace BLUE_BERRY
 {
@@ -39,6 +40,7 @@ public:
 
 	virtual void recvPacketProc();
 	virtual void SendPacket(short id_, google::protobuf::Message* msg_) {}
+	virtual void setMsgHandler(MsgHandler<Session>* handler_) {}
 	// socket
 	tcp::socket& socket()
 	{

@@ -10,6 +10,8 @@
 
 #include "UserManager.h"
 #include "DBQueryUser.h"
+#include "ChatHandler.h"
+#include "ChatChannelManager.h"
 
 namespace BLUE_BERRY
 {
@@ -55,10 +57,17 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 
 	auto user = std::make_shared<User>(data);
 	user->setSession(session_);
-	//User user(data);
+	
 	LOG(L_INFO_, "User", "key", user->getSessionKey(), "data", user->to_json());
 
 	UserManager::getUserManager()->add(user);
+
+	// enter chat channel
+	auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().group_name().c_str());
+	channel->enterChannel(session_);
+
+	// switch handler
+	session_->setMsgHandler(ChatHandler::getChatHandler());
 
 	// redis caching
 	{

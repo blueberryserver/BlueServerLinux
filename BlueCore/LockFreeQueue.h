@@ -21,19 +21,31 @@ public:
 
 	bool push(const _T& value_)
 	{
-		//return _queue.push(value_);
-		return _queue.try_enqueue(value_);
+		//return _queue.try_enqueue(value_);
+		auto counting = 100;
+		while (_queue.try_enqueue(value_) == false)
+		{
+			counting--;
+			if( counting <= 0) return false;
+		}
+		return true;
 	}
 
 	bool pop(_T& value_)
 	{
-		//return _queue.pop(value_);
-		return _queue.try_dequeue(value_);
+		//return _queue.try_dequeue(value_);
+
+		auto counting = 100;
+		while (_queue.try_dequeue(value_) == false)
+		{
+			counting--;
+			if (counting <= 0) return false;
+		}
+		return true;
 	}
 
 	bool empty()
 	{
-		//return _queue.empty();
 		return _queue.size_approx() == 0;
 	}
 

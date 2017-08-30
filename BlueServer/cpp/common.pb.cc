@@ -60,7 +60,7 @@ void protobuf_AssignDesc_common_2eproto() {
       "common.proto");
   GOOGLE_CHECK(file != NULL);
   UserData__descriptor_ = file->message_type(0);
-  static const int UserData__offsets_[10] = {
+  static const int UserData__offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, did_),
@@ -71,6 +71,8 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, vc1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, vc2_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, vc3_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, group_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, language_),
   };
   UserData__reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -143,7 +145,7 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, group_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, languge_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, language_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, chat_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, reg_date_),
   };
@@ -252,46 +254,47 @@ void protobuf_AddDesc_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014common.proto\022\003MSG\"\266\001\n\tUserData_\022\013\n\003uid"
+    "\n\014common.proto\022\003MSG\"\334\001\n\tUserData_\022\013\n\003uid"
     "\030\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\013\n\003did\030\003 \001(\t\022\037\n\010pla"
     "tform\030\004 \001(\0162\r.MSG.PlatForm\022\022\n\nlogin_date"
     "\030\005 \001(\t\022\023\n\013logout_date\030\006 \001(\t\022\020\n\010reg_date\030"
     "\007 \001(\t\022\013\n\003vc1\030\010 \001(\r\022\013\n\003vc2\030\t \001(\r\022\013\n\003vc3\030\n"
-    " \001(\r\"\202\001\n\tContents_\022(\n\004type\030\001 \002(\0162\032.MSG.C"
-    "ontents_.ContentType\022\014\n\004name\030\002 \002(\t\"=\n\013Co"
-    "ntentType\022\r\n\tCT_INGAME\020\001\022\016\n\nCT_OUTGAME\020\002"
-    "\022\017\n\013CT_INAPPBUY\020\003\"\233\001\n\010GMember_\022\013\n\003uid\030\001 "
-    "\002(\004\022\014\n\004name\030\002 \002(\t\022&\n\005grade\030\003 \002(\0162\027.MSG.G"
-    "Member_.GradeType\"L\n\tGradeType\022\013\n\007Grade_"
-    "1\020\001\022\013\n\007Grade_2\020\002\022\013\n\007Grade_3\020\003\022\013\n\007Grade_4"
-    "\020\004\022\013\n\007Grade_5\020\005\"s\n\006Group_\022\013\n\003gid\030\001 \002(\004\022\014"
-    "\n\004name\030\002 \002(\t\022\017\n\007country\030\003 \002(\t\022\016\n\006leader\030"
-    "\004 \002(\004\022\r\n\005limit\030\005 \002(\r\022\036\n\007members\030\006 \003(\0132\r."
-    "MSG.GMember_\"k\n\tChatData_\022\013\n\003uid\030\001 \002(\004\022\014"
-    "\n\004name\030\002 \002(\t\022\022\n\ngroup_name\030\003 \002(\t\022\017\n\007lang"
-    "uge\030\004 \002(\t\022\014\n\004chat\030\005 \002(\t\022\020\n\010reg_date\030\006 \002("
-    "\004\"E\n\tChatRoom_\022\013\n\003rid\030\001 \002(\004\022\014\n\004name\030\002 \002("
-    "\t\022\035\n\005chats\030\003 \003(\0132\016.MSG.ChatData_\"H\n\014Chat"
-    "Channel_\022\013\n\003cid\030\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\035\n\005c"
-    "hats\030\003 \003(\0132\016.MSG.ChatData_*\372\003\n\005MsgId\022\013\n\006"
-    "CLOSED\020\220N\022\016\n\tLOGIN_REQ\020\365N\022\016\n\tLOGIN_ANS\020\366"
-    "N\022\r\n\010PING_REQ\020\367N\022\r\n\010PONG_ANS\020\370N\022\017\n\nREGIS"
-    "T_REQ\020\371N\022\017\n\nREGIST_ANS\020\372N\022\020\n\013VERSION_REQ"
-    "\020\373N\022\020\n\013VERSION_ANS\020\374N\022\016\n\010CHAT_REQ\020\205\235\001\022\016\n"
-    "\010CHAT_ANS\020\206\235\001\022\016\n\010CHAT_NOT\020\207\235\001\022\030\n\022CREATEC"
-    "HATROOM_REQ\020\217\235\001\022\030\n\022CREATECHATROOM_ANS\020\220\235"
-    "\001\022\030\n\022CREATECHATROOM_NOT\020\221\235\001\022\030\n\022INVITECHA"
-    "TROOM_REQ\020\231\235\001\022\030\n\022INVITECHATROOM_ANS\020\232\235\001\022"
-    "\030\n\022INVITECHATROOM_NOT\020\233\235\001\022\027\n\021ENTERCHATRO"
-    "OM_REQ\020\243\235\001\022\027\n\021ENTERCHATROOM_ANS\020\244\235\001\022\027\n\021E"
-    "NTERCHATROOM_NOT\020\245\235\001\022\027\n\021LEAVECHATROOM_RE"
-    "Q\020\255\235\001\022\027\n\021LEAVECHATROOM_ANS\020\256\235\001\022\027\n\021LEAVEC"
-    "HATROOM_NOT\020\257\235\001*x\n\tErrorCode\022\017\n\013ERR_SUCC"
-    "ESS\020\000\022\022\n\016ERR_LOGIN_FAIL\020\001\022\025\n\021ERR_ARGUMEN"
-    "T_FAIL\020\002\022\026\n\022ERR_AUTHORITY_FAIL\020\003\022\027\n\023ERR_"
-    "SESSIONKEY_FAIL\020\004* \n\010PlatForm\022\007\n\003IOS\020\000\022\013"
-    "\n\007ANDROID\020\001*;\n\010ChatType\022\020\n\014CHAT_CHANNEL\020"
-    "\001\022\016\n\nCHAT_GROUP\020\002\022\r\n\tCHAT_ROOM\020\003", 1592);
+    " \001(\r\022\022\n\ngroup_name\030\013 \001(\t\022\020\n\010language\030\014 \001"
+    "(\t\"\202\001\n\tContents_\022(\n\004type\030\001 \002(\0162\032.MSG.Con"
+    "tents_.ContentType\022\014\n\004name\030\002 \002(\t\"=\n\013Cont"
+    "entType\022\r\n\tCT_INGAME\020\001\022\016\n\nCT_OUTGAME\020\002\022\017"
+    "\n\013CT_INAPPBUY\020\003\"\233\001\n\010GMember_\022\013\n\003uid\030\001 \002("
+    "\004\022\014\n\004name\030\002 \002(\t\022&\n\005grade\030\003 \002(\0162\027.MSG.GMe"
+    "mber_.GradeType\"L\n\tGradeType\022\013\n\007Grade_1\020"
+    "\001\022\013\n\007Grade_2\020\002\022\013\n\007Grade_3\020\003\022\013\n\007Grade_4\020\004"
+    "\022\013\n\007Grade_5\020\005\"s\n\006Group_\022\013\n\003gid\030\001 \002(\004\022\014\n\004"
+    "name\030\002 \002(\t\022\017\n\007country\030\003 \002(\t\022\016\n\006leader\030\004 "
+    "\002(\004\022\r\n\005limit\030\005 \002(\r\022\036\n\007members\030\006 \003(\0132\r.MS"
+    "G.GMember_\"l\n\tChatData_\022\013\n\003uid\030\001 \002(\004\022\014\n\004"
+    "name\030\002 \002(\t\022\022\n\ngroup_name\030\003 \002(\t\022\020\n\010langua"
+    "ge\030\004 \002(\t\022\014\n\004chat\030\005 \002(\t\022\020\n\010reg_date\030\006 \002(\004"
+    "\"E\n\tChatRoom_\022\013\n\003rid\030\001 \002(\004\022\014\n\004name\030\002 \002(\t"
+    "\022\035\n\005chats\030\003 \003(\0132\016.MSG.ChatData_\"H\n\014ChatC"
+    "hannel_\022\013\n\003cid\030\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\035\n\005ch"
+    "ats\030\003 \003(\0132\016.MSG.ChatData_*\372\003\n\005MsgId\022\013\n\006C"
+    "LOSED\020\220N\022\016\n\tLOGIN_REQ\020\365N\022\016\n\tLOGIN_ANS\020\366N"
+    "\022\r\n\010PING_REQ\020\367N\022\r\n\010PONG_ANS\020\370N\022\017\n\nREGIST"
+    "_REQ\020\371N\022\017\n\nREGIST_ANS\020\372N\022\020\n\013VERSION_REQ\020"
+    "\373N\022\020\n\013VERSION_ANS\020\374N\022\016\n\010CHAT_REQ\020\205\235\001\022\016\n\010"
+    "CHAT_ANS\020\206\235\001\022\016\n\010CHAT_NOT\020\207\235\001\022\030\n\022CREATECH"
+    "ATROOM_REQ\020\217\235\001\022\030\n\022CREATECHATROOM_ANS\020\220\235\001"
+    "\022\030\n\022CREATECHATROOM_NOT\020\221\235\001\022\030\n\022INVITECHAT"
+    "ROOM_REQ\020\231\235\001\022\030\n\022INVITECHATROOM_ANS\020\232\235\001\022\030"
+    "\n\022INVITECHATROOM_NOT\020\233\235\001\022\027\n\021ENTERCHATROO"
+    "M_REQ\020\243\235\001\022\027\n\021ENTERCHATROOM_ANS\020\244\235\001\022\027\n\021EN"
+    "TERCHATROOM_NOT\020\245\235\001\022\027\n\021LEAVECHATROOM_REQ"
+    "\020\255\235\001\022\027\n\021LEAVECHATROOM_ANS\020\256\235\001\022\027\n\021LEAVECH"
+    "ATROOM_NOT\020\257\235\001*x\n\tErrorCode\022\017\n\013ERR_SUCCE"
+    "SS\020\000\022\022\n\016ERR_LOGIN_FAIL\020\001\022\025\n\021ERR_ARGUMENT"
+    "_FAIL\020\002\022\026\n\022ERR_AUTHORITY_FAIL\020\003\022\027\n\023ERR_S"
+    "ESSIONKEY_FAIL\020\004* \n\010PlatForm\022\007\n\003IOS\020\000\022\013\n"
+    "\007ANDROID\020\001*;\n\010ChatType\022\020\n\014CHAT_CHANNEL\020\001"
+    "\022\016\n\nCHAT_GROUP\020\002\022\r\n\tCHAT_ROOM\020\003", 1631);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   UserData_::default_instance_ = new UserData_();
@@ -413,6 +416,8 @@ const int UserData_::kRegDateFieldNumber;
 const int UserData_::kVc1FieldNumber;
 const int UserData_::kVc2FieldNumber;
 const int UserData_::kVc3FieldNumber;
+const int UserData_::kGroupNameFieldNumber;
+const int UserData_::kLanguageFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 UserData_::UserData_()
@@ -445,6 +450,8 @@ void UserData_::SharedCtor() {
   vc1_ = 0u;
   vc2_ = 0u;
   vc3_ = 0u;
+  group_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -459,6 +466,8 @@ void UserData_::SharedDtor() {
   login_date_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   logout_date_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reg_date_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  group_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  language_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -525,7 +534,15 @@ void UserData_::Clear() {
       reg_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
-  ZR_(vc2_, vc3_);
+  if (_has_bits_[8 / 32] & 3840u) {
+    ZR_(vc2_, vc3_);
+    if (has_group_name()) {
+      group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_language()) {
+      language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+  }
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -706,6 +723,40 @@ bool UserData_::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(90)) goto parse_group_name;
+        break;
+      }
+
+      // optional string group_name = 11;
+      case 11: {
+        if (tag == 90) {
+         parse_group_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_group_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->group_name().data(), this->group_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "MSG.UserData_.group_name");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(98)) goto parse_language;
+        break;
+      }
+
+      // optional string language = 12;
+      case 12: {
+        if (tag == 98) {
+         parse_language:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_language()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->language().data(), this->language().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "MSG.UserData_.language");
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -811,6 +862,26 @@ void UserData_::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->vc3(), output);
   }
 
+  // optional string group_name = 11;
+  if (has_group_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->group_name().data(), this->group_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.UserData_.group_name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      11, this->group_name(), output);
+  }
+
+  // optional string language = 12;
+  if (has_language()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->language().data(), this->language().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.UserData_.language");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      12, this->language(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -902,6 +973,28 @@ void UserData_::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->vc3(), target);
   }
 
+  // optional string group_name = 11;
+  if (has_group_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->group_name().data(), this->group_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.UserData_.group_name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        11, this->group_name(), target);
+  }
+
+  // optional string language = 12;
+  if (has_language()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->language().data(), this->language().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.UserData_.language");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        12, this->language(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -991,7 +1084,7 @@ int UserData_::ByteSize() const {
     }
 
   }
-  if (_has_bits_[8 / 32] & 768u) {
+  if (_has_bits_[8 / 32] & 3840u) {
     // optional uint32 vc2 = 9;
     if (has_vc2()) {
       total_size += 1 +
@@ -1004,6 +1097,20 @@ int UserData_::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->vc3());
+    }
+
+    // optional string group_name = 11;
+    if (has_group_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->group_name());
+    }
+
+    // optional string language = 12;
+    if (has_language()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->language());
     }
 
   }
@@ -1078,6 +1185,14 @@ void UserData_::MergeFrom(const UserData_& from) {
     if (from.has_vc3()) {
       set_vc3(from.vc3());
     }
+    if (from.has_group_name()) {
+      set_has_group_name();
+      group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
+    }
+    if (from.has_language()) {
+      set_has_language();
+      language_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.language_);
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1119,6 +1234,8 @@ void UserData_::InternalSwap(UserData_* other) {
   std::swap(vc1_, other->vc1_);
   std::swap(vc2_, other->vc2_);
   std::swap(vc3_, other->vc3_);
+  group_name_.Swap(&other->group_name_);
+  language_.Swap(&other->language_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1524,6 +1641,114 @@ void UserData_::clear_vc3() {
   set_has_vc3();
   vc3_ = value;
   // @@protoc_insertion_point(field_set:MSG.UserData_.vc3)
+}
+
+// optional string group_name = 11;
+bool UserData_::has_group_name() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+void UserData_::set_has_group_name() {
+  _has_bits_[0] |= 0x00000400u;
+}
+void UserData_::clear_has_group_name() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+void UserData_::clear_group_name() {
+  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_group_name();
+}
+ const ::std::string& UserData_::group_name() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.group_name)
+  return group_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserData_::set_group_name(const ::std::string& value) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.group_name)
+}
+ void UserData_::set_group_name(const char* value) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.group_name)
+}
+ void UserData_::set_group_name(const char* value, size_t size) {
+  set_has_group_name();
+  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.group_name)
+}
+ ::std::string* UserData_::mutable_group_name() {
+  set_has_group_name();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.group_name)
+  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserData_::release_group_name() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.group_name)
+  clear_has_group_name();
+  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserData_::set_allocated_group_name(::std::string* group_name) {
+  if (group_name != NULL) {
+    set_has_group_name();
+  } else {
+    clear_has_group_name();
+  }
+  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.group_name)
+}
+
+// optional string language = 12;
+bool UserData_::has_language() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+void UserData_::set_has_language() {
+  _has_bits_[0] |= 0x00000800u;
+}
+void UserData_::clear_has_language() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+void UserData_::clear_language() {
+  language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_language();
+}
+ const ::std::string& UserData_::language() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.language)
+  return language_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserData_::set_language(const ::std::string& value) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.language)
+}
+ void UserData_::set_language(const char* value) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.language)
+}
+ void UserData_::set_language(const char* value, size_t size) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.language)
+}
+ ::std::string* UserData_::mutable_language() {
+  set_has_language();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.language)
+  return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserData_::release_language() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.language)
+  clear_has_language();
+  return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserData_::set_allocated_language(::std::string* language) {
+  if (language != NULL) {
+    set_has_language();
+  } else {
+    clear_has_language();
+  }
+  language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.language)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -3203,7 +3428,7 @@ Group_::members() const {
 const int ChatData_::kUidFieldNumber;
 const int ChatData_::kNameFieldNumber;
 const int ChatData_::kGroupNameFieldNumber;
-const int ChatData_::kLangugeFieldNumber;
+const int ChatData_::kLanguageFieldNumber;
 const int ChatData_::kChatFieldNumber;
 const int ChatData_::kRegDateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -3231,7 +3456,7 @@ void ChatData_::SharedCtor() {
   uid_ = GOOGLE_ULONGLONG(0);
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   group_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  languge_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   chat_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   reg_date_ = GOOGLE_ULONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -3245,7 +3470,7 @@ ChatData_::~ChatData_() {
 void ChatData_::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   group_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  languge_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  language_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   chat_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
@@ -3286,8 +3511,8 @@ void ChatData_::Clear() {
     if (has_group_name()) {
       group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (has_languge()) {
-      languge_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    if (has_language()) {
+      language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_chat()) {
       chat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -3354,20 +3579,20 @@ bool ChatData_::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_languge;
+        if (input->ExpectTag(34)) goto parse_language;
         break;
       }
 
-      // required string languge = 4;
+      // required string language = 4;
       case 4: {
         if (tag == 34) {
-         parse_languge:
+         parse_language:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_languge()));
+                input, this->mutable_language()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->languge().data(), this->languge().length(),
+            this->language().data(), this->language().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.ChatData_.languge");
+            "MSG.ChatData_.language");
         } else {
           goto handle_unusual;
         }
@@ -3457,14 +3682,14 @@ void ChatData_::SerializeWithCachedSizes(
       3, this->group_name(), output);
   }
 
-  // required string languge = 4;
-  if (has_languge()) {
+  // required string language = 4;
+  if (has_language()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->languge().data(), this->languge().length(),
+      this->language().data(), this->language().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.ChatData_.languge");
+      "MSG.ChatData_.language");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->languge(), output);
+      4, this->language(), output);
   }
 
   // required string chat = 5;
@@ -3519,15 +3744,15 @@ void ChatData_::SerializeWithCachedSizes(
         3, this->group_name(), target);
   }
 
-  // required string languge = 4;
-  if (has_languge()) {
+  // required string language = 4;
+  if (has_language()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->languge().data(), this->languge().length(),
+      this->language().data(), this->language().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.ChatData_.languge");
+      "MSG.ChatData_.language");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->languge(), target);
+        4, this->language(), target);
   }
 
   // required string chat = 5;
@@ -3579,11 +3804,11 @@ int ChatData_::RequiredFieldsByteSizeFallback() const {
         this->group_name());
   }
 
-  if (has_languge()) {
-    // required string languge = 4;
+  if (has_language()) {
+    // required string language = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->languge());
+        this->language());
   }
 
   if (has_chat()) {
@@ -3622,10 +3847,10 @@ int ChatData_::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->group_name());
 
-    // required string languge = 4;
+    // required string language = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->languge());
+        this->language());
 
     // required string chat = 5;
     total_size += 1 +
@@ -3685,9 +3910,9 @@ void ChatData_::MergeFrom(const ChatData_& from) {
       set_has_group_name();
       group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
     }
-    if (from.has_languge()) {
-      set_has_languge();
-      languge_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.languge_);
+    if (from.has_language()) {
+      set_has_language();
+      language_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.language_);
     }
     if (from.has_chat()) {
       set_has_chat();
@@ -3730,7 +3955,7 @@ void ChatData_::InternalSwap(ChatData_* other) {
   std::swap(uid_, other->uid_);
   name_.Swap(&other->name_);
   group_name_.Swap(&other->group_name_);
-  languge_.Swap(&other->languge_);
+  language_.Swap(&other->language_);
   chat_.Swap(&other->chat_);
   std::swap(reg_date_, other->reg_date_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -3881,58 +4106,58 @@ void ChatData_::clear_group_name() {
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.group_name)
 }
 
-// required string languge = 4;
-bool ChatData_::has_languge() const {
+// required string language = 4;
+bool ChatData_::has_language() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-void ChatData_::set_has_languge() {
+void ChatData_::set_has_language() {
   _has_bits_[0] |= 0x00000008u;
 }
-void ChatData_::clear_has_languge() {
+void ChatData_::clear_has_language() {
   _has_bits_[0] &= ~0x00000008u;
 }
-void ChatData_::clear_languge() {
-  languge_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_languge();
+void ChatData_::clear_language() {
+  language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_language();
 }
- const ::std::string& ChatData_::languge() const {
-  // @@protoc_insertion_point(field_get:MSG.ChatData_.languge)
-  return languge_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& ChatData_::language() const {
+  // @@protoc_insertion_point(field_get:MSG.ChatData_.language)
+  return language_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ChatData_::set_languge(const ::std::string& value) {
-  set_has_languge();
-  languge_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.ChatData_.languge)
+ void ChatData_::set_language(const ::std::string& value) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.ChatData_.language)
 }
- void ChatData_::set_languge(const char* value) {
-  set_has_languge();
-  languge_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.ChatData_.languge)
+ void ChatData_::set_language(const char* value) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.ChatData_.language)
 }
- void ChatData_::set_languge(const char* value, size_t size) {
-  set_has_languge();
-  languge_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void ChatData_::set_language(const char* value, size_t size) {
+  set_has_language();
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.languge)
+  // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.language)
 }
- ::std::string* ChatData_::mutable_languge() {
-  set_has_languge();
-  // @@protoc_insertion_point(field_mutable:MSG.ChatData_.languge)
-  return languge_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* ChatData_::mutable_language() {
+  set_has_language();
+  // @@protoc_insertion_point(field_mutable:MSG.ChatData_.language)
+  return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* ChatData_::release_languge() {
-  // @@protoc_insertion_point(field_release:MSG.ChatData_.languge)
-  clear_has_languge();
-  return languge_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* ChatData_::release_language() {
+  // @@protoc_insertion_point(field_release:MSG.ChatData_.language)
+  clear_has_language();
+  return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ChatData_::set_allocated_languge(::std::string* languge) {
-  if (languge != NULL) {
-    set_has_languge();
+ void ChatData_::set_allocated_language(::std::string* language) {
+  if (language != NULL) {
+    set_has_language();
   } else {
-    clear_has_languge();
+    clear_has_language();
   }
-  languge_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), languge);
-  // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.languge)
+  language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
+  // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.language)
 }
 
 // required string chat = 5;

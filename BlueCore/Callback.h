@@ -85,6 +85,12 @@ static void executePostJob(T* t_, A... a_)
 	delete t_;
 }
 
+template<typename T, typename... A>
+static void executePostJobNoDelete(T* t_, A... a_)
+{
+	std::tuple<A...> args(std::forward<A>(a_)...);
+	t_->execute(reinterpret_cast<void*>(&args));
+}
 
 
 }

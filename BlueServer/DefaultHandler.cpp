@@ -7,6 +7,7 @@
 
 
 #include "UserManager.h"
+#include "ChatChannelManager.h"
 
 namespace BLUE_BERRY
 {
@@ -46,10 +47,12 @@ DEFINE_HANDLER(DefaultHandler, SessionPtr, PingReq)
 	}
 
 	// update session key time out
-	user->setPingTime(DateTime::GetTickCount() + 1000 * 1000 * 60);
+	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
 	if (user->getSession() == nullptr || user->getSession() != session_)
 	{
 		user->setSession(session_);
+		auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().group_name().c_str());
+		channel->enterChannel(session_);
 	}
 
 	MSG::PongAns ans;
@@ -65,6 +68,9 @@ DEFINE_HANDLER(DefaultHandler, SessionPtr, Closed)
 	auto user = UserManager::getUserManager()->find(session_.get());
 	if (user != nullptr)
 	{
+		auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().group_name().c_str());
+		channel->leaveChannel(session_);
+
 		//UserManager::getUserManager()->remove(session_.get());
 		user->setSession(nullptr);
 	}

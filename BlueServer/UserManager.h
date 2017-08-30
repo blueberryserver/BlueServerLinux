@@ -14,7 +14,7 @@ class UserManager : public TimerExec
 {
 public:
 	UserManager();
-	~UserManager();
+	virtual ~UserManager();
 
 	UserPtr find(const std::string& sessionKey_);
 	UserPtr find(void* sessionPtr_);

@@ -67,7 +67,11 @@
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="BlueSession.cpp" />
+    <ClCompile Include="ChatChannel.cpp" />
+    <ClCompile Include="ChatChannelManager.cpp" />
     <ClCompile Include="ChatHandler.cpp" />
+    <ClCompile Include="ChatRoomManager.cpp" />
+    <ClCompile Include="ChatRoom.cpp" />
     <ClCompile Include="cpp\chat.pb.cc" />
     <ClCompile Include="cpp\common.pb.cc" />
     <ClCompile Include="cpp\login.pb.cc" />
@@ -80,7 +84,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlueSession.h" />
+    <ClInclude Include="ChatChannel.h" />
+    <ClInclude Include="ChatChannelManager.h" />
     <ClInclude Include="ChatHandler.h" />
+    <ClInclude Include="ChatRoomManager.h" />
+    <ClInclude Include="ChatRoom.h" />
     <ClInclude Include="cpp\chat.pb.h" />
     <ClInclude Include="cpp\common.pb.h" />
     <ClInclude Include="cpp\login.pb.h" />

@@ -98,6 +98,10 @@ public:
 		else if(_type == REPY_BULKSTRING)
 		{
 			str += &_string[0];
+			
+			//std::string err;
+			//auto json = Json::parse(str, err);
+			//return json;
 		}
 		else if (_type == REPY_ARRAY)
 		{
@@ -106,15 +110,16 @@ public:
 			for (auto it = _array.begin(); it != _array.end(); ++it)
 			{
 				if (!first) str += ", ";
-				(*it).dump(str);
+				str += (*it).to_json().string_value();
 				first = false;
 			}
 			str += "]";
 		}
-		//return Json(str);
-		std::string err;
-		auto json = Json::parse(str, err, JsonParse::COMMENTS);
-		return json;
+		return Json(str);
+
+		//std::string err;
+		//auto json = Json::parse(str, err, JsonParse::COMMENTS);
+		//return json;
 	}
 };
 
@@ -270,16 +275,17 @@ static bool redisReplyParsing(_RedisReply& replay_, const char* buff_, size_t le
 		for (size_t i = 1; i < len_; ++i)
 		{
 			auto str = buff_[i];
+			auto preStr = buff_[i - 1];
 			if (str == '$')
 			{
 				isdollar = true;
 				temp.clear();
 				temp.push_back(str);
 			}
-			else if (str == ':')
-			{
+			else if (str == ':' && preStr == '\n')
+			{				
 				iscolon = true;
-				temp.clear();
+				temp.push_back(str);
 			}
 			else if (str == '\r')
 			{
@@ -298,17 +304,15 @@ static bool redisReplyParsing(_RedisReply& replay_, const char* buff_, size_t le
 						}
 					}
 
-					if (iscolon == true)
-					{
-						//sectionNum = std::stoi(colonNum);
-						iscolon = false;
-						arrayCount = 0;
-						temp.clear();
-						continue;
-					}
-
 					temp.push_back(str);
 					temp.push_back(strnext);
+
+					if (iscolon == true)
+					{
+						charCount = (int)(colonNum.size() + 3);
+						iscolon = false;
+						colonNum.clear();
+					}
 
 					if (temp.size() == charCount)
 					{
