@@ -26,6 +26,8 @@ public:
 	std::string& getName() { return _name; }
 	std::string& getGreeting() { return _greeting; }
 
+	void broadcastPacket(short id_, google::protobuf::Message* msg_);
+
 private:
 	std::recursive_mutex _mtx;
 	std::unordered_set<SessionPtr> _sessions;

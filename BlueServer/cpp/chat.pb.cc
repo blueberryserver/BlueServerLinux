@@ -158,8 +158,8 @@ void protobuf_AssignDesc_chat_2eproto() {
   static const int InviteChatRoomReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomReq, rid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomReq, rkey_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomReq, target_uid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomReq, target_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomReq, targetuid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomReq, targetname_),
   };
   InviteChatRoomReq_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -191,8 +191,8 @@ void protobuf_AssignDesc_chat_2eproto() {
   static const int InviteChatRoomNot_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomNot, rid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomNot, rkey_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomNot, owner_uid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomNot, owner_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomNot, owneruid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InviteChatRoomNot, ownername_),
   };
   InviteChatRoomNot_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -392,19 +392,19 @@ void protobuf_AddDesc_chat_2eproto() {
     "reateChatRoomReq\022\014\n\004name\030\001 \002(\t\022\020\n\010greeti"
     "ng\030\002 \002(\t\"K\n\021CreateChatRoomAns\022\033\n\003err\030\001 \002"
     "(\0162\016.MSG.ErrorCode\022\013\n\003rid\030\002 \001(\004\022\014\n\004rkey\030"
-    "\003 \001(\t\"W\n\021InviteChatRoomReq\022\013\n\003rid\030\001 \002(\004\022"
-    "\014\n\004rkey\030\002 \002(\t\022\022\n\ntarget_uid\030\003 \002(\004\022\023\n\013tar"
-    "get_name\030\004 \002(\t\"0\n\021InviteChatRoomAns\022\033\n\003e"
-    "rr\030\001 \002(\0162\016.MSG.ErrorCode\"U\n\021InviteChatRo"
-    "omNot\022\013\n\003rid\030\001 \002(\004\022\014\n\004rkey\030\002 \002(\t\022\021\n\towne"
-    "r_uid\030\003 \002(\004\022\022\n\nowner_name\030\004 \002(\t\"-\n\020Enter"
-    "ChatRoomReq\022\013\n\003rid\030\001 \002(\004\022\014\n\004rkey\030\002 \002(\t\"/"
-    "\n\020EnterChatRoomAns\022\033\n\003err\030\001 \002(\0162\016.MSG.Er"
-    "rorCode\"-\n\020EnterChatRoomNot\022\013\n\003uid\030\001 \002(\004"
-    "\022\014\n\004name\030\002 \002(\t\"-\n\020LeaveChatRoomReq\022\013\n\003ri"
-    "d\030\001 \002(\004\022\014\n\004rkey\030\002 \002(\t\"/\n\020LeaveChatRoomAn"
-    "s\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\"-\n\020LeaveC"
-    "hatRoomNot\022\013\n\003uid\030\001 \002(\004\022\014\n\004name\030\002 \002(\t", 837);
+    "\003 \001(\t\"U\n\021InviteChatRoomReq\022\013\n\003rid\030\001 \002(\004\022"
+    "\014\n\004rkey\030\002 \002(\t\022\021\n\ttargetUid\030\003 \002(\004\022\022\n\ntarg"
+    "etName\030\004 \002(\t\"0\n\021InviteChatRoomAns\022\033\n\003err"
+    "\030\001 \002(\0162\016.MSG.ErrorCode\"S\n\021InviteChatRoom"
+    "Not\022\013\n\003rid\030\001 \002(\004\022\014\n\004rkey\030\002 \002(\t\022\020\n\010ownerU"
+    "id\030\003 \002(\004\022\021\n\townerName\030\004 \002(\t\"-\n\020EnterChat"
+    "RoomReq\022\013\n\003rid\030\001 \002(\004\022\014\n\004rkey\030\002 \002(\t\"/\n\020En"
+    "terChatRoomAns\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorC"
+    "ode\"-\n\020EnterChatRoomNot\022\013\n\003uid\030\001 \002(\004\022\014\n\004"
+    "name\030\002 \002(\t\"-\n\020LeaveChatRoomReq\022\013\n\003rid\030\001 "
+    "\002(\004\022\014\n\004rkey\030\002 \002(\t\"/\n\020LeaveChatRoomAns\022\033\n"
+    "\003err\030\001 \002(\0162\016.MSG.ErrorCode\"-\n\020LeaveChatR"
+    "oomNot\022\013\n\003uid\030\001 \002(\004\022\014\n\004name\030\002 \002(\t", 833);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "chat.proto", &protobuf_RegisterTypes);
   ChatReq::default_instance_ = new ChatReq();
@@ -2464,8 +2464,8 @@ void InviteChatRoomReq::SharedCtor() {
   _cached_size_ = 0;
   rid_ = GOOGLE_ULONGLONG(0);
   rkey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  target_uid_ = GOOGLE_ULONGLONG(0);
-  target_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  targetuid_ = GOOGLE_ULONGLONG(0);
+  targetname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2476,7 +2476,7 @@ InviteChatRoomReq::~InviteChatRoomReq() {
 
 void InviteChatRoomReq::SharedDtor() {
   rkey_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  target_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  targetname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -2513,9 +2513,9 @@ void InviteChatRoomReq::Clear() {
     if (has_rkey()) {
       rkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    target_uid_ = GOOGLE_ULONGLONG(0);
-    if (has_target_name()) {
-      target_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    targetuid_ = GOOGLE_ULONGLONG(0);
+    if (has_targetname()) {
+      targetname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2561,35 +2561,35 @@ bool InviteChatRoomReq::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_target_uid;
+        if (input->ExpectTag(24)) goto parse_targetUid;
         break;
       }
 
-      // required uint64 target_uid = 3;
+      // required uint64 targetUid = 3;
       case 3: {
         if (tag == 24) {
-         parse_target_uid:
+         parse_targetUid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &target_uid_)));
-          set_has_target_uid();
+                 input, &targetuid_)));
+          set_has_targetuid();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_target_name;
+        if (input->ExpectTag(34)) goto parse_targetName;
         break;
       }
 
-      // required string target_name = 4;
+      // required string targetName = 4;
       case 4: {
         if (tag == 34) {
-         parse_target_name:
+         parse_targetName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_target_name()));
+                input, this->mutable_targetname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->target_name().data(), this->target_name().length(),
+            this->targetname().data(), this->targetname().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.InviteChatRoomReq.target_name");
+            "MSG.InviteChatRoomReq.targetName");
         } else {
           goto handle_unusual;
         }
@@ -2637,19 +2637,19 @@ void InviteChatRoomReq::SerializeWithCachedSizes(
       2, this->rkey(), output);
   }
 
-  // required uint64 target_uid = 3;
-  if (has_target_uid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->target_uid(), output);
+  // required uint64 targetUid = 3;
+  if (has_targetuid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->targetuid(), output);
   }
 
-  // required string target_name = 4;
-  if (has_target_name()) {
+  // required string targetName = 4;
+  if (has_targetname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->target_name().data(), this->target_name().length(),
+      this->targetname().data(), this->targetname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.InviteChatRoomReq.target_name");
+      "MSG.InviteChatRoomReq.targetName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->target_name(), output);
+      4, this->targetname(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2678,20 +2678,20 @@ void InviteChatRoomReq::SerializeWithCachedSizes(
         2, this->rkey(), target);
   }
 
-  // required uint64 target_uid = 3;
-  if (has_target_uid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->target_uid(), target);
+  // required uint64 targetUid = 3;
+  if (has_targetuid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->targetuid(), target);
   }
 
-  // required string target_name = 4;
-  if (has_target_name()) {
+  // required string targetName = 4;
+  if (has_targetname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->target_name().data(), this->target_name().length(),
+      this->targetname().data(), this->targetname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.InviteChatRoomReq.target_name");
+      "MSG.InviteChatRoomReq.targetName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->target_name(), target);
+        4, this->targetname(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2720,18 +2720,18 @@ int InviteChatRoomReq::RequiredFieldsByteSizeFallback() const {
         this->rkey());
   }
 
-  if (has_target_uid()) {
-    // required uint64 target_uid = 3;
+  if (has_targetuid()) {
+    // required uint64 targetUid = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->target_uid());
+        this->targetuid());
   }
 
-  if (has_target_name()) {
-    // required string target_name = 4;
+  if (has_targetname()) {
+    // required string targetName = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->target_name());
+        this->targetname());
   }
 
   return total_size;
@@ -2751,15 +2751,15 @@ int InviteChatRoomReq::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->rkey());
 
-    // required uint64 target_uid = 3;
+    // required uint64 targetUid = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->target_uid());
+        this->targetuid());
 
-    // required string target_name = 4;
+    // required string targetName = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->target_name());
+        this->targetname());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -2805,12 +2805,12 @@ void InviteChatRoomReq::MergeFrom(const InviteChatRoomReq& from) {
       set_has_rkey();
       rkey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.rkey_);
     }
-    if (from.has_target_uid()) {
-      set_target_uid(from.target_uid());
+    if (from.has_targetuid()) {
+      set_targetuid(from.targetuid());
     }
-    if (from.has_target_name()) {
-      set_has_target_name();
-      target_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.target_name_);
+    if (from.has_targetname()) {
+      set_has_targetname();
+      targetname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.targetname_);
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -2845,8 +2845,8 @@ void InviteChatRoomReq::Swap(InviteChatRoomReq* other) {
 void InviteChatRoomReq::InternalSwap(InviteChatRoomReq* other) {
   std::swap(rid_, other->rid_);
   rkey_.Swap(&other->rkey_);
-  std::swap(target_uid_, other->target_uid_);
-  target_name_.Swap(&other->target_name_);
+  std::swap(targetuid_, other->targetuid_);
+  targetname_.Swap(&other->targetname_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2941,82 +2941,82 @@ void InviteChatRoomReq::clear_rkey() {
   // @@protoc_insertion_point(field_set_allocated:MSG.InviteChatRoomReq.rkey)
 }
 
-// required uint64 target_uid = 3;
-bool InviteChatRoomReq::has_target_uid() const {
+// required uint64 targetUid = 3;
+bool InviteChatRoomReq::has_targetuid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void InviteChatRoomReq::set_has_target_uid() {
+void InviteChatRoomReq::set_has_targetuid() {
   _has_bits_[0] |= 0x00000004u;
 }
-void InviteChatRoomReq::clear_has_target_uid() {
+void InviteChatRoomReq::clear_has_targetuid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-void InviteChatRoomReq::clear_target_uid() {
-  target_uid_ = GOOGLE_ULONGLONG(0);
-  clear_has_target_uid();
+void InviteChatRoomReq::clear_targetuid() {
+  targetuid_ = GOOGLE_ULONGLONG(0);
+  clear_has_targetuid();
 }
- ::google::protobuf::uint64 InviteChatRoomReq::target_uid() const {
-  // @@protoc_insertion_point(field_get:MSG.InviteChatRoomReq.target_uid)
-  return target_uid_;
+ ::google::protobuf::uint64 InviteChatRoomReq::targetuid() const {
+  // @@protoc_insertion_point(field_get:MSG.InviteChatRoomReq.targetUid)
+  return targetuid_;
 }
- void InviteChatRoomReq::set_target_uid(::google::protobuf::uint64 value) {
-  set_has_target_uid();
-  target_uid_ = value;
-  // @@protoc_insertion_point(field_set:MSG.InviteChatRoomReq.target_uid)
+ void InviteChatRoomReq::set_targetuid(::google::protobuf::uint64 value) {
+  set_has_targetuid();
+  targetuid_ = value;
+  // @@protoc_insertion_point(field_set:MSG.InviteChatRoomReq.targetUid)
 }
 
-// required string target_name = 4;
-bool InviteChatRoomReq::has_target_name() const {
+// required string targetName = 4;
+bool InviteChatRoomReq::has_targetname() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-void InviteChatRoomReq::set_has_target_name() {
+void InviteChatRoomReq::set_has_targetname() {
   _has_bits_[0] |= 0x00000008u;
 }
-void InviteChatRoomReq::clear_has_target_name() {
+void InviteChatRoomReq::clear_has_targetname() {
   _has_bits_[0] &= ~0x00000008u;
 }
-void InviteChatRoomReq::clear_target_name() {
-  target_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_target_name();
+void InviteChatRoomReq::clear_targetname() {
+  targetname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_targetname();
 }
- const ::std::string& InviteChatRoomReq::target_name() const {
-  // @@protoc_insertion_point(field_get:MSG.InviteChatRoomReq.target_name)
-  return target_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& InviteChatRoomReq::targetname() const {
+  // @@protoc_insertion_point(field_get:MSG.InviteChatRoomReq.targetName)
+  return targetname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void InviteChatRoomReq::set_target_name(const ::std::string& value) {
-  set_has_target_name();
-  target_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.InviteChatRoomReq.target_name)
+ void InviteChatRoomReq::set_targetname(const ::std::string& value) {
+  set_has_targetname();
+  targetname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.InviteChatRoomReq.targetName)
 }
- void InviteChatRoomReq::set_target_name(const char* value) {
-  set_has_target_name();
-  target_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.InviteChatRoomReq.target_name)
+ void InviteChatRoomReq::set_targetname(const char* value) {
+  set_has_targetname();
+  targetname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.InviteChatRoomReq.targetName)
 }
- void InviteChatRoomReq::set_target_name(const char* value, size_t size) {
-  set_has_target_name();
-  target_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void InviteChatRoomReq::set_targetname(const char* value, size_t size) {
+  set_has_targetname();
+  targetname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.InviteChatRoomReq.target_name)
+  // @@protoc_insertion_point(field_set_pointer:MSG.InviteChatRoomReq.targetName)
 }
- ::std::string* InviteChatRoomReq::mutable_target_name() {
-  set_has_target_name();
-  // @@protoc_insertion_point(field_mutable:MSG.InviteChatRoomReq.target_name)
-  return target_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* InviteChatRoomReq::mutable_targetname() {
+  set_has_targetname();
+  // @@protoc_insertion_point(field_mutable:MSG.InviteChatRoomReq.targetName)
+  return targetname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* InviteChatRoomReq::release_target_name() {
-  // @@protoc_insertion_point(field_release:MSG.InviteChatRoomReq.target_name)
-  clear_has_target_name();
-  return target_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* InviteChatRoomReq::release_targetname() {
+  // @@protoc_insertion_point(field_release:MSG.InviteChatRoomReq.targetName)
+  clear_has_targetname();
+  return targetname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void InviteChatRoomReq::set_allocated_target_name(::std::string* target_name) {
-  if (target_name != NULL) {
-    set_has_target_name();
+ void InviteChatRoomReq::set_allocated_targetname(::std::string* targetname) {
+  if (targetname != NULL) {
+    set_has_targetname();
   } else {
-    clear_has_target_name();
+    clear_has_targetname();
   }
-  target_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), target_name);
-  // @@protoc_insertion_point(field_set_allocated:MSG.InviteChatRoomReq.target_name)
+  targetname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), targetname);
+  // @@protoc_insertion_point(field_set_allocated:MSG.InviteChatRoomReq.targetName)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -3330,8 +3330,8 @@ void InviteChatRoomNot::SharedCtor() {
   _cached_size_ = 0;
   rid_ = GOOGLE_ULONGLONG(0);
   rkey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  owner_uid_ = GOOGLE_ULONGLONG(0);
-  owner_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  owneruid_ = GOOGLE_ULONGLONG(0);
+  ownername_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3342,7 +3342,7 @@ InviteChatRoomNot::~InviteChatRoomNot() {
 
 void InviteChatRoomNot::SharedDtor() {
   rkey_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  owner_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ownername_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -3379,9 +3379,9 @@ void InviteChatRoomNot::Clear() {
     if (has_rkey()) {
       rkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    owner_uid_ = GOOGLE_ULONGLONG(0);
-    if (has_owner_name()) {
-      owner_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    owneruid_ = GOOGLE_ULONGLONG(0);
+    if (has_ownername()) {
+      ownername_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -3427,35 +3427,35 @@ bool InviteChatRoomNot::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_owner_uid;
+        if (input->ExpectTag(24)) goto parse_ownerUid;
         break;
       }
 
-      // required uint64 owner_uid = 3;
+      // required uint64 ownerUid = 3;
       case 3: {
         if (tag == 24) {
-         parse_owner_uid:
+         parse_ownerUid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &owner_uid_)));
-          set_has_owner_uid();
+                 input, &owneruid_)));
+          set_has_owneruid();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_owner_name;
+        if (input->ExpectTag(34)) goto parse_ownerName;
         break;
       }
 
-      // required string owner_name = 4;
+      // required string ownerName = 4;
       case 4: {
         if (tag == 34) {
-         parse_owner_name:
+         parse_ownerName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_owner_name()));
+                input, this->mutable_ownername()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->owner_name().data(), this->owner_name().length(),
+            this->ownername().data(), this->ownername().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.InviteChatRoomNot.owner_name");
+            "MSG.InviteChatRoomNot.ownerName");
         } else {
           goto handle_unusual;
         }
@@ -3503,19 +3503,19 @@ void InviteChatRoomNot::SerializeWithCachedSizes(
       2, this->rkey(), output);
   }
 
-  // required uint64 owner_uid = 3;
-  if (has_owner_uid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->owner_uid(), output);
+  // required uint64 ownerUid = 3;
+  if (has_owneruid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->owneruid(), output);
   }
 
-  // required string owner_name = 4;
-  if (has_owner_name()) {
+  // required string ownerName = 4;
+  if (has_ownername()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->owner_name().data(), this->owner_name().length(),
+      this->ownername().data(), this->ownername().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.InviteChatRoomNot.owner_name");
+      "MSG.InviteChatRoomNot.ownerName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->owner_name(), output);
+      4, this->ownername(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3544,20 +3544,20 @@ void InviteChatRoomNot::SerializeWithCachedSizes(
         2, this->rkey(), target);
   }
 
-  // required uint64 owner_uid = 3;
-  if (has_owner_uid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->owner_uid(), target);
+  // required uint64 ownerUid = 3;
+  if (has_owneruid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->owneruid(), target);
   }
 
-  // required string owner_name = 4;
-  if (has_owner_name()) {
+  // required string ownerName = 4;
+  if (has_ownername()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->owner_name().data(), this->owner_name().length(),
+      this->ownername().data(), this->ownername().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.InviteChatRoomNot.owner_name");
+      "MSG.InviteChatRoomNot.ownerName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->owner_name(), target);
+        4, this->ownername(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3586,18 +3586,18 @@ int InviteChatRoomNot::RequiredFieldsByteSizeFallback() const {
         this->rkey());
   }
 
-  if (has_owner_uid()) {
-    // required uint64 owner_uid = 3;
+  if (has_owneruid()) {
+    // required uint64 ownerUid = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->owner_uid());
+        this->owneruid());
   }
 
-  if (has_owner_name()) {
-    // required string owner_name = 4;
+  if (has_ownername()) {
+    // required string ownerName = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->owner_name());
+        this->ownername());
   }
 
   return total_size;
@@ -3617,15 +3617,15 @@ int InviteChatRoomNot::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->rkey());
 
-    // required uint64 owner_uid = 3;
+    // required uint64 ownerUid = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->owner_uid());
+        this->owneruid());
 
-    // required string owner_name = 4;
+    // required string ownerName = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->owner_name());
+        this->ownername());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -3671,12 +3671,12 @@ void InviteChatRoomNot::MergeFrom(const InviteChatRoomNot& from) {
       set_has_rkey();
       rkey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.rkey_);
     }
-    if (from.has_owner_uid()) {
-      set_owner_uid(from.owner_uid());
+    if (from.has_owneruid()) {
+      set_owneruid(from.owneruid());
     }
-    if (from.has_owner_name()) {
-      set_has_owner_name();
-      owner_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.owner_name_);
+    if (from.has_ownername()) {
+      set_has_ownername();
+      ownername_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ownername_);
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -3711,8 +3711,8 @@ void InviteChatRoomNot::Swap(InviteChatRoomNot* other) {
 void InviteChatRoomNot::InternalSwap(InviteChatRoomNot* other) {
   std::swap(rid_, other->rid_);
   rkey_.Swap(&other->rkey_);
-  std::swap(owner_uid_, other->owner_uid_);
-  owner_name_.Swap(&other->owner_name_);
+  std::swap(owneruid_, other->owneruid_);
+  ownername_.Swap(&other->ownername_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -3807,82 +3807,82 @@ void InviteChatRoomNot::clear_rkey() {
   // @@protoc_insertion_point(field_set_allocated:MSG.InviteChatRoomNot.rkey)
 }
 
-// required uint64 owner_uid = 3;
-bool InviteChatRoomNot::has_owner_uid() const {
+// required uint64 ownerUid = 3;
+bool InviteChatRoomNot::has_owneruid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void InviteChatRoomNot::set_has_owner_uid() {
+void InviteChatRoomNot::set_has_owneruid() {
   _has_bits_[0] |= 0x00000004u;
 }
-void InviteChatRoomNot::clear_has_owner_uid() {
+void InviteChatRoomNot::clear_has_owneruid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-void InviteChatRoomNot::clear_owner_uid() {
-  owner_uid_ = GOOGLE_ULONGLONG(0);
-  clear_has_owner_uid();
+void InviteChatRoomNot::clear_owneruid() {
+  owneruid_ = GOOGLE_ULONGLONG(0);
+  clear_has_owneruid();
 }
- ::google::protobuf::uint64 InviteChatRoomNot::owner_uid() const {
-  // @@protoc_insertion_point(field_get:MSG.InviteChatRoomNot.owner_uid)
-  return owner_uid_;
+ ::google::protobuf::uint64 InviteChatRoomNot::owneruid() const {
+  // @@protoc_insertion_point(field_get:MSG.InviteChatRoomNot.ownerUid)
+  return owneruid_;
 }
- void InviteChatRoomNot::set_owner_uid(::google::protobuf::uint64 value) {
-  set_has_owner_uid();
-  owner_uid_ = value;
-  // @@protoc_insertion_point(field_set:MSG.InviteChatRoomNot.owner_uid)
+ void InviteChatRoomNot::set_owneruid(::google::protobuf::uint64 value) {
+  set_has_owneruid();
+  owneruid_ = value;
+  // @@protoc_insertion_point(field_set:MSG.InviteChatRoomNot.ownerUid)
 }
 
-// required string owner_name = 4;
-bool InviteChatRoomNot::has_owner_name() const {
+// required string ownerName = 4;
+bool InviteChatRoomNot::has_ownername() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-void InviteChatRoomNot::set_has_owner_name() {
+void InviteChatRoomNot::set_has_ownername() {
   _has_bits_[0] |= 0x00000008u;
 }
-void InviteChatRoomNot::clear_has_owner_name() {
+void InviteChatRoomNot::clear_has_ownername() {
   _has_bits_[0] &= ~0x00000008u;
 }
-void InviteChatRoomNot::clear_owner_name() {
-  owner_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_owner_name();
+void InviteChatRoomNot::clear_ownername() {
+  ownername_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_ownername();
 }
- const ::std::string& InviteChatRoomNot::owner_name() const {
-  // @@protoc_insertion_point(field_get:MSG.InviteChatRoomNot.owner_name)
-  return owner_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& InviteChatRoomNot::ownername() const {
+  // @@protoc_insertion_point(field_get:MSG.InviteChatRoomNot.ownerName)
+  return ownername_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void InviteChatRoomNot::set_owner_name(const ::std::string& value) {
-  set_has_owner_name();
-  owner_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.InviteChatRoomNot.owner_name)
+ void InviteChatRoomNot::set_ownername(const ::std::string& value) {
+  set_has_ownername();
+  ownername_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.InviteChatRoomNot.ownerName)
 }
- void InviteChatRoomNot::set_owner_name(const char* value) {
-  set_has_owner_name();
-  owner_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.InviteChatRoomNot.owner_name)
+ void InviteChatRoomNot::set_ownername(const char* value) {
+  set_has_ownername();
+  ownername_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.InviteChatRoomNot.ownerName)
 }
- void InviteChatRoomNot::set_owner_name(const char* value, size_t size) {
-  set_has_owner_name();
-  owner_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void InviteChatRoomNot::set_ownername(const char* value, size_t size) {
+  set_has_ownername();
+  ownername_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.InviteChatRoomNot.owner_name)
+  // @@protoc_insertion_point(field_set_pointer:MSG.InviteChatRoomNot.ownerName)
 }
- ::std::string* InviteChatRoomNot::mutable_owner_name() {
-  set_has_owner_name();
-  // @@protoc_insertion_point(field_mutable:MSG.InviteChatRoomNot.owner_name)
-  return owner_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* InviteChatRoomNot::mutable_ownername() {
+  set_has_ownername();
+  // @@protoc_insertion_point(field_mutable:MSG.InviteChatRoomNot.ownerName)
+  return ownername_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* InviteChatRoomNot::release_owner_name() {
-  // @@protoc_insertion_point(field_release:MSG.InviteChatRoomNot.owner_name)
-  clear_has_owner_name();
-  return owner_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* InviteChatRoomNot::release_ownername() {
+  // @@protoc_insertion_point(field_release:MSG.InviteChatRoomNot.ownerName)
+  clear_has_ownername();
+  return ownername_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void InviteChatRoomNot::set_allocated_owner_name(::std::string* owner_name) {
-  if (owner_name != NULL) {
-    set_has_owner_name();
+ void InviteChatRoomNot::set_allocated_ownername(::std::string* ownername) {
+  if (ownername != NULL) {
+    set_has_ownername();
   } else {
-    clear_has_owner_name();
+    clear_has_ownername();
   }
-  owner_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), owner_name);
-  // @@protoc_insertion_point(field_set_allocated:MSG.InviteChatRoomNot.owner_name)
+  ownername_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ownername);
+  // @@protoc_insertion_point(field_set_allocated:MSG.InviteChatRoomNot.ownerName)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

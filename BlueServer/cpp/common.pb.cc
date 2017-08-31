@@ -65,13 +65,13 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, did_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, platform_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, login_date_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, logout_date_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, reg_date_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, logindate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, logoutdate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, regdate_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, vc1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, vc2_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, vc3_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, group_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, groupname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, language_),
   };
   UserData__reflection_ =
@@ -144,10 +144,10 @@ void protobuf_AssignDesc_common_2eproto() {
   static const int ChatData__offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, group_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, groupname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, language_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, chat_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, reg_date_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatData_, regdate_),
   };
   ChatData__reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -254,47 +254,47 @@ void protobuf_AddDesc_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014common.proto\022\003MSG\"\334\001\n\tUserData_\022\013\n\003uid"
+    "\n\014common.proto\022\003MSG\"\330\001\n\tUserData_\022\013\n\003uid"
     "\030\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\013\n\003did\030\003 \001(\t\022\037\n\010pla"
-    "tform\030\004 \001(\0162\r.MSG.PlatForm\022\022\n\nlogin_date"
-    "\030\005 \001(\t\022\023\n\013logout_date\030\006 \001(\t\022\020\n\010reg_date\030"
-    "\007 \001(\t\022\013\n\003vc1\030\010 \001(\r\022\013\n\003vc2\030\t \001(\r\022\013\n\003vc3\030\n"
-    " \001(\r\022\022\n\ngroup_name\030\013 \001(\t\022\020\n\010language\030\014 \001"
-    "(\t\"\202\001\n\tContents_\022(\n\004type\030\001 \002(\0162\032.MSG.Con"
-    "tents_.ContentType\022\014\n\004name\030\002 \002(\t\"=\n\013Cont"
-    "entType\022\r\n\tCT_INGAME\020\001\022\016\n\nCT_OUTGAME\020\002\022\017"
-    "\n\013CT_INAPPBUY\020\003\"\233\001\n\010GMember_\022\013\n\003uid\030\001 \002("
-    "\004\022\014\n\004name\030\002 \002(\t\022&\n\005grade\030\003 \002(\0162\027.MSG.GMe"
-    "mber_.GradeType\"L\n\tGradeType\022\013\n\007Grade_1\020"
-    "\001\022\013\n\007Grade_2\020\002\022\013\n\007Grade_3\020\003\022\013\n\007Grade_4\020\004"
-    "\022\013\n\007Grade_5\020\005\"s\n\006Group_\022\013\n\003gid\030\001 \002(\004\022\014\n\004"
-    "name\030\002 \002(\t\022\017\n\007country\030\003 \002(\t\022\016\n\006leader\030\004 "
-    "\002(\004\022\r\n\005limit\030\005 \002(\r\022\036\n\007members\030\006 \003(\0132\r.MS"
-    "G.GMember_\"l\n\tChatData_\022\013\n\003uid\030\001 \002(\004\022\014\n\004"
-    "name\030\002 \002(\t\022\022\n\ngroup_name\030\003 \002(\t\022\020\n\010langua"
-    "ge\030\004 \002(\t\022\014\n\004chat\030\005 \002(\t\022\020\n\010reg_date\030\006 \002(\004"
-    "\"E\n\tChatRoom_\022\013\n\003rid\030\001 \002(\004\022\014\n\004name\030\002 \002(\t"
-    "\022\035\n\005chats\030\003 \003(\0132\016.MSG.ChatData_\"H\n\014ChatC"
-    "hannel_\022\013\n\003cid\030\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\035\n\005ch"
-    "ats\030\003 \003(\0132\016.MSG.ChatData_*\372\003\n\005MsgId\022\013\n\006C"
-    "LOSED\020\220N\022\016\n\tLOGIN_REQ\020\365N\022\016\n\tLOGIN_ANS\020\366N"
-    "\022\r\n\010PING_REQ\020\367N\022\r\n\010PONG_ANS\020\370N\022\017\n\nREGIST"
-    "_REQ\020\371N\022\017\n\nREGIST_ANS\020\372N\022\020\n\013VERSION_REQ\020"
-    "\373N\022\020\n\013VERSION_ANS\020\374N\022\016\n\010CHAT_REQ\020\205\235\001\022\016\n\010"
-    "CHAT_ANS\020\206\235\001\022\016\n\010CHAT_NOT\020\207\235\001\022\030\n\022CREATECH"
-    "ATROOM_REQ\020\217\235\001\022\030\n\022CREATECHATROOM_ANS\020\220\235\001"
-    "\022\030\n\022CREATECHATROOM_NOT\020\221\235\001\022\030\n\022INVITECHAT"
-    "ROOM_REQ\020\231\235\001\022\030\n\022INVITECHATROOM_ANS\020\232\235\001\022\030"
-    "\n\022INVITECHATROOM_NOT\020\233\235\001\022\027\n\021ENTERCHATROO"
-    "M_REQ\020\243\235\001\022\027\n\021ENTERCHATROOM_ANS\020\244\235\001\022\027\n\021EN"
-    "TERCHATROOM_NOT\020\245\235\001\022\027\n\021LEAVECHATROOM_REQ"
-    "\020\255\235\001\022\027\n\021LEAVECHATROOM_ANS\020\256\235\001\022\027\n\021LEAVECH"
-    "ATROOM_NOT\020\257\235\001*x\n\tErrorCode\022\017\n\013ERR_SUCCE"
-    "SS\020\000\022\022\n\016ERR_LOGIN_FAIL\020\001\022\025\n\021ERR_ARGUMENT"
-    "_FAIL\020\002\022\026\n\022ERR_AUTHORITY_FAIL\020\003\022\027\n\023ERR_S"
-    "ESSIONKEY_FAIL\020\004* \n\010PlatForm\022\007\n\003IOS\020\000\022\013\n"
-    "\007ANDROID\020\001*;\n\010ChatType\022\020\n\014CHAT_CHANNEL\020\001"
-    "\022\016\n\nCHAT_GROUP\020\002\022\r\n\tCHAT_ROOM\020\003", 1631);
+    "tform\030\004 \001(\0162\r.MSG.PlatForm\022\021\n\tloginDate\030"
+    "\005 \001(\t\022\022\n\nlogoutDate\030\006 \001(\t\022\017\n\007regDate\030\007 \001"
+    "(\t\022\013\n\003vc1\030\010 \001(\r\022\013\n\003vc2\030\t \001(\r\022\013\n\003vc3\030\n \001("
+    "\r\022\021\n\tgroupName\030\013 \001(\t\022\020\n\010language\030\014 \001(\t\"\202"
+    "\001\n\tContents_\022(\n\004type\030\001 \002(\0162\032.MSG.Content"
+    "s_.ContentType\022\014\n\004name\030\002 \002(\t\"=\n\013ContentT"
+    "ype\022\r\n\tCT_INGAME\020\001\022\016\n\nCT_OUTGAME\020\002\022\017\n\013CT"
+    "_INAPPBUY\020\003\"\233\001\n\010GMember_\022\013\n\003uid\030\001 \002(\004\022\014\n"
+    "\004name\030\002 \002(\t\022&\n\005grade\030\003 \002(\0162\027.MSG.GMember"
+    "_.GradeType\"L\n\tGradeType\022\013\n\007Grade_1\020\001\022\013\n"
+    "\007Grade_2\020\002\022\013\n\007Grade_3\020\003\022\013\n\007Grade_4\020\004\022\013\n\007"
+    "Grade_5\020\005\"s\n\006Group_\022\013\n\003gid\030\001 \002(\004\022\014\n\004name"
+    "\030\002 \002(\t\022\017\n\007country\030\003 \002(\t\022\016\n\006leader\030\004 \002(\004\022"
+    "\r\n\005limit\030\005 \002(\r\022\036\n\007members\030\006 \003(\0132\r.MSG.GM"
+    "ember_\"j\n\tChatData_\022\013\n\003uid\030\001 \002(\004\022\014\n\004name"
+    "\030\002 \002(\t\022\021\n\tgroupName\030\003 \002(\t\022\020\n\010language\030\004 "
+    "\002(\t\022\014\n\004chat\030\005 \002(\t\022\017\n\007regDate\030\006 \002(\004\"E\n\tCh"
+    "atRoom_\022\013\n\003rid\030\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\035\n\005ch"
+    "ats\030\003 \003(\0132\016.MSG.ChatData_\"H\n\014ChatChannel"
+    "_\022\013\n\003cid\030\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\035\n\005chats\030\003 "
+    "\003(\0132\016.MSG.ChatData_*\372\003\n\005MsgId\022\013\n\006CLOSED\020"
+    "\220N\022\016\n\tLOGIN_REQ\020\365N\022\016\n\tLOGIN_ANS\020\366N\022\r\n\010PI"
+    "NG_REQ\020\367N\022\r\n\010PONG_ANS\020\370N\022\017\n\nREGIST_REQ\020\371"
+    "N\022\017\n\nREGIST_ANS\020\372N\022\020\n\013VERSION_REQ\020\373N\022\020\n\013"
+    "VERSION_ANS\020\374N\022\016\n\010CHAT_REQ\020\205\235\001\022\016\n\010CHAT_A"
+    "NS\020\206\235\001\022\016\n\010CHAT_NOT\020\207\235\001\022\030\n\022CREATECHATROOM"
+    "_REQ\020\217\235\001\022\030\n\022CREATECHATROOM_ANS\020\220\235\001\022\030\n\022CR"
+    "EATECHATROOM_NOT\020\221\235\001\022\030\n\022INVITECHATROOM_R"
+    "EQ\020\231\235\001\022\030\n\022INVITECHATROOM_ANS\020\232\235\001\022\030\n\022INVI"
+    "TECHATROOM_NOT\020\233\235\001\022\027\n\021ENTERCHATROOM_REQ\020"
+    "\243\235\001\022\027\n\021ENTERCHATROOM_ANS\020\244\235\001\022\027\n\021ENTERCHA"
+    "TROOM_NOT\020\245\235\001\022\027\n\021LEAVECHATROOM_REQ\020\255\235\001\022\027"
+    "\n\021LEAVECHATROOM_ANS\020\256\235\001\022\027\n\021LEAVECHATROOM"
+    "_NOT\020\257\235\001*x\n\tErrorCode\022\017\n\013ERR_SUCCESS\020\000\022\022"
+    "\n\016ERR_LOGIN_FAIL\020\001\022\025\n\021ERR_ARGUMENT_FAIL\020"
+    "\002\022\026\n\022ERR_AUTHORITY_FAIL\020\003\022\027\n\023ERR_SESSION"
+    "KEY_FAIL\020\004* \n\010PlatForm\022\007\n\003IOS\020\000\022\013\n\007ANDRO"
+    "ID\020\001*;\n\010ChatType\022\020\n\014CHAT_CHANNEL\020\001\022\016\n\nCH"
+    "AT_GROUP\020\002\022\r\n\tCHAT_ROOM\020\003", 1625);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   UserData_::default_instance_ = new UserData_();
@@ -444,13 +444,13 @@ void UserData_::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   did_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   platform_ = 0;
-  login_date_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  logout_date_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  reg_date_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  logindate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  logoutdate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  regdate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   vc1_ = 0u;
   vc2_ = 0u;
   vc3_ = 0u;
-  group_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  groupname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -463,10 +463,10 @@ UserData_::~UserData_() {
 void UserData_::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   did_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  login_date_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  logout_date_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  reg_date_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  group_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  logindate_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  logoutdate_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  regdate_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  groupname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   language_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
@@ -524,20 +524,20 @@ void UserData_::Clear() {
     if (has_did()) {
       did_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (has_login_date()) {
-      login_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    if (has_logindate()) {
+      logindate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (has_logout_date()) {
-      logout_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    if (has_logoutdate()) {
+      logoutdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (has_reg_date()) {
-      reg_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    if (has_regdate()) {
+      regdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
   if (_has_bits_[8 / 32] & 3840u) {
     ZR_(vc2_, vc3_);
-    if (has_group_name()) {
-      group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    if (has_groupname()) {
+      groupname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_language()) {
       language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -627,54 +627,54 @@ bool UserData_::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_login_date;
+        if (input->ExpectTag(42)) goto parse_loginDate;
         break;
       }
 
-      // optional string login_date = 5;
+      // optional string loginDate = 5;
       case 5: {
         if (tag == 42) {
-         parse_login_date:
+         parse_loginDate:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_login_date()));
+                input, this->mutable_logindate()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->login_date().data(), this->login_date().length(),
+            this->logindate().data(), this->logindate().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.UserData_.login_date");
+            "MSG.UserData_.loginDate");
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_logout_date;
+        if (input->ExpectTag(50)) goto parse_logoutDate;
         break;
       }
 
-      // optional string logout_date = 6;
+      // optional string logoutDate = 6;
       case 6: {
         if (tag == 50) {
-         parse_logout_date:
+         parse_logoutDate:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_logout_date()));
+                input, this->mutable_logoutdate()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->logout_date().data(), this->logout_date().length(),
+            this->logoutdate().data(), this->logoutdate().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.UserData_.logout_date");
+            "MSG.UserData_.logoutDate");
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(58)) goto parse_reg_date;
+        if (input->ExpectTag(58)) goto parse_regDate;
         break;
       }
 
-      // optional string reg_date = 7;
+      // optional string regDate = 7;
       case 7: {
         if (tag == 58) {
-         parse_reg_date:
+         parse_regDate:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_reg_date()));
+                input, this->mutable_regdate()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->reg_date().data(), this->reg_date().length(),
+            this->regdate().data(), this->regdate().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.UserData_.reg_date");
+            "MSG.UserData_.regDate");
         } else {
           goto handle_unusual;
         }
@@ -723,20 +723,20 @@ bool UserData_::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(90)) goto parse_group_name;
+        if (input->ExpectTag(90)) goto parse_groupName;
         break;
       }
 
-      // optional string group_name = 11;
+      // optional string groupName = 11;
       case 11: {
         if (tag == 90) {
-         parse_group_name:
+         parse_groupName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_group_name()));
+                input, this->mutable_groupname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->group_name().data(), this->group_name().length(),
+            this->groupname().data(), this->groupname().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.UserData_.group_name");
+            "MSG.UserData_.groupName");
         } else {
           goto handle_unusual;
         }
@@ -817,34 +817,34 @@ void UserData_::SerializeWithCachedSizes(
       4, this->platform(), output);
   }
 
-  // optional string login_date = 5;
-  if (has_login_date()) {
+  // optional string loginDate = 5;
+  if (has_logindate()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->login_date().data(), this->login_date().length(),
+      this->logindate().data(), this->logindate().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.UserData_.login_date");
+      "MSG.UserData_.loginDate");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->login_date(), output);
+      5, this->logindate(), output);
   }
 
-  // optional string logout_date = 6;
-  if (has_logout_date()) {
+  // optional string logoutDate = 6;
+  if (has_logoutdate()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->logout_date().data(), this->logout_date().length(),
+      this->logoutdate().data(), this->logoutdate().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.UserData_.logout_date");
+      "MSG.UserData_.logoutDate");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->logout_date(), output);
+      6, this->logoutdate(), output);
   }
 
-  // optional string reg_date = 7;
-  if (has_reg_date()) {
+  // optional string regDate = 7;
+  if (has_regdate()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->reg_date().data(), this->reg_date().length(),
+      this->regdate().data(), this->regdate().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.UserData_.reg_date");
+      "MSG.UserData_.regDate");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      7, this->reg_date(), output);
+      7, this->regdate(), output);
   }
 
   // optional uint32 vc1 = 8;
@@ -862,14 +862,14 @@ void UserData_::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->vc3(), output);
   }
 
-  // optional string group_name = 11;
-  if (has_group_name()) {
+  // optional string groupName = 11;
+  if (has_groupname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->group_name().data(), this->group_name().length(),
+      this->groupname().data(), this->groupname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.UserData_.group_name");
+      "MSG.UserData_.groupName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      11, this->group_name(), output);
+      11, this->groupname(), output);
   }
 
   // optional string language = 12;
@@ -925,37 +925,37 @@ void UserData_::SerializeWithCachedSizes(
       4, this->platform(), target);
   }
 
-  // optional string login_date = 5;
-  if (has_login_date()) {
+  // optional string loginDate = 5;
+  if (has_logindate()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->login_date().data(), this->login_date().length(),
+      this->logindate().data(), this->logindate().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.UserData_.login_date");
+      "MSG.UserData_.loginDate");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->login_date(), target);
+        5, this->logindate(), target);
   }
 
-  // optional string logout_date = 6;
-  if (has_logout_date()) {
+  // optional string logoutDate = 6;
+  if (has_logoutdate()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->logout_date().data(), this->logout_date().length(),
+      this->logoutdate().data(), this->logoutdate().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.UserData_.logout_date");
+      "MSG.UserData_.logoutDate");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->logout_date(), target);
+        6, this->logoutdate(), target);
   }
 
-  // optional string reg_date = 7;
-  if (has_reg_date()) {
+  // optional string regDate = 7;
+  if (has_regdate()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->reg_date().data(), this->reg_date().length(),
+      this->regdate().data(), this->regdate().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.UserData_.reg_date");
+      "MSG.UserData_.regDate");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->reg_date(), target);
+        7, this->regdate(), target);
   }
 
   // optional uint32 vc1 = 8;
@@ -973,15 +973,15 @@ void UserData_::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->vc3(), target);
   }
 
-  // optional string group_name = 11;
-  if (has_group_name()) {
+  // optional string groupName = 11;
+  if (has_groupname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->group_name().data(), this->group_name().length(),
+      this->groupname().data(), this->groupname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.UserData_.group_name");
+      "MSG.UserData_.groupName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        11, this->group_name(), target);
+        11, this->groupname(), target);
   }
 
   // optional string language = 12;
@@ -1055,25 +1055,25 @@ int UserData_::ByteSize() const {
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->platform());
     }
 
-    // optional string login_date = 5;
-    if (has_login_date()) {
+    // optional string loginDate = 5;
+    if (has_logindate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->login_date());
+          this->logindate());
     }
 
-    // optional string logout_date = 6;
-    if (has_logout_date()) {
+    // optional string logoutDate = 6;
+    if (has_logoutdate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->logout_date());
+          this->logoutdate());
     }
 
-    // optional string reg_date = 7;
-    if (has_reg_date()) {
+    // optional string regDate = 7;
+    if (has_regdate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->reg_date());
+          this->regdate());
     }
 
     // optional uint32 vc1 = 8;
@@ -1099,11 +1099,11 @@ int UserData_::ByteSize() const {
           this->vc3());
     }
 
-    // optional string group_name = 11;
-    if (has_group_name()) {
+    // optional string groupName = 11;
+    if (has_groupname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->group_name());
+          this->groupname());
     }
 
     // optional string language = 12;
@@ -1162,17 +1162,17 @@ void UserData_::MergeFrom(const UserData_& from) {
     if (from.has_platform()) {
       set_platform(from.platform());
     }
-    if (from.has_login_date()) {
-      set_has_login_date();
-      login_date_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.login_date_);
+    if (from.has_logindate()) {
+      set_has_logindate();
+      logindate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.logindate_);
     }
-    if (from.has_logout_date()) {
-      set_has_logout_date();
-      logout_date_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.logout_date_);
+    if (from.has_logoutdate()) {
+      set_has_logoutdate();
+      logoutdate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.logoutdate_);
     }
-    if (from.has_reg_date()) {
-      set_has_reg_date();
-      reg_date_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reg_date_);
+    if (from.has_regdate()) {
+      set_has_regdate();
+      regdate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.regdate_);
     }
     if (from.has_vc1()) {
       set_vc1(from.vc1());
@@ -1185,9 +1185,9 @@ void UserData_::MergeFrom(const UserData_& from) {
     if (from.has_vc3()) {
       set_vc3(from.vc3());
     }
-    if (from.has_group_name()) {
-      set_has_group_name();
-      group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
+    if (from.has_groupname()) {
+      set_has_groupname();
+      groupname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.groupname_);
     }
     if (from.has_language()) {
       set_has_language();
@@ -1228,13 +1228,13 @@ void UserData_::InternalSwap(UserData_* other) {
   name_.Swap(&other->name_);
   did_.Swap(&other->did_);
   std::swap(platform_, other->platform_);
-  login_date_.Swap(&other->login_date_);
-  logout_date_.Swap(&other->logout_date_);
-  reg_date_.Swap(&other->reg_date_);
+  logindate_.Swap(&other->logindate_);
+  logoutdate_.Swap(&other->logoutdate_);
+  regdate_.Swap(&other->regdate_);
   std::swap(vc1_, other->vc1_);
   std::swap(vc2_, other->vc2_);
   std::swap(vc3_, other->vc3_);
-  group_name_.Swap(&other->group_name_);
+  groupname_.Swap(&other->groupname_);
   language_.Swap(&other->language_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -1409,166 +1409,166 @@ void UserData_::clear_platform() {
   // @@protoc_insertion_point(field_set:MSG.UserData_.platform)
 }
 
-// optional string login_date = 5;
-bool UserData_::has_login_date() const {
+// optional string loginDate = 5;
+bool UserData_::has_logindate() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-void UserData_::set_has_login_date() {
+void UserData_::set_has_logindate() {
   _has_bits_[0] |= 0x00000010u;
 }
-void UserData_::clear_has_login_date() {
+void UserData_::clear_has_logindate() {
   _has_bits_[0] &= ~0x00000010u;
 }
-void UserData_::clear_login_date() {
-  login_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_login_date();
+void UserData_::clear_logindate() {
+  logindate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_logindate();
 }
- const ::std::string& UserData_::login_date() const {
-  // @@protoc_insertion_point(field_get:MSG.UserData_.login_date)
-  return login_date_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& UserData_::logindate() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.loginDate)
+  return logindate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UserData_::set_login_date(const ::std::string& value) {
-  set_has_login_date();
-  login_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.UserData_.login_date)
+ void UserData_::set_logindate(const ::std::string& value) {
+  set_has_logindate();
+  logindate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.loginDate)
 }
- void UserData_::set_login_date(const char* value) {
-  set_has_login_date();
-  login_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.UserData_.login_date)
+ void UserData_::set_logindate(const char* value) {
+  set_has_logindate();
+  logindate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.loginDate)
 }
- void UserData_::set_login_date(const char* value, size_t size) {
-  set_has_login_date();
-  login_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void UserData_::set_logindate(const char* value, size_t size) {
+  set_has_logindate();
+  logindate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.login_date)
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.loginDate)
 }
- ::std::string* UserData_::mutable_login_date() {
-  set_has_login_date();
-  // @@protoc_insertion_point(field_mutable:MSG.UserData_.login_date)
-  return login_date_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* UserData_::mutable_logindate() {
+  set_has_logindate();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.loginDate)
+  return logindate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* UserData_::release_login_date() {
-  // @@protoc_insertion_point(field_release:MSG.UserData_.login_date)
-  clear_has_login_date();
-  return login_date_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* UserData_::release_logindate() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.loginDate)
+  clear_has_logindate();
+  return logindate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UserData_::set_allocated_login_date(::std::string* login_date) {
-  if (login_date != NULL) {
-    set_has_login_date();
+ void UserData_::set_allocated_logindate(::std::string* logindate) {
+  if (logindate != NULL) {
+    set_has_logindate();
   } else {
-    clear_has_login_date();
+    clear_has_logindate();
   }
-  login_date_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_date);
-  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.login_date)
+  logindate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), logindate);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.loginDate)
 }
 
-// optional string logout_date = 6;
-bool UserData_::has_logout_date() const {
+// optional string logoutDate = 6;
+bool UserData_::has_logoutdate() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-void UserData_::set_has_logout_date() {
+void UserData_::set_has_logoutdate() {
   _has_bits_[0] |= 0x00000020u;
 }
-void UserData_::clear_has_logout_date() {
+void UserData_::clear_has_logoutdate() {
   _has_bits_[0] &= ~0x00000020u;
 }
-void UserData_::clear_logout_date() {
-  logout_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_logout_date();
+void UserData_::clear_logoutdate() {
+  logoutdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_logoutdate();
 }
- const ::std::string& UserData_::logout_date() const {
-  // @@protoc_insertion_point(field_get:MSG.UserData_.logout_date)
-  return logout_date_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& UserData_::logoutdate() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.logoutDate)
+  return logoutdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UserData_::set_logout_date(const ::std::string& value) {
-  set_has_logout_date();
-  logout_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.UserData_.logout_date)
+ void UserData_::set_logoutdate(const ::std::string& value) {
+  set_has_logoutdate();
+  logoutdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.logoutDate)
 }
- void UserData_::set_logout_date(const char* value) {
-  set_has_logout_date();
-  logout_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.UserData_.logout_date)
+ void UserData_::set_logoutdate(const char* value) {
+  set_has_logoutdate();
+  logoutdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.logoutDate)
 }
- void UserData_::set_logout_date(const char* value, size_t size) {
-  set_has_logout_date();
-  logout_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void UserData_::set_logoutdate(const char* value, size_t size) {
+  set_has_logoutdate();
+  logoutdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.logout_date)
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.logoutDate)
 }
- ::std::string* UserData_::mutable_logout_date() {
-  set_has_logout_date();
-  // @@protoc_insertion_point(field_mutable:MSG.UserData_.logout_date)
-  return logout_date_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* UserData_::mutable_logoutdate() {
+  set_has_logoutdate();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.logoutDate)
+  return logoutdate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* UserData_::release_logout_date() {
-  // @@protoc_insertion_point(field_release:MSG.UserData_.logout_date)
-  clear_has_logout_date();
-  return logout_date_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* UserData_::release_logoutdate() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.logoutDate)
+  clear_has_logoutdate();
+  return logoutdate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UserData_::set_allocated_logout_date(::std::string* logout_date) {
-  if (logout_date != NULL) {
-    set_has_logout_date();
+ void UserData_::set_allocated_logoutdate(::std::string* logoutdate) {
+  if (logoutdate != NULL) {
+    set_has_logoutdate();
   } else {
-    clear_has_logout_date();
+    clear_has_logoutdate();
   }
-  logout_date_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), logout_date);
-  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.logout_date)
+  logoutdate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), logoutdate);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.logoutDate)
 }
 
-// optional string reg_date = 7;
-bool UserData_::has_reg_date() const {
+// optional string regDate = 7;
+bool UserData_::has_regdate() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-void UserData_::set_has_reg_date() {
+void UserData_::set_has_regdate() {
   _has_bits_[0] |= 0x00000040u;
 }
-void UserData_::clear_has_reg_date() {
+void UserData_::clear_has_regdate() {
   _has_bits_[0] &= ~0x00000040u;
 }
-void UserData_::clear_reg_date() {
-  reg_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_reg_date();
+void UserData_::clear_regdate() {
+  regdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_regdate();
 }
- const ::std::string& UserData_::reg_date() const {
-  // @@protoc_insertion_point(field_get:MSG.UserData_.reg_date)
-  return reg_date_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& UserData_::regdate() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.regDate)
+  return regdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UserData_::set_reg_date(const ::std::string& value) {
-  set_has_reg_date();
-  reg_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.UserData_.reg_date)
+ void UserData_::set_regdate(const ::std::string& value) {
+  set_has_regdate();
+  regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.regDate)
 }
- void UserData_::set_reg_date(const char* value) {
-  set_has_reg_date();
-  reg_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.UserData_.reg_date)
+ void UserData_::set_regdate(const char* value) {
+  set_has_regdate();
+  regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.regDate)
 }
- void UserData_::set_reg_date(const char* value, size_t size) {
-  set_has_reg_date();
-  reg_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void UserData_::set_regdate(const char* value, size_t size) {
+  set_has_regdate();
+  regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.reg_date)
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.regDate)
 }
- ::std::string* UserData_::mutable_reg_date() {
-  set_has_reg_date();
-  // @@protoc_insertion_point(field_mutable:MSG.UserData_.reg_date)
-  return reg_date_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* UserData_::mutable_regdate() {
+  set_has_regdate();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.regDate)
+  return regdate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* UserData_::release_reg_date() {
-  // @@protoc_insertion_point(field_release:MSG.UserData_.reg_date)
-  clear_has_reg_date();
-  return reg_date_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* UserData_::release_regdate() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.regDate)
+  clear_has_regdate();
+  return regdate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UserData_::set_allocated_reg_date(::std::string* reg_date) {
-  if (reg_date != NULL) {
-    set_has_reg_date();
+ void UserData_::set_allocated_regdate(::std::string* regdate) {
+  if (regdate != NULL) {
+    set_has_regdate();
   } else {
-    clear_has_reg_date();
+    clear_has_regdate();
   }
-  reg_date_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), reg_date);
-  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.reg_date)
+  regdate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), regdate);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.regDate)
 }
 
 // optional uint32 vc1 = 8;
@@ -1643,58 +1643,58 @@ void UserData_::clear_vc3() {
   // @@protoc_insertion_point(field_set:MSG.UserData_.vc3)
 }
 
-// optional string group_name = 11;
-bool UserData_::has_group_name() const {
+// optional string groupName = 11;
+bool UserData_::has_groupname() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-void UserData_::set_has_group_name() {
+void UserData_::set_has_groupname() {
   _has_bits_[0] |= 0x00000400u;
 }
-void UserData_::clear_has_group_name() {
+void UserData_::clear_has_groupname() {
   _has_bits_[0] &= ~0x00000400u;
 }
-void UserData_::clear_group_name() {
-  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_group_name();
+void UserData_::clear_groupname() {
+  groupname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_groupname();
 }
- const ::std::string& UserData_::group_name() const {
-  // @@protoc_insertion_point(field_get:MSG.UserData_.group_name)
-  return group_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& UserData_::groupname() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.groupName)
+  return groupname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UserData_::set_group_name(const ::std::string& value) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.UserData_.group_name)
+ void UserData_::set_groupname(const ::std::string& value) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.groupName)
 }
- void UserData_::set_group_name(const char* value) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.UserData_.group_name)
+ void UserData_::set_groupname(const char* value) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.groupName)
 }
- void UserData_::set_group_name(const char* value, size_t size) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void UserData_::set_groupname(const char* value, size_t size) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.group_name)
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.groupName)
 }
- ::std::string* UserData_::mutable_group_name() {
-  set_has_group_name();
-  // @@protoc_insertion_point(field_mutable:MSG.UserData_.group_name)
-  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* UserData_::mutable_groupname() {
+  set_has_groupname();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.groupName)
+  return groupname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* UserData_::release_group_name() {
-  // @@protoc_insertion_point(field_release:MSG.UserData_.group_name)
-  clear_has_group_name();
-  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* UserData_::release_groupname() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.groupName)
+  clear_has_groupname();
+  return groupname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UserData_::set_allocated_group_name(::std::string* group_name) {
-  if (group_name != NULL) {
-    set_has_group_name();
+ void UserData_::set_allocated_groupname(::std::string* groupname) {
+  if (groupname != NULL) {
+    set_has_groupname();
   } else {
-    clear_has_group_name();
+    clear_has_groupname();
   }
-  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
-  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.group_name)
+  groupname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), groupname);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.groupName)
 }
 
 // optional string language = 12;
@@ -3455,10 +3455,10 @@ void ChatData_::SharedCtor() {
   _cached_size_ = 0;
   uid_ = GOOGLE_ULONGLONG(0);
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  group_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  groupname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   chat_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  reg_date_ = GOOGLE_ULONGLONG(0);
+  regdate_ = GOOGLE_ULONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3469,7 +3469,7 @@ ChatData_::~ChatData_() {
 
 void ChatData_::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  group_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  groupname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   language_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   chat_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
@@ -3508,8 +3508,8 @@ void ChatData_::Clear() {
     if (has_name()) {
       name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (has_group_name()) {
-      group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    if (has_groupname()) {
+      groupname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_language()) {
       language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -3517,7 +3517,7 @@ void ChatData_::Clear() {
     if (has_chat()) {
       chat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    reg_date_ = GOOGLE_ULONGLONG(0);
+    regdate_ = GOOGLE_ULONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3562,20 +3562,20 @@ bool ChatData_::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_group_name;
+        if (input->ExpectTag(26)) goto parse_groupName;
         break;
       }
 
-      // required string group_name = 3;
+      // required string groupName = 3;
       case 3: {
         if (tag == 26) {
-         parse_group_name:
+         parse_groupName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_group_name()));
+                input, this->mutable_groupname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->group_name().data(), this->group_name().length(),
+            this->groupname().data(), this->groupname().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.ChatData_.group_name");
+            "MSG.ChatData_.groupName");
         } else {
           goto handle_unusual;
         }
@@ -3613,18 +3613,18 @@ bool ChatData_::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(48)) goto parse_reg_date;
+        if (input->ExpectTag(48)) goto parse_regDate;
         break;
       }
 
-      // required uint64 reg_date = 6;
+      // required uint64 regDate = 6;
       case 6: {
         if (tag == 48) {
-         parse_reg_date:
+         parse_regDate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &reg_date_)));
-          set_has_reg_date();
+                 input, &regdate_)));
+          set_has_regdate();
         } else {
           goto handle_unusual;
         }
@@ -3672,14 +3672,14 @@ void ChatData_::SerializeWithCachedSizes(
       2, this->name(), output);
   }
 
-  // required string group_name = 3;
-  if (has_group_name()) {
+  // required string groupName = 3;
+  if (has_groupname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->group_name().data(), this->group_name().length(),
+      this->groupname().data(), this->groupname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.ChatData_.group_name");
+      "MSG.ChatData_.groupName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->group_name(), output);
+      3, this->groupname(), output);
   }
 
   // required string language = 4;
@@ -3702,9 +3702,9 @@ void ChatData_::SerializeWithCachedSizes(
       5, this->chat(), output);
   }
 
-  // required uint64 reg_date = 6;
-  if (has_reg_date()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->reg_date(), output);
+  // required uint64 regDate = 6;
+  if (has_regdate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->regdate(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3733,15 +3733,15 @@ void ChatData_::SerializeWithCachedSizes(
         2, this->name(), target);
   }
 
-  // required string group_name = 3;
-  if (has_group_name()) {
+  // required string groupName = 3;
+  if (has_groupname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->group_name().data(), this->group_name().length(),
+      this->groupname().data(), this->groupname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.ChatData_.group_name");
+      "MSG.ChatData_.groupName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->group_name(), target);
+        3, this->groupname(), target);
   }
 
   // required string language = 4;
@@ -3766,9 +3766,9 @@ void ChatData_::SerializeWithCachedSizes(
         5, this->chat(), target);
   }
 
-  // required uint64 reg_date = 6;
-  if (has_reg_date()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->reg_date(), target);
+  // required uint64 regDate = 6;
+  if (has_regdate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->regdate(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3797,11 +3797,11 @@ int ChatData_::RequiredFieldsByteSizeFallback() const {
         this->name());
   }
 
-  if (has_group_name()) {
-    // required string group_name = 3;
+  if (has_groupname()) {
+    // required string groupName = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->group_name());
+        this->groupname());
   }
 
   if (has_language()) {
@@ -3818,11 +3818,11 @@ int ChatData_::RequiredFieldsByteSizeFallback() const {
         this->chat());
   }
 
-  if (has_reg_date()) {
-    // required uint64 reg_date = 6;
+  if (has_regdate()) {
+    // required uint64 regDate = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->reg_date());
+        this->regdate());
   }
 
   return total_size;
@@ -3842,10 +3842,10 @@ int ChatData_::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
 
-    // required string group_name = 3;
+    // required string groupName = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->group_name());
+        this->groupname());
 
     // required string language = 4;
     total_size += 1 +
@@ -3857,10 +3857,10 @@ int ChatData_::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->chat());
 
-    // required uint64 reg_date = 6;
+    // required uint64 regDate = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->reg_date());
+        this->regdate());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -3906,9 +3906,9 @@ void ChatData_::MergeFrom(const ChatData_& from) {
       set_has_name();
       name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
     }
-    if (from.has_group_name()) {
-      set_has_group_name();
-      group_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_name_);
+    if (from.has_groupname()) {
+      set_has_groupname();
+      groupname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.groupname_);
     }
     if (from.has_language()) {
       set_has_language();
@@ -3918,8 +3918,8 @@ void ChatData_::MergeFrom(const ChatData_& from) {
       set_has_chat();
       chat_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.chat_);
     }
-    if (from.has_reg_date()) {
-      set_reg_date(from.reg_date());
+    if (from.has_regdate()) {
+      set_regdate(from.regdate());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -3954,10 +3954,10 @@ void ChatData_::Swap(ChatData_* other) {
 void ChatData_::InternalSwap(ChatData_* other) {
   std::swap(uid_, other->uid_);
   name_.Swap(&other->name_);
-  group_name_.Swap(&other->group_name_);
+  groupname_.Swap(&other->groupname_);
   language_.Swap(&other->language_);
   chat_.Swap(&other->chat_);
-  std::swap(reg_date_, other->reg_date_);
+  std::swap(regdate_, other->regdate_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -4052,58 +4052,58 @@ void ChatData_::clear_name() {
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.name)
 }
 
-// required string group_name = 3;
-bool ChatData_::has_group_name() const {
+// required string groupName = 3;
+bool ChatData_::has_groupname() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void ChatData_::set_has_group_name() {
+void ChatData_::set_has_groupname() {
   _has_bits_[0] |= 0x00000004u;
 }
-void ChatData_::clear_has_group_name() {
+void ChatData_::clear_has_groupname() {
   _has_bits_[0] &= ~0x00000004u;
 }
-void ChatData_::clear_group_name() {
-  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_group_name();
+void ChatData_::clear_groupname() {
+  groupname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_groupname();
 }
- const ::std::string& ChatData_::group_name() const {
-  // @@protoc_insertion_point(field_get:MSG.ChatData_.group_name)
-  return group_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& ChatData_::groupname() const {
+  // @@protoc_insertion_point(field_get:MSG.ChatData_.groupName)
+  return groupname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ChatData_::set_group_name(const ::std::string& value) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.ChatData_.group_name)
+ void ChatData_::set_groupname(const ::std::string& value) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.ChatData_.groupName)
 }
- void ChatData_::set_group_name(const char* value) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.ChatData_.group_name)
+ void ChatData_::set_groupname(const char* value) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.ChatData_.groupName)
 }
- void ChatData_::set_group_name(const char* value, size_t size) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void ChatData_::set_groupname(const char* value, size_t size) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.group_name)
+  // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.groupName)
 }
- ::std::string* ChatData_::mutable_group_name() {
-  set_has_group_name();
-  // @@protoc_insertion_point(field_mutable:MSG.ChatData_.group_name)
-  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* ChatData_::mutable_groupname() {
+  set_has_groupname();
+  // @@protoc_insertion_point(field_mutable:MSG.ChatData_.groupName)
+  return groupname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* ChatData_::release_group_name() {
-  // @@protoc_insertion_point(field_release:MSG.ChatData_.group_name)
-  clear_has_group_name();
-  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* ChatData_::release_groupname() {
+  // @@protoc_insertion_point(field_release:MSG.ChatData_.groupName)
+  clear_has_groupname();
+  return groupname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ChatData_::set_allocated_group_name(::std::string* group_name) {
-  if (group_name != NULL) {
-    set_has_group_name();
+ void ChatData_::set_allocated_groupname(::std::string* groupname) {
+  if (groupname != NULL) {
+    set_has_groupname();
   } else {
-    clear_has_group_name();
+    clear_has_groupname();
   }
-  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
-  // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.group_name)
+  groupname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), groupname);
+  // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.groupName)
 }
 
 // required string language = 4;
@@ -4214,28 +4214,28 @@ void ChatData_::clear_chat() {
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.chat)
 }
 
-// required uint64 reg_date = 6;
-bool ChatData_::has_reg_date() const {
+// required uint64 regDate = 6;
+bool ChatData_::has_regdate() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-void ChatData_::set_has_reg_date() {
+void ChatData_::set_has_regdate() {
   _has_bits_[0] |= 0x00000020u;
 }
-void ChatData_::clear_has_reg_date() {
+void ChatData_::clear_has_regdate() {
   _has_bits_[0] &= ~0x00000020u;
 }
-void ChatData_::clear_reg_date() {
-  reg_date_ = GOOGLE_ULONGLONG(0);
-  clear_has_reg_date();
+void ChatData_::clear_regdate() {
+  regdate_ = GOOGLE_ULONGLONG(0);
+  clear_has_regdate();
 }
- ::google::protobuf::uint64 ChatData_::reg_date() const {
-  // @@protoc_insertion_point(field_get:MSG.ChatData_.reg_date)
-  return reg_date_;
+ ::google::protobuf::uint64 ChatData_::regdate() const {
+  // @@protoc_insertion_point(field_get:MSG.ChatData_.regDate)
+  return regdate_;
 }
- void ChatData_::set_reg_date(::google::protobuf::uint64 value) {
-  set_has_reg_date();
-  reg_date_ = value;
-  // @@protoc_insertion_point(field_set:MSG.ChatData_.reg_date)
+ void ChatData_::set_regdate(::google::protobuf::uint64 value) {
+  set_has_regdate();
+  regdate_ = value;
+  // @@protoc_insertion_point(field_set:MSG.ChatData_.regDate)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

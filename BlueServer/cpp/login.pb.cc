@@ -58,7 +58,7 @@ void protobuf_AssignDesc_login_2eproto() {
   GOOGLE_CHECK(file != NULL);
   PingReq_descriptor_ = file->message_type(0);
   static const int PingReq_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PingReq, session_key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PingReq, sessionkey_),
   };
   PingReq_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -104,7 +104,7 @@ void protobuf_AssignDesc_login_2eproto() {
   LoginAns_descriptor_ = file->message_type(3);
   static const int LoginAns_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginAns, err_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginAns, session_key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginAns, sessionkey_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginAns, data_),
   };
   LoginAns_reflection_ =
@@ -240,17 +240,17 @@ void protobuf_AddDesc_login_2eproto() {
 
   ::MSG::protobuf_AddDesc_common_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013login.proto\022\003MSG\032\014common.proto\"\036\n\007Ping"
-    "Req\022\023\n\013session_key\030\001 \002(\t\"&\n\007PongAns\022\033\n\003e"
-    "rr\030\001 \002(\0162\016.MSG.ErrorCode\"\030\n\010LoginReq\022\014\n\004"
-    "name\030\001 \002(\t\"Z\n\010LoginAns\022\033\n\003err\030\001 \002(\0162\016.MS"
-    "G.ErrorCode\022\023\n\013session_key\030\002 \001(\t\022\034\n\004data"
-    "\030\003 \001(\0132\016.MSG.UserData_\")\n\tRegistReq\022\034\n\004d"
-    "ata\030\001 \002(\0132\016.MSG.UserData_\"(\n\tRegistAns\022\033"
-    "\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\"\035\n\nVersionRe"
-    "q\022\017\n\007version\030\001 \002(\t\"K\n\nVersionAns\022\033\n\003err\030"
-    "\001 \002(\0162\016.MSG.ErrorCode\022 \n\010contents\030\002 \003(\0132"
-    "\016.MSG.Contents_", 415);
+    "\n\013login.proto\022\003MSG\032\014common.proto\"\035\n\007Ping"
+    "Req\022\022\n\nsessionKey\030\001 \002(\t\"&\n\007PongAns\022\033\n\003er"
+    "r\030\001 \002(\0162\016.MSG.ErrorCode\"\030\n\010LoginReq\022\014\n\004n"
+    "ame\030\001 \002(\t\"Y\n\010LoginAns\022\033\n\003err\030\001 \002(\0162\016.MSG"
+    ".ErrorCode\022\022\n\nsessionKey\030\002 \001(\t\022\034\n\004data\030\003"
+    " \001(\0132\016.MSG.UserData_\")\n\tRegistReq\022\034\n\004dat"
+    "a\030\001 \002(\0132\016.MSG.UserData_\"(\n\tRegistAns\022\033\n\003"
+    "err\030\001 \002(\0162\016.MSG.ErrorCode\"\035\n\nVersionReq\022"
+    "\017\n\007version\030\001 \002(\t\"K\n\nVersionAns\022\033\n\003err\030\001 "
+    "\002(\0162\016.MSG.ErrorCode\022 \n\010contents\030\002 \003(\0132\016."
+    "MSG.Contents_", 413);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "login.proto", &protobuf_RegisterTypes);
   PingReq::default_instance_ = new PingReq();
@@ -305,7 +305,7 @@ PingReq::PingReq(const PingReq& from)
 void PingReq::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  session_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sessionkey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -315,7 +315,7 @@ PingReq::~PingReq() {
 }
 
 void PingReq::SharedDtor() {
-  session_key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sessionkey_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -347,8 +347,8 @@ PingReq* PingReq::New(::google::protobuf::Arena* arena) const {
 
 void PingReq::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.PingReq)
-  if (has_session_key()) {
-    session_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (has_sessionkey()) {
+    sessionkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -366,15 +366,15 @@ bool PingReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string session_key = 1;
+      // required string sessionKey = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_session_key()));
+                input, this->mutable_sessionkey()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->session_key().data(), this->session_key().length(),
+            this->sessionkey().data(), this->sessionkey().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.PingReq.session_key");
+            "MSG.PingReq.sessionKey");
         } else {
           goto handle_unusual;
         }
@@ -407,14 +407,14 @@ failure:
 void PingReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.PingReq)
-  // required string session_key = 1;
-  if (has_session_key()) {
+  // required string sessionKey = 1;
+  if (has_sessionkey()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->session_key().data(), this->session_key().length(),
+      this->sessionkey().data(), this->sessionkey().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.PingReq.session_key");
+      "MSG.PingReq.sessionKey");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->session_key(), output);
+      1, this->sessionkey(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -427,15 +427,15 @@ void PingReq::SerializeWithCachedSizes(
 ::google::protobuf::uint8* PingReq::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.PingReq)
-  // required string session_key = 1;
-  if (has_session_key()) {
+  // required string sessionKey = 1;
+  if (has_sessionkey()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->session_key().data(), this->session_key().length(),
+      this->sessionkey().data(), this->sessionkey().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.PingReq.session_key");
+      "MSG.PingReq.sessionKey");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->session_key(), target);
+        1, this->sessionkey(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -450,11 +450,11 @@ int PingReq::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.PingReq)
   int total_size = 0;
 
-  // required string session_key = 1;
-  if (has_session_key()) {
+  // required string sessionKey = 1;
+  if (has_sessionkey()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->session_key());
+        this->sessionkey());
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -490,9 +490,9 @@ void PingReq::MergeFrom(const PingReq& from) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_session_key()) {
-      set_has_session_key();
-      session_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.session_key_);
+    if (from.has_sessionkey()) {
+      set_has_sessionkey();
+      sessionkey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sessionkey_);
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -525,7 +525,7 @@ void PingReq::Swap(PingReq* other) {
   InternalSwap(other);
 }
 void PingReq::InternalSwap(PingReq* other) {
-  session_key_.Swap(&other->session_key_);
+  sessionkey_.Swap(&other->sessionkey_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -542,58 +542,58 @@ void PingReq::InternalSwap(PingReq* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PingReq
 
-// required string session_key = 1;
-bool PingReq::has_session_key() const {
+// required string sessionKey = 1;
+bool PingReq::has_sessionkey() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void PingReq::set_has_session_key() {
+void PingReq::set_has_sessionkey() {
   _has_bits_[0] |= 0x00000001u;
 }
-void PingReq::clear_has_session_key() {
+void PingReq::clear_has_sessionkey() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void PingReq::clear_session_key() {
-  session_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_session_key();
+void PingReq::clear_sessionkey() {
+  sessionkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_sessionkey();
 }
- const ::std::string& PingReq::session_key() const {
-  // @@protoc_insertion_point(field_get:MSG.PingReq.session_key)
-  return session_key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& PingReq::sessionkey() const {
+  // @@protoc_insertion_point(field_get:MSG.PingReq.sessionKey)
+  return sessionkey_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void PingReq::set_session_key(const ::std::string& value) {
-  set_has_session_key();
-  session_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.PingReq.session_key)
+ void PingReq::set_sessionkey(const ::std::string& value) {
+  set_has_sessionkey();
+  sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.PingReq.sessionKey)
 }
- void PingReq::set_session_key(const char* value) {
-  set_has_session_key();
-  session_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.PingReq.session_key)
+ void PingReq::set_sessionkey(const char* value) {
+  set_has_sessionkey();
+  sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.PingReq.sessionKey)
 }
- void PingReq::set_session_key(const char* value, size_t size) {
-  set_has_session_key();
-  session_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void PingReq::set_sessionkey(const char* value, size_t size) {
+  set_has_sessionkey();
+  sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.PingReq.session_key)
+  // @@protoc_insertion_point(field_set_pointer:MSG.PingReq.sessionKey)
 }
- ::std::string* PingReq::mutable_session_key() {
-  set_has_session_key();
-  // @@protoc_insertion_point(field_mutable:MSG.PingReq.session_key)
-  return session_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* PingReq::mutable_sessionkey() {
+  set_has_sessionkey();
+  // @@protoc_insertion_point(field_mutable:MSG.PingReq.sessionKey)
+  return sessionkey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* PingReq::release_session_key() {
-  // @@protoc_insertion_point(field_release:MSG.PingReq.session_key)
-  clear_has_session_key();
-  return session_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* PingReq::release_sessionkey() {
+  // @@protoc_insertion_point(field_release:MSG.PingReq.sessionKey)
+  clear_has_sessionkey();
+  return sessionkey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void PingReq::set_allocated_session_key(::std::string* session_key) {
-  if (session_key != NULL) {
-    set_has_session_key();
+ void PingReq::set_allocated_sessionkey(::std::string* sessionkey) {
+  if (sessionkey != NULL) {
+    set_has_sessionkey();
   } else {
-    clear_has_session_key();
+    clear_has_sessionkey();
   }
-  session_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), session_key);
-  // @@protoc_insertion_point(field_set_allocated:MSG.PingReq.session_key)
+  sessionkey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sessionkey);
+  // @@protoc_insertion_point(field_set_allocated:MSG.PingReq.sessionKey)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1225,7 +1225,7 @@ void LoginAns::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   err_ = 0;
-  session_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sessionkey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   data_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1236,7 +1236,7 @@ LoginAns::~LoginAns() {
 }
 
 void LoginAns::SharedDtor() {
-  session_key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sessionkey_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
     delete data_;
   }
@@ -1271,8 +1271,8 @@ void LoginAns::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.LoginAns)
   if (_has_bits_[0 / 32] & 7u) {
     err_ = 0;
-    if (has_session_key()) {
-      session_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    if (has_sessionkey()) {
+      sessionkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_data()) {
       if (data_ != NULL) data_->::MSG::UserData_::Clear();
@@ -1309,20 +1309,20 @@ bool LoginAns::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_session_key;
+        if (input->ExpectTag(18)) goto parse_sessionKey;
         break;
       }
 
-      // optional string session_key = 2;
+      // optional string sessionKey = 2;
       case 2: {
         if (tag == 18) {
-         parse_session_key:
+         parse_sessionKey:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_session_key()));
+                input, this->mutable_sessionkey()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->session_key().data(), this->session_key().length(),
+            this->sessionkey().data(), this->sessionkey().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.LoginAns.session_key");
+            "MSG.LoginAns.sessionKey");
         } else {
           goto handle_unusual;
         }
@@ -1374,14 +1374,14 @@ void LoginAns::SerializeWithCachedSizes(
       1, this->err(), output);
   }
 
-  // optional string session_key = 2;
-  if (has_session_key()) {
+  // optional string sessionKey = 2;
+  if (has_sessionkey()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->session_key().data(), this->session_key().length(),
+      this->sessionkey().data(), this->sessionkey().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.LoginAns.session_key");
+      "MSG.LoginAns.sessionKey");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->session_key(), output);
+      2, this->sessionkey(), output);
   }
 
   // optional .MSG.UserData_ data = 3;
@@ -1406,15 +1406,15 @@ void LoginAns::SerializeWithCachedSizes(
       1, this->err(), target);
   }
 
-  // optional string session_key = 2;
-  if (has_session_key()) {
+  // optional string sessionKey = 2;
+  if (has_sessionkey()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->session_key().data(), this->session_key().length(),
+      this->sessionkey().data(), this->sessionkey().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "MSG.LoginAns.session_key");
+      "MSG.LoginAns.sessionKey");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->session_key(), target);
+        2, this->sessionkey(), target);
   }
 
   // optional .MSG.UserData_ data = 3;
@@ -1442,11 +1442,11 @@ int LoginAns::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
   }
   if (_has_bits_[1 / 32] & 6u) {
-    // optional string session_key = 2;
-    if (has_session_key()) {
+    // optional string sessionKey = 2;
+    if (has_sessionkey()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->session_key());
+          this->sessionkey());
     }
 
     // optional .MSG.UserData_ data = 3;
@@ -1494,9 +1494,9 @@ void LoginAns::MergeFrom(const LoginAns& from) {
     if (from.has_err()) {
       set_err(from.err());
     }
-    if (from.has_session_key()) {
-      set_has_session_key();
-      session_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.session_key_);
+    if (from.has_sessionkey()) {
+      set_has_sessionkey();
+      sessionkey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sessionkey_);
     }
     if (from.has_data()) {
       mutable_data()->::MSG::UserData_::MergeFrom(from.data());
@@ -1536,7 +1536,7 @@ void LoginAns::Swap(LoginAns* other) {
 }
 void LoginAns::InternalSwap(LoginAns* other) {
   std::swap(err_, other->err_);
-  session_key_.Swap(&other->session_key_);
+  sessionkey_.Swap(&other->sessionkey_);
   std::swap(data_, other->data_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -1579,58 +1579,58 @@ void LoginAns::clear_err() {
   // @@protoc_insertion_point(field_set:MSG.LoginAns.err)
 }
 
-// optional string session_key = 2;
-bool LoginAns::has_session_key() const {
+// optional string sessionKey = 2;
+bool LoginAns::has_sessionkey() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void LoginAns::set_has_session_key() {
+void LoginAns::set_has_sessionkey() {
   _has_bits_[0] |= 0x00000002u;
 }
-void LoginAns::clear_has_session_key() {
+void LoginAns::clear_has_sessionkey() {
   _has_bits_[0] &= ~0x00000002u;
 }
-void LoginAns::clear_session_key() {
-  session_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_session_key();
+void LoginAns::clear_sessionkey() {
+  sessionkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_sessionkey();
 }
- const ::std::string& LoginAns::session_key() const {
-  // @@protoc_insertion_point(field_get:MSG.LoginAns.session_key)
-  return session_key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& LoginAns::sessionkey() const {
+  // @@protoc_insertion_point(field_get:MSG.LoginAns.sessionKey)
+  return sessionkey_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void LoginAns::set_session_key(const ::std::string& value) {
-  set_has_session_key();
-  session_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.LoginAns.session_key)
+ void LoginAns::set_sessionkey(const ::std::string& value) {
+  set_has_sessionkey();
+  sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.LoginAns.sessionKey)
 }
- void LoginAns::set_session_key(const char* value) {
-  set_has_session_key();
-  session_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.LoginAns.session_key)
+ void LoginAns::set_sessionkey(const char* value) {
+  set_has_sessionkey();
+  sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.LoginAns.sessionKey)
 }
- void LoginAns::set_session_key(const char* value, size_t size) {
-  set_has_session_key();
-  session_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void LoginAns::set_sessionkey(const char* value, size_t size) {
+  set_has_sessionkey();
+  sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.LoginAns.session_key)
+  // @@protoc_insertion_point(field_set_pointer:MSG.LoginAns.sessionKey)
 }
- ::std::string* LoginAns::mutable_session_key() {
-  set_has_session_key();
-  // @@protoc_insertion_point(field_mutable:MSG.LoginAns.session_key)
-  return session_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* LoginAns::mutable_sessionkey() {
+  set_has_sessionkey();
+  // @@protoc_insertion_point(field_mutable:MSG.LoginAns.sessionKey)
+  return sessionkey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* LoginAns::release_session_key() {
-  // @@protoc_insertion_point(field_release:MSG.LoginAns.session_key)
-  clear_has_session_key();
-  return session_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* LoginAns::release_sessionkey() {
+  // @@protoc_insertion_point(field_release:MSG.LoginAns.sessionKey)
+  clear_has_sessionkey();
+  return sessionkey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void LoginAns::set_allocated_session_key(::std::string* session_key) {
-  if (session_key != NULL) {
-    set_has_session_key();
+ void LoginAns::set_allocated_sessionkey(::std::string* sessionkey) {
+  if (sessionkey != NULL) {
+    set_has_sessionkey();
   } else {
-    clear_has_session_key();
+    clear_has_sessionkey();
   }
-  session_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), session_key);
-  // @@protoc_insertion_point(field_set_allocated:MSG.LoginAns.session_key)
+  sessionkey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sessionkey);
+  // @@protoc_insertion_point(field_set_allocated:MSG.LoginAns.sessionKey)
 }
 
 // optional .MSG.UserData_ data = 3;

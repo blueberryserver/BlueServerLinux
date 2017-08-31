@@ -297,41 +297,41 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::MSG::PlatForm platform() const;
   void set_platform(::MSG::PlatForm value);
 
-  // optional string login_date = 5;
-  bool has_login_date() const;
-  void clear_login_date();
+  // optional string loginDate = 5;
+  bool has_logindate() const;
+  void clear_logindate();
   static const int kLoginDateFieldNumber = 5;
-  const ::std::string& login_date() const;
-  void set_login_date(const ::std::string& value);
-  void set_login_date(const char* value);
-  void set_login_date(const char* value, size_t size);
-  ::std::string* mutable_login_date();
-  ::std::string* release_login_date();
-  void set_allocated_login_date(::std::string* login_date);
+  const ::std::string& logindate() const;
+  void set_logindate(const ::std::string& value);
+  void set_logindate(const char* value);
+  void set_logindate(const char* value, size_t size);
+  ::std::string* mutable_logindate();
+  ::std::string* release_logindate();
+  void set_allocated_logindate(::std::string* logindate);
 
-  // optional string logout_date = 6;
-  bool has_logout_date() const;
-  void clear_logout_date();
+  // optional string logoutDate = 6;
+  bool has_logoutdate() const;
+  void clear_logoutdate();
   static const int kLogoutDateFieldNumber = 6;
-  const ::std::string& logout_date() const;
-  void set_logout_date(const ::std::string& value);
-  void set_logout_date(const char* value);
-  void set_logout_date(const char* value, size_t size);
-  ::std::string* mutable_logout_date();
-  ::std::string* release_logout_date();
-  void set_allocated_logout_date(::std::string* logout_date);
+  const ::std::string& logoutdate() const;
+  void set_logoutdate(const ::std::string& value);
+  void set_logoutdate(const char* value);
+  void set_logoutdate(const char* value, size_t size);
+  ::std::string* mutable_logoutdate();
+  ::std::string* release_logoutdate();
+  void set_allocated_logoutdate(::std::string* logoutdate);
 
-  // optional string reg_date = 7;
-  bool has_reg_date() const;
-  void clear_reg_date();
+  // optional string regDate = 7;
+  bool has_regdate() const;
+  void clear_regdate();
   static const int kRegDateFieldNumber = 7;
-  const ::std::string& reg_date() const;
-  void set_reg_date(const ::std::string& value);
-  void set_reg_date(const char* value);
-  void set_reg_date(const char* value, size_t size);
-  ::std::string* mutable_reg_date();
-  ::std::string* release_reg_date();
-  void set_allocated_reg_date(::std::string* reg_date);
+  const ::std::string& regdate() const;
+  void set_regdate(const ::std::string& value);
+  void set_regdate(const char* value);
+  void set_regdate(const char* value, size_t size);
+  ::std::string* mutable_regdate();
+  ::std::string* release_regdate();
+  void set_allocated_regdate(::std::string* regdate);
 
   // optional uint32 vc1 = 8;
   bool has_vc1() const;
@@ -354,17 +354,17 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::uint32 vc3() const;
   void set_vc3(::google::protobuf::uint32 value);
 
-  // optional string group_name = 11;
-  bool has_group_name() const;
-  void clear_group_name();
+  // optional string groupName = 11;
+  bool has_groupname() const;
+  void clear_groupname();
   static const int kGroupNameFieldNumber = 11;
-  const ::std::string& group_name() const;
-  void set_group_name(const ::std::string& value);
-  void set_group_name(const char* value);
-  void set_group_name(const char* value, size_t size);
-  ::std::string* mutable_group_name();
-  ::std::string* release_group_name();
-  void set_allocated_group_name(::std::string* group_name);
+  const ::std::string& groupname() const;
+  void set_groupname(const ::std::string& value);
+  void set_groupname(const char* value);
+  void set_groupname(const char* value, size_t size);
+  ::std::string* mutable_groupname();
+  ::std::string* release_groupname();
+  void set_allocated_groupname(::std::string* groupname);
 
   // optional string language = 12;
   bool has_language() const;
@@ -388,20 +388,20 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline void clear_has_did();
   inline void set_has_platform();
   inline void clear_has_platform();
-  inline void set_has_login_date();
-  inline void clear_has_login_date();
-  inline void set_has_logout_date();
-  inline void clear_has_logout_date();
-  inline void set_has_reg_date();
-  inline void clear_has_reg_date();
+  inline void set_has_logindate();
+  inline void clear_has_logindate();
+  inline void set_has_logoutdate();
+  inline void clear_has_logoutdate();
+  inline void set_has_regdate();
+  inline void clear_has_regdate();
   inline void set_has_vc1();
   inline void clear_has_vc1();
   inline void set_has_vc2();
   inline void clear_has_vc2();
   inline void set_has_vc3();
   inline void clear_has_vc3();
-  inline void set_has_group_name();
-  inline void clear_has_group_name();
+  inline void set_has_groupname();
+  inline void clear_has_groupname();
   inline void set_has_language();
   inline void clear_has_language();
 
@@ -414,14 +414,14 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr did_;
-  ::google::protobuf::internal::ArenaStringPtr login_date_;
-  ::google::protobuf::internal::ArenaStringPtr logout_date_;
+  ::google::protobuf::internal::ArenaStringPtr logindate_;
+  ::google::protobuf::internal::ArenaStringPtr logoutdate_;
   int platform_;
   ::google::protobuf::uint32 vc1_;
-  ::google::protobuf::internal::ArenaStringPtr reg_date_;
+  ::google::protobuf::internal::ArenaStringPtr regdate_;
   ::google::protobuf::uint32 vc2_;
   ::google::protobuf::uint32 vc3_;
-  ::google::protobuf::internal::ArenaStringPtr group_name_;
+  ::google::protobuf::internal::ArenaStringPtr groupname_;
   ::google::protobuf::internal::ArenaStringPtr language_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
@@ -970,17 +970,17 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required string group_name = 3;
-  bool has_group_name() const;
-  void clear_group_name();
+  // required string groupName = 3;
+  bool has_groupname() const;
+  void clear_groupname();
   static const int kGroupNameFieldNumber = 3;
-  const ::std::string& group_name() const;
-  void set_group_name(const ::std::string& value);
-  void set_group_name(const char* value);
-  void set_group_name(const char* value, size_t size);
-  ::std::string* mutable_group_name();
-  ::std::string* release_group_name();
-  void set_allocated_group_name(::std::string* group_name);
+  const ::std::string& groupname() const;
+  void set_groupname(const ::std::string& value);
+  void set_groupname(const char* value);
+  void set_groupname(const char* value, size_t size);
+  ::std::string* mutable_groupname();
+  ::std::string* release_groupname();
+  void set_allocated_groupname(::std::string* groupname);
 
   // required string language = 4;
   bool has_language() const;
@@ -1006,12 +1006,12 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::std::string* release_chat();
   void set_allocated_chat(::std::string* chat);
 
-  // required uint64 reg_date = 6;
-  bool has_reg_date() const;
-  void clear_reg_date();
+  // required uint64 regDate = 6;
+  bool has_regdate() const;
+  void clear_regdate();
   static const int kRegDateFieldNumber = 6;
-  ::google::protobuf::uint64 reg_date() const;
-  void set_reg_date(::google::protobuf::uint64 value);
+  ::google::protobuf::uint64 regdate() const;
+  void set_regdate(::google::protobuf::uint64 value);
 
   // @@protoc_insertion_point(class_scope:MSG.ChatData_)
  private:
@@ -1019,14 +1019,14 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline void clear_has_uid();
   inline void set_has_name();
   inline void clear_has_name();
-  inline void set_has_group_name();
-  inline void clear_has_group_name();
+  inline void set_has_groupname();
+  inline void clear_has_groupname();
   inline void set_has_language();
   inline void clear_has_language();
   inline void set_has_chat();
   inline void clear_has_chat();
-  inline void set_has_reg_date();
-  inline void clear_has_reg_date();
+  inline void set_has_regdate();
+  inline void clear_has_regdate();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1036,10 +1036,10 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   mutable int _cached_size_;
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::internal::ArenaStringPtr group_name_;
+  ::google::protobuf::internal::ArenaStringPtr groupname_;
   ::google::protobuf::internal::ArenaStringPtr language_;
   ::google::protobuf::internal::ArenaStringPtr chat_;
-  ::google::protobuf::uint64 reg_date_;
+  ::google::protobuf::uint64 regdate_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1460,166 +1460,166 @@ inline void UserData_::set_platform(::MSG::PlatForm value) {
   // @@protoc_insertion_point(field_set:MSG.UserData_.platform)
 }
 
-// optional string login_date = 5;
-inline bool UserData_::has_login_date() const {
+// optional string loginDate = 5;
+inline bool UserData_::has_logindate() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void UserData_::set_has_login_date() {
+inline void UserData_::set_has_logindate() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void UserData_::clear_has_login_date() {
+inline void UserData_::clear_has_logindate() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void UserData_::clear_login_date() {
-  login_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_login_date();
+inline void UserData_::clear_logindate() {
+  logindate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_logindate();
 }
-inline const ::std::string& UserData_::login_date() const {
-  // @@protoc_insertion_point(field_get:MSG.UserData_.login_date)
-  return login_date_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& UserData_::logindate() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.loginDate)
+  return logindate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserData_::set_login_date(const ::std::string& value) {
-  set_has_login_date();
-  login_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.UserData_.login_date)
+inline void UserData_::set_logindate(const ::std::string& value) {
+  set_has_logindate();
+  logindate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.loginDate)
 }
-inline void UserData_::set_login_date(const char* value) {
-  set_has_login_date();
-  login_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.UserData_.login_date)
+inline void UserData_::set_logindate(const char* value) {
+  set_has_logindate();
+  logindate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.loginDate)
 }
-inline void UserData_::set_login_date(const char* value, size_t size) {
-  set_has_login_date();
-  login_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void UserData_::set_logindate(const char* value, size_t size) {
+  set_has_logindate();
+  logindate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.login_date)
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.loginDate)
 }
-inline ::std::string* UserData_::mutable_login_date() {
-  set_has_login_date();
-  // @@protoc_insertion_point(field_mutable:MSG.UserData_.login_date)
-  return login_date_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* UserData_::mutable_logindate() {
+  set_has_logindate();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.loginDate)
+  return logindate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UserData_::release_login_date() {
-  // @@protoc_insertion_point(field_release:MSG.UserData_.login_date)
-  clear_has_login_date();
-  return login_date_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* UserData_::release_logindate() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.loginDate)
+  clear_has_logindate();
+  return logindate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserData_::set_allocated_login_date(::std::string* login_date) {
-  if (login_date != NULL) {
-    set_has_login_date();
+inline void UserData_::set_allocated_logindate(::std::string* logindate) {
+  if (logindate != NULL) {
+    set_has_logindate();
   } else {
-    clear_has_login_date();
+    clear_has_logindate();
   }
-  login_date_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_date);
-  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.login_date)
+  logindate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), logindate);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.loginDate)
 }
 
-// optional string logout_date = 6;
-inline bool UserData_::has_logout_date() const {
+// optional string logoutDate = 6;
+inline bool UserData_::has_logoutdate() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void UserData_::set_has_logout_date() {
+inline void UserData_::set_has_logoutdate() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void UserData_::clear_has_logout_date() {
+inline void UserData_::clear_has_logoutdate() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void UserData_::clear_logout_date() {
-  logout_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_logout_date();
+inline void UserData_::clear_logoutdate() {
+  logoutdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_logoutdate();
 }
-inline const ::std::string& UserData_::logout_date() const {
-  // @@protoc_insertion_point(field_get:MSG.UserData_.logout_date)
-  return logout_date_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& UserData_::logoutdate() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.logoutDate)
+  return logoutdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserData_::set_logout_date(const ::std::string& value) {
-  set_has_logout_date();
-  logout_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.UserData_.logout_date)
+inline void UserData_::set_logoutdate(const ::std::string& value) {
+  set_has_logoutdate();
+  logoutdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.logoutDate)
 }
-inline void UserData_::set_logout_date(const char* value) {
-  set_has_logout_date();
-  logout_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.UserData_.logout_date)
+inline void UserData_::set_logoutdate(const char* value) {
+  set_has_logoutdate();
+  logoutdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.logoutDate)
 }
-inline void UserData_::set_logout_date(const char* value, size_t size) {
-  set_has_logout_date();
-  logout_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void UserData_::set_logoutdate(const char* value, size_t size) {
+  set_has_logoutdate();
+  logoutdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.logout_date)
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.logoutDate)
 }
-inline ::std::string* UserData_::mutable_logout_date() {
-  set_has_logout_date();
-  // @@protoc_insertion_point(field_mutable:MSG.UserData_.logout_date)
-  return logout_date_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* UserData_::mutable_logoutdate() {
+  set_has_logoutdate();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.logoutDate)
+  return logoutdate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UserData_::release_logout_date() {
-  // @@protoc_insertion_point(field_release:MSG.UserData_.logout_date)
-  clear_has_logout_date();
-  return logout_date_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* UserData_::release_logoutdate() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.logoutDate)
+  clear_has_logoutdate();
+  return logoutdate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserData_::set_allocated_logout_date(::std::string* logout_date) {
-  if (logout_date != NULL) {
-    set_has_logout_date();
+inline void UserData_::set_allocated_logoutdate(::std::string* logoutdate) {
+  if (logoutdate != NULL) {
+    set_has_logoutdate();
   } else {
-    clear_has_logout_date();
+    clear_has_logoutdate();
   }
-  logout_date_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), logout_date);
-  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.logout_date)
+  logoutdate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), logoutdate);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.logoutDate)
 }
 
-// optional string reg_date = 7;
-inline bool UserData_::has_reg_date() const {
+// optional string regDate = 7;
+inline bool UserData_::has_regdate() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void UserData_::set_has_reg_date() {
+inline void UserData_::set_has_regdate() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void UserData_::clear_has_reg_date() {
+inline void UserData_::clear_has_regdate() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void UserData_::clear_reg_date() {
-  reg_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_reg_date();
+inline void UserData_::clear_regdate() {
+  regdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_regdate();
 }
-inline const ::std::string& UserData_::reg_date() const {
-  // @@protoc_insertion_point(field_get:MSG.UserData_.reg_date)
-  return reg_date_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& UserData_::regdate() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.regDate)
+  return regdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserData_::set_reg_date(const ::std::string& value) {
-  set_has_reg_date();
-  reg_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.UserData_.reg_date)
+inline void UserData_::set_regdate(const ::std::string& value) {
+  set_has_regdate();
+  regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.regDate)
 }
-inline void UserData_::set_reg_date(const char* value) {
-  set_has_reg_date();
-  reg_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.UserData_.reg_date)
+inline void UserData_::set_regdate(const char* value) {
+  set_has_regdate();
+  regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.regDate)
 }
-inline void UserData_::set_reg_date(const char* value, size_t size) {
-  set_has_reg_date();
-  reg_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void UserData_::set_regdate(const char* value, size_t size) {
+  set_has_regdate();
+  regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.reg_date)
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.regDate)
 }
-inline ::std::string* UserData_::mutable_reg_date() {
-  set_has_reg_date();
-  // @@protoc_insertion_point(field_mutable:MSG.UserData_.reg_date)
-  return reg_date_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* UserData_::mutable_regdate() {
+  set_has_regdate();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.regDate)
+  return regdate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UserData_::release_reg_date() {
-  // @@protoc_insertion_point(field_release:MSG.UserData_.reg_date)
-  clear_has_reg_date();
-  return reg_date_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* UserData_::release_regdate() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.regDate)
+  clear_has_regdate();
+  return regdate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserData_::set_allocated_reg_date(::std::string* reg_date) {
-  if (reg_date != NULL) {
-    set_has_reg_date();
+inline void UserData_::set_allocated_regdate(::std::string* regdate) {
+  if (regdate != NULL) {
+    set_has_regdate();
   } else {
-    clear_has_reg_date();
+    clear_has_regdate();
   }
-  reg_date_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), reg_date);
-  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.reg_date)
+  regdate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), regdate);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.regDate)
 }
 
 // optional uint32 vc1 = 8;
@@ -1694,58 +1694,58 @@ inline void UserData_::set_vc3(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:MSG.UserData_.vc3)
 }
 
-// optional string group_name = 11;
-inline bool UserData_::has_group_name() const {
+// optional string groupName = 11;
+inline bool UserData_::has_groupname() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void UserData_::set_has_group_name() {
+inline void UserData_::set_has_groupname() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void UserData_::clear_has_group_name() {
+inline void UserData_::clear_has_groupname() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void UserData_::clear_group_name() {
-  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_group_name();
+inline void UserData_::clear_groupname() {
+  groupname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_groupname();
 }
-inline const ::std::string& UserData_::group_name() const {
-  // @@protoc_insertion_point(field_get:MSG.UserData_.group_name)
-  return group_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& UserData_::groupname() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.groupName)
+  return groupname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserData_::set_group_name(const ::std::string& value) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.UserData_.group_name)
+inline void UserData_::set_groupname(const ::std::string& value) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.UserData_.groupName)
 }
-inline void UserData_::set_group_name(const char* value) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.UserData_.group_name)
+inline void UserData_::set_groupname(const char* value) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.UserData_.groupName)
 }
-inline void UserData_::set_group_name(const char* value, size_t size) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void UserData_::set_groupname(const char* value, size_t size) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.group_name)
+  // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.groupName)
 }
-inline ::std::string* UserData_::mutable_group_name() {
-  set_has_group_name();
-  // @@protoc_insertion_point(field_mutable:MSG.UserData_.group_name)
-  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* UserData_::mutable_groupname() {
+  set_has_groupname();
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.groupName)
+  return groupname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UserData_::release_group_name() {
-  // @@protoc_insertion_point(field_release:MSG.UserData_.group_name)
-  clear_has_group_name();
-  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* UserData_::release_groupname() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.groupName)
+  clear_has_groupname();
+  return groupname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserData_::set_allocated_group_name(::std::string* group_name) {
-  if (group_name != NULL) {
-    set_has_group_name();
+inline void UserData_::set_allocated_groupname(::std::string* groupname) {
+  if (groupname != NULL) {
+    set_has_groupname();
   } else {
-    clear_has_group_name();
+    clear_has_groupname();
   }
-  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
-  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.group_name)
+  groupname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), groupname);
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.groupName)
 }
 
 // optional string language = 12;
@@ -2288,58 +2288,58 @@ inline void ChatData_::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.name)
 }
 
-// required string group_name = 3;
-inline bool ChatData_::has_group_name() const {
+// required string groupName = 3;
+inline bool ChatData_::has_groupname() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void ChatData_::set_has_group_name() {
+inline void ChatData_::set_has_groupname() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void ChatData_::clear_has_group_name() {
+inline void ChatData_::clear_has_groupname() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void ChatData_::clear_group_name() {
-  group_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_group_name();
+inline void ChatData_::clear_groupname() {
+  groupname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_groupname();
 }
-inline const ::std::string& ChatData_::group_name() const {
-  // @@protoc_insertion_point(field_get:MSG.ChatData_.group_name)
-  return group_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& ChatData_::groupname() const {
+  // @@protoc_insertion_point(field_get:MSG.ChatData_.groupName)
+  return groupname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ChatData_::set_group_name(const ::std::string& value) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:MSG.ChatData_.group_name)
+inline void ChatData_::set_groupname(const ::std::string& value) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.ChatData_.groupName)
 }
-inline void ChatData_::set_group_name(const char* value) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:MSG.ChatData_.group_name)
+inline void ChatData_::set_groupname(const char* value) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.ChatData_.groupName)
 }
-inline void ChatData_::set_group_name(const char* value, size_t size) {
-  set_has_group_name();
-  group_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void ChatData_::set_groupname(const char* value, size_t size) {
+  set_has_groupname();
+  groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.group_name)
+  // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.groupName)
 }
-inline ::std::string* ChatData_::mutable_group_name() {
-  set_has_group_name();
-  // @@protoc_insertion_point(field_mutable:MSG.ChatData_.group_name)
-  return group_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* ChatData_::mutable_groupname() {
+  set_has_groupname();
+  // @@protoc_insertion_point(field_mutable:MSG.ChatData_.groupName)
+  return groupname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ChatData_::release_group_name() {
-  // @@protoc_insertion_point(field_release:MSG.ChatData_.group_name)
-  clear_has_group_name();
-  return group_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* ChatData_::release_groupname() {
+  // @@protoc_insertion_point(field_release:MSG.ChatData_.groupName)
+  clear_has_groupname();
+  return groupname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ChatData_::set_allocated_group_name(::std::string* group_name) {
-  if (group_name != NULL) {
-    set_has_group_name();
+inline void ChatData_::set_allocated_groupname(::std::string* groupname) {
+  if (groupname != NULL) {
+    set_has_groupname();
   } else {
-    clear_has_group_name();
+    clear_has_groupname();
   }
-  group_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_name);
-  // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.group_name)
+  groupname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), groupname);
+  // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.groupName)
 }
 
 // required string language = 4;
@@ -2450,28 +2450,28 @@ inline void ChatData_::set_allocated_chat(::std::string* chat) {
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.chat)
 }
 
-// required uint64 reg_date = 6;
-inline bool ChatData_::has_reg_date() const {
+// required uint64 regDate = 6;
+inline bool ChatData_::has_regdate() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void ChatData_::set_has_reg_date() {
+inline void ChatData_::set_has_regdate() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void ChatData_::clear_has_reg_date() {
+inline void ChatData_::clear_has_regdate() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void ChatData_::clear_reg_date() {
-  reg_date_ = GOOGLE_ULONGLONG(0);
-  clear_has_reg_date();
+inline void ChatData_::clear_regdate() {
+  regdate_ = GOOGLE_ULONGLONG(0);
+  clear_has_regdate();
 }
-inline ::google::protobuf::uint64 ChatData_::reg_date() const {
-  // @@protoc_insertion_point(field_get:MSG.ChatData_.reg_date)
-  return reg_date_;
+inline ::google::protobuf::uint64 ChatData_::regdate() const {
+  // @@protoc_insertion_point(field_get:MSG.ChatData_.regDate)
+  return regdate_;
 }
-inline void ChatData_::set_reg_date(::google::protobuf::uint64 value) {
-  set_has_reg_date();
-  reg_date_ = value;
-  // @@protoc_insertion_point(field_set:MSG.ChatData_.reg_date)
+inline void ChatData_::set_regdate(::google::protobuf::uint64 value) {
+  set_has_regdate();
+  regdate_ = value;
+  // @@protoc_insertion_point(field_set:MSG.ChatData_.regDate)
 }
 
 // -------------------------------------------------------------------

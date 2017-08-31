@@ -6,7 +6,7 @@ package MSG;
 
 // keep alive 
 message PingReq {
-	required string session_key = 1;
+	required string sessionKey = 1;
 }
 
 message PongAns {
@@ -22,7 +22,7 @@ message LoginReq {
 // login answer
 message LoginAns {
 	required ErrorCode err = 1;
-	optional string session_key = 2;
+	optional string sessionKey = 2;
 	optional UserData_ data = 3;
 }
 

@@ -21,9 +21,15 @@ public:
 	void enterChannel(const SessionPtr& session_);
 	void leaveChannel(const SessionPtr& session_);
 
-	void sendChat(MSG::ChatData_& chat_);
+	void publishChat(MSG::ChatData_& chat_);
+	void publishEnter(uint64_t uid_, const char* name_);
+	void publishLeave(uint64_t uid_, const char* name_);
 
 	void channelMsgProc(_RedisReply reply_);
+
+	void broadcastPacket(short id_, google::protobuf::Message* msg_);
+
+	void messageParser(json11::Json& json_);
 private:
 
 	std::recursive_mutex _mtx;

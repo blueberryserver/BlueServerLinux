@@ -16,32 +16,41 @@ void ChatRoom::msgProc(_RedisReply reply_)
 	auto jsonData = reply_._array;
 	if (jsonData.empty() || strcmp(jsonData[0]._string.c_str(), "message" ) != 0 ) return;
 
-	// json -> proto data
+
 	std::string str;
 	jsonData[2].dump(str);
 
+	// string - >json
 	std::string err;
 	auto jsonChatData = json11::Json::parse(str, err);
 	LOG(L_INFO_, "Redis", "message", jsonChatData);
 
+	// json -> proto data
 	MSG::ChatData_ data;
 	data.set_uid((uint64_t)jsonChatData["uid"].number_value());
 	data.set_name(jsonChatData["name"].string_value());
-	data.set_group_name(jsonChatData["group_name"].string_value());
+	data.set_groupname(jsonChatData["groupname"].string_value());
 
 	data.set_language(jsonChatData["language"].string_value());
 	data.set_chat(jsonChatData["chat"].string_value());
-	data.set_reg_date((uint64_t)jsonChatData["reg_date"].number_value());
+	data.set_regdate((uint64_t)jsonChatData["regdate"].number_value());
 	_chatDatas.push_back(data);
 
 	MSG::ChatNot notify;
 	auto chat = notify.mutable_chats();
-	notify.set_type(MSG::ChatType::CHAT_CHANNEL);
+	notify.set_type(MSG::ChatType::CHAT_ROOM);
 	chat->CopyFrom(data);
+
 	// session broad casting
+	broadcastPacket(MSG::CHAT_NOT, &notify);
+}
+
+void ChatRoom::broadcastPacket(short id_, google::protobuf::Message* msg_)
+{
+	std::lock_guard<std::recursive_mutex> guard(_mtx);
 	for (auto it : _sessions)
 	{
-		(*it).SendPacket(MSG::CHAT_NOT, &notify);
+		(*it).SendPacket(id_, msg_);
 	}
 }
 
@@ -78,10 +87,10 @@ void ChatRoom::sendChat(MSG::ChatData_ & chat_)
 	Json::object jObj;
 	jObj["uid"] = Json((double)chat_.uid());
 	jObj["name"] = chat_.name();
-	jObj["group_name"] = chat_.group_name();
+	jObj["groupName"] = chat_.groupname();
 	jObj["language"] = chat_.language();
 	jObj["chat"] = chat_.chat();
-	jObj["reg_date"] = Json((double)chat_.reg_date());
+	jObj["regDate"] = Json((double)chat_.regdate());
 
 	std::string jsonDump;
 	Json(jObj).dump(jsonDump);

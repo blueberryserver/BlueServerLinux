@@ -116,6 +116,8 @@ int main(int argc, char *argv[])
 
 	UserManager::deleteUserManager();
 
+	ChatChannelManager::deleteChatChannelManager();
+
 	delete server;
 
 	Logger::getLogger()->stop();

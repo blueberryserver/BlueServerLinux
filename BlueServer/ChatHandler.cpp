@@ -46,7 +46,7 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, ChatReq)
 	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
 
 	// find chat channel
-	auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().group_name().c_str());
+	auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().groupname().c_str());
 	if (channel == nullptr)
 	{
 		MSG::ChatAns ans;
@@ -59,13 +59,13 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, ChatReq)
 	MSG::ChatData_ data;
 	data.set_uid(user->getData().uid());
 	data.set_name(user->getData().name());
-	data.set_group_name(user->getData().group_name());
+	data.set_groupname(user->getData().groupname());
 	data.set_language(user->getData().language());
 	data.set_chat(req.msg());
-	data.set_reg_date(DateTime::GetTickCountM());
+	data.set_regdate(DateTime::GetTickCountM());
 
 	// broadcast chat channel
-	channel->sendChat(data);
+	channel->publishChat(data);
 
 
 	// answer
@@ -119,6 +119,16 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, InviteChatRoomReq)
 {
 	MSG::InviteChatRoomReq req;
 	req.ParseFromArray(body_, len_);
+
+	auto user = UserManager::getUserManager()->find(session_.get());
+	if (user == nullptr)
+	{
+		MSG::InviteChatRoomAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::INVITECHATROOM_ANS, &ans);
+		return true;
+	}
+
 	return true;
 }
 
@@ -130,11 +140,31 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, EnterChatRoomReq)
 	auto user = UserManager::getUserManager()->find(session_.get());
 	if (user == nullptr)
 	{
-		MSG::CreateChatRoomAns ans;
+		MSG::EnterChatRoomAns ans;
 		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
-		session_->SendPacket(MSG::CREATECHATROOM_ANS, &ans);
+		session_->SendPacket(MSG::ENTERCHATROOM_ANS, &ans);
 		return true;
 	}
+
+	auto room = ChatRoomManager::getChatRoomManager()->findRoom(req.rkey());
+	if (room == nullptr)
+	{
+		MSG::EnterChatRoomAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::ENTERCHATROOM_ANS, &ans);
+		return true;
+	}
+
+	// enter room
+	room->enter(session_);
+
+	// join room
+	user->joinRoom(room);
+
+	//
+	MSG::EnterChatRoomAns ans;
+	ans.set_err(MSG::ERR_SUCCESS);
+	session_->SendPacket(MSG::ENTERCHATROOM_ANS, &ans);
 	return true;
 }
 
@@ -142,6 +172,34 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, LeaveChatRoomReq)
 {
 	MSG::LeaveChatRoomReq req;
 	req.ParseFromArray(body_, len_);
+
+	auto user = UserManager::getUserManager()->find(session_.get());
+	if (user == nullptr)
+	{
+		MSG::LeaveChatRoomAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::LEAVECHATROOM_ANS, &ans);
+		return true;
+	}
+
+	auto room = ChatRoomManager::getChatRoomManager()->findRoom(req.rkey());
+	if (room == nullptr)
+	{
+		MSG::LeaveChatRoomAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::LEAVECHATROOM_ANS, &ans);
+		return true;
+	}
+
+	// leave room
+	room->leave(session_);
+
+	// leave room
+	user->leaveRoom(room);
+
+	MSG::LeaveChatRoomAns ans;
+	ans.set_err(MSG::ERR_SUCCESS);
+	session_->SendPacket(MSG::LEAVECHATROOM_ANS, &ans);
 	return true;
 }
 

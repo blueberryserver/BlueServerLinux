@@ -53,7 +53,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 
 	// update login date
 	auto now = DateTime::getCurrentDateTime().formatLocal();
-	data.set_login_date(now.c_str());
+	data.set_logindate(now.c_str());
 
 	auto user = std::make_shared<User>(data);
 	user->setSession(session_);
@@ -63,7 +63,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 	UserManager::getUserManager()->add(user);
 
 	// enter chat channel
-	auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().group_name().c_str());
+	auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().groupname().c_str());
 	channel->enterChannel(session_);
 
 	// switch handler
@@ -93,7 +93,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 	ans.set_err(MSG::ERR_SUCCESS);
 	auto userData = ans.mutable_data();
 	userData->CopyFrom(user->getData());
-	ans.set_session_key(user->getSessionKey());
+	ans.set_sessionkey(user->getSessionKey());
 
 	session_->SendPacket(MSG::LOGIN_ANS, &ans);
 }

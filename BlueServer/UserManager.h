@@ -18,6 +18,8 @@ public:
 
 	UserPtr find(const std::string& sessionKey_);
 	UserPtr find(void* sessionPtr_);
+	UserPtr findByUid(uint64_t uid_);
+	UserPtr findByName(const char* name_);
 
 	void add(UserPtr& user_);
 	void remove(const std::string& sessionKey_);

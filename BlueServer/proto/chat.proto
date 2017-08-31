@@ -39,8 +39,8 @@ message InviteChatRoomReq {
 	required string rkey = 2;
 
 	// invite target info
-	required uint64 target_uid = 3;
-	required string target_name = 4;
+	required uint64 targetUid = 3;
+	required string targetName = 4;
 
 }
 
@@ -54,8 +54,8 @@ message InviteChatRoomNot {
 	required string rkey = 2;
 
 	// room owner info
-	required uint64 owner_uid = 3;
-	required string owner_name = 4;
+	required uint64 ownerUid = 3;
+	required string ownerName = 4;
 
 }
 

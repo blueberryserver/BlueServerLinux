@@ -63,15 +63,15 @@ message UserData_ {
 	optional string did = 3;
 	optional PlatForm platform = 4;
 
-	optional string login_date = 5;
-	optional string logout_date = 6;
-	optional string reg_date = 7;
+	optional string loginDate = 5;
+	optional string logoutDate = 6;
+	optional string regDate = 7;
 
 	optional uint32 vc1 = 8;
 	optional uint32 vc2 = 9;
 	optional uint32 vc3 = 10;
 
-	optional string group_name = 11;
+	optional string groupName = 11;
 	optional string language = 12;
 }
 
@@ -133,11 +133,11 @@ enum ChatType {
 message ChatData_ {
 	required uint64 uid = 1;
 	required string name = 2;
-	required string group_name = 3;
+	required string groupName = 3;
 
 	required string language = 4;
 	required string chat = 5;
-	required uint64 reg_date = 6;
+	required uint64 regDate = 6;
 }
 
 // chat room

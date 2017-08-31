@@ -46,26 +46,7 @@ public:
 		out = to_json().dump();
 	}
 
-	Json to_json() const
-	{
-		Json::object jObj;
-		jObj["uid"] = Json((double)_data.uid());
-		jObj["name"] = _data.name();
-		jObj["did"] = _data.did();
-		jObj["platform"] = std::to_string(_data.platform());
-
-		jObj["login_date"] = _data.login_date();
-		jObj["logout_date"] = _data.logout_date();
-		jObj["reg_date"] = _data.reg_date();
-		jObj["vc1"] = Json((int)_data.vc1());
-		jObj["vc2"] = Json((int)_data.vc2());
-		jObj["vc3"] = Json((int)_data.vc3());
-
-		jObj["group_name"] = _data.group_name();
-		jObj["language"] = _data.language();
-
-		return Json(jObj);
-	}
+	Json to_json() const;
 
 	// set get function
 	void setSession(const SessionPtr& session_) { _session = session_; }
