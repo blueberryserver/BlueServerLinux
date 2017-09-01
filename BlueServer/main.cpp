@@ -16,7 +16,7 @@
 #include "ChatHandler.h"
 
 #include "ChatChannelManager.h"
-//#include "ChatChannel.h"
+#include "ChatRoomManager.h"
 
 using namespace BLUE_BERRY;
 int main(int argc, char *argv[])
@@ -105,6 +105,8 @@ int main(int argc, char *argv[])
 	ChatChannelManager::setChatChannelManager(new ChatChannelManager());
 	ChatChannelManager::getChatChannelManager()->createChannel("korea0");
 	ChatChannelManager::getChatChannelManager()->createChannel("korea1");
+
+	ChatRoomManager::setChatRoomManager(new ChatRoomManager());
 
 	//main thread waiting
 	getchar();

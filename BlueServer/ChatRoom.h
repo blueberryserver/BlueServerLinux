@@ -18,7 +18,10 @@ public:
 	void enter(const SessionPtr& session_);
 	void leave(const SessionPtr& session_);
 
-	void sendChat(MSG::ChatData_& chat_);
+	void publishChat(MSG::ChatData_& chat_);
+	void publishEnter(uint64_t uid_, const char* name_);
+	void publishLeave(uint64_t uid_, const char* name_);
+
 
 	void msgProc(_RedisReply reply_);
 
@@ -27,6 +30,8 @@ public:
 	std::string& getGreeting() { return _greeting; }
 
 	void broadcastPacket(short id_, google::protobuf::Message* msg_);
+
+	void messageParser(json11::Json & json_);
 
 private:
 	std::recursive_mutex _mtx;

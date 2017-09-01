@@ -60,6 +60,7 @@ public:
 
 	void joinRoom(ChatRoomPtr room_);
 	void leaveRoom(ChatRoomPtr room_);
+	void chatRoom(MSG::ChatData_& data_);
 public:
 	// session key
 	std::string _sessionKey;

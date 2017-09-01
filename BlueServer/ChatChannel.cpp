@@ -23,40 +23,23 @@ void ChatChannel::channelMsgProc(_RedisReply reply_)
 
 	std::string err;
 	auto jsonMessage = json11::Json::parse(str, err);
-	LOG(L_INFO_, "Redis", "message", jsonMessage);
+	//LOG(L_INFO_, "Redis", "message", jsonMessage);
 
 	messageParser(jsonMessage);
-
-	/*
-	MSG::ChatData_ data;
-	data.set_uid((uint64_t)jsonChatData["uid"].number_value());
-	data.set_name(jsonChatData["name"].string_value());
-	data.set_group_name(jsonChatData["group_name"].string_value());
-
-	data.set_language(jsonChatData["language"].string_value());
-	data.set_chat(jsonChatData["chat"].string_value());
-	data.set_reg_date((uint64_t)jsonChatData["reg_date"].number_value());
-	_chatDatas.push_back(data);
-
-	MSG::ChatNot notify;
-	auto chat = notify.mutable_chats();
-	notify.set_type(MSG::ChatType::CHAT_CHANNEL);
-	chat->CopyFrom(data);
-
-	// session broad casting
-	broadcastPacket(MSG::CHAT_NOT, &notify);
-	*/
 }
 
 ChatChannel::ChatChannel(const char * counrty_)
 	: _country(counrty_)
 {
-	_redis->subscribe(std::vector<std::string>({ _country, }));
+	LOG(L_INFO_, " ", "channel", _country);
 	_redis->setChannelMsgJob(makePostJob(this, &ChatChannel::channelMsgProc));
+	_redis->subscribe(std::vector<std::string>({ _country, }));
+	
 }
 
 ChatChannel::~ChatChannel()
 {
+	LOG(L_INFO_, " ", "channel", _country);
 	_redis->unsubscribe(std::vector<std::string>({ _country, }));
 }
 
@@ -117,16 +100,6 @@ void ChatChannel::publishLeave(uint64_t uid_, const char * name_)
 
 void ChatChannel::publishChat(MSG::ChatData_ & chat_)
 {
-	// json format
-	/*
-	Json::object chatData;
-	chatData["uid"] = Json((double)chat_.uid());
-	chatData["name"] = chat_.name();
-	chatData["groupName"] = chat_.groupname();
-	chatData["language"] = chat_.language();
-	chatData["chat"] = chat_.chat();
-	chatData["regDate"] = Json((double)chat_.regdate());
-	*/
 	std::string out;
 	google::protobuf::util::MessageToJsonString(chat_, &out);
 
@@ -169,16 +142,6 @@ void ChatChannel::messageParser(json11::Json & json_)
 		// chat
 		MSG::ChatData_ data;
 		google::protobuf::util::JsonStringToMessage(chatData.dump(), &data);
-
-		/*
-		data.set_uid((uint64_t)chatData["uid"].number_value());
-		data.set_name(chatData["name"].string_value());
-		data.set_groupname(chatData["groupName"].string_value());
-
-		data.set_language(chatData["language"].string_value());
-		data.set_chat(chatData["chat"].string_value());
-		data.set_regdate((uint64_t)chatData["regDate"].number_value());
-		*/
 
 		_chatDatas.push_back(data);
 

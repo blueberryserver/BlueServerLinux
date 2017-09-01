@@ -45,16 +45,6 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, ChatReq)
 	// update time out
 	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
 
-	// find chat channel
-	auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().groupname().c_str());
-	if (channel == nullptr)
-	{
-		MSG::ChatAns ans;
-		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
-		session_->SendPacket(MSG::CHAT_ANS, &ans);
-		return true;
-	}
-
 	// create chat data
 	MSG::ChatData_ data;
 	data.set_uid(user->getData().uid());
@@ -64,8 +54,25 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, ChatReq)
 	data.set_chat(req.msg());
 	data.set_regdate(DateTime::GetTickCountM());
 
-	// broadcast chat channel
-	channel->publishChat(data);
+	if (req.type() == MSG::CHAT_CHANNEL)
+	{
+		// find chat channel
+		auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().groupname().c_str());
+		if (channel == nullptr)
+		{
+			MSG::ChatAns ans;
+			ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+			session_->SendPacket(MSG::CHAT_ANS, &ans);
+			return true;
+		}
+		
+		// broadcast chat channel
+		channel->publishChat(data);
+	}
+	else if (req.type() == MSG::CHAT_ROOM)
+	{
+		user->chatRoom(data);
+	}
 
 
 	// answer
@@ -100,9 +107,6 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, CreateChatRoomReq)
 		session_->SendPacket(MSG::CREATECHATROOM_ANS, &ans);
 		return true;
 	}
-
-	// enter room
-	room->enter(session_);
 
 	// join room
 	user->joinRoom(room);
@@ -155,9 +159,6 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, EnterChatRoomReq)
 		return true;
 	}
 
-	// enter room
-	room->enter(session_);
-
 	// join room
 	user->joinRoom(room);
 
@@ -190,9 +191,6 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, LeaveChatRoomReq)
 		session_->SendPacket(MSG::LEAVECHATROOM_ANS, &ans);
 		return true;
 	}
-
-	// leave room
-	room->leave(session_);
 
 	// leave room
 	user->leaveRoom(room);
