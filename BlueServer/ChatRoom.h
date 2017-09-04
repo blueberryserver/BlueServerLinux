@@ -3,9 +3,11 @@
 #include <mutex>
 #include <memory>
 #include "../BlueCore/Macro.h"
+#include "../BlueCore/RedisClient.h"
+#include "../BlueCore/MemoryPool.h"
+
 #include "cpp/common.pb.h"
 
-#include "../BlueCore/RedisClient.h"
 namespace BLUE_BERRY
 {
 
@@ -33,6 +35,7 @@ public:
 
 	void messageParser(json11::Json & json_);
 
+DECLARE_NEW_DELETE
 private:
 	std::recursive_mutex _mtx;
 	std::unordered_set<SessionPtr> _sessions;

@@ -54,6 +54,7 @@ User::~User()
 	for (auto it : _rooms)
 	{
 		it->leave(_session);
+		it->publishLeave(_data.uid(), _data.name().c_str());
 	}
 
 

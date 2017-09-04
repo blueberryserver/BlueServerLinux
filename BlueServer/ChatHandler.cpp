@@ -133,6 +133,36 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, InviteChatRoomReq)
 		return true;
 	}
 
+	auto room = ChatRoomManager::getChatRoomManager()->findRoom(req.rkey());
+	if (room == nullptr)
+	{
+		MSG::InviteChatRoomAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::INVITECHATROOM_ANS, &ans);
+		return true;
+	}
+
+	auto target = UserManager::getUserManager()->findByUid(req.targetuid());
+	if (target == nullptr)
+	{
+		MSG::InviteChatRoomAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::INVITECHATROOM_ANS, &ans);
+		return true;
+	}
+
+	// notify
+	MSG::InviteChatRoomNot notify;
+	notify.set_rid(req.rid());
+	notify.set_rkey(req.rkey());
+	notify.set_owneruid(user->getData().uid());
+	notify.set_ownername(user->getData().name());
+	target->getSession()->SendPacket(MSG::INVITECHATROOM_NOT, &notify);
+
+	// answer
+	MSG::InviteChatRoomAns ans;
+	ans.set_err(MSG::ERR_SUCCESS);
+	session_->SendPacket(MSG::INVITECHATROOM_ANS, &ans);
 	return true;
 }
 

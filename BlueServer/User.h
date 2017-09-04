@@ -3,6 +3,7 @@
 #include "../BlueCore/Macro.h"
 #include "../BlueCore/json11.hpp"
 #include "../BlueCore/DateTime.h"
+#include "../BlueCore/MemoryPool.h"
 
 #include "cpp/common.pb.h"
 
@@ -61,6 +62,8 @@ public:
 	void joinRoom(ChatRoomPtr room_);
 	void leaveRoom(ChatRoomPtr room_);
 	void chatRoom(MSG::ChatData_& data_);
+
+DECLARE_NEW_DELETE
 public:
 	// session key
 	std::string _sessionKey;

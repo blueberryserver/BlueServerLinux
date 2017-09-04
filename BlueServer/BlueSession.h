@@ -1,6 +1,7 @@
 #pragma once
 #include "../BlueCore/Session.h"
 #include "../BlueCore/MsgHandler.h"
+#include "../BlueCore/MemoryPool.h"
 
 namespace BLUE_BERRY
 {
@@ -26,6 +27,7 @@ public:
 
 	// setting handler
 	virtual void setMsgHandler(MsgHandler<Session>* handler_);
+DECLARE_NEW_DELETE
 private:
 	MsgHandler<Session>* _msgHandler;
 };

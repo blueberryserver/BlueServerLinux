@@ -189,5 +189,21 @@ private:
 
 EXTERN_MGR(MemoryPool);
 
+inline void* alloc(size_t size_)
+{
+	return ___MemoryPool->alloc(size_);
+}
+
+inline void free(void* mem_)
+{
+	___MemoryPool->free(mem_);
+}
+
+#define DECLARE_NEW_DELETE public: \
+	void* operator new(size_t size_) \
+	{ return alloc(size_); } \
+	void operator delete(void* ptr_, size_t size_ ) \
+	{ free(ptr_); }
+
 }
 

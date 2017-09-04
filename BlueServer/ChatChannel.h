@@ -3,11 +3,11 @@
 #include <mutex>
 #include <memory>
 
-#include "cpp/common.pb.h"
-
 #include "../BlueCore/Macro.h"
 #include "../BlueCore/RedisClient.h"
+#include "../BlueCore/MemoryPool.h"
 
+#include "cpp/common.pb.h"
 namespace BLUE_BERRY
 {
 FOWARD_DECLARE(Session)
@@ -30,6 +30,8 @@ public:
 	void broadcastPacket(short id_, google::protobuf::Message* msg_);
 
 	void messageParser(json11::Json& json_);
+
+DECLARE_NEW_DELETE
 private:
 
 	std::recursive_mutex _mtx;
