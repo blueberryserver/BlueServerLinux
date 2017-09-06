@@ -155,3 +155,37 @@ message ChatChannel_ {
 	
 	repeated ChatData_ chats = 3;
 }
+
+
+// character data
+message CharData_ {
+	required uint32 typeNo = 1;
+	required uint32 level = 2;
+	required uint32 tier = 3;
+}
+
+// dungeon data
+message DungeonData_ {
+	required uint32 no = 1;
+	required uint32 tier = 2;
+
+	// 던전 몬스터 테이터
+	repeated CharData_ monsters = 3;
+}
+
+// battle data
+message BattleData_ {
+	enum AttackResult {
+		ALIVE = 0;
+		DEAD = 1;
+	}
+
+	message Attack {
+		required uint32 no = 1;
+		required uint32 damage = 2;
+		required AttackResult result = 3;
+	}
+
+	required uint32 srcNo = 1;
+	repeated Attack targets = 2;
+}

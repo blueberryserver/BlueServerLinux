@@ -37,10 +37,14 @@ void protobuf_AddDesc_common_2eproto();
 void protobuf_AssignDesc_common_2eproto();
 void protobuf_ShutdownFile_common_2eproto();
 
+class BattleData_;
+class BattleData__Attack;
+class CharData_;
 class ChatChannel_;
 class ChatData_;
 class ChatRoom_;
 class Contents_;
+class DungeonData_;
 class GMember_;
 class Group_;
 class UserData_;
@@ -86,6 +90,25 @@ inline bool GMember__GradeType_Parse(
     const ::std::string& name, GMember__GradeType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<GMember__GradeType>(
     GMember__GradeType_descriptor(), name, value);
+}
+enum BattleData__AttackResult {
+  BattleData__AttackResult_ALIVE = 0,
+  BattleData__AttackResult_DEAD = 1
+};
+bool BattleData__AttackResult_IsValid(int value);
+const BattleData__AttackResult BattleData__AttackResult_AttackResult_MIN = BattleData__AttackResult_ALIVE;
+const BattleData__AttackResult BattleData__AttackResult_AttackResult_MAX = BattleData__AttackResult_DEAD;
+const int BattleData__AttackResult_AttackResult_ARRAYSIZE = BattleData__AttackResult_AttackResult_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* BattleData__AttackResult_descriptor();
+inline const ::std::string& BattleData__AttackResult_Name(BattleData__AttackResult value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    BattleData__AttackResult_descriptor(), value);
+}
+inline bool BattleData__AttackResult_Parse(
+    const ::std::string& name, BattleData__AttackResult* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<BattleData__AttackResult>(
+    BattleData__AttackResult_descriptor(), name, value);
 }
 enum MsgId {
   CLOSED = 10000,
@@ -1294,6 +1317,491 @@ class ChatChannel_ : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   void InitAsDefaultInstance();
   static ChatChannel_* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CharData_ : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.CharData_) */ {
+ public:
+  CharData_();
+  virtual ~CharData_();
+
+  CharData_(const CharData_& from);
+
+  inline CharData_& operator=(const CharData_& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CharData_& default_instance();
+
+  void Swap(CharData_* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CharData_* New() const { return New(NULL); }
+
+  CharData_* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CharData_& from);
+  void MergeFrom(const CharData_& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CharData_* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 typeNo = 1;
+  bool has_typeno() const;
+  void clear_typeno();
+  static const int kTypeNoFieldNumber = 1;
+  ::google::protobuf::uint32 typeno() const;
+  void set_typeno(::google::protobuf::uint32 value);
+
+  // required uint32 level = 2;
+  bool has_level() const;
+  void clear_level();
+  static const int kLevelFieldNumber = 2;
+  ::google::protobuf::uint32 level() const;
+  void set_level(::google::protobuf::uint32 value);
+
+  // required uint32 tier = 3;
+  bool has_tier() const;
+  void clear_tier();
+  static const int kTierFieldNumber = 3;
+  ::google::protobuf::uint32 tier() const;
+  void set_tier(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:MSG.CharData_)
+ private:
+  inline void set_has_typeno();
+  inline void clear_has_typeno();
+  inline void set_has_level();
+  inline void clear_has_level();
+  inline void set_has_tier();
+  inline void clear_has_tier();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 typeno_;
+  ::google::protobuf::uint32 level_;
+  ::google::protobuf::uint32 tier_;
+  friend void  protobuf_AddDesc_common_2eproto();
+  friend void protobuf_AssignDesc_common_2eproto();
+  friend void protobuf_ShutdownFile_common_2eproto();
+
+  void InitAsDefaultInstance();
+  static CharData_* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DungeonData_ : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.DungeonData_) */ {
+ public:
+  DungeonData_();
+  virtual ~DungeonData_();
+
+  DungeonData_(const DungeonData_& from);
+
+  inline DungeonData_& operator=(const DungeonData_& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DungeonData_& default_instance();
+
+  void Swap(DungeonData_* other);
+
+  // implements Message ----------------------------------------------
+
+  inline DungeonData_* New() const { return New(NULL); }
+
+  DungeonData_* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DungeonData_& from);
+  void MergeFrom(const DungeonData_& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(DungeonData_* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 no = 1;
+  bool has_no() const;
+  void clear_no();
+  static const int kNoFieldNumber = 1;
+  ::google::protobuf::uint32 no() const;
+  void set_no(::google::protobuf::uint32 value);
+
+  // required uint32 tier = 2;
+  bool has_tier() const;
+  void clear_tier();
+  static const int kTierFieldNumber = 2;
+  ::google::protobuf::uint32 tier() const;
+  void set_tier(::google::protobuf::uint32 value);
+
+  // repeated .MSG.CharData_ monsters = 3;
+  int monsters_size() const;
+  void clear_monsters();
+  static const int kMonstersFieldNumber = 3;
+  const ::MSG::CharData_& monsters(int index) const;
+  ::MSG::CharData_* mutable_monsters(int index);
+  ::MSG::CharData_* add_monsters();
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+      mutable_monsters();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+      monsters() const;
+
+  // @@protoc_insertion_point(class_scope:MSG.DungeonData_)
+ private:
+  inline void set_has_no();
+  inline void clear_has_no();
+  inline void set_has_tier();
+  inline void clear_has_tier();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 no_;
+  ::google::protobuf::uint32 tier_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > monsters_;
+  friend void  protobuf_AddDesc_common_2eproto();
+  friend void protobuf_AssignDesc_common_2eproto();
+  friend void protobuf_ShutdownFile_common_2eproto();
+
+  void InitAsDefaultInstance();
+  static DungeonData_* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BattleData__Attack : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.BattleData_.Attack) */ {
+ public:
+  BattleData__Attack();
+  virtual ~BattleData__Attack();
+
+  BattleData__Attack(const BattleData__Attack& from);
+
+  inline BattleData__Attack& operator=(const BattleData__Attack& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BattleData__Attack& default_instance();
+
+  void Swap(BattleData__Attack* other);
+
+  // implements Message ----------------------------------------------
+
+  inline BattleData__Attack* New() const { return New(NULL); }
+
+  BattleData__Attack* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BattleData__Attack& from);
+  void MergeFrom(const BattleData__Attack& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(BattleData__Attack* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 no = 1;
+  bool has_no() const;
+  void clear_no();
+  static const int kNoFieldNumber = 1;
+  ::google::protobuf::uint32 no() const;
+  void set_no(::google::protobuf::uint32 value);
+
+  // required uint32 damage = 2;
+  bool has_damage() const;
+  void clear_damage();
+  static const int kDamageFieldNumber = 2;
+  ::google::protobuf::uint32 damage() const;
+  void set_damage(::google::protobuf::uint32 value);
+
+  // required .MSG.BattleData_.AttackResult result = 3;
+  bool has_result() const;
+  void clear_result();
+  static const int kResultFieldNumber = 3;
+  ::MSG::BattleData__AttackResult result() const;
+  void set_result(::MSG::BattleData__AttackResult value);
+
+  // @@protoc_insertion_point(class_scope:MSG.BattleData_.Attack)
+ private:
+  inline void set_has_no();
+  inline void clear_has_no();
+  inline void set_has_damage();
+  inline void clear_has_damage();
+  inline void set_has_result();
+  inline void clear_has_result();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 no_;
+  ::google::protobuf::uint32 damage_;
+  int result_;
+  friend void  protobuf_AddDesc_common_2eproto();
+  friend void protobuf_AssignDesc_common_2eproto();
+  friend void protobuf_ShutdownFile_common_2eproto();
+
+  void InitAsDefaultInstance();
+  static BattleData__Attack* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BattleData_ : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.BattleData_) */ {
+ public:
+  BattleData_();
+  virtual ~BattleData_();
+
+  BattleData_(const BattleData_& from);
+
+  inline BattleData_& operator=(const BattleData_& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BattleData_& default_instance();
+
+  void Swap(BattleData_* other);
+
+  // implements Message ----------------------------------------------
+
+  inline BattleData_* New() const { return New(NULL); }
+
+  BattleData_* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BattleData_& from);
+  void MergeFrom(const BattleData_& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(BattleData_* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef BattleData__Attack Attack;
+
+  typedef BattleData__AttackResult AttackResult;
+  static const AttackResult ALIVE =
+    BattleData__AttackResult_ALIVE;
+  static const AttackResult DEAD =
+    BattleData__AttackResult_DEAD;
+  static inline bool AttackResult_IsValid(int value) {
+    return BattleData__AttackResult_IsValid(value);
+  }
+  static const AttackResult AttackResult_MIN =
+    BattleData__AttackResult_AttackResult_MIN;
+  static const AttackResult AttackResult_MAX =
+    BattleData__AttackResult_AttackResult_MAX;
+  static const int AttackResult_ARRAYSIZE =
+    BattleData__AttackResult_AttackResult_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  AttackResult_descriptor() {
+    return BattleData__AttackResult_descriptor();
+  }
+  static inline const ::std::string& AttackResult_Name(AttackResult value) {
+    return BattleData__AttackResult_Name(value);
+  }
+  static inline bool AttackResult_Parse(const ::std::string& name,
+      AttackResult* value) {
+    return BattleData__AttackResult_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 srcNo = 1;
+  bool has_srcno() const;
+  void clear_srcno();
+  static const int kSrcNoFieldNumber = 1;
+  ::google::protobuf::uint32 srcno() const;
+  void set_srcno(::google::protobuf::uint32 value);
+
+  // repeated .MSG.BattleData_.Attack targets = 2;
+  int targets_size() const;
+  void clear_targets();
+  static const int kTargetsFieldNumber = 2;
+  const ::MSG::BattleData__Attack& targets(int index) const;
+  ::MSG::BattleData__Attack* mutable_targets(int index);
+  ::MSG::BattleData__Attack* add_targets();
+  ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack >*
+      mutable_targets();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack >&
+      targets() const;
+
+  // @@protoc_insertion_point(class_scope:MSG.BattleData_)
+ private:
+  inline void set_has_srcno();
+  inline void clear_has_srcno();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack > targets_;
+  ::google::protobuf::uint32 srcno_;
+  friend void  protobuf_AddDesc_common_2eproto();
+  friend void protobuf_AssignDesc_common_2eproto();
+  friend void protobuf_ShutdownFile_common_2eproto();
+
+  void InitAsDefaultInstance();
+  static BattleData_* default_instance_;
 };
 // ===================================================================
 
@@ -2698,7 +3206,308 @@ ChatChannel_::chats() const {
   return chats_;
 }
 
+// -------------------------------------------------------------------
+
+// CharData_
+
+// required uint32 typeNo = 1;
+inline bool CharData_::has_typeno() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CharData_::set_has_typeno() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CharData_::clear_has_typeno() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CharData_::clear_typeno() {
+  typeno_ = 0u;
+  clear_has_typeno();
+}
+inline ::google::protobuf::uint32 CharData_::typeno() const {
+  // @@protoc_insertion_point(field_get:MSG.CharData_.typeNo)
+  return typeno_;
+}
+inline void CharData_::set_typeno(::google::protobuf::uint32 value) {
+  set_has_typeno();
+  typeno_ = value;
+  // @@protoc_insertion_point(field_set:MSG.CharData_.typeNo)
+}
+
+// required uint32 level = 2;
+inline bool CharData_::has_level() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CharData_::set_has_level() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CharData_::clear_has_level() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CharData_::clear_level() {
+  level_ = 0u;
+  clear_has_level();
+}
+inline ::google::protobuf::uint32 CharData_::level() const {
+  // @@protoc_insertion_point(field_get:MSG.CharData_.level)
+  return level_;
+}
+inline void CharData_::set_level(::google::protobuf::uint32 value) {
+  set_has_level();
+  level_ = value;
+  // @@protoc_insertion_point(field_set:MSG.CharData_.level)
+}
+
+// required uint32 tier = 3;
+inline bool CharData_::has_tier() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CharData_::set_has_tier() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CharData_::clear_has_tier() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CharData_::clear_tier() {
+  tier_ = 0u;
+  clear_has_tier();
+}
+inline ::google::protobuf::uint32 CharData_::tier() const {
+  // @@protoc_insertion_point(field_get:MSG.CharData_.tier)
+  return tier_;
+}
+inline void CharData_::set_tier(::google::protobuf::uint32 value) {
+  set_has_tier();
+  tier_ = value;
+  // @@protoc_insertion_point(field_set:MSG.CharData_.tier)
+}
+
+// -------------------------------------------------------------------
+
+// DungeonData_
+
+// required uint32 no = 1;
+inline bool DungeonData_::has_no() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DungeonData_::set_has_no() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DungeonData_::clear_has_no() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DungeonData_::clear_no() {
+  no_ = 0u;
+  clear_has_no();
+}
+inline ::google::protobuf::uint32 DungeonData_::no() const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonData_.no)
+  return no_;
+}
+inline void DungeonData_::set_no(::google::protobuf::uint32 value) {
+  set_has_no();
+  no_ = value;
+  // @@protoc_insertion_point(field_set:MSG.DungeonData_.no)
+}
+
+// required uint32 tier = 2;
+inline bool DungeonData_::has_tier() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DungeonData_::set_has_tier() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DungeonData_::clear_has_tier() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DungeonData_::clear_tier() {
+  tier_ = 0u;
+  clear_has_tier();
+}
+inline ::google::protobuf::uint32 DungeonData_::tier() const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonData_.tier)
+  return tier_;
+}
+inline void DungeonData_::set_tier(::google::protobuf::uint32 value) {
+  set_has_tier();
+  tier_ = value;
+  // @@protoc_insertion_point(field_set:MSG.DungeonData_.tier)
+}
+
+// repeated .MSG.CharData_ monsters = 3;
+inline int DungeonData_::monsters_size() const {
+  return monsters_.size();
+}
+inline void DungeonData_::clear_monsters() {
+  monsters_.Clear();
+}
+inline const ::MSG::CharData_& DungeonData_::monsters(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonData_.monsters)
+  return monsters_.Get(index);
+}
+inline ::MSG::CharData_* DungeonData_::mutable_monsters(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.DungeonData_.monsters)
+  return monsters_.Mutable(index);
+}
+inline ::MSG::CharData_* DungeonData_::add_monsters() {
+  // @@protoc_insertion_point(field_add:MSG.DungeonData_.monsters)
+  return monsters_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+DungeonData_::mutable_monsters() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.DungeonData_.monsters)
+  return &monsters_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+DungeonData_::monsters() const {
+  // @@protoc_insertion_point(field_list:MSG.DungeonData_.monsters)
+  return monsters_;
+}
+
+// -------------------------------------------------------------------
+
+// BattleData__Attack
+
+// required uint32 no = 1;
+inline bool BattleData__Attack::has_no() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BattleData__Attack::set_has_no() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BattleData__Attack::clear_has_no() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BattleData__Attack::clear_no() {
+  no_ = 0u;
+  clear_has_no();
+}
+inline ::google::protobuf::uint32 BattleData__Attack::no() const {
+  // @@protoc_insertion_point(field_get:MSG.BattleData_.Attack.no)
+  return no_;
+}
+inline void BattleData__Attack::set_no(::google::protobuf::uint32 value) {
+  set_has_no();
+  no_ = value;
+  // @@protoc_insertion_point(field_set:MSG.BattleData_.Attack.no)
+}
+
+// required uint32 damage = 2;
+inline bool BattleData__Attack::has_damage() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BattleData__Attack::set_has_damage() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BattleData__Attack::clear_has_damage() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BattleData__Attack::clear_damage() {
+  damage_ = 0u;
+  clear_has_damage();
+}
+inline ::google::protobuf::uint32 BattleData__Attack::damage() const {
+  // @@protoc_insertion_point(field_get:MSG.BattleData_.Attack.damage)
+  return damage_;
+}
+inline void BattleData__Attack::set_damage(::google::protobuf::uint32 value) {
+  set_has_damage();
+  damage_ = value;
+  // @@protoc_insertion_point(field_set:MSG.BattleData_.Attack.damage)
+}
+
+// required .MSG.BattleData_.AttackResult result = 3;
+inline bool BattleData__Attack::has_result() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BattleData__Attack::set_has_result() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BattleData__Attack::clear_has_result() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BattleData__Attack::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::MSG::BattleData__AttackResult BattleData__Attack::result() const {
+  // @@protoc_insertion_point(field_get:MSG.BattleData_.Attack.result)
+  return static_cast< ::MSG::BattleData__AttackResult >(result_);
+}
+inline void BattleData__Attack::set_result(::MSG::BattleData__AttackResult value) {
+  assert(::MSG::BattleData__AttackResult_IsValid(value));
+  set_has_result();
+  result_ = value;
+  // @@protoc_insertion_point(field_set:MSG.BattleData_.Attack.result)
+}
+
+// -------------------------------------------------------------------
+
+// BattleData_
+
+// required uint32 srcNo = 1;
+inline bool BattleData_::has_srcno() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BattleData_::set_has_srcno() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BattleData_::clear_has_srcno() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BattleData_::clear_srcno() {
+  srcno_ = 0u;
+  clear_has_srcno();
+}
+inline ::google::protobuf::uint32 BattleData_::srcno() const {
+  // @@protoc_insertion_point(field_get:MSG.BattleData_.srcNo)
+  return srcno_;
+}
+inline void BattleData_::set_srcno(::google::protobuf::uint32 value) {
+  set_has_srcno();
+  srcno_ = value;
+  // @@protoc_insertion_point(field_set:MSG.BattleData_.srcNo)
+}
+
+// repeated .MSG.BattleData_.Attack targets = 2;
+inline int BattleData_::targets_size() const {
+  return targets_.size();
+}
+inline void BattleData_::clear_targets() {
+  targets_.Clear();
+}
+inline const ::MSG::BattleData__Attack& BattleData_::targets(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.BattleData_.targets)
+  return targets_.Get(index);
+}
+inline ::MSG::BattleData__Attack* BattleData_::mutable_targets(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.BattleData_.targets)
+  return targets_.Mutable(index);
+}
+inline ::MSG::BattleData__Attack* BattleData_::add_targets() {
+  // @@protoc_insertion_point(field_add:MSG.BattleData_.targets)
+  return targets_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack >*
+BattleData_::mutable_targets() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.BattleData_.targets)
+  return &targets_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack >&
+BattleData_::targets() const {
+  // @@protoc_insertion_point(field_list:MSG.BattleData_.targets)
+  return targets_;
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -2729,6 +3538,11 @@ template <> struct is_proto_enum< ::MSG::GMember__GradeType> : ::google::protobu
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::MSG::GMember__GradeType>() {
   return ::MSG::GMember__GradeType_descriptor();
+}
+template <> struct is_proto_enum< ::MSG::BattleData__AttackResult> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MSG::BattleData__AttackResult>() {
+  return ::MSG::BattleData__AttackResult_descriptor();
 }
 template <> struct is_proto_enum< ::MSG::MsgId> : ::google::protobuf::internal::true_type {};
 template <>

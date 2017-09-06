@@ -74,6 +74,7 @@
     <ClCompile Include="ChatRoom.cpp" />
     <ClCompile Include="cpp\chat.pb.cc" />
     <ClCompile Include="cpp\common.pb.cc" />
+    <ClCompile Include="cpp\game.pb.cc" />
     <ClCompile Include="cpp\login.pb.cc" />
     <ClCompile Include="DBQueryUser.cpp" />
     <ClCompile Include="DefaultHandler.cpp" />
@@ -91,6 +92,7 @@
     <ClInclude Include="ChatRoom.h" />
     <ClInclude Include="cpp\chat.pb.h" />
     <ClInclude Include="cpp\common.pb.h" />
+    <ClInclude Include="cpp\game.pb.h" />
     <ClInclude Include="cpp\login.pb.h" />
     <ClInclude Include="DBQueryUser.h" />
     <ClInclude Include="DefaultHandler.h" />
@@ -112,6 +114,7 @@
     <None Include="proto\build.bat" />
     <None Include="proto\common.proto" />
     <None Include="proto\chat.proto" />
+    <None Include="proto\game.proto" />
     <None Include="proto\login.proto" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

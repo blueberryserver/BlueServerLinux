@@ -1,0 +1,77 @@
+﻿syntax = "proto2";
+
+import "common.proto";
+package MSG;
+
+// {"type":"outgame", "name": "전사 생성", "no":1}
+// {"type":"outgame", "name": "아처 생성", "no":2}
+
+// {"type":"ingame", "name": "전사", "no":1}
+// {"type":"ingame", "name": "아처", "no":2}
+// {"type":"ingame", "name": "몬스터 A", "no":3}
+// {"type":"ingame", "name": "몬스터 B", "no":4}
+// {"type":"ingame", "name": "몬스터 C", "no":5}
+
+// {"type":"ingame", "name": "던전 1", "no":1}
+// {"type":"ingame", "name": "던전 2", "no":2}
+// {"type":"ingame", "name": "던전 3", "no":3}
+// {"type":"ingame", "name": "던전 4", "no":4}
+// {"type":"ingame", "name": "던전 5", "no":5}
+
+// 컨텐츠 정보 통보
+message ContentsNot {
+	repeated string contents = 1;
+
+	// 마지막 던전 플레이 정보
+	required uint32 dungeonNo = 2;
+	required uint32 tier = 3;
+
+}
+
+// 휴식중 플레이 통보(1시간 1회 플레이)
+message PlayDungeonNot {
+	message DungeonPlay {
+		required uint32 dungeonNo = 1;
+		required uint32 tier = 2;
+		repeated BattleData_ battles = 3;
+	}
+
+	repeated DungeonPlay plays = 1;
+}
+
+// 보유중인 캐릭터 리스트 통보
+message OwnedCharacterNot {
+	repeated CharData_ chars = 1;
+}
+
+// 캐릭터 생성( 캐릭터가 존재하지 않으면 무료 1개 캐릭터 생성 가능)
+message CreateCharReq {
+	required uint32 charNo = 1;
+}
+
+message CreateCharAns {
+	required ErrorCode err = 1;
+}
+
+// 재화 변화 통보
+message CurrencyNot {
+	required uint32 vc1 = 1;	// 레벨업
+	required uint32 vc2 = 2;	// 캐릭터 구매, 티어 업
+	required uint32 vc3 = 3;
+}
+
+
+// 던전 플레이 요청
+message PlayDungeonReq {
+	required uint32 dungeonNo = 1;
+	required uint32 tier = 2;
+}
+
+// 던전 플레이 결과
+message PlayDungeonAns {
+	required ErrorCode err = 1;
+	// 던전 플레이 결과
+	repeated BattleData_ battles = 2;
+}
+
+
