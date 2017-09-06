@@ -1,0 +1,12 @@
+{"TableName":"DungeonTable",
+"Data":[{"No":1,"Name":"Dungeon1","Level":1,"Reward":1000,"MobALv":1,"MobBLv":1,"MobCLv":1}
+,{"No":2,"Name":"Dungeon2","Level":2,"Reward":1500,"MobALv":1,"MobBLv":1,"MobCLv":2}
+,{"No":3,"Name":"Dungeon3","Level":3,"Reward":2000,"MobALv":1,"MobBLv":2,"MobCLv":2}
+,{"No":4,"Name":"Dungeon4","Level":4,"Reward":2500,"MobALv":2,"MobBLv":2,"MobCLv":2}
+,{"No":5,"Name":"Dungeon5","Level":5,"Reward":3000,"MobALv":2,"MobBLv":3,"MobCLv":2}
+,{"No":6,"Name":"Dungeon6","Level":6,"Reward":4000,"MobALv":3,"MobBLv":3,"MobCLv":2}
+,{"No":7,"Name":"Dungeon7","Level":7,"Reward":5000,"MobALv":3,"MobBLv":3,"MobCLv":3}
+,{"No":8,"Name":"Dungeon8","Level":8,"Reward":6000,"MobALv":3,"MobBLv":4,"MobCLv":3}
+,{"No":9,"Name":"Dungeon9","Level":9,"Reward":8000,"MobALv":3,"MobBLv":4,"MobCLv":4}
+,{"No":10,"Name":"Dungeon10","Level":10,"Reward":10000,"MobALv":4,"MobBLv":4,"MobCLv":4}
+]}

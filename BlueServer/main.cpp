@@ -31,7 +31,33 @@ int main(int argc, char *argv[])
 	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/config.json") == false)
 		return 0;
 
+	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/ArcherStatTable.json") == false)
+		return 0;
+	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/CharacterTable.json") == false)
+		return 0;
+	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/DungeonTable.json") == false)
+		return 0;
+	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/DungeonTierTable.json") == false)
+		return 0;
+	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/MobAStatTable.json") == false)
+		return 0;
+	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/MobBStatTable.json") == false)
+		return 0;
+	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/MobCStatTable.json") == false)
+		return 0;
+	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/WarriorStatTable.json") == false)
+		return 0;
+
+
 	auto config = JsonFileLoader::getJsonFileLoader()->get("config.json");
+	auto ArcherStatTable = JsonFileLoader::getJsonFileLoader()->get("ArcherStatTable.json");
+	auto CharacterTable = JsonFileLoader::getJsonFileLoader()->get("CharacterTable.json");
+	auto DungeonTable = JsonFileLoader::getJsonFileLoader()->get("DungeonTable.json");
+	auto DungeonTierTable = JsonFileLoader::getJsonFileLoader()->get("DungeonTierTable.json");
+	auto MobAStatTable = JsonFileLoader::getJsonFileLoader()->get("MobAStatTable.json");
+	auto MobBStatTable = JsonFileLoader::getJsonFileLoader()->get("MobBStatTable.json");
+	auto MobCStatTable = JsonFileLoader::getJsonFileLoader()->get("MobCStatTable.json");
+	auto WarriorStatTable = JsonFileLoader::getJsonFileLoader()->get("WarriorStatTable.json");
 
 	auto jsonstr = config.dump();
 	auto threadCount = config["server_info"]["io_thread"].int_value();
@@ -50,6 +76,12 @@ int main(int argc, char *argv[])
 	Logger::setLogger(new Logger(T_CF_, L_INFO_, logName.c_str()));
 	Logger::getLogger()->setLogLevel(L_INFO_);
 	Logger::getLogger()->start();
+
+
+	//
+	LOG(L_INFO_, "ArcherStatTable", "json", ArcherStatTable);
+
+
 
 	SyncJobManager::setSyncJobManager(new SyncJobManager());
 	SyncJobManager::getSyncJobManager()->start();

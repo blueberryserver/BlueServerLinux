@@ -99,7 +99,16 @@
     <ClInclude Include="UserManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="json\ArcherStatTable.json" />
+    <None Include="json\CharacterTable.json" />
+    <None Include="json\CharTierTable.json" />
     <None Include="json\config.json" />
+    <None Include="json\DungeonTable.json" />
+    <None Include="json\DungeonTierTable.json" />
+    <None Include="json\MobAStatTable.json" />
+    <None Include="json\MobBStatTable.json" />
+    <None Include="json\MobCStatTable.json" />
+    <None Include="json\WarriorStatTable.json" />
     <None Include="proto\build.bat" />
     <None Include="proto\common.proto" />
     <None Include="proto\chat.proto" />

@@ -114,7 +114,11 @@ bool JsonFileLoader::load(filesystem::path& path_, Json& jsonData_)
 	file.read(&str[0], size);
 	std::string err;
 	jsonData_ = Json::parse(str.c_str(), err);
-	if (err.empty() == false) return false;
+	if (err.empty() == false)
+	{
+		std::cout << "file parsing fail " << err << std::endl;
+		return false;
+	}
 
 	return true;
 }
