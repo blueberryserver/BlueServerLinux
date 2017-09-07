@@ -92,10 +92,12 @@ void protobuf_AssignDesc_game_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot, _internal_metadata_),
       -1);
   PlayDungeonNot_DungeonPlay_descriptor_ = PlayDungeonNot_descriptor_->nested_type(0);
-  static const int PlayDungeonNot_DungeonPlay_offsets_[3] = {
+  static const int PlayDungeonNot_DungeonPlay_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot_DungeonPlay, dungeonno_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot_DungeonPlay, tier_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot_DungeonPlay, battles_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot_DungeonPlay, chars_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot_DungeonPlay, mobs_),
   };
   PlayDungeonNot_DungeonPlay_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -187,9 +189,11 @@ void protobuf_AssignDesc_game_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonReq, _internal_metadata_),
       -1);
   PlayDungeonAns_descriptor_ = file->message_type(7);
-  static const int PlayDungeonAns_offsets_[2] = {
+  static const int PlayDungeonAns_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, err_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, battles_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, chars_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, mobs_),
   };
   PlayDungeonAns_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -269,19 +273,22 @@ void protobuf_AddDesc_game_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\ngame.proto\022\003MSG\032\014common.proto\"@\n\013Conte"
     "ntsNot\022\020\n\010contents\030\001 \003(\t\022\021\n\tdungeonNo\030\002 "
-    "\002(\r\022\014\n\004tier\030\003 \002(\r\"\223\001\n\016PlayDungeonNot\022.\n\005"
+    "\002(\r\022\014\n\004tier\030\003 \002(\r\"\321\001\n\016PlayDungeonNot\022.\n\005"
     "plays\030\001 \003(\0132\037.MSG.PlayDungeonNot.Dungeon"
-    "Play\032Q\n\013DungeonPlay\022\021\n\tdungeonNo\030\001 \002(\r\022\014"
-    "\n\004tier\030\002 \002(\r\022!\n\007battles\030\003 \003(\0132\020.MSG.Batt"
-    "leData_\"2\n\021OwnedCharacterNot\022\035\n\005chars\030\001 "
-    "\003(\0132\016.MSG.CharData_\"\037\n\rCreateCharReq\022\016\n\006"
-    "charNo\030\001 \002(\r\",\n\rCreateCharAns\022\033\n\003err\030\001 \002"
-    "(\0162\016.MSG.ErrorCode\"4\n\013CurrencyNot\022\013\n\003vc1"
-    "\030\001 \002(\r\022\013\n\003vc2\030\002 \002(\r\022\013\n\003vc3\030\003 \002(\r\"1\n\016Play"
-    "DungeonReq\022\021\n\tdungeonNo\030\001 \002(\r\022\014\n\004tier\030\002 "
-    "\002(\r\"P\n\016PlayDungeonAns\022\033\n\003err\030\001 \002(\0162\016.MSG"
-    ".ErrorCode\022!\n\007battles\030\002 \003(\0132\020.MSG.Battle"
-    "Data_", 565);
+    "Play\032\216\001\n\013DungeonPlay\022\021\n\tdungeonNo\030\001 \002(\r\022"
+    "\014\n\004tier\030\002 \002(\r\022!\n\007battles\030\003 \003(\0132\020.MSG.Bat"
+    "tleData_\022\035\n\005chars\030\004 \003(\0132\016.MSG.CharData_\022"
+    "\034\n\004mobs\030\005 \003(\0132\016.MSG.CharData_\"2\n\021OwnedCh"
+    "aracterNot\022\035\n\005chars\030\001 \003(\0132\016.MSG.CharData"
+    "_\"\037\n\rCreateCharReq\022\016\n\006charNo\030\001 \002(\r\",\n\rCr"
+    "eateCharAns\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode"
+    "\"4\n\013CurrencyNot\022\013\n\003vc1\030\001 \002(\r\022\013\n\003vc2\030\002 \002("
+    "\r\022\013\n\003vc3\030\003 \002(\r\"1\n\016PlayDungeonReq\022\021\n\tdung"
+    "eonNo\030\001 \002(\r\022\014\n\004tier\030\002 \002(\r\"\215\001\n\016PlayDungeo"
+    "nAns\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\022!\n\007bat"
+    "tles\030\002 \003(\0132\020.MSG.BattleData_\022\035\n\005chars\030\003 "
+    "\003(\0132\016.MSG.CharData_\022\034\n\004mobs\030\004 \003(\0132\016.MSG."
+    "CharData_", 689);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "game.proto", &protobuf_RegisterTypes);
   ContentsNot::default_instance_ = new ContentsNot();
@@ -799,6 +806,8 @@ void ContentsNot::clear_tier() {
 const int PlayDungeonNot_DungeonPlay::kDungeonNoFieldNumber;
 const int PlayDungeonNot_DungeonPlay::kTierFieldNumber;
 const int PlayDungeonNot_DungeonPlay::kBattlesFieldNumber;
+const int PlayDungeonNot_DungeonPlay::kCharsFieldNumber;
+const int PlayDungeonNot_DungeonPlay::kMobsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PlayDungeonNot_DungeonPlay::PlayDungeonNot_DungeonPlay()
@@ -884,6 +893,8 @@ void PlayDungeonNot_DungeonPlay::Clear() {
 #undef ZR_
 
   battles_.Clear();
+  chars_.Clear();
+  mobs_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -941,6 +952,38 @@ bool PlayDungeonNot_DungeonPlay::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(26)) goto parse_loop_battles;
+        if (input->ExpectTag(34)) goto parse_loop_chars;
+        input->UnsafeDecrementRecursionDepth();
+        break;
+      }
+
+      // repeated .MSG.CharData_ chars = 4;
+      case 4: {
+        if (tag == 34) {
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_chars:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_chars()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_loop_chars;
+        if (input->ExpectTag(42)) goto parse_loop_mobs;
+        input->UnsafeDecrementRecursionDepth();
+        break;
+      }
+
+      // repeated .MSG.CharData_ mobs = 5;
+      case 5: {
+        if (tag == 42) {
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_mobs:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_mobs()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_loop_mobs;
         input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
@@ -987,6 +1030,18 @@ void PlayDungeonNot_DungeonPlay::SerializeWithCachedSizes(
       3, this->battles(i), output);
   }
 
+  // repeated .MSG.CharData_ chars = 4;
+  for (unsigned int i = 0, n = this->chars_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->chars(i), output);
+  }
+
+  // repeated .MSG.CharData_ mobs = 5;
+  for (unsigned int i = 0, n = this->mobs_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->mobs(i), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1012,6 +1067,20 @@ void PlayDungeonNot_DungeonPlay::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         3, this->battles(i), false, target);
+  }
+
+  // repeated .MSG.CharData_ chars = 4;
+  for (unsigned int i = 0, n = this->chars_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        4, this->chars(i), false, target);
+  }
+
+  // repeated .MSG.CharData_ mobs = 5;
+  for (unsigned int i = 0, n = this->mobs_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, this->mobs(i), false, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1068,6 +1137,22 @@ int PlayDungeonNot_DungeonPlay::ByteSize() const {
         this->battles(i));
   }
 
+  // repeated .MSG.CharData_ chars = 4;
+  total_size += 1 * this->chars_size();
+  for (int i = 0; i < this->chars_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->chars(i));
+  }
+
+  // repeated .MSG.CharData_ mobs = 5;
+  total_size += 1 * this->mobs_size();
+  for (int i = 0; i < this->mobs_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->mobs(i));
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1102,6 +1187,8 @@ void PlayDungeonNot_DungeonPlay::MergeFrom(const PlayDungeonNot_DungeonPlay& fro
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
   battles_.MergeFrom(from.battles_);
+  chars_.MergeFrom(from.chars_);
+  mobs_.MergeFrom(from.mobs_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_dungeonno()) {
       set_dungeonno(from.dungeonno());
@@ -1133,6 +1220,8 @@ bool PlayDungeonNot_DungeonPlay::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->battles())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->chars())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->mobs())) return false;
   return true;
 }
 
@@ -1144,6 +1233,8 @@ void PlayDungeonNot_DungeonPlay::InternalSwap(PlayDungeonNot_DungeonPlay* other)
   std::swap(dungeonno_, other->dungeonno_);
   std::swap(tier_, other->tier_);
   battles_.UnsafeArenaSwap(&other->battles_);
+  chars_.UnsafeArenaSwap(&other->chars_);
+  mobs_.UnsafeArenaSwap(&other->mobs_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1481,6 +1572,66 @@ const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >&
 PlayDungeonNot_DungeonPlay::battles() const {
   // @@protoc_insertion_point(field_list:MSG.PlayDungeonNot.DungeonPlay.battles)
   return battles_;
+}
+
+// repeated .MSG.CharData_ chars = 4;
+int PlayDungeonNot_DungeonPlay::chars_size() const {
+  return chars_.size();
+}
+void PlayDungeonNot_DungeonPlay::clear_chars() {
+  chars_.Clear();
+}
+const ::MSG::CharData_& PlayDungeonNot_DungeonPlay::chars(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return chars_.Get(index);
+}
+::MSG::CharData_* PlayDungeonNot_DungeonPlay::mutable_chars(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return chars_.Mutable(index);
+}
+::MSG::CharData_* PlayDungeonNot_DungeonPlay::add_chars() {
+  // @@protoc_insertion_point(field_add:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return chars_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+PlayDungeonNot_DungeonPlay::mutable_chars() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return &chars_;
+}
+const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+PlayDungeonNot_DungeonPlay::chars() const {
+  // @@protoc_insertion_point(field_list:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return chars_;
+}
+
+// repeated .MSG.CharData_ mobs = 5;
+int PlayDungeonNot_DungeonPlay::mobs_size() const {
+  return mobs_.size();
+}
+void PlayDungeonNot_DungeonPlay::clear_mobs() {
+  mobs_.Clear();
+}
+const ::MSG::CharData_& PlayDungeonNot_DungeonPlay::mobs(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return mobs_.Get(index);
+}
+::MSG::CharData_* PlayDungeonNot_DungeonPlay::mutable_mobs(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return mobs_.Mutable(index);
+}
+::MSG::CharData_* PlayDungeonNot_DungeonPlay::add_mobs() {
+  // @@protoc_insertion_point(field_add:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return mobs_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+PlayDungeonNot_DungeonPlay::mutable_mobs() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return &mobs_;
+}
+const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+PlayDungeonNot_DungeonPlay::mobs() const {
+  // @@protoc_insertion_point(field_list:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return mobs_;
 }
 
 // -------------------------------------------------------------------
@@ -3167,6 +3318,8 @@ void PlayDungeonReq::clear_tier() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int PlayDungeonAns::kErrFieldNumber;
 const int PlayDungeonAns::kBattlesFieldNumber;
+const int PlayDungeonAns::kCharsFieldNumber;
+const int PlayDungeonAns::kMobsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PlayDungeonAns::PlayDungeonAns()
@@ -3231,6 +3384,8 @@ void PlayDungeonAns::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.PlayDungeonAns)
   err_ = 0;
   battles_.Clear();
+  chars_.Clear();
+  mobs_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -3278,6 +3433,38 @@ bool PlayDungeonAns::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(18)) goto parse_loop_battles;
+        if (input->ExpectTag(26)) goto parse_loop_chars;
+        input->UnsafeDecrementRecursionDepth();
+        break;
+      }
+
+      // repeated .MSG.CharData_ chars = 3;
+      case 3: {
+        if (tag == 26) {
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_chars:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_chars()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_loop_chars;
+        if (input->ExpectTag(34)) goto parse_loop_mobs;
+        input->UnsafeDecrementRecursionDepth();
+        break;
+      }
+
+      // repeated .MSG.CharData_ mobs = 4;
+      case 4: {
+        if (tag == 34) {
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_mobs:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_mobs()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_loop_mobs;
         input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
@@ -3320,6 +3507,18 @@ void PlayDungeonAns::SerializeWithCachedSizes(
       2, this->battles(i), output);
   }
 
+  // repeated .MSG.CharData_ chars = 3;
+  for (unsigned int i = 0, n = this->chars_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->chars(i), output);
+  }
+
+  // repeated .MSG.CharData_ mobs = 4;
+  for (unsigned int i = 0, n = this->mobs_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->mobs(i), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3341,6 +3540,20 @@ void PlayDungeonAns::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, this->battles(i), false, target);
+  }
+
+  // repeated .MSG.CharData_ chars = 3;
+  for (unsigned int i = 0, n = this->chars_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, this->chars(i), false, target);
+  }
+
+  // repeated .MSG.CharData_ mobs = 4;
+  for (unsigned int i = 0, n = this->mobs_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        4, this->mobs(i), false, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3366,6 +3579,22 @@ int PlayDungeonAns::ByteSize() const {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         this->battles(i));
+  }
+
+  // repeated .MSG.CharData_ chars = 3;
+  total_size += 1 * this->chars_size();
+  for (int i = 0; i < this->chars_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->chars(i));
+  }
+
+  // repeated .MSG.CharData_ mobs = 4;
+  total_size += 1 * this->mobs_size();
+  for (int i = 0; i < this->mobs_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->mobs(i));
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3402,6 +3631,8 @@ void PlayDungeonAns::MergeFrom(const PlayDungeonAns& from) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
   battles_.MergeFrom(from.battles_);
+  chars_.MergeFrom(from.chars_);
+  mobs_.MergeFrom(from.mobs_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_err()) {
       set_err(from.err());
@@ -3430,6 +3661,8 @@ bool PlayDungeonAns::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->battles())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->chars())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->mobs())) return false;
   return true;
 }
 
@@ -3440,6 +3673,8 @@ void PlayDungeonAns::Swap(PlayDungeonAns* other) {
 void PlayDungeonAns::InternalSwap(PlayDungeonAns* other) {
   std::swap(err_, other->err_);
   battles_.UnsafeArenaSwap(&other->battles_);
+  chars_.UnsafeArenaSwap(&other->chars_);
+  mobs_.UnsafeArenaSwap(&other->mobs_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -3509,6 +3744,66 @@ const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >&
 PlayDungeonAns::battles() const {
   // @@protoc_insertion_point(field_list:MSG.PlayDungeonAns.battles)
   return battles_;
+}
+
+// repeated .MSG.CharData_ chars = 3;
+int PlayDungeonAns::chars_size() const {
+  return chars_.size();
+}
+void PlayDungeonAns::clear_chars() {
+  chars_.Clear();
+}
+const ::MSG::CharData_& PlayDungeonAns::chars(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.chars)
+  return chars_.Get(index);
+}
+::MSG::CharData_* PlayDungeonAns::mutable_chars(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonAns.chars)
+  return chars_.Mutable(index);
+}
+::MSG::CharData_* PlayDungeonAns::add_chars() {
+  // @@protoc_insertion_point(field_add:MSG.PlayDungeonAns.chars)
+  return chars_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+PlayDungeonAns::mutable_chars() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.PlayDungeonAns.chars)
+  return &chars_;
+}
+const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+PlayDungeonAns::chars() const {
+  // @@protoc_insertion_point(field_list:MSG.PlayDungeonAns.chars)
+  return chars_;
+}
+
+// repeated .MSG.CharData_ mobs = 4;
+int PlayDungeonAns::mobs_size() const {
+  return mobs_.size();
+}
+void PlayDungeonAns::clear_mobs() {
+  mobs_.Clear();
+}
+const ::MSG::CharData_& PlayDungeonAns::mobs(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.mobs)
+  return mobs_.Get(index);
+}
+::MSG::CharData_* PlayDungeonAns::mutable_mobs(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonAns.mobs)
+  return mobs_.Mutable(index);
+}
+::MSG::CharData_* PlayDungeonAns::add_mobs() {
+  // @@protoc_insertion_point(field_add:MSG.PlayDungeonAns.mobs)
+  return mobs_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+PlayDungeonAns::mutable_mobs() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.PlayDungeonAns.mobs)
+  return &mobs_;
+}
+const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+PlayDungeonAns::mobs() const {
+  // @@protoc_insertion_point(field_list:MSG.PlayDungeonAns.mobs)
+  return mobs_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

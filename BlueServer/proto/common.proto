@@ -37,6 +37,19 @@ enum MsgId {
 	LEAVECHATROOM_ANS = 20142;
 	LEAVECHATROOM_NOT = 20143;
 
+	// 캐릭터 생성
+	CREATECHAR_REQ = 20151;
+	CREATECHAR_ANS = 20152;
+
+	// 자동으로 보내는 프로토콜
+	CONTENTS_NOT = 20161;
+	OWNEDCHARACTER_NOT = 20162;
+	CURRENCY_NOT = 20163;
+	
+	// 던전 플레이
+	PLAYDUNGEON_REQ = 20171;
+	PLAYDUNGEON_ANS = 20172;
+	PLAYDUNGEON_NOT = 20173;
 }
 
 // Error type
@@ -180,12 +193,19 @@ message BattleData_ {
 		DEAD = 1;
 	}
 
+	enum Team {
+		ALLY = 0;
+		ENEMY = 1;
+	}
+
 	message Attack {
 		required uint32 no = 1;
 		required uint32 damage = 2;
 		required AttackResult result = 3;
 	}
+	
 
 	required uint32 srcNo = 1;
 	repeated Attack targets = 2;
+	required Team team = 3;
 }

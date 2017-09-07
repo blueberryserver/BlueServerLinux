@@ -266,6 +266,30 @@ class PlayDungeonNot_DungeonPlay : public ::google::protobuf::Message /* @@proto
   const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >&
       battles() const;
 
+  // repeated .MSG.CharData_ chars = 4;
+  int chars_size() const;
+  void clear_chars();
+  static const int kCharsFieldNumber = 4;
+  const ::MSG::CharData_& chars(int index) const;
+  ::MSG::CharData_* mutable_chars(int index);
+  ::MSG::CharData_* add_chars();
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+      mutable_chars();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+      chars() const;
+
+  // repeated .MSG.CharData_ mobs = 5;
+  int mobs_size() const;
+  void clear_mobs();
+  static const int kMobsFieldNumber = 5;
+  const ::MSG::CharData_& mobs(int index) const;
+  ::MSG::CharData_* mutable_mobs(int index);
+  ::MSG::CharData_* add_mobs();
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+      mutable_mobs();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+      mobs() const;
+
   // @@protoc_insertion_point(class_scope:MSG.PlayDungeonNot.DungeonPlay)
  private:
   inline void set_has_dungeonno();
@@ -282,6 +306,8 @@ class PlayDungeonNot_DungeonPlay : public ::google::protobuf::Message /* @@proto
   ::google::protobuf::uint32 dungeonno_;
   ::google::protobuf::uint32 tier_;
   ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ > battles_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > chars_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > mobs_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -980,6 +1006,30 @@ class PlayDungeonAns : public ::google::protobuf::Message /* @@protoc_insertion_
   const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >&
       battles() const;
 
+  // repeated .MSG.CharData_ chars = 3;
+  int chars_size() const;
+  void clear_chars();
+  static const int kCharsFieldNumber = 3;
+  const ::MSG::CharData_& chars(int index) const;
+  ::MSG::CharData_* mutable_chars(int index);
+  ::MSG::CharData_* add_chars();
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+      mutable_chars();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+      chars() const;
+
+  // repeated .MSG.CharData_ mobs = 4;
+  int mobs_size() const;
+  void clear_mobs();
+  static const int kMobsFieldNumber = 4;
+  const ::MSG::CharData_& mobs(int index) const;
+  ::MSG::CharData_* mutable_mobs(int index);
+  ::MSG::CharData_* add_mobs();
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+      mutable_mobs();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+      mobs() const;
+
   // @@protoc_insertion_point(class_scope:MSG.PlayDungeonAns)
  private:
   inline void set_has_err();
@@ -989,6 +1039,8 @@ class PlayDungeonAns : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ > battles_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > chars_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > mobs_;
   int err_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
@@ -1188,6 +1240,66 @@ inline const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >&
 PlayDungeonNot_DungeonPlay::battles() const {
   // @@protoc_insertion_point(field_list:MSG.PlayDungeonNot.DungeonPlay.battles)
   return battles_;
+}
+
+// repeated .MSG.CharData_ chars = 4;
+inline int PlayDungeonNot_DungeonPlay::chars_size() const {
+  return chars_.size();
+}
+inline void PlayDungeonNot_DungeonPlay::clear_chars() {
+  chars_.Clear();
+}
+inline const ::MSG::CharData_& PlayDungeonNot_DungeonPlay::chars(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return chars_.Get(index);
+}
+inline ::MSG::CharData_* PlayDungeonNot_DungeonPlay::mutable_chars(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return chars_.Mutable(index);
+}
+inline ::MSG::CharData_* PlayDungeonNot_DungeonPlay::add_chars() {
+  // @@protoc_insertion_point(field_add:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return chars_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+PlayDungeonNot_DungeonPlay::mutable_chars() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return &chars_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+PlayDungeonNot_DungeonPlay::chars() const {
+  // @@protoc_insertion_point(field_list:MSG.PlayDungeonNot.DungeonPlay.chars)
+  return chars_;
+}
+
+// repeated .MSG.CharData_ mobs = 5;
+inline int PlayDungeonNot_DungeonPlay::mobs_size() const {
+  return mobs_.size();
+}
+inline void PlayDungeonNot_DungeonPlay::clear_mobs() {
+  mobs_.Clear();
+}
+inline const ::MSG::CharData_& PlayDungeonNot_DungeonPlay::mobs(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return mobs_.Get(index);
+}
+inline ::MSG::CharData_* PlayDungeonNot_DungeonPlay::mutable_mobs(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return mobs_.Mutable(index);
+}
+inline ::MSG::CharData_* PlayDungeonNot_DungeonPlay::add_mobs() {
+  // @@protoc_insertion_point(field_add:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return mobs_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+PlayDungeonNot_DungeonPlay::mutable_mobs() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return &mobs_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+PlayDungeonNot_DungeonPlay::mobs() const {
+  // @@protoc_insertion_point(field_list:MSG.PlayDungeonNot.DungeonPlay.mobs)
+  return mobs_;
 }
 
 // -------------------------------------------------------------------
@@ -1500,6 +1612,66 @@ inline const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >&
 PlayDungeonAns::battles() const {
   // @@protoc_insertion_point(field_list:MSG.PlayDungeonAns.battles)
   return battles_;
+}
+
+// repeated .MSG.CharData_ chars = 3;
+inline int PlayDungeonAns::chars_size() const {
+  return chars_.size();
+}
+inline void PlayDungeonAns::clear_chars() {
+  chars_.Clear();
+}
+inline const ::MSG::CharData_& PlayDungeonAns::chars(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.chars)
+  return chars_.Get(index);
+}
+inline ::MSG::CharData_* PlayDungeonAns::mutable_chars(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonAns.chars)
+  return chars_.Mutable(index);
+}
+inline ::MSG::CharData_* PlayDungeonAns::add_chars() {
+  // @@protoc_insertion_point(field_add:MSG.PlayDungeonAns.chars)
+  return chars_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+PlayDungeonAns::mutable_chars() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.PlayDungeonAns.chars)
+  return &chars_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+PlayDungeonAns::chars() const {
+  // @@protoc_insertion_point(field_list:MSG.PlayDungeonAns.chars)
+  return chars_;
+}
+
+// repeated .MSG.CharData_ mobs = 4;
+inline int PlayDungeonAns::mobs_size() const {
+  return mobs_.size();
+}
+inline void PlayDungeonAns::clear_mobs() {
+  mobs_.Clear();
+}
+inline const ::MSG::CharData_& PlayDungeonAns::mobs(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.mobs)
+  return mobs_.Get(index);
+}
+inline ::MSG::CharData_* PlayDungeonAns::mutable_mobs(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonAns.mobs)
+  return mobs_.Mutable(index);
+}
+inline ::MSG::CharData_* PlayDungeonAns::add_mobs() {
+  // @@protoc_insertion_point(field_add:MSG.PlayDungeonAns.mobs)
+  return mobs_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+PlayDungeonAns::mutable_mobs() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.PlayDungeonAns.mobs)
+  return &mobs_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+PlayDungeonAns::mobs() const {
+  // @@protoc_insertion_point(field_list:MSG.PlayDungeonAns.mobs)
+  return mobs_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

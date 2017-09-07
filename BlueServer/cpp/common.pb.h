@@ -110,6 +110,25 @@ inline bool BattleData__AttackResult_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<BattleData__AttackResult>(
     BattleData__AttackResult_descriptor(), name, value);
 }
+enum BattleData__Team {
+  BattleData__Team_ALLY = 0,
+  BattleData__Team_ENEMY = 1
+};
+bool BattleData__Team_IsValid(int value);
+const BattleData__Team BattleData__Team_Team_MIN = BattleData__Team_ALLY;
+const BattleData__Team BattleData__Team_Team_MAX = BattleData__Team_ENEMY;
+const int BattleData__Team_Team_ARRAYSIZE = BattleData__Team_Team_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* BattleData__Team_descriptor();
+inline const ::std::string& BattleData__Team_Name(BattleData__Team value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    BattleData__Team_descriptor(), value);
+}
+inline bool BattleData__Team_Parse(
+    const ::std::string& name, BattleData__Team* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<BattleData__Team>(
+    BattleData__Team_descriptor(), name, value);
+}
 enum MsgId {
   CLOSED = 10000,
   LOGIN_REQ = 10101,
@@ -134,11 +153,19 @@ enum MsgId {
   ENTERCHATROOM_NOT = 20133,
   LEAVECHATROOM_REQ = 20141,
   LEAVECHATROOM_ANS = 20142,
-  LEAVECHATROOM_NOT = 20143
+  LEAVECHATROOM_NOT = 20143,
+  CREATECHAR_REQ = 20151,
+  CREATECHAR_ANS = 20152,
+  CONTENTS_NOT = 20161,
+  OWNEDCHARACTER_NOT = 20162,
+  CURRENCY_NOT = 20163,
+  PLAYDUNGEON_REQ = 20171,
+  PLAYDUNGEON_ANS = 20172,
+  PLAYDUNGEON_NOT = 20173
 };
 bool MsgId_IsValid(int value);
 const MsgId MsgId_MIN = CLOSED;
-const MsgId MsgId_MAX = LEAVECHATROOM_NOT;
+const MsgId MsgId_MAX = PLAYDUNGEON_NOT;
 const int MsgId_ARRAYSIZE = MsgId_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MsgId_descriptor();
@@ -1765,6 +1792,32 @@ class BattleData_ : public ::google::protobuf::Message /* @@protoc_insertion_poi
     return BattleData__AttackResult_Parse(name, value);
   }
 
+  typedef BattleData__Team Team;
+  static const Team ALLY =
+    BattleData__Team_ALLY;
+  static const Team ENEMY =
+    BattleData__Team_ENEMY;
+  static inline bool Team_IsValid(int value) {
+    return BattleData__Team_IsValid(value);
+  }
+  static const Team Team_MIN =
+    BattleData__Team_Team_MIN;
+  static const Team Team_MAX =
+    BattleData__Team_Team_MAX;
+  static const int Team_ARRAYSIZE =
+    BattleData__Team_Team_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Team_descriptor() {
+    return BattleData__Team_descriptor();
+  }
+  static inline const ::std::string& Team_Name(Team value) {
+    return BattleData__Team_Name(value);
+  }
+  static inline bool Team_Parse(const ::std::string& name,
+      Team* value) {
+    return BattleData__Team_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   // required uint32 srcNo = 1;
@@ -1786,16 +1839,29 @@ class BattleData_ : public ::google::protobuf::Message /* @@protoc_insertion_poi
   const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack >&
       targets() const;
 
+  // required .MSG.BattleData_.Team team = 3;
+  bool has_team() const;
+  void clear_team();
+  static const int kTeamFieldNumber = 3;
+  ::MSG::BattleData__Team team() const;
+  void set_team(::MSG::BattleData__Team value);
+
   // @@protoc_insertion_point(class_scope:MSG.BattleData_)
  private:
   inline void set_has_srcno();
   inline void clear_has_srcno();
+  inline void set_has_team();
+  inline void clear_has_team();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack > targets_;
   ::google::protobuf::uint32 srcno_;
+  int team_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -3499,6 +3565,31 @@ BattleData_::targets() const {
   return targets_;
 }
 
+// required .MSG.BattleData_.Team team = 3;
+inline bool BattleData_::has_team() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BattleData_::set_has_team() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BattleData_::clear_has_team() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BattleData_::clear_team() {
+  team_ = 0;
+  clear_has_team();
+}
+inline ::MSG::BattleData__Team BattleData_::team() const {
+  // @@protoc_insertion_point(field_get:MSG.BattleData_.team)
+  return static_cast< ::MSG::BattleData__Team >(team_);
+}
+inline void BattleData_::set_team(::MSG::BattleData__Team value) {
+  assert(::MSG::BattleData__Team_IsValid(value));
+  set_has_team();
+  team_ = value;
+  // @@protoc_insertion_point(field_set:MSG.BattleData_.team)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 // -------------------------------------------------------------------
 
@@ -3543,6 +3634,11 @@ template <> struct is_proto_enum< ::MSG::BattleData__AttackResult> : ::google::p
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::MSG::BattleData__AttackResult>() {
   return ::MSG::BattleData__AttackResult_descriptor();
+}
+template <> struct is_proto_enum< ::MSG::BattleData__Team> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MSG::BattleData__Team>() {
+  return ::MSG::BattleData__Team_descriptor();
 }
 template <> struct is_proto_enum< ::MSG::MsgId> : ::google::protobuf::internal::true_type {};
 template <>

@@ -57,6 +57,7 @@ const ::google::protobuf::Descriptor* BattleData__Attack_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BattleData__Attack_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* BattleData__AttackResult_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* BattleData__Team_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* MsgId_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* ErrorCode_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* PlatForm_descriptor_ = NULL;
@@ -242,9 +243,10 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DungeonData_, _internal_metadata_),
       -1);
   BattleData__descriptor_ = file->message_type(9);
-  static const int BattleData__offsets_[2] = {
+  static const int BattleData__offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleData_, srcno_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleData_, targets_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleData_, team_),
   };
   BattleData__reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -275,6 +277,7 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleData__Attack, _internal_metadata_),
       -1);
   BattleData__AttackResult_descriptor_ = BattleData__descriptor_->enum_type(0);
+  BattleData__Team_descriptor_ = BattleData__descriptor_->enum_type(1);
   MsgId_descriptor_ = file->enum_type(0);
   ErrorCode_descriptor_ = file->enum_type(1);
   PlatForm_descriptor_ = file->enum_type(2);
@@ -376,30 +379,36 @@ void protobuf_AddDesc_common_2eproto() {
     "\003(\0132\016.MSG.ChatData_\"8\n\tCharData_\022\016\n\006type"
     "No\030\001 \002(\r\022\r\n\005level\030\002 \002(\r\022\014\n\004tier\030\003 \002(\r\"J\n"
     "\014DungeonData_\022\n\n\002no\030\001 \002(\r\022\014\n\004tier\030\002 \002(\r\022"
-    " \n\010monsters\030\003 \003(\0132\016.MSG.CharData_\"\300\001\n\013Ba"
+    " \n\010monsters\030\003 \003(\0132\016.MSG.CharData_\"\202\002\n\013Ba"
     "ttleData_\022\r\n\005srcNo\030\001 \002(\r\022(\n\007targets\030\002 \003("
-    "\0132\027.MSG.BattleData_.Attack\032S\n\006Attack\022\n\n\002"
-    "no\030\001 \002(\r\022\016\n\006damage\030\002 \002(\r\022-\n\006result\030\003 \002(\016"
-    "2\035.MSG.BattleData_.AttackResult\"#\n\014Attac"
-    "kResult\022\t\n\005ALIVE\020\000\022\010\n\004DEAD\020\001*\372\003\n\005MsgId\022\013"
-    "\n\006CLOSED\020\220N\022\016\n\tLOGIN_REQ\020\365N\022\016\n\tLOGIN_ANS"
-    "\020\366N\022\r\n\010PING_REQ\020\367N\022\r\n\010PONG_ANS\020\370N\022\017\n\nREG"
-    "IST_REQ\020\371N\022\017\n\nREGIST_ANS\020\372N\022\020\n\013VERSION_R"
-    "EQ\020\373N\022\020\n\013VERSION_ANS\020\374N\022\016\n\010CHAT_REQ\020\205\235\001\022"
-    "\016\n\010CHAT_ANS\020\206\235\001\022\016\n\010CHAT_NOT\020\207\235\001\022\030\n\022CREAT"
-    "ECHATROOM_REQ\020\217\235\001\022\030\n\022CREATECHATROOM_ANS\020"
-    "\220\235\001\022\030\n\022CREATECHATROOM_NOT\020\221\235\001\022\030\n\022INVITEC"
-    "HATROOM_REQ\020\231\235\001\022\030\n\022INVITECHATROOM_ANS\020\232\235"
-    "\001\022\030\n\022INVITECHATROOM_NOT\020\233\235\001\022\027\n\021ENTERCHAT"
-    "ROOM_REQ\020\243\235\001\022\027\n\021ENTERCHATROOM_ANS\020\244\235\001\022\027\n"
-    "\021ENTERCHATROOM_NOT\020\245\235\001\022\027\n\021LEAVECHATROOM_"
-    "REQ\020\255\235\001\022\027\n\021LEAVECHATROOM_ANS\020\256\235\001\022\027\n\021LEAV"
-    "ECHATROOM_NOT\020\257\235\001*x\n\tErrorCode\022\017\n\013ERR_SU"
-    "CCESS\020\000\022\022\n\016ERR_LOGIN_FAIL\020\001\022\025\n\021ERR_ARGUM"
-    "ENT_FAIL\020\002\022\026\n\022ERR_AUTHORITY_FAIL\020\003\022\027\n\023ER"
-    "R_SESSIONKEY_FAIL\020\004* \n\010PlatForm\022\007\n\003IOS\020\000"
-    "\022\013\n\007ANDROID\020\001*;\n\010ChatType\022\020\n\014CHAT_CHANNE"
-    "L\020\001\022\016\n\nCHAT_GROUP\020\002\022\r\n\tCHAT_ROOM\020\003", 1954);
+    "\0132\027.MSG.BattleData_.Attack\022#\n\004team\030\003 \002(\016"
+    "2\025.MSG.BattleData_.Team\032S\n\006Attack\022\n\n\002no\030"
+    "\001 \002(\r\022\016\n\006damage\030\002 \002(\r\022-\n\006result\030\003 \002(\0162\035."
+    "MSG.BattleData_.AttackResult\"#\n\014AttackRe"
+    "sult\022\t\n\005ALIVE\020\000\022\010\n\004DEAD\020\001\"\033\n\004Team\022\010\n\004ALL"
+    "Y\020\000\022\t\n\005ENEMY\020\001*\255\005\n\005MsgId\022\013\n\006CLOSED\020\220N\022\016\n"
+    "\tLOGIN_REQ\020\365N\022\016\n\tLOGIN_ANS\020\366N\022\r\n\010PING_RE"
+    "Q\020\367N\022\r\n\010PONG_ANS\020\370N\022\017\n\nREGIST_REQ\020\371N\022\017\n\n"
+    "REGIST_ANS\020\372N\022\020\n\013VERSION_REQ\020\373N\022\020\n\013VERSI"
+    "ON_ANS\020\374N\022\016\n\010CHAT_REQ\020\205\235\001\022\016\n\010CHAT_ANS\020\206\235"
+    "\001\022\016\n\010CHAT_NOT\020\207\235\001\022\030\n\022CREATECHATROOM_REQ\020"
+    "\217\235\001\022\030\n\022CREATECHATROOM_ANS\020\220\235\001\022\030\n\022CREATEC"
+    "HATROOM_NOT\020\221\235\001\022\030\n\022INVITECHATROOM_REQ\020\231\235"
+    "\001\022\030\n\022INVITECHATROOM_ANS\020\232\235\001\022\030\n\022INVITECHA"
+    "TROOM_NOT\020\233\235\001\022\027\n\021ENTERCHATROOM_REQ\020\243\235\001\022\027"
+    "\n\021ENTERCHATROOM_ANS\020\244\235\001\022\027\n\021ENTERCHATROOM"
+    "_NOT\020\245\235\001\022\027\n\021LEAVECHATROOM_REQ\020\255\235\001\022\027\n\021LEA"
+    "VECHATROOM_ANS\020\256\235\001\022\027\n\021LEAVECHATROOM_NOT\020"
+    "\257\235\001\022\024\n\016CREATECHAR_REQ\020\267\235\001\022\024\n\016CREATECHAR_"
+    "ANS\020\270\235\001\022\022\n\014CONTENTS_NOT\020\301\235\001\022\030\n\022OWNEDCHAR"
+    "ACTER_NOT\020\302\235\001\022\022\n\014CURRENCY_NOT\020\303\235\001\022\025\n\017PLA"
+    "YDUNGEON_REQ\020\313\235\001\022\025\n\017PLAYDUNGEON_ANS\020\314\235\001\022"
+    "\025\n\017PLAYDUNGEON_NOT\020\315\235\001*x\n\tErrorCode\022\017\n\013E"
+    "RR_SUCCESS\020\000\022\022\n\016ERR_LOGIN_FAIL\020\001\022\025\n\021ERR_"
+    "ARGUMENT_FAIL\020\002\022\026\n\022ERR_AUTHORITY_FAIL\020\003\022"
+    "\027\n\023ERR_SESSIONKEY_FAIL\020\004* \n\010PlatForm\022\007\n\003"
+    "IOS\020\000\022\013\n\007ANDROID\020\001*;\n\010ChatType\022\020\n\014CHAT_C"
+    "HANNEL\020\001\022\016\n\nCHAT_GROUP\020\002\022\r\n\tCHAT_ROOM\020\003", 2199);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   UserData_::default_instance_ = new UserData_();
@@ -463,6 +472,14 @@ bool MsgId_IsValid(int value) {
     case 20141:
     case 20142:
     case 20143:
+    case 20151:
+    case 20152:
+    case 20161:
+    case 20162:
+    case 20163:
+    case 20171:
+    case 20172:
+    case 20173:
       return true;
     default:
       return false;
@@ -6220,6 +6237,27 @@ const BattleData__AttackResult BattleData_::AttackResult_MIN;
 const BattleData__AttackResult BattleData_::AttackResult_MAX;
 const int BattleData_::AttackResult_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* BattleData__Team_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BattleData__Team_descriptor_;
+}
+bool BattleData__Team_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const BattleData__Team BattleData_::ALLY;
+const BattleData__Team BattleData_::ENEMY;
+const BattleData__Team BattleData_::Team_MIN;
+const BattleData__Team BattleData_::Team_MAX;
+const int BattleData_::Team_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int BattleData__Attack::kNoFieldNumber;
 const int BattleData__Attack::kDamageFieldNumber;
@@ -6593,6 +6631,7 @@ void BattleData__Attack::InternalSwap(BattleData__Attack* other) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int BattleData_::kSrcNoFieldNumber;
 const int BattleData_::kTargetsFieldNumber;
+const int BattleData_::kTeamFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 BattleData_::BattleData_()
@@ -6615,6 +6654,7 @@ BattleData_::BattleData_(const BattleData_& from)
 void BattleData_::SharedCtor() {
   _cached_size_ = 0;
   srcno_ = 0u;
+  team_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6655,7 +6695,27 @@ BattleData_* BattleData_::New(::google::protobuf::Arena* arena) const {
 
 void BattleData_::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.BattleData_)
-  srcno_ = 0u;
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(BattleData_, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<BattleData_*>(16)->f)
+#endif
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(srcno_, team_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
   targets_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6700,6 +6760,26 @@ bool BattleData_::MergePartialFromCodedStream(
         }
         if (input->ExpectTag(18)) goto parse_loop_targets;
         input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectTag(24)) goto parse_team;
+        break;
+      }
+
+      // required .MSG.BattleData_.Team team = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_team:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::MSG::BattleData__Team_IsValid(value)) {
+            set_team(static_cast< ::MSG::BattleData__Team >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(3, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -6740,6 +6820,12 @@ void BattleData_::SerializeWithCachedSizes(
       2, this->targets(i), output);
   }
 
+  // required .MSG.BattleData_.Team team = 3;
+  if (has_team()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->team(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -6762,6 +6848,12 @@ void BattleData_::SerializeWithCachedSizes(
         2, this->targets(i), false, target);
   }
 
+  // required .MSG.BattleData_.Team team = 3;
+  if (has_team()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->team(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -6770,15 +6862,41 @@ void BattleData_::SerializeWithCachedSizes(
   return target;
 }
 
+int BattleData_::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.BattleData_)
+  int total_size = 0;
+
+  if (has_srcno()) {
+    // required uint32 srcNo = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->srcno());
+  }
+
+  if (has_team()) {
+    // required .MSG.BattleData_.Team team = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->team());
+  }
+
+  return total_size;
+}
 int BattleData_::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.BattleData_)
   int total_size = 0;
 
-  // required uint32 srcNo = 1;
-  if (has_srcno()) {
+  if (((_has_bits_[0] & 0x00000005) ^ 0x00000005) == 0) {  // All required fields are present.
+    // required uint32 srcNo = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->srcno());
+
+    // required .MSG.BattleData_.Team team = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->team());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   // repeated .MSG.BattleData_.Attack targets = 2;
   total_size += 1 * this->targets_size();
@@ -6826,6 +6944,9 @@ void BattleData_::MergeFrom(const BattleData_& from) {
     if (from.has_srcno()) {
       set_srcno(from.srcno());
     }
+    if (from.has_team()) {
+      set_team(from.team());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -6847,7 +6968,7 @@ void BattleData_::CopyFrom(const BattleData_& from) {
 }
 
 bool BattleData_::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000005) != 0x00000005) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->targets())) return false;
   return true;
@@ -6860,6 +6981,7 @@ void BattleData_::Swap(BattleData_* other) {
 void BattleData_::InternalSwap(BattleData_* other) {
   std::swap(srcno_, other->srcno_);
   targets_.UnsafeArenaSwap(&other->targets_);
+  std::swap(team_, other->team_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -7005,6 +7127,31 @@ const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack >&
 BattleData_::targets() const {
   // @@protoc_insertion_point(field_list:MSG.BattleData_.targets)
   return targets_;
+}
+
+// required .MSG.BattleData_.Team team = 3;
+bool BattleData_::has_team() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void BattleData_::set_has_team() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void BattleData_::clear_has_team() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void BattleData_::clear_team() {
+  team_ = 0;
+  clear_has_team();
+}
+ ::MSG::BattleData__Team BattleData_::team() const {
+  // @@protoc_insertion_point(field_get:MSG.BattleData_.team)
+  return static_cast< ::MSG::BattleData__Team >(team_);
+}
+ void BattleData_::set_team(::MSG::BattleData__Team value) {
+  assert(::MSG::BattleData__Team_IsValid(value));
+  set_has_team();
+  team_ = value;
+  // @@protoc_insertion_point(field_set:MSG.BattleData_.team)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
