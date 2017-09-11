@@ -14,6 +14,7 @@
 #include "DefaultHandler.h"
 #include "LoginHandler.h"
 #include "ChatHandler.h"
+#include "GameHandler.h"
 
 #include "ChatChannelManager.h"
 #include "ChatRoomManager.h"
@@ -31,33 +32,10 @@ int main(int argc, char *argv[])
 	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/config.json") == false)
 		return 0;
 
-	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/ArcherStatTable.json") == false)
+	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/SimTable.json") == false)
 		return 0;
-	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/CharacterTable.json") == false)
-		return 0;
-	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/DungeonTable.json") == false)
-		return 0;
-	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/DungeonTierTable.json") == false)
-		return 0;
-	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/MobAStatTable.json") == false)
-		return 0;
-	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/MobBStatTable.json") == false)
-		return 0;
-	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/MobCStatTable.json") == false)
-		return 0;
-	if (JsonFileLoader::getJsonFileLoader()->insert("../../../json/WarriorStatTable.json") == false)
-		return 0;
-
 
 	auto config = JsonFileLoader::getJsonFileLoader()->get("config.json");
-	auto ArcherStatTable = JsonFileLoader::getJsonFileLoader()->get("ArcherStatTable.json");
-	auto CharacterTable = JsonFileLoader::getJsonFileLoader()->get("CharacterTable.json");
-	auto DungeonTable = JsonFileLoader::getJsonFileLoader()->get("DungeonTable.json");
-	auto DungeonTierTable = JsonFileLoader::getJsonFileLoader()->get("DungeonTierTable.json");
-	auto MobAStatTable = JsonFileLoader::getJsonFileLoader()->get("MobAStatTable.json");
-	auto MobBStatTable = JsonFileLoader::getJsonFileLoader()->get("MobBStatTable.json");
-	auto MobCStatTable = JsonFileLoader::getJsonFileLoader()->get("MobCStatTable.json");
-	auto WarriorStatTable = JsonFileLoader::getJsonFileLoader()->get("WarriorStatTable.json");
 
 	auto jsonstr = config.dump();
 	auto threadCount = config["server_info"]["io_thread"].int_value();
@@ -76,11 +54,6 @@ int main(int argc, char *argv[])
 	Logger::setLogger(new Logger(T_CF_, L_INFO_, logName.c_str()));
 	Logger::getLogger()->setLogLevel(L_INFO_);
 	Logger::getLogger()->start();
-
-
-	//
-	LOG(L_INFO_, "ArcherStatTable", "json", ArcherStatTable);
-
 
 
 	SyncJobManager::setSyncJobManager(new SyncJobManager());
@@ -130,6 +103,7 @@ int main(int argc, char *argv[])
 	DefaultHandler::setDefaultHandler(new DefaultHandler());
 	LoginHandler::setLoginHandler(new LoginHandler());
 	ChatHandler::setChatHandler(new ChatHandler());
+	GameHandler::setGameHandler(new GameHandler());
 
 	UserManager::setUserManager(new UserManager());
 	UserManager::getUserManager()->start();

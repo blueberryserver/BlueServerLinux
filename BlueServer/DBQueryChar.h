@@ -2,15 +2,17 @@
 #include "cpp/common.pb.h"
 
 #include "DBQuery.h"
-
 namespace BLUE_BERRY
 {
 
-class DBQueryUser : public DBQuery
+class DBQueryChar : public DBQuery
 {
 public:
-	DBQueryUser()
-	: DBQuery() {}
+	DBQueryChar()
+		: DBQuery()
+	{
+		_datas.clear();
+	}
 
 	// select
 	virtual bool selectData() override;
@@ -20,26 +22,25 @@ public:
 
 	// insert
 	virtual bool insertData() override;
-	
+
 	// delete
 	virtual bool deleteData() override;
 
 	// set get function
-	void setData(MSG::UserData_& data_)
+	void setData(std::vector<MSG::CharData_> data_)
 	{
-		_data.CopyFrom(data_);
-	}
-	void getData(MSG::UserData_& data_)
-	{
-		data_.CopyFrom(_data);
+		_datas = data_;
 	}
 
+	void getData(std::vector<MSG::CharData_>& data_)
+	{
+		data_ = _datas;
+	}
 
 private:
-	// db main data
-	MSG::UserData_ _data;
-};
 
+	std::vector<MSG::CharData_> _datas;
+};
 
 
 }

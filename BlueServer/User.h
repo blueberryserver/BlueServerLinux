@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_set>
+#include <google/protobuf/util/json_util.h>
 #include "../BlueCore/Macro.h"
 #include "../BlueCore/json11.hpp"
 #include "../BlueCore/DateTime.h"
@@ -13,7 +14,7 @@ namespace BLUE_BERRY
 FOWARD_DECLARE(Session)
 FOWARD_DECLARE(ChatRoom)
 
-class User : public JsonValue
+class User
 {
 public:
 	User();
@@ -26,28 +27,6 @@ public:
 	{
 		return _data;
 	}
-
-	virtual Json::Type type() const
-	{
-		return Json::OBJECT;
-	}
-
-	virtual bool equals(const JsonValue * other) const
-	{
-		return false;
-	}
-
-	virtual bool less(const JsonValue * other) const
-	{
-		return false;
-	}
-
-	virtual void dump(std::string &out) const
-	{
-		out = to_json().dump();
-	}
-
-	Json to_json() const;
 
 	// set get function
 	void setSession(const SessionPtr& session_) { _session = session_; }
@@ -82,5 +61,15 @@ public:
 };
 
 DECLARE_SMART_PTR(User)
+
+template< typename T>
+static const Json toJson( const T& t_)
+{
+	std::string out;
+	google::protobuf::util::MessageToJsonString(t_, &out);
+
+	std::string err;
+	return json11::Json::parse(out, err);
+}
 
 }

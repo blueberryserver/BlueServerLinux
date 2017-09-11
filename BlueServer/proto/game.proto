@@ -41,10 +41,6 @@ message PlayDungeonNot {
 	repeated DungeonPlay plays = 1;
 }
 
-// 보유중인 캐릭터 리스트 통보
-message OwnedCharacterNot {
-	repeated CharData_ chars = 1;
-}
 
 // 캐릭터 생성( 캐릭터가 존재하지 않으면 무료 1개 캐릭터 생성 가능)
 message CreateCharReq {
@@ -53,6 +49,7 @@ message CreateCharReq {
 
 message CreateCharAns {
 	required ErrorCode err = 1;
+	optional CharData_ char_ = 2;
 }
 
 // 재화 변화 통보
@@ -78,4 +75,28 @@ message PlayDungeonAns {
 	repeated CharData_ mobs = 4;
 }
 
+// 캐릭터 렙벨업 요청
+message LevelupCharReq {
+	required uint32 slotNo = 1;
+	required uint32 vc1 = 2;		// 레벨업 비용
+}
 
+// 캐릭터 렙벨업 결과
+message LevelupCharAns {
+	required ErrorCode err = 1;
+	optional CharData_ char = 2;
+}
+
+
+
+// 캐릭터 티어 업 요청
+message TierupCharReq {
+	required uint32 slotNo = 1;
+	required uint32 vc2 = 2;		// 레벨업 비용
+}
+
+// 캐릭터 렙벨업 결과
+message TierupCharAns {
+	required ErrorCode err = 1;
+	optional CharData_ char = 2;
+}

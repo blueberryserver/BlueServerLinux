@@ -10,7 +10,10 @@
 
 #include "UserManager.h"
 #include "DBQueryUser.h"
+#include "DBQueryChar.h"
+
 #include "ChatHandler.h"
+#include "GameHandler.h"
 #include "ChatChannelManager.h"
 
 namespace BLUE_BERRY
@@ -26,30 +29,53 @@ LoginHandler::LoginHandler() : DefaultHandler()
 
 void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string name_)
 {
-	// db select user data	
-	DBQueryUser query;
+
 	MSG::UserData_ data;
-	data.set_name(name_);
-	query.setData(data);
-
-	if (query.selectData() == false)
 	{
-		MSG::LoginAns ans;
-		ans.set_err(MSG::ERR_AUTHORITY_FAIL);
-		session_->SendPacket(MSG::LOGIN_ANS, &ans);
-		return;
+		// db select user data	
+		DBQueryUser query;
+		query.setWhere("name='%s'", name_.c_str());
+		if (query.selectData() == false)
+		{
+			MSG::LoginAns ans;
+			ans.set_err(MSG::ERR_AUTHORITY_FAIL);
+			session_->SendPacket(MSG::LOGIN_ANS, &ans);
+			return;
+		}
+
+		// not exist user data
+		if (query.haveData() == false)
+		{
+			MSG::LoginAns ans;
+			ans.set_err(MSG::ERR_LOGIN_FAIL);
+			session_->SendPacket(MSG::LOGIN_ANS, &ans);
+			return;
+		}
+
+		query.getData(data);
 	}
 
-	// not exist user data
-	if (query.haveData() == false)
 	{
-		MSG::LoginAns ans;
-		ans.set_err(MSG::ERR_LOGIN_FAIL);
-		session_->SendPacket(MSG::LOGIN_ANS, &ans);
-		return;
-	}
+		// db select char data
+		DBQueryChar query;
+		query.setWhere("uid=%I64u", data.uid());
+		if (query.selectData() == false)
+		{
+			MSG::LoginAns ans;
+			ans.set_err(MSG::ERR_AUTHORITY_FAIL);
+			session_->SendPacket(MSG::LOGIN_ANS, &ans);
+			return;
+		}
 
-	query.getData(data);
+		std::vector<MSG::CharData_> chars;
+		query.getData(chars);
+
+		for (auto it : chars)
+		{
+			auto charData = data.add_chars();
+			charData->CopyFrom(it);
+		}
+	}
 
 	// update login date
 	auto now = DateTime::getCurrentDateTime().formatLocal();
@@ -57,8 +83,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 
 	auto user = std::make_shared<User>(data);
 	user->setSession(session_);
-	
-	LOG(L_INFO_, "User", "key", user->getSessionKey(), "data", user->to_json());
+	LOG(L_INFO_, "User", "key", user->getSessionKey(), "data", toJson(user->getData()));
 
 	UserManager::getUserManager()->add(user);
 
@@ -67,7 +92,8 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 	channel->enterChannel(session_);
 
 	// switch handler
-	session_->setMsgHandler(ChatHandler::getChatHandler());
+	//session_->setMsgHandler(ChatHandler::getChatHandler());
+	session_->setMsgHandler(GameHandler::getGameHandler());
 
 	// redis caching
 	{
@@ -80,7 +106,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 
 
 		std::string jsonStr;
-		user->dump(jsonStr);
+		toJson(user->getData()).dump(jsonStr);
 		auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(data.uid()).c_str(), jsonStr.c_str() );
 		auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
 			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
@@ -125,7 +151,7 @@ void LoginHandler::dbInsertUser(SessionPtr session_, MSG::UserData_ data_)
 
 
 	User user(data);
-	auto jUser = user.to_json();
+	auto jUser = toJson(user.getData());
 	LOG(L_INFO_, "User", "data", jUser);
 
 
@@ -140,7 +166,7 @@ void LoginHandler::dbInsertUser(SessionPtr session_, MSG::UserData_ data_)
 
 
 		std::string jsonStr;
-		user.dump(jsonStr);
+		toJson(user.getData()).dump(jsonStr);
 		auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(data.uid()).c_str(), jsonStr.c_str());
 		auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
 			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);

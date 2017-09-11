@@ -77,9 +77,9 @@ public:
 	DECLARE_MGR(Logger)
 };
 
-EXTERN_MGR(Logger);
+EXTERN_MGR(Logger)
 #define __FILENAME__ ( strrchr(__FILE__,'\\') == 0 ? __FILE__ : strrchr(__FILE__,'\\') + 1 )
-#define LOG(__level__, __desc__, ...) ___Logger->write(__level__, __func__, __FILENAME__, __LINE__, __desc__, ##__VA_ARGS__)
+#define LOG(__level__, __desc__, ...) ___Logger->write(__level__, __func__, __FILENAME__, __LINE__, __desc__, ## __VA_ARGS__)
 
 
 

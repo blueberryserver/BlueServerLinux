@@ -1,5 +1,4 @@
 #include "User.h"
-#include <google/protobuf/util/json_util.h>
 #include "../BlueCore/Logger.h"
 #include "../BlueCore/Session.h"
 #include "../BlueCore/RedisClient.h"
@@ -19,7 +18,7 @@ User::User()
 User::User(const MSG::UserData_& data_)
 	: _data(data_), _pingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count())	// 60 second
 {
-	auto key = std::hash<std::string>()(to_json().dump());
+	auto key = std::hash<std::string>()(toJson(data_).dump());
 	_sessionKey = std::to_string(key);
 
 }
@@ -61,7 +60,7 @@ User::~User()
 	// cached data save
 	RedisClientPtr client;
 	std::string jsonStr;
-	dump(jsonStr);
+	toJson(_data).dump(jsonStr);
 	auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(_data.uid()).c_str(), jsonStr.c_str());
 	auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
 		LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
@@ -98,15 +97,6 @@ void User::chatRoom(MSG::ChatData_& data_)
 	{
 		it->publishChat(data_);
 	}
-}
-
-Json User::to_json() const
-{
-	std::string out;
-	google::protobuf::util::MessageToJsonString(_data, &out);
-
-	std::string err;
-	return json11::Json::parse(out, err);	
 }
 
 }

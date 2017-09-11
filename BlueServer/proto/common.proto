@@ -37,19 +37,25 @@ enum MsgId {
 	LEAVECHATROOM_ANS = 20142;
 	LEAVECHATROOM_NOT = 20143;
 
-	// 캐릭터 생성
+	// character create
 	CREATECHAR_REQ = 20151;
 	CREATECHAR_ANS = 20152;
 
-	// 자동으로 보내는 프로토콜
+	// auto send proto
 	CONTENTS_NOT = 20161;
-	OWNEDCHARACTER_NOT = 20162;
+
 	CURRENCY_NOT = 20163;
 	
-	// 던전 플레이
+	// dungenon play
 	PLAYDUNGEON_REQ = 20171;
 	PLAYDUNGEON_ANS = 20172;
 	PLAYDUNGEON_NOT = 20173;
+
+	LEVELUPCHAR_REQ = 20181;
+	LEVELUPCHAR_ANS = 20182;
+
+	TIERUPCHAR_REQ = 20191;
+	TIERUPCHAR_ANS = 20192;
 }
 
 // Error type
@@ -86,6 +92,8 @@ message UserData_ {
 
 	optional string groupName = 11;
 	optional string language = 12;
+
+	repeated CharData_ chars = 13;
 }
 
 // contents info data
@@ -172,9 +180,13 @@ message ChatChannel_ {
 
 // character data
 message CharData_ {
-	required uint32 typeNo = 1;
-	required uint32 level = 2;
-	required uint32 tier = 3;
+	required uint64 cid = 1;
+	required uint64 uid = 2;
+	optional uint32 slotNo = 3;
+	optional uint32 typeNo = 4;
+	optional uint32 level = 5;
+	optional uint32 tier = 6;
+	optional string regDate = 7;
 }
 
 // dungeon data
@@ -182,7 +194,7 @@ message DungeonData_ {
 	required uint32 no = 1;
 	required uint32 tier = 2;
 
-	// 던전 몬스터 테이터
+	// monster table
 	repeated CharData_ monsters = 3;
 }
 

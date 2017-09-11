@@ -61,13 +61,9 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
-    <ClCompile Include="..\cpp\test.pb.cc" />
-    <ClCompile Include="..\cpp\test2.pb.cc" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\cpp\test.pb.h" />
-    <ClInclude Include="..\cpp\test2.pb.h" />
     <ClInclude Include="Buffer_Test.h" />
     <ClInclude Include="Chrono_Test.h" />
     <ClInclude Include="Contents_Test.h" />

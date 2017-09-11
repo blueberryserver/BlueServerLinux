@@ -5,7 +5,7 @@
 #include <ctime>
 #include <thread>
 
-#include "../BlueCore/DateTime.h"
+#include "../../BlueCore/DateTime.h"
 using namespace BLUE_BERRY;
 
 TEST(Chrono, Simple)
@@ -36,6 +36,9 @@ TEST(Chrono, Simple)
 
 	std::chrono::seconds rest = s2 - m2;
 	std::cout << m2.count() << " second: " << rest.count() << std::endl;
+
+
+	std::cout << " 120 second: " << std::chrono::duration_cast<_microseconds>(_minutes(2)).count() << std::endl;
 
 }
 
