@@ -51,7 +51,7 @@ DEFINE_HANDLER(DefaultHandler, SessionPtr, PingReq)
 	if (user->getSession() == nullptr || user->getSession() != session_)
 	{
 		user->setSession(session_);
-		auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().groupname().c_str());
+		auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData()->groupname().c_str());
 		channel->enterChannel(session_);
 	}
 
@@ -68,7 +68,7 @@ DEFINE_HANDLER(DefaultHandler, SessionPtr, Closed)
 	auto user = UserManager::getUserManager()->find(session_.get());
 	if (user != nullptr)
 	{
-		auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().groupname().c_str());
+		auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData()->groupname().c_str());
 		channel->leaveChannel(session_);
 
 		//UserManager::getUserManager()->remove(session_.get());

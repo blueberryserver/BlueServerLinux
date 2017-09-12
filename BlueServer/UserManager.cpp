@@ -37,7 +37,7 @@ UserPtr UserManager::findByUid(uint64_t uid_)
 	std::lock_guard<std::recursive_mutex> guard(_mtx);
 	for (auto it : _jobsBySessionPtr)
 	{
-		if (it.second->getData().uid() == uid_) return it.second;
+		if (it.second->getData()->uid() == uid_) return it.second;
 	}
 	return UserPtr();
 }
@@ -47,7 +47,7 @@ UserPtr UserManager::findByName(const char * name_)
 	std::lock_guard<std::recursive_mutex> guard(_mtx);
 	for (auto it : _jobsBySessionPtr)
 	{
-		if (it.second->getData().name().compare(name_) == 0 ) return it.second;
+		if (it.second->getData()->name().compare(name_) == 0 ) return it.second;
 	}
 	return UserPtr();
 }

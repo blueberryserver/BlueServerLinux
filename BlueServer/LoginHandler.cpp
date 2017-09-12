@@ -83,12 +83,12 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 
 	auto user = std::make_shared<User>(data);
 	user->setSession(session_);
-	LOG(L_INFO_, "User", "key", user->getSessionKey(), "data", toJson(user->getData()));
+	LOG(L_INFO_, "User", "key", user->getSessionKey(), "data", toJson(*user->getData()));
 
 	UserManager::getUserManager()->add(user);
 
 	// enter chat channel
-	auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().groupname().c_str());
+	auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData()->groupname().c_str());
 	channel->enterChannel(session_);
 
 	// switch handler
@@ -106,7 +106,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 
 
 		std::string jsonStr;
-		toJson(user->getData()).dump(jsonStr);
+		toJson(*user->getData()).dump(jsonStr);
 		auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(data.uid()).c_str(), jsonStr.c_str() );
 		auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
 			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
@@ -118,7 +118,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 	MSG::LoginAns ans;
 	ans.set_err(MSG::ERR_SUCCESS);
 	auto userData = ans.mutable_data();
-	userData->CopyFrom(user->getData());
+	userData->CopyFrom(*user->getData());
 	ans.set_sessionkey(user->getSessionKey());
 
 	session_->SendPacket(MSG::LOGIN_ANS, &ans);
@@ -151,7 +151,7 @@ void LoginHandler::dbInsertUser(SessionPtr session_, MSG::UserData_ data_)
 
 
 	User user(data);
-	auto jUser = toJson(user.getData());
+	auto jUser = toJson(*user.getData());
 	LOG(L_INFO_, "User", "data", jUser);
 
 
@@ -166,7 +166,7 @@ void LoginHandler::dbInsertUser(SessionPtr session_, MSG::UserData_ data_)
 
 
 		std::string jsonStr;
-		toJson(user.getData()).dump(jsonStr);
+		toJson(*user.getData()).dump(jsonStr);
 		auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(data.uid()).c_str(), jsonStr.c_str());
 		auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
 			LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
@@ -224,7 +224,7 @@ void LoginHandler::redisSelectUser(SessionPtr session_, std::string name_)
 			MSG::LoginAns ans;
 			ans.set_err(MSG::ERR_SUCCESS);
 			auto userData = ans.mutable_data();
-			userData->CopyFrom(user.getData());
+			userData->CopyFrom(*user.getData());
 
 			session_->SendPacket(MSG::LOGIN_ANS, &ans);
 		});

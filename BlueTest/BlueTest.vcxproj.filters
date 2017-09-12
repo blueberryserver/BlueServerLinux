@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Buffer_Test.h" />
+    <ClInclude Include="Logger_Test.h" />
+    <ClInclude Include="Mutex_Test.h" />
+    <ClInclude Include="Timer_Test.h" />
+    <ClInclude Include="Chrono_Test.h" />
+    <ClInclude Include="Protobuf_Test.h" />
+    <ClInclude Include="Mysql_Test.h" />
+    <ClInclude Include="Redis_Test.h" />
+    <ClInclude Include="Contents_Test.h" />
+    <ClInclude Include="Cpp_Test.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="cpp">
+      <UniqueIdentifier>{eb1fe95e-e97b-4516-9463-922579378252}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

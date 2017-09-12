@@ -3,21 +3,6 @@
 import "common.proto";
 package MSG;
 
-// {"type":"outgame", "name": "전사 생성", "no":1}
-// {"type":"outgame", "name": "아처 생성", "no":2}
-
-// {"type":"ingame", "name": "전사", "no":1}
-// {"type":"ingame", "name": "아처", "no":2}
-// {"type":"ingame", "name": "몬스터 A", "no":3}
-// {"type":"ingame", "name": "몬스터 B", "no":4}
-// {"type":"ingame", "name": "몬스터 C", "no":5}
-
-// {"type":"ingame", "name": "던전 1", "no":1}
-// {"type":"ingame", "name": "던전 2", "no":2}
-// {"type":"ingame", "name": "던전 3", "no":3}
-// {"type":"ingame", "name": "던전 4", "no":4}
-// {"type":"ingame", "name": "던전 5", "no":5}
-
 // 컨텐츠 정보 통보
 message ContentsNot {
 	repeated string contents = 1;
@@ -78,13 +63,12 @@ message PlayDungeonAns {
 // 캐릭터 렙벨업 요청
 message LevelupCharReq {
 	required uint32 slotNo = 1;
-	required uint32 vc1 = 2;		// 레벨업 비용
 }
 
 // 캐릭터 렙벨업 결과
 message LevelupCharAns {
 	required ErrorCode err = 1;
-	optional CharData_ char = 2;
+	optional CharData_ char_ = 2;
 }
 
 
@@ -92,11 +76,10 @@ message LevelupCharAns {
 // 캐릭터 티어 업 요청
 message TierupCharReq {
 	required uint32 slotNo = 1;
-	required uint32 vc2 = 2;		// 레벨업 비용
 }
 
 // 캐릭터 렙벨업 결과
 message TierupCharAns {
 	required ErrorCode err = 1;
-	optional CharData_ char = 2;
+	optional CharData_ char_ = 2;
 }

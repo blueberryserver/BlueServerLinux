@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Session.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="json11.cpp">
+      <Filter>Etc</Filter>
+    </ClCompile>
+    <ClCompile Include="FileWriter.cpp">
+      <Filter>Log</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Log</Filter>
+    </ClCompile>
+    <ClCompile Include="IOService.cpp">
+      <Filter>I/O</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryPool.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="BufferPool.cpp">
+      <Filter>Etc</Filter>
+    </ClCompile>
+    <ClCompile Include="DateTime.cpp">
+      <Filter>Etc</Filter>
+    </ClCompile>
+    <ClCompile Include="SyncJobHelper.cpp">
+      <Filter>Job</Filter>
+    </ClCompile>
+    <ClCompile Include="MysqlClient.cpp">
+      <Filter>Mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonFileLoader.cpp">
+      <Filter>Etc</Filter>
+    </ClCompile>
+    <ClCompile Include="RedisClient.cpp">
+      <Filter>Redis</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Acceptor.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="json11.hpp">
+      <Filter>Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleWriter.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="FileWriter.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="LockFreeQueue.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="IOService.h">
+      <Filter>I/O</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="LogHelper.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularBuffer.h">
+      <Filter>Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryPool.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="BufferPool.h">
+      <Filter>Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="concurrentqueue.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadUtil.h">
+      <Filter>Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="StringUtil.h">
+      <Filter>Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="DateTime.h">
+      <Filter>Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="Job.h">
+      <Filter>Job</Filter>
+    </ClInclude>
+    <ClInclude Include="JobExec.h">
+      <Filter>Job</Filter>
+    </ClInclude>
+    <ClInclude Include="JobHelper.h">
+      <Filter>Job</Filter>
+    </ClInclude>
+    <ClInclude Include="Callback.h">
+      <Filter>Job</Filter>
+    </ClInclude>
+    <ClInclude Include="SyncJobHelper.h">
+      <Filter>Job</Filter>
+    </ClInclude>
+    <ClInclude Include="MysqlClient.h">
+      <Filter>Mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="mysqldriver\mysql_connection.h">
+      <Filter>Mysql\mysqldriver</Filter>
+    </ClInclude>
+    <ClInclude Include="mysqldriver\mysql_driver.h">
+      <Filter>Mysql\mysqldriver</Filter>
+    </ClInclude>
+    <ClInclude Include="mysqldriver\mysql_error.h">
+      <Filter>Mysql\mysqldriver</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgHandler.h">
+      <Filter>Msg</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet.h">
+      <Filter>Msg</Filter>
+    </ClInclude>
+    <ClInclude Include="LockFreeMap.h" />
+    <ClInclude Include="JsonFileLoader.h">
+      <Filter>Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="RedisClient.h">
+      <Filter>Redis</Filter>
+    </ClInclude>
+    <ClInclude Include="RedisHelper.h">
+      <Filter>Redis</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Network">
+      <UniqueIdentifier>{93bce65b-001b-43b6-89dc-3baee05869df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{c476c05e-b02a-43c6-b72f-224bd5d354b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Etc">
+      <UniqueIdentifier>{a54ffe26-cbec-4c17-905a-3aa48190f99d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Container">
+      <UniqueIdentifier>{ff7349db-379e-48a7-a802-0e9ac8ad885d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Memory">
+      <UniqueIdentifier>{40865c2a-76b3-4b3e-bb56-1fcf9405e1fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Redis">
+      <UniqueIdentifier>{af3d7fec-f9cd-48f8-b632-2ccb1633abf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Job">
+      <UniqueIdentifier>{16d47512-4668-4426-be1e-d8126a094b49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="I/O">
+      <UniqueIdentifier>{9c537b63-baa3-4aec-be3d-263a5e08930e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mysql">
+      <UniqueIdentifier>{e357ad4c-97b1-4439-adc5-5967d39ced83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mysql\mysqldriver">
+      <UniqueIdentifier>{8429704b-95d3-4223-b4b8-0d153290a76c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Msg">
+      <UniqueIdentifier>{3b29bf2c-a606-4558-bd6b-46e4dbd547b2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

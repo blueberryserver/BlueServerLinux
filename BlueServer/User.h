@@ -23,9 +23,9 @@ public:
 	virtual ~User();
 
 public:
-	MSG::UserData_& getData()
+	MSG::UserData_* getData()
 	{
-		return _data;
+		return &_data;
 	}
 
 	// set get function

@@ -4,6 +4,7 @@
 #include "../BlueCore/RedisClient.h"
 
 #include "DBQueryUser.h"
+#include "DBQueryChar.h"
 #include "ChatRoom.h"
 #include "cpp/chat.pb.h"
 
@@ -69,11 +70,31 @@ User::~User()
 
 
 	// db save
-	DBQueryUser query;
-	query.setData(_data);
-	if (query.updateData() == false)
 	{
-		// fail log
+		DBQueryUser query;
+		query.setData(_data);
+		if (query.updateData() == false)
+		{
+			// fail log
+			LOG(L_ERROR_, "UserData update fail" );
+		}
+	}
+
+	// character
+	{
+		DBQueryChar query;
+		std::vector<MSG::CharData_> chars;
+		for (auto i = 0; i < _data.chars_size(); i++)
+		{
+			auto charData = _data.chars(i);
+			chars.push_back(charData);
+		}
+		query.setData(chars);
+		if (query.updateData() == false)
+		{
+			// fail log
+			LOG(L_ERROR_, "CharData update fail");
+		}
 	}
 }
 

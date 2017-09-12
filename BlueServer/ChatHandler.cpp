@@ -47,17 +47,17 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, ChatReq)
 
 	// create chat data
 	MSG::ChatData_ data;
-	data.set_uid(user->getData().uid());
-	data.set_name(user->getData().name());
-	data.set_groupname(user->getData().groupname());
-	data.set_language(user->getData().language());
+	data.set_uid(user->getData()->uid());
+	data.set_name(user->getData()->name());
+	data.set_groupname(user->getData()->groupname());
+	data.set_language(user->getData()->language());
 	data.set_chat(req.msg());
 	data.set_regdate(DateTime::GetTickCountM());
 
 	if (req.type() == MSG::CHAT_CHANNEL)
 	{
 		// find chat channel
-		auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData().groupname().c_str());
+		auto channel = ChatChannelManager::getChatChannelManager()->findChannel(user->getData()->groupname().c_str());
 		if (channel == nullptr)
 		{
 			MSG::ChatAns ans;
@@ -155,8 +155,8 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, InviteChatRoomReq)
 	MSG::InviteChatRoomNot notify;
 	notify.set_rid(req.rid());
 	notify.set_rkey(req.rkey());
-	notify.set_owneruid(user->getData().uid());
-	notify.set_ownername(user->getData().name());
+	notify.set_owneruid(user->getData()->uid());
+	notify.set_ownername(user->getData()->name());
 	target->getSession()->SendPacket(MSG::INVITECHATROOM_NOT, &notify);
 
 	// answer

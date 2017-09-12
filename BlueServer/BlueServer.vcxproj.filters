@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="cpp\login.pb.cc">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\common.pb.cc">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginHandler.cpp">
+      <Filter>msghandler</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueSession.cpp">
+      <Filter>msghandler</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\chat.pb.cc">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatHandler.cpp">
+      <Filter>msghandler</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultHandler.cpp">
+      <Filter>msghandler</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatRoom.cpp">
+      <Filter>Contents\Chat</Filter>
+    </ClCompile>
+    <ClCompile Include="DBQueryUser.cpp">
+      <Filter>Contents\User</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Contents\User</Filter>
+    </ClCompile>
+    <ClCompile Include="UserManager.cpp">
+      <Filter>Contents\User</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatChannel.cpp">
+      <Filter>Contents\Chat</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatChannelManager.cpp">
+      <Filter>Contents\Chat</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatRoomManager.cpp">
+      <Filter>Contents\Chat</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\game.pb.cc">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="DBQueryChar.cpp" />
+    <ClCompile Include="GameHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{0d31fd47-668f-47f6-9caf-ca0814b5b87b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto">
+      <UniqueIdentifier>{f5898b38-4e36-4d83-9cd1-0a74ccfebd45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cpp">
+      <UniqueIdentifier>{770cf35f-f7b0-4050-a3cc-031dd38a1d89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="msghandler">
+      <UniqueIdentifier>{7babd606-3854-4bd9-a812-47660f08d5d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="json">
+      <UniqueIdentifier>{881af992-3c51-44de-b8a8-0b548efa91e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Chat">
+      <UniqueIdentifier>{11c6b700-20a1-4132-a1c0-620c8356455d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\User">
+      <UniqueIdentifier>{532e485d-ccd6-4d37-aed0-6153d4959d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dbschema">
+      <UniqueIdentifier>{ecabb53f-acd2-4cf8-8601-37a0659d0d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Char">
+      <UniqueIdentifier>{73e56bb7-18ed-4af0-a085-8aa6cac936f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cpp\login.pb.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="cpp\common.pb.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginHandler.h">
+      <Filter>msghandler</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueSession.h">
+      <Filter>msghandler</Filter>
+    </ClInclude>
+    <ClInclude Include="cpp\chat.pb.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatHandler.h">
+      <Filter>msghandler</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultHandler.h">
+      <Filter>msghandler</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatRoom.h">
+      <Filter>Contents\Chat</Filter>
+    </ClInclude>
+    <ClInclude Include="DBQueryUser.h">
+      <Filter>Contents\User</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Contents\User</Filter>
+    </ClInclude>
+    <ClInclude Include="UserManager.h">
+      <Filter>Contents\User</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatChannel.h">
+      <Filter>Contents\Chat</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatChannelManager.h">
+      <Filter>Contents\Chat</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatRoomManager.h">
+      <Filter>Contents\Chat</Filter>
+    </ClInclude>
+    <ClInclude Include="cpp\game.pb.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="DBQuery.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueORM.h" />
+    <ClInclude Include="DBQueryChar.h" />
+    <ClInclude Include="GameHandler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="proto\common.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\build.bat">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="json\config.json">
+      <Filter>json</Filter>
+    </None>
+    <None Include="proto\chat.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\login.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\game.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="dbschema.sql">
+      <Filter>dbschema</Filter>
+    </None>
+    <None Include="json\SimTable.json">
+      <Filter>json</Filter>
+    </None>
+  </ItemGroup>
+</Project>

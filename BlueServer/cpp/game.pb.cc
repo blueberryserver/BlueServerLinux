@@ -202,9 +202,8 @@ void protobuf_AssignDesc_game_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, _internal_metadata_),
       -1);
   LevelupCharReq_descriptor_ = file->message_type(7);
-  static const int LevelupCharReq_offsets_[2] = {
+  static const int LevelupCharReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharReq, slotno_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharReq, vc1_),
   };
   LevelupCharReq_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -234,9 +233,8 @@ void protobuf_AssignDesc_game_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharAns, _internal_metadata_),
       -1);
   TierupCharReq_descriptor_ = file->message_type(9);
-  static const int TierupCharReq_offsets_[2] = {
+  static const int TierupCharReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharReq, slotno_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharReq, vc2_),
   };
   TierupCharReq_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -350,21 +348,21 @@ void protobuf_AddDesc_game_2eproto() {
     "\014\n\004tier\030\002 \002(\r\022!\n\007battles\030\003 \003(\0132\020.MSG.Bat"
     "tleData_\022\035\n\005chars\030\004 \003(\0132\016.MSG.CharData_\022"
     "\034\n\004mobs\030\005 \003(\0132\016.MSG.CharData_\"\037\n\rCreateC"
-    "harReq\022\016\n\006charNo\030\001 \002(\r\"J\n\rCreateCharAns\022"
-    "\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\022\034\n\004char\030\002 \001"
-    "(\0132\016.MSG.CharData_\"4\n\013CurrencyNot\022\013\n\003vc1"
-    "\030\001 \002(\r\022\013\n\003vc2\030\002 \002(\r\022\013\n\003vc3\030\003 \002(\r\"1\n\016Play"
-    "DungeonReq\022\021\n\tdungeonNo\030\001 \002(\r\022\014\n\004tier\030\002 "
-    "\002(\r\"\215\001\n\016PlayDungeonAns\022\033\n\003err\030\001 \002(\0162\016.MS"
-    "G.ErrorCode\022!\n\007battles\030\002 \003(\0132\020.MSG.Battl"
-    "eData_\022\035\n\005chars\030\003 \003(\0132\016.MSG.CharData_\022\034\n"
-    "\004mobs\030\004 \003(\0132\016.MSG.CharData_\"-\n\016LevelupCh"
-    "arReq\022\016\n\006slotNo\030\001 \002(\r\022\013\n\003vc1\030\002 \002(\r\"K\n\016Le"
-    "velupCharAns\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCod"
-    "e\022\034\n\004char\030\002 \001(\0132\016.MSG.CharData_\",\n\rTieru"
-    "pCharReq\022\016\n\006slotNo\030\001 \002(\r\022\013\n\003vc2\030\002 \002(\r\"J\n"
-    "\rTierupCharAns\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorC"
-    "ode\022\034\n\004char\030\002 \001(\0132\016.MSG.CharData_", 913);
+    "harReq\022\016\n\006charNo\030\001 \002(\r\"K\n\rCreateCharAns\022"
+    "\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002 "
+    "\001(\0132\016.MSG.CharData_\"4\n\013CurrencyNot\022\013\n\003vc"
+    "1\030\001 \002(\r\022\013\n\003vc2\030\002 \002(\r\022\013\n\003vc3\030\003 \002(\r\"1\n\016Pla"
+    "yDungeonReq\022\021\n\tdungeonNo\030\001 \002(\r\022\014\n\004tier\030\002"
+    " \002(\r\"\215\001\n\016PlayDungeonAns\022\033\n\003err\030\001 \002(\0162\016.M"
+    "SG.ErrorCode\022!\n\007battles\030\002 \003(\0132\020.MSG.Batt"
+    "leData_\022\035\n\005chars\030\003 \003(\0132\016.MSG.CharData_\022\034"
+    "\n\004mobs\030\004 \003(\0132\016.MSG.CharData_\" \n\016LevelupC"
+    "harReq\022\016\n\006slotNo\030\001 \002(\r\"L\n\016LevelupCharAns"
+    "\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002"
+    " \001(\0132\016.MSG.CharData_\"\037\n\rTierupCharReq\022\016\n"
+    "\006slotNo\030\001 \002(\r\"K\n\rTierupCharAns\022\033\n\003err\030\001 "
+    "\002(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002 \001(\0132\016.MSG"
+    ".CharData_", 890);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "game.proto", &protobuf_RegisterTypes);
   ContentsNot::default_instance_ = new ContentsNot();
@@ -2130,14 +2128,14 @@ bool CreateCharAns::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_char;
+        if (input->ExpectTag(18)) goto parse_char_;
         break;
       }
 
-      // optional .MSG.CharData_ char = 2;
+      // optional .MSG.CharData_ char_ = 2;
       case 2: {
         if (tag == 18) {
-         parse_char:
+         parse_char_:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_char_()));
         } else {
@@ -2178,7 +2176,7 @@ void CreateCharAns::SerializeWithCachedSizes(
       1, this->err(), output);
   }
 
-  // optional .MSG.CharData_ char = 2;
+  // optional .MSG.CharData_ char_ = 2;
   if (has_char_()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->char__, output);
@@ -2200,7 +2198,7 @@ void CreateCharAns::SerializeWithCachedSizes(
       1, this->err(), target);
   }
 
-  // optional .MSG.CharData_ char = 2;
+  // optional .MSG.CharData_ char_ = 2;
   if (has_char_()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -2224,7 +2222,7 @@ int CreateCharAns::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
   }
-  // optional .MSG.CharData_ char = 2;
+  // optional .MSG.CharData_ char_ = 2;
   if (has_char_()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -2348,7 +2346,7 @@ void CreateCharAns::clear_err() {
   // @@protoc_insertion_point(field_set:MSG.CreateCharAns.err)
 }
 
-// optional .MSG.CharData_ char = 2;
+// optional .MSG.CharData_ char_ = 2;
 bool CreateCharAns::has_char_() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2363,7 +2361,7 @@ void CreateCharAns::clear_char_() {
   clear_has_char_();
 }
 const ::MSG::CharData_& CreateCharAns::char_() const {
-  // @@protoc_insertion_point(field_get:MSG.CreateCharAns.char)
+  // @@protoc_insertion_point(field_get:MSG.CreateCharAns.char_)
   return char__ != NULL ? *char__ : *default_instance_->char__;
 }
 ::MSG::CharData_* CreateCharAns::mutable_char_() {
@@ -2371,11 +2369,11 @@ const ::MSG::CharData_& CreateCharAns::char_() const {
   if (char__ == NULL) {
     char__ = new ::MSG::CharData_;
   }
-  // @@protoc_insertion_point(field_mutable:MSG.CreateCharAns.char)
+  // @@protoc_insertion_point(field_mutable:MSG.CreateCharAns.char_)
   return char__;
 }
 ::MSG::CharData_* CreateCharAns::release_char_() {
-  // @@protoc_insertion_point(field_release:MSG.CreateCharAns.char)
+  // @@protoc_insertion_point(field_release:MSG.CreateCharAns.char_)
   clear_has_char_();
   ::MSG::CharData_* temp = char__;
   char__ = NULL;
@@ -2389,7 +2387,7 @@ void CreateCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   } else {
     clear_has_char_();
   }
-  // @@protoc_insertion_point(field_set_allocated:MSG.CreateCharAns.char)
+  // @@protoc_insertion_point(field_set_allocated:MSG.CreateCharAns.char_)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -3708,7 +3706,6 @@ PlayDungeonAns::mobs() const {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int LevelupCharReq::kSlotNoFieldNumber;
-const int LevelupCharReq::kVc1FieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 LevelupCharReq::LevelupCharReq()
@@ -3731,7 +3728,6 @@ LevelupCharReq::LevelupCharReq(const LevelupCharReq& from)
 void LevelupCharReq::SharedCtor() {
   _cached_size_ = 0;
   slotno_ = 0u;
-  vc1_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3772,27 +3768,7 @@ LevelupCharReq* LevelupCharReq::New(::google::protobuf::Arena* arena) const {
 
 void LevelupCharReq::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.LevelupCharReq)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(LevelupCharReq, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<LevelupCharReq*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(slotno_, vc1_);
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  slotno_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -3816,21 +3792,6 @@ bool LevelupCharReq::MergePartialFromCodedStream(
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &slotno_)));
           set_has_slotno();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(16)) goto parse_vc1;
-        break;
-      }
-
-      // required uint32 vc1 = 2;
-      case 2: {
-        if (tag == 16) {
-         parse_vc1:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &vc1_)));
-          set_has_vc1();
         } else {
           goto handle_unusual;
         }
@@ -3868,11 +3829,6 @@ void LevelupCharReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->slotno(), output);
   }
 
-  // required uint32 vc1 = 2;
-  if (has_vc1()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->vc1(), output);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3888,11 +3844,6 @@ void LevelupCharReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->slotno(), target);
   }
 
-  // required uint32 vc1 = 2;
-  if (has_vc1()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->vc1(), target);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -3901,43 +3852,15 @@ void LevelupCharReq::SerializeWithCachedSizes(
   return target;
 }
 
-int LevelupCharReq::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.LevelupCharReq)
-  int total_size = 0;
-
-  if (has_slotno()) {
-    // required uint32 slotNo = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->slotno());
-  }
-
-  if (has_vc1()) {
-    // required uint32 vc1 = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->vc1());
-  }
-
-  return total_size;
-}
 int LevelupCharReq::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.LevelupCharReq)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required uint32 slotNo = 1;
+  // required uint32 slotNo = 1;
+  if (has_slotno()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->slotno());
-
-    // required uint32 vc1 = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->vc1());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -3976,9 +3899,6 @@ void LevelupCharReq::MergeFrom(const LevelupCharReq& from) {
     if (from.has_slotno()) {
       set_slotno(from.slotno());
     }
-    if (from.has_vc1()) {
-      set_vc1(from.vc1());
-    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -4000,7 +3920,7 @@ void LevelupCharReq::CopyFrom(const LevelupCharReq& from) {
 }
 
 bool LevelupCharReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
@@ -4011,7 +3931,6 @@ void LevelupCharReq::Swap(LevelupCharReq* other) {
 }
 void LevelupCharReq::InternalSwap(LevelupCharReq* other) {
   std::swap(slotno_, other->slotno_);
-  std::swap(vc1_, other->vc1_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -4050,30 +3969,6 @@ void LevelupCharReq::clear_slotno() {
   set_has_slotno();
   slotno_ = value;
   // @@protoc_insertion_point(field_set:MSG.LevelupCharReq.slotNo)
-}
-
-// required uint32 vc1 = 2;
-bool LevelupCharReq::has_vc1() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void LevelupCharReq::set_has_vc1() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void LevelupCharReq::clear_has_vc1() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-void LevelupCharReq::clear_vc1() {
-  vc1_ = 0u;
-  clear_has_vc1();
-}
- ::google::protobuf::uint32 LevelupCharReq::vc1() const {
-  // @@protoc_insertion_point(field_get:MSG.LevelupCharReq.vc1)
-  return vc1_;
-}
- void LevelupCharReq::set_vc1(::google::protobuf::uint32 value) {
-  set_has_vc1();
-  vc1_ = value;
-  // @@protoc_insertion_point(field_set:MSG.LevelupCharReq.vc1)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -4185,14 +4080,14 @@ bool LevelupCharAns::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_char;
+        if (input->ExpectTag(18)) goto parse_char_;
         break;
       }
 
-      // optional .MSG.CharData_ char = 2;
+      // optional .MSG.CharData_ char_ = 2;
       case 2: {
         if (tag == 18) {
-         parse_char:
+         parse_char_:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_char_()));
         } else {
@@ -4233,7 +4128,7 @@ void LevelupCharAns::SerializeWithCachedSizes(
       1, this->err(), output);
   }
 
-  // optional .MSG.CharData_ char = 2;
+  // optional .MSG.CharData_ char_ = 2;
   if (has_char_()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->char__, output);
@@ -4255,7 +4150,7 @@ void LevelupCharAns::SerializeWithCachedSizes(
       1, this->err(), target);
   }
 
-  // optional .MSG.CharData_ char = 2;
+  // optional .MSG.CharData_ char_ = 2;
   if (has_char_()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -4279,7 +4174,7 @@ int LevelupCharAns::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
   }
-  // optional .MSG.CharData_ char = 2;
+  // optional .MSG.CharData_ char_ = 2;
   if (has_char_()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -4403,7 +4298,7 @@ void LevelupCharAns::clear_err() {
   // @@protoc_insertion_point(field_set:MSG.LevelupCharAns.err)
 }
 
-// optional .MSG.CharData_ char = 2;
+// optional .MSG.CharData_ char_ = 2;
 bool LevelupCharAns::has_char_() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4418,7 +4313,7 @@ void LevelupCharAns::clear_char_() {
   clear_has_char_();
 }
 const ::MSG::CharData_& LevelupCharAns::char_() const {
-  // @@protoc_insertion_point(field_get:MSG.LevelupCharAns.char)
+  // @@protoc_insertion_point(field_get:MSG.LevelupCharAns.char_)
   return char__ != NULL ? *char__ : *default_instance_->char__;
 }
 ::MSG::CharData_* LevelupCharAns::mutable_char_() {
@@ -4426,11 +4321,11 @@ const ::MSG::CharData_& LevelupCharAns::char_() const {
   if (char__ == NULL) {
     char__ = new ::MSG::CharData_;
   }
-  // @@protoc_insertion_point(field_mutable:MSG.LevelupCharAns.char)
+  // @@protoc_insertion_point(field_mutable:MSG.LevelupCharAns.char_)
   return char__;
 }
 ::MSG::CharData_* LevelupCharAns::release_char_() {
-  // @@protoc_insertion_point(field_release:MSG.LevelupCharAns.char)
+  // @@protoc_insertion_point(field_release:MSG.LevelupCharAns.char_)
   clear_has_char_();
   ::MSG::CharData_* temp = char__;
   char__ = NULL;
@@ -4444,7 +4339,7 @@ void LevelupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   } else {
     clear_has_char_();
   }
-  // @@protoc_insertion_point(field_set_allocated:MSG.LevelupCharAns.char)
+  // @@protoc_insertion_point(field_set_allocated:MSG.LevelupCharAns.char_)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -4453,7 +4348,6 @@ void LevelupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int TierupCharReq::kSlotNoFieldNumber;
-const int TierupCharReq::kVc2FieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 TierupCharReq::TierupCharReq()
@@ -4476,7 +4370,6 @@ TierupCharReq::TierupCharReq(const TierupCharReq& from)
 void TierupCharReq::SharedCtor() {
   _cached_size_ = 0;
   slotno_ = 0u;
-  vc2_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4517,27 +4410,7 @@ TierupCharReq* TierupCharReq::New(::google::protobuf::Arena* arena) const {
 
 void TierupCharReq::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.TierupCharReq)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(TierupCharReq, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<TierupCharReq*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(slotno_, vc2_);
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  slotno_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -4561,21 +4434,6 @@ bool TierupCharReq::MergePartialFromCodedStream(
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &slotno_)));
           set_has_slotno();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(16)) goto parse_vc2;
-        break;
-      }
-
-      // required uint32 vc2 = 2;
-      case 2: {
-        if (tag == 16) {
-         parse_vc2:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &vc2_)));
-          set_has_vc2();
         } else {
           goto handle_unusual;
         }
@@ -4613,11 +4471,6 @@ void TierupCharReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->slotno(), output);
   }
 
-  // required uint32 vc2 = 2;
-  if (has_vc2()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->vc2(), output);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -4633,11 +4486,6 @@ void TierupCharReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->slotno(), target);
   }
 
-  // required uint32 vc2 = 2;
-  if (has_vc2()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->vc2(), target);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -4646,43 +4494,15 @@ void TierupCharReq::SerializeWithCachedSizes(
   return target;
 }
 
-int TierupCharReq::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.TierupCharReq)
-  int total_size = 0;
-
-  if (has_slotno()) {
-    // required uint32 slotNo = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->slotno());
-  }
-
-  if (has_vc2()) {
-    // required uint32 vc2 = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->vc2());
-  }
-
-  return total_size;
-}
 int TierupCharReq::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.TierupCharReq)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required uint32 slotNo = 1;
+  // required uint32 slotNo = 1;
+  if (has_slotno()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->slotno());
-
-    // required uint32 vc2 = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->vc2());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -4721,9 +4541,6 @@ void TierupCharReq::MergeFrom(const TierupCharReq& from) {
     if (from.has_slotno()) {
       set_slotno(from.slotno());
     }
-    if (from.has_vc2()) {
-      set_vc2(from.vc2());
-    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -4745,7 +4562,7 @@ void TierupCharReq::CopyFrom(const TierupCharReq& from) {
 }
 
 bool TierupCharReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
@@ -4756,7 +4573,6 @@ void TierupCharReq::Swap(TierupCharReq* other) {
 }
 void TierupCharReq::InternalSwap(TierupCharReq* other) {
   std::swap(slotno_, other->slotno_);
-  std::swap(vc2_, other->vc2_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -4795,30 +4611,6 @@ void TierupCharReq::clear_slotno() {
   set_has_slotno();
   slotno_ = value;
   // @@protoc_insertion_point(field_set:MSG.TierupCharReq.slotNo)
-}
-
-// required uint32 vc2 = 2;
-bool TierupCharReq::has_vc2() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void TierupCharReq::set_has_vc2() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void TierupCharReq::clear_has_vc2() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-void TierupCharReq::clear_vc2() {
-  vc2_ = 0u;
-  clear_has_vc2();
-}
- ::google::protobuf::uint32 TierupCharReq::vc2() const {
-  // @@protoc_insertion_point(field_get:MSG.TierupCharReq.vc2)
-  return vc2_;
-}
- void TierupCharReq::set_vc2(::google::protobuf::uint32 value) {
-  set_has_vc2();
-  vc2_ = value;
-  // @@protoc_insertion_point(field_set:MSG.TierupCharReq.vc2)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -4930,14 +4722,14 @@ bool TierupCharAns::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_char;
+        if (input->ExpectTag(18)) goto parse_char_;
         break;
       }
 
-      // optional .MSG.CharData_ char = 2;
+      // optional .MSG.CharData_ char_ = 2;
       case 2: {
         if (tag == 18) {
-         parse_char:
+         parse_char_:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_char_()));
         } else {
@@ -4978,7 +4770,7 @@ void TierupCharAns::SerializeWithCachedSizes(
       1, this->err(), output);
   }
 
-  // optional .MSG.CharData_ char = 2;
+  // optional .MSG.CharData_ char_ = 2;
   if (has_char_()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->char__, output);
@@ -5000,7 +4792,7 @@ void TierupCharAns::SerializeWithCachedSizes(
       1, this->err(), target);
   }
 
-  // optional .MSG.CharData_ char = 2;
+  // optional .MSG.CharData_ char_ = 2;
   if (has_char_()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -5024,7 +4816,7 @@ int TierupCharAns::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
   }
-  // optional .MSG.CharData_ char = 2;
+  // optional .MSG.CharData_ char_ = 2;
   if (has_char_()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -5148,7 +4940,7 @@ void TierupCharAns::clear_err() {
   // @@protoc_insertion_point(field_set:MSG.TierupCharAns.err)
 }
 
-// optional .MSG.CharData_ char = 2;
+// optional .MSG.CharData_ char_ = 2;
 bool TierupCharAns::has_char_() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5163,7 +4955,7 @@ void TierupCharAns::clear_char_() {
   clear_has_char_();
 }
 const ::MSG::CharData_& TierupCharAns::char_() const {
-  // @@protoc_insertion_point(field_get:MSG.TierupCharAns.char)
+  // @@protoc_insertion_point(field_get:MSG.TierupCharAns.char_)
   return char__ != NULL ? *char__ : *default_instance_->char__;
 }
 ::MSG::CharData_* TierupCharAns::mutable_char_() {
@@ -5171,11 +4963,11 @@ const ::MSG::CharData_& TierupCharAns::char_() const {
   if (char__ == NULL) {
     char__ = new ::MSG::CharData_;
   }
-  // @@protoc_insertion_point(field_mutable:MSG.TierupCharAns.char)
+  // @@protoc_insertion_point(field_mutable:MSG.TierupCharAns.char_)
   return char__;
 }
 ::MSG::CharData_* TierupCharAns::release_char_() {
-  // @@protoc_insertion_point(field_release:MSG.TierupCharAns.char)
+  // @@protoc_insertion_point(field_release:MSG.TierupCharAns.char_)
   clear_has_char_();
   ::MSG::CharData_* temp = char__;
   char__ = NULL;
@@ -5189,7 +4981,7 @@ void TierupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   } else {
     clear_has_char_();
   }
-  // @@protoc_insertion_point(field_set_allocated:MSG.TierupCharAns.char)
+  // @@protoc_insertion_point(field_set_allocated:MSG.TierupCharAns.char_)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
