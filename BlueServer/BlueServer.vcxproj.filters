@@ -11,9 +11,6 @@
     <ClCompile Include="LoginHandler.cpp">
       <Filter>msghandler</Filter>
     </ClCompile>
-    <ClCompile Include="BlueSession.cpp">
-      <Filter>msghandler</Filter>
-    </ClCompile>
     <ClCompile Include="cpp\chat.pb.cc">
       <Filter>cpp</Filter>
     </ClCompile>
@@ -47,8 +44,16 @@
     <ClCompile Include="cpp\game.pb.cc">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="DBQueryChar.cpp" />
-    <ClCompile Include="GameHandler.cpp" />
+    <ClCompile Include="DBQueryChar.cpp">
+      <Filter>Contents\User</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHandler.cpp">
+      <Filter>msghandler</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueSession.cpp" />
+    <ClCompile Include="cpp\SimTable.pb.cc">
+      <Filter>cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -89,9 +94,6 @@
     <ClInclude Include="LoginHandler.h">
       <Filter>msghandler</Filter>
     </ClInclude>
-    <ClInclude Include="BlueSession.h">
-      <Filter>msghandler</Filter>
-    </ClInclude>
     <ClInclude Include="cpp\chat.pb.h">
       <Filter>cpp</Filter>
     </ClInclude>
@@ -129,8 +131,16 @@
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="BlueORM.h" />
-    <ClInclude Include="DBQueryChar.h" />
-    <ClInclude Include="GameHandler.h" />
+    <ClInclude Include="DBQueryChar.h">
+      <Filter>Contents\User</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHandler.h">
+      <Filter>msghandler</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueSession.h" />
+    <ClInclude Include="cpp\SimTable.pb.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="proto\common.proto">
@@ -156,6 +166,9 @@
     </None>
     <None Include="json\SimTable.json">
       <Filter>json</Filter>
+    </None>
+    <None Include="proto\SimTable.proto">
+      <Filter>proto</Filter>
     </None>
   </ItemGroup>
 </Project>

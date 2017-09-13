@@ -76,6 +76,7 @@
     <ClCompile Include="cpp\common.pb.cc" />
     <ClCompile Include="cpp\game.pb.cc" />
     <ClCompile Include="cpp\login.pb.cc" />
+    <ClCompile Include="cpp\SimTable.pb.cc" />
     <ClCompile Include="DBQueryChar.cpp" />
     <ClCompile Include="DBQueryUser.cpp" />
     <ClCompile Include="DefaultHandler.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="cpp\common.pb.h" />
     <ClInclude Include="cpp\game.pb.h" />
     <ClInclude Include="cpp\login.pb.h" />
+    <ClInclude Include="cpp\SimTable.pb.h" />
     <ClInclude Include="DBQuery.h" />
     <ClInclude Include="DBQueryChar.h" />
     <ClInclude Include="DBQueryUser.h" />
@@ -115,6 +117,7 @@
     <None Include="proto\chat.proto" />
     <None Include="proto\game.proto" />
     <None Include="proto\login.proto" />
+    <None Include="proto\SimTable.proto" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>

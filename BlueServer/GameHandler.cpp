@@ -1,5 +1,6 @@
 #include "GameHandler.h"
 #include "cpp/game.pb.h"
+#include "cpp/SimTable.pb.h"
 
 #include "../BlueCore/Logger.h"
 #include "../BlueCore/SyncJobHelper.h"
@@ -55,21 +56,20 @@ DEFINE_HANDLER(GameHandler, SessionPtr, CreateCharReq)
 	else if (userData->chars_size() == 1)
 	{
 		// 비용 처리
-		auto productTable = table["Product"];
-		auto productArray = productTable["Data"].array_items();
+		MSG::Product product; json2Proto(table["Product"], product);
 
-		Json Product; bool find = false;
-		for (auto it : productArray)
+		bool find = false; MSG::Product::ProductTable* productTable = nullptr;
+		for (auto i = 0; i < product.data_size(); i++)
 		{
-			if (it["ProductCode"].string_value() == "CreateChar" &&
-				it["CharNo"].int_value() == (int)req.charno())
+			auto data = product.mutable_data(i);
+			if (data->productcode() == "CreateChar" &&
+				data->charno() == (int)req.charno())
 			{
-				Product = it;
+				productTable = data;
 				find = true;
 				break;
 			}
 		}
-
 		if (find == false)
 		{
 			MSG::CreateCharAns ans;
@@ -78,21 +78,19 @@ DEFINE_HANDLER(GameHandler, SessionPtr, CreateCharReq)
 			return true;
 		}
 
-		auto vcType = Product["VCType"].string_value();
-		auto price = Product["Value"].int_value();
-		if (vcType == "VC1")
+		if (productTable->vctype() == "VC1")
 		{
-			userData->set_vc1(userData->vc1() - price);
+			userData->set_vc1(userData->vc1() - productTable->value());
 			changeVc = true;
 		}
-		else if (vcType == "VC2")
+		else if (productTable->vctype() == "VC2")
 		{
-			userData->set_vc2(userData->vc2() - price);
+			userData->set_vc2(userData->vc2() - productTable->value());
 			changeVc = true;
-		} 
-		else if (vcType == "VC3")
+		}
+		else if (productTable->vctype() == "VC3")
 		{
-			userData->set_vc3(userData->vc3() - price);
+			userData->set_vc3(userData->vc3() - productTable->value());
 			changeVc = true;
 		}
 		else
@@ -111,15 +109,14 @@ DEFINE_HANDLER(GameHandler, SessionPtr, CreateCharReq)
 	
 
 	// search character table 
-	auto charTable = table["Char"];
-	auto charArray = charTable["Data"].array_items();
-
-	Json Char; bool find = false;
-	for (auto it : charArray)
+	MSG::Char character; json2Proto(table["Char"], character);
+	bool find = false; MSG::Char::CharacterTable* characterTable = nullptr;
+	for (auto i = 0; i < character.data_size(); i++)
 	{
-		if (it["No"].int_value() == (int)req.charno())
+		auto data = character.mutable_data(i);
+		if (data->no() == (int)req.charno())
 		{
-			Char = it;
+			characterTable = data;
 			find = true;
 			break;
 		}
@@ -250,28 +247,31 @@ DEFINE_HANDLER(GameHandler, SessionPtr, LevelupCharReq)
 	}
 
 	auto charData = userData->mutable_chars(req.slotno());
-	auto charArray = table["Char"]["Data"].array_items();
-	std::string charName;
-	for (auto it : charArray)
+
+	MSG::Char character; json2Proto(table["Char"], character);
+	MSG::Char::CharacterTable* characterTable = nullptr;
+	for (auto i = 0; i < character.data_size(); i++)
 	{
-		if (it["No"].int_value() == (int)charData->typeno())
+		auto data = character.mutable_data(i);
+		if (data->no() == (int)charData->typeno())
 		{
-			charName = it["Name"].string_value();
+			characterTable = data;
 			break;
 		}
 	}
 
 	std::string StatTableName;
-	StatTableName += charName + "Stat";
+	StatTableName += characterTable->name() + "Stat";
 
-	auto stat = table[StatTableName.c_str()];
-	auto levelArray = stat["Data"].array_items();
+	//auto stat = table[StatTableName.c_str()];
+	MSG::WarriorStat stat; json2Proto(table[StatTableName.c_str()], stat);
 	int needGold = 0;
-	for (auto it : levelArray)
+	for (auto i = 0; i < stat.data_size(); i++)
 	{
-		if (it["Level"] == (int)charData->level())
+		auto data = stat.mutable_data(i);
+		if (data->level() == (int)charData->level())
 		{
-			needGold = it["Exp"].int_value();
+			needGold = data->exp();
 			break;
 		}
 	}
@@ -374,9 +374,18 @@ DEFINE_HANDLER(GameHandler, SessionPtr, TierupCharReq)
 		return true;
 	}
 
-	auto tierArray = table["CharTier"]["Data"].array_items();
-
+	MSG::CharTier tier; json2Proto(table["CharTier"], tier);
+	MSG::CharTier::CharTierTable* charTierTable = nullptr;
 	int tierUpCost = 200;
+	for (auto i = 0; i < tier.data_size(); i++)
+	{
+		auto data = tier.mutable_data(i);
+		if (data->tier() == charData->tier())
+		{
+			charTierTable = data;
+		}
+	}
+
 	if ((int)userData->vc2() < tierUpCost)
 	{
 		MSG::LevelupCharAns ans;

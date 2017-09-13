@@ -2,6 +2,7 @@
 #include <mutex>
 #include <unordered_map>
 #include <boost/filesystem.hpp>
+#include <google/protobuf/util/json_util.h>
 
 #include "Macro.h"
 #include "JobExec.h"
@@ -37,6 +38,12 @@ public:
 	DECLARE_MGR(JsonFileLoader)
 };
 
-
 EXTERN_MGR(JsonFileLoader)
+
+template< typename T >
+static void json2Proto(const Json& json_, T& out_)
+{
+	google::protobuf::util::JsonStringToMessage(json_.dump(), &out_);
+}
+
 }
