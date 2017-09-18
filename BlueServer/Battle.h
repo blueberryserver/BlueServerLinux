@@ -19,7 +19,7 @@ public:
 	const std::vector<BattleObj*>& getMonsterData() { return _enemy; }
 
 private:
-	bool isGameOver();
+	bool isGameOver(MSG::BattleData_::Team team_);
 	MSG::BattleData_::Team winner();
 
 private:

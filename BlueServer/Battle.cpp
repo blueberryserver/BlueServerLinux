@@ -305,6 +305,8 @@ void Battle::play()
 					slotIndex++;
 				}
 
+				if( temp.empty() == true ) continue;
+
 				std::shuffle(temp.begin(), temp.end(), g);
 				targetSlot = *temp.begin();
 
@@ -368,7 +370,11 @@ void Battle::play()
 
 				_battleDatas.push_back(battleData);
 
-				if (isGameOver() == true) break;
+				if (attackTeam == MSG::BattleData_::ENEMY)
+					if (isGameOver(MSG::BattleData_::ALLY) == true) break;
+				else
+					if (isGameOver(MSG::BattleData_::ENEMY) == true) break;
+
 			}
 
 			if (attackTeam == MSG::BattleData_::ENEMY)
@@ -381,23 +387,28 @@ void Battle::play()
 			}
 		}
 
-		if (isGameOver() == true) break;
+		if (isGameOver(attackTeam) == true) break;
 	}
 
 	auto winnerTeam = winner();
 	LOG(L_INFO_, "battle", "result", MSG::BattleData_::Team_Name(winnerTeam));
 }
 
-bool Battle::isGameOver()
+bool Battle::isGameOver( MSG::BattleData_::Team team_)
 {
-	for (auto it : _ally)
+	if (team_ == MSG::BattleData_::ALLY)
 	{
-		if (it->isAlive() == true) return false;
+		for (auto it : _ally)
+		{
+			if (it->isAlive() == true) return false;
+		}
 	}
-
-	for (auto it : _enemy)
+	else
 	{
-		if (it->isAlive() == true) return false;
+		for (auto it : _enemy)
+		{
+			if (it->isAlive() == true) return false;
+		}
 	}
 	return true;
 }
