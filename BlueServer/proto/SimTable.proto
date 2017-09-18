@@ -125,3 +125,16 @@ message Dungeon {
 	repeated DungeonTable Data = 2;
 }
 
+message Item {
+	message ItemTable {
+		required uint32 No = 1;
+		required string Name = 2;
+		required string Category = 3;
+		required uint32 CharNo = 4;
+		required string Stat = 5;
+		required uint32 Value = 6;
+	}
+	required string TableName = 1;
+	repeated ItemTable Data = 2;
+}
+

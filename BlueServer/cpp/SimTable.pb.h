@@ -46,6 +46,8 @@ class Dungeon;
 class DungeonTier;
 class DungeonTier_DungeonTierTable;
 class Dungeon_DungeonTable;
+class Item;
+class Item_ItemTable;
 class MobAStat;
 class MobAStat_MobAStatTable;
 class MobBStat;
@@ -2666,6 +2668,280 @@ class Dungeon : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   void InitAsDefaultInstance();
   static Dungeon* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Item_ItemTable : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.Item.ItemTable) */ {
+ public:
+  Item_ItemTable();
+  virtual ~Item_ItemTable();
+
+  Item_ItemTable(const Item_ItemTable& from);
+
+  inline Item_ItemTable& operator=(const Item_ItemTable& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Item_ItemTable& default_instance();
+
+  void Swap(Item_ItemTable* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Item_ItemTable* New() const { return New(NULL); }
+
+  Item_ItemTable* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Item_ItemTable& from);
+  void MergeFrom(const Item_ItemTable& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(Item_ItemTable* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 No = 1;
+  bool has_no() const;
+  void clear_no();
+  static const int kNoFieldNumber = 1;
+  ::google::protobuf::uint32 no() const;
+  void set_no(::google::protobuf::uint32 value);
+
+  // required string Name = 2;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // required string Category = 3;
+  bool has_category() const;
+  void clear_category();
+  static const int kCategoryFieldNumber = 3;
+  const ::std::string& category() const;
+  void set_category(const ::std::string& value);
+  void set_category(const char* value);
+  void set_category(const char* value, size_t size);
+  ::std::string* mutable_category();
+  ::std::string* release_category();
+  void set_allocated_category(::std::string* category);
+
+  // required uint32 CharNo = 4;
+  bool has_charno() const;
+  void clear_charno();
+  static const int kCharNoFieldNumber = 4;
+  ::google::protobuf::uint32 charno() const;
+  void set_charno(::google::protobuf::uint32 value);
+
+  // required string Stat = 5;
+  bool has_stat() const;
+  void clear_stat();
+  static const int kStatFieldNumber = 5;
+  const ::std::string& stat() const;
+  void set_stat(const ::std::string& value);
+  void set_stat(const char* value);
+  void set_stat(const char* value, size_t size);
+  ::std::string* mutable_stat();
+  ::std::string* release_stat();
+  void set_allocated_stat(::std::string* stat);
+
+  // required uint32 Value = 6;
+  bool has_value() const;
+  void clear_value();
+  static const int kValueFieldNumber = 6;
+  ::google::protobuf::uint32 value() const;
+  void set_value(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:MSG.Item.ItemTable)
+ private:
+  inline void set_has_no();
+  inline void clear_has_no();
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_category();
+  inline void clear_has_category();
+  inline void set_has_charno();
+  inline void clear_has_charno();
+  inline void set_has_stat();
+  inline void clear_has_stat();
+  inline void set_has_value();
+  inline void clear_has_value();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint32 no_;
+  ::google::protobuf::uint32 charno_;
+  ::google::protobuf::internal::ArenaStringPtr category_;
+  ::google::protobuf::internal::ArenaStringPtr stat_;
+  ::google::protobuf::uint32 value_;
+  friend void  protobuf_AddDesc_SimTable_2eproto();
+  friend void protobuf_AssignDesc_SimTable_2eproto();
+  friend void protobuf_ShutdownFile_SimTable_2eproto();
+
+  void InitAsDefaultInstance();
+  static Item_ItemTable* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Item : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.Item) */ {
+ public:
+  Item();
+  virtual ~Item();
+
+  Item(const Item& from);
+
+  inline Item& operator=(const Item& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Item& default_instance();
+
+  void Swap(Item* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Item* New() const { return New(NULL); }
+
+  Item* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Item& from);
+  void MergeFrom(const Item& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(Item* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef Item_ItemTable ItemTable;
+
+  // accessors -------------------------------------------------------
+
+  // required string TableName = 1;
+  bool has_tablename() const;
+  void clear_tablename();
+  static const int kTableNameFieldNumber = 1;
+  const ::std::string& tablename() const;
+  void set_tablename(const ::std::string& value);
+  void set_tablename(const char* value);
+  void set_tablename(const char* value, size_t size);
+  ::std::string* mutable_tablename();
+  ::std::string* release_tablename();
+  void set_allocated_tablename(::std::string* tablename);
+
+  // repeated .MSG.Item.ItemTable Data = 2;
+  int data_size() const;
+  void clear_data();
+  static const int kDataFieldNumber = 2;
+  const ::MSG::Item_ItemTable& data(int index) const;
+  ::MSG::Item_ItemTable* mutable_data(int index);
+  ::MSG::Item_ItemTable* add_data();
+  ::google::protobuf::RepeatedPtrField< ::MSG::Item_ItemTable >*
+      mutable_data();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::Item_ItemTable >&
+      data() const;
+
+  // @@protoc_insertion_point(class_scope:MSG.Item)
+ private:
+  inline void set_has_tablename();
+  inline void clear_has_tablename();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr tablename_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::Item_ItemTable > data_;
+  friend void  protobuf_AddDesc_SimTable_2eproto();
+  friend void protobuf_AssignDesc_SimTable_2eproto();
+  friend void protobuf_ShutdownFile_SimTable_2eproto();
+
+  void InitAsDefaultInstance();
+  static Item* default_instance_;
 };
 // ===================================================================
 
@@ -5367,7 +5643,337 @@ Dungeon::data() const {
   return data_;
 }
 
+// -------------------------------------------------------------------
+
+// Item_ItemTable
+
+// required uint32 No = 1;
+inline bool Item_ItemTable::has_no() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Item_ItemTable::set_has_no() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Item_ItemTable::clear_has_no() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Item_ItemTable::clear_no() {
+  no_ = 0u;
+  clear_has_no();
+}
+inline ::google::protobuf::uint32 Item_ItemTable::no() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.No)
+  return no_;
+}
+inline void Item_ItemTable::set_no(::google::protobuf::uint32 value) {
+  set_has_no();
+  no_ = value;
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.No)
+}
+
+// required string Name = 2;
+inline bool Item_ItemTable::has_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Item_ItemTable::set_has_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Item_ItemTable::clear_has_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Item_ItemTable::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& Item_ItemTable::name() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Item_ItemTable::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Name)
+}
+inline void Item_ItemTable::set_name(const char* value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.Item.ItemTable.Name)
+}
+inline void Item_ItemTable::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.Item.ItemTable.Name)
+}
+inline ::std::string* Item_ItemTable::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:MSG.Item.ItemTable.Name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Item_ItemTable::release_name() {
+  // @@protoc_insertion_point(field_release:MSG.Item.ItemTable.Name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Item_ItemTable::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:MSG.Item.ItemTable.Name)
+}
+
+// required string Category = 3;
+inline bool Item_ItemTable::has_category() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Item_ItemTable::set_has_category() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Item_ItemTable::clear_has_category() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Item_ItemTable::clear_category() {
+  category_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_category();
+}
+inline const ::std::string& Item_ItemTable::category() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Category)
+  return category_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Item_ItemTable::set_category(const ::std::string& value) {
+  set_has_category();
+  category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Category)
+}
+inline void Item_ItemTable::set_category(const char* value) {
+  set_has_category();
+  category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.Item.ItemTable.Category)
+}
+inline void Item_ItemTable::set_category(const char* value, size_t size) {
+  set_has_category();
+  category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.Item.ItemTable.Category)
+}
+inline ::std::string* Item_ItemTable::mutable_category() {
+  set_has_category();
+  // @@protoc_insertion_point(field_mutable:MSG.Item.ItemTable.Category)
+  return category_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Item_ItemTable::release_category() {
+  // @@protoc_insertion_point(field_release:MSG.Item.ItemTable.Category)
+  clear_has_category();
+  return category_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Item_ItemTable::set_allocated_category(::std::string* category) {
+  if (category != NULL) {
+    set_has_category();
+  } else {
+    clear_has_category();
+  }
+  category_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), category);
+  // @@protoc_insertion_point(field_set_allocated:MSG.Item.ItemTable.Category)
+}
+
+// required uint32 CharNo = 4;
+inline bool Item_ItemTable::has_charno() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Item_ItemTable::set_has_charno() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Item_ItemTable::clear_has_charno() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Item_ItemTable::clear_charno() {
+  charno_ = 0u;
+  clear_has_charno();
+}
+inline ::google::protobuf::uint32 Item_ItemTable::charno() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.CharNo)
+  return charno_;
+}
+inline void Item_ItemTable::set_charno(::google::protobuf::uint32 value) {
+  set_has_charno();
+  charno_ = value;
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.CharNo)
+}
+
+// required string Stat = 5;
+inline bool Item_ItemTable::has_stat() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Item_ItemTable::set_has_stat() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Item_ItemTable::clear_has_stat() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Item_ItemTable::clear_stat() {
+  stat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_stat();
+}
+inline const ::std::string& Item_ItemTable::stat() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Stat)
+  return stat_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Item_ItemTable::set_stat(const ::std::string& value) {
+  set_has_stat();
+  stat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Stat)
+}
+inline void Item_ItemTable::set_stat(const char* value) {
+  set_has_stat();
+  stat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.Item.ItemTable.Stat)
+}
+inline void Item_ItemTable::set_stat(const char* value, size_t size) {
+  set_has_stat();
+  stat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.Item.ItemTable.Stat)
+}
+inline ::std::string* Item_ItemTable::mutable_stat() {
+  set_has_stat();
+  // @@protoc_insertion_point(field_mutable:MSG.Item.ItemTable.Stat)
+  return stat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Item_ItemTable::release_stat() {
+  // @@protoc_insertion_point(field_release:MSG.Item.ItemTable.Stat)
+  clear_has_stat();
+  return stat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Item_ItemTable::set_allocated_stat(::std::string* stat) {
+  if (stat != NULL) {
+    set_has_stat();
+  } else {
+    clear_has_stat();
+  }
+  stat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), stat);
+  // @@protoc_insertion_point(field_set_allocated:MSG.Item.ItemTable.Stat)
+}
+
+// required uint32 Value = 6;
+inline bool Item_ItemTable::has_value() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Item_ItemTable::set_has_value() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Item_ItemTable::clear_has_value() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Item_ItemTable::clear_value() {
+  value_ = 0u;
+  clear_has_value();
+}
+inline ::google::protobuf::uint32 Item_ItemTable::value() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Value)
+  return value_;
+}
+inline void Item_ItemTable::set_value(::google::protobuf::uint32 value) {
+  set_has_value();
+  value_ = value;
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Value)
+}
+
+// -------------------------------------------------------------------
+
+// Item
+
+// required string TableName = 1;
+inline bool Item::has_tablename() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Item::set_has_tablename() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Item::clear_has_tablename() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Item::clear_tablename() {
+  tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_tablename();
+}
+inline const ::std::string& Item::tablename() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.TableName)
+  return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Item::set_tablename(const ::std::string& value) {
+  set_has_tablename();
+  tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.Item.TableName)
+}
+inline void Item::set_tablename(const char* value) {
+  set_has_tablename();
+  tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.Item.TableName)
+}
+inline void Item::set_tablename(const char* value, size_t size) {
+  set_has_tablename();
+  tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.Item.TableName)
+}
+inline ::std::string* Item::mutable_tablename() {
+  set_has_tablename();
+  // @@protoc_insertion_point(field_mutable:MSG.Item.TableName)
+  return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Item::release_tablename() {
+  // @@protoc_insertion_point(field_release:MSG.Item.TableName)
+  clear_has_tablename();
+  return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Item::set_allocated_tablename(::std::string* tablename) {
+  if (tablename != NULL) {
+    set_has_tablename();
+  } else {
+    clear_has_tablename();
+  }
+  tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
+  // @@protoc_insertion_point(field_set_allocated:MSG.Item.TableName)
+}
+
+// repeated .MSG.Item.ItemTable Data = 2;
+inline int Item::data_size() const {
+  return data_.size();
+}
+inline void Item::clear_data() {
+  data_.Clear();
+}
+inline const ::MSG::Item_ItemTable& Item::data(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.Item.Data)
+  return data_.Get(index);
+}
+inline ::MSG::Item_ItemTable* Item::mutable_data(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.Item.Data)
+  return data_.Mutable(index);
+}
+inline ::MSG::Item_ItemTable* Item::add_data() {
+  // @@protoc_insertion_point(field_add:MSG.Item.Data)
+  return data_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::Item_ItemTable >*
+Item::mutable_data() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.Item.Data)
+  return &data_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::Item_ItemTable >&
+Item::data() const {
+  // @@protoc_insertion_point(field_list:MSG.Item.Data)
+  return data_;
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

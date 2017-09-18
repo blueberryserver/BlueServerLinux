@@ -81,6 +81,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Dungeon_DungeonTable_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Dungeon_DungeonTable_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Item_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Item_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Item_ItemTable_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Item_ItemTable_reflection_ = NULL;
 
 }  // namespace
 
@@ -446,6 +452,42 @@ void protobuf_AssignDesc_SimTable_2eproto() {
       sizeof(Dungeon_DungeonTable),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Dungeon_DungeonTable, _internal_metadata_),
       -1);
+  Item_descriptor_ = file->message_type(10);
+  static const int Item_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item, tablename_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item, data_),
+  };
+  Item_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      Item_descriptor_,
+      Item::default_instance_,
+      Item_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(Item),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item, _internal_metadata_),
+      -1);
+  Item_ItemTable_descriptor_ = Item_descriptor_->nested_type(0);
+  static const int Item_ItemTable_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item_ItemTable, no_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item_ItemTable, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item_ItemTable, category_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item_ItemTable, charno_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item_ItemTable, stat_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item_ItemTable, value_),
+  };
+  Item_ItemTable_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      Item_ItemTable_descriptor_,
+      Item_ItemTable::default_instance_,
+      Item_ItemTable_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item_ItemTable, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(Item_ItemTable),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Item_ItemTable, _internal_metadata_),
+      -1);
 }
 
 namespace {
@@ -499,6 +541,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
       Dungeon_descriptor_, &Dungeon::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Dungeon_DungeonTable_descriptor_, &Dungeon_DungeonTable::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      Item_descriptor_, &Item::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      Item_ItemTable_descriptor_, &Item_ItemTable::default_instance());
 }
 
 }  // namespace
@@ -544,6 +590,10 @@ void protobuf_ShutdownFile_SimTable_2eproto() {
   delete Dungeon_reflection_;
   delete Dungeon_DungeonTable::default_instance_;
   delete Dungeon_DungeonTable_reflection_;
+  delete Item::default_instance_;
+  delete Item_reflection_;
+  delete Item_ItemTable::default_instance_;
+  delete Item_ItemTable_reflection_;
 }
 
 void protobuf_AddDesc_SimTable_2eproto() GOOGLE_ATTRIBUTE_COLD;
@@ -598,7 +648,11 @@ void protobuf_AddDesc_SimTable_2eproto() {
     "MSG.Dungeon.DungeonTable\032w\n\014DungeonTable"
     "\022\n\n\002No\030\001 \002(\r\022\014\n\004Name\030\002 \002(\t\022\r\n\005Level\030\003 \002("
     "\r\022\016\n\006Reward\030\004 \002(\r\022\016\n\006MobALv\030\005 \002(\r\022\016\n\006Mob"
-    "BLv\030\006 \002(\r\022\016\n\006MobCLv\030\007 \002(\r", 1785);
+    "BLv\030\006 \002(\r\022\016\n\006MobCLv\030\007 \002(\r\"\242\001\n\004Item\022\021\n\tTa"
+    "bleName\030\001 \002(\t\022!\n\004Data\030\002 \003(\0132\023.MSG.Item.I"
+    "temTable\032d\n\tItemTable\022\n\n\002No\030\001 \002(\r\022\014\n\004Nam"
+    "e\030\002 \002(\t\022\020\n\010Category\030\003 \002(\t\022\016\n\006CharNo\030\004 \002("
+    "\r\022\014\n\004Stat\030\005 \002(\t\022\r\n\005Value\030\006 \002(\r", 1950);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "SimTable.proto", &protobuf_RegisterTypes);
   Char::default_instance_ = new Char();
@@ -621,6 +675,8 @@ void protobuf_AddDesc_SimTable_2eproto() {
   MobCStat_MobCStatTable::default_instance_ = new MobCStat_MobCStatTable();
   Dungeon::default_instance_ = new Dungeon();
   Dungeon_DungeonTable::default_instance_ = new Dungeon_DungeonTable();
+  Item::default_instance_ = new Item();
+  Item_ItemTable::default_instance_ = new Item_ItemTable();
   Char::default_instance_->InitAsDefaultInstance();
   Char_CharacterTable::default_instance_->InitAsDefaultInstance();
   Product::default_instance_->InitAsDefaultInstance();
@@ -641,6 +697,8 @@ void protobuf_AddDesc_SimTable_2eproto() {
   MobCStat_MobCStatTable::default_instance_->InitAsDefaultInstance();
   Dungeon::default_instance_->InitAsDefaultInstance();
   Dungeon_DungeonTable::default_instance_->InitAsDefaultInstance();
+  Item::default_instance_->InitAsDefaultInstance();
+  Item_ItemTable::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_SimTable_2eproto);
 }
 
@@ -11338,6 +11396,1188 @@ Dungeon::mutable_data() {
 const ::google::protobuf::RepeatedPtrField< ::MSG::Dungeon_DungeonTable >&
 Dungeon::data() const {
   // @@protoc_insertion_point(field_list:MSG.Dungeon.Data)
+  return data_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Item_ItemTable::kNoFieldNumber;
+const int Item_ItemTable::kNameFieldNumber;
+const int Item_ItemTable::kCategoryFieldNumber;
+const int Item_ItemTable::kCharNoFieldNumber;
+const int Item_ItemTable::kStatFieldNumber;
+const int Item_ItemTable::kValueFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Item_ItemTable::Item_ItemTable()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:MSG.Item.ItemTable)
+}
+
+void Item_ItemTable::InitAsDefaultInstance() {
+}
+
+Item_ItemTable::Item_ItemTable(const Item_ItemTable& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:MSG.Item.ItemTable)
+}
+
+void Item_ItemTable::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  no_ = 0u;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  category_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  charno_ = 0u;
+  stat_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  value_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Item_ItemTable::~Item_ItemTable() {
+  // @@protoc_insertion_point(destructor:MSG.Item.ItemTable)
+  SharedDtor();
+}
+
+void Item_ItemTable::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  category_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  stat_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void Item_ItemTable::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Item_ItemTable::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Item_ItemTable_descriptor_;
+}
+
+const Item_ItemTable& Item_ItemTable::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_SimTable_2eproto();
+  return *default_instance_;
+}
+
+Item_ItemTable* Item_ItemTable::default_instance_ = NULL;
+
+Item_ItemTable* Item_ItemTable::New(::google::protobuf::Arena* arena) const {
+  Item_ItemTable* n = new Item_ItemTable;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Item_ItemTable::Clear() {
+// @@protoc_insertion_point(message_clear_start:MSG.Item.ItemTable)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(Item_ItemTable, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<Item_ItemTable*>(16)->f)
+#endif
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  if (_has_bits_[0 / 32] & 63u) {
+    ZR_(no_, charno_);
+    if (has_name()) {
+      name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_category()) {
+      category_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_stat()) {
+      stat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    value_ = 0u;
+  }
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool Item_ItemTable::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:MSG.Item.ItemTable)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 No = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &no_)));
+          set_has_no();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_Name;
+        break;
+      }
+
+      // required string Name = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_Name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "MSG.Item.ItemTable.Name");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_Category;
+        break;
+      }
+
+      // required string Category = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_Category:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_category()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->category().data(), this->category().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "MSG.Item.ItemTable.Category");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_CharNo;
+        break;
+      }
+
+      // required uint32 CharNo = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_CharNo:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &charno_)));
+          set_has_charno();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_Stat;
+        break;
+      }
+
+      // required string Stat = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_Stat:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_stat()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->stat().data(), this->stat().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "MSG.Item.ItemTable.Stat");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(48)) goto parse_Value;
+        break;
+      }
+
+      // required uint32 Value = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_Value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &value_)));
+          set_has_value();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:MSG.Item.ItemTable)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:MSG.Item.ItemTable)
+  return false;
+#undef DO_
+}
+
+void Item_ItemTable::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:MSG.Item.ItemTable)
+  // required uint32 No = 1;
+  if (has_no()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->no(), output);
+  }
+
+  // required string Name = 2;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.Item.ItemTable.Name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->name(), output);
+  }
+
+  // required string Category = 3;
+  if (has_category()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->category().data(), this->category().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.Item.ItemTable.Category");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->category(), output);
+  }
+
+  // required uint32 CharNo = 4;
+  if (has_charno()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->charno(), output);
+  }
+
+  // required string Stat = 5;
+  if (has_stat()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->stat().data(), this->stat().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.Item.ItemTable.Stat");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->stat(), output);
+  }
+
+  // required uint32 Value = 6;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->value(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:MSG.Item.ItemTable)
+}
+
+::google::protobuf::uint8* Item_ItemTable::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MSG.Item.ItemTable)
+  // required uint32 No = 1;
+  if (has_no()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->no(), target);
+  }
+
+  // required string Name = 2;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.Item.ItemTable.Name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->name(), target);
+  }
+
+  // required string Category = 3;
+  if (has_category()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->category().data(), this->category().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.Item.ItemTable.Category");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->category(), target);
+  }
+
+  // required uint32 CharNo = 4;
+  if (has_charno()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->charno(), target);
+  }
+
+  // required string Stat = 5;
+  if (has_stat()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->stat().data(), this->stat().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.Item.ItemTable.Stat");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->stat(), target);
+  }
+
+  // required uint32 Value = 6;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->value(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MSG.Item.ItemTable)
+  return target;
+}
+
+int Item_ItemTable::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.Item.ItemTable)
+  int total_size = 0;
+
+  if (has_no()) {
+    // required uint32 No = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->no());
+  }
+
+  if (has_name()) {
+    // required string Name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+  }
+
+  if (has_category()) {
+    // required string Category = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->category());
+  }
+
+  if (has_charno()) {
+    // required uint32 CharNo = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->charno());
+  }
+
+  if (has_stat()) {
+    // required string Stat = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->stat());
+  }
+
+  if (has_value()) {
+    // required uint32 Value = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->value());
+  }
+
+  return total_size;
+}
+int Item_ItemTable::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:MSG.Item.ItemTable)
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+    // required uint32 No = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->no());
+
+    // required string Name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+
+    // required string Category = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->category());
+
+    // required uint32 CharNo = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->charno());
+
+    // required string Stat = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->stat());
+
+    // required uint32 Value = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->value());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Item_ItemTable::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MSG.Item.ItemTable)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const Item_ItemTable* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Item_ItemTable>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MSG.Item.ItemTable)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MSG.Item.ItemTable)
+    MergeFrom(*source);
+  }
+}
+
+void Item_ItemTable::MergeFrom(const Item_ItemTable& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MSG.Item.ItemTable)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_no()) {
+      set_no(from.no());
+    }
+    if (from.has_name()) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (from.has_category()) {
+      set_has_category();
+      category_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.category_);
+    }
+    if (from.has_charno()) {
+      set_charno(from.charno());
+    }
+    if (from.has_stat()) {
+      set_has_stat();
+      stat_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.stat_);
+    }
+    if (from.has_value()) {
+      set_value(from.value());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void Item_ItemTable::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MSG.Item.ItemTable)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Item_ItemTable::CopyFrom(const Item_ItemTable& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MSG.Item.ItemTable)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Item_ItemTable::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+
+  return true;
+}
+
+void Item_ItemTable::Swap(Item_ItemTable* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Item_ItemTable::InternalSwap(Item_ItemTable* other) {
+  std::swap(no_, other->no_);
+  name_.Swap(&other->name_);
+  category_.Swap(&other->category_);
+  std::swap(charno_, other->charno_);
+  stat_.Swap(&other->stat_);
+  std::swap(value_, other->value_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Item_ItemTable::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Item_ItemTable_descriptor_;
+  metadata.reflection = Item_ItemTable_reflection_;
+  return metadata;
+}
+
+
+// -------------------------------------------------------------------
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Item::kTableNameFieldNumber;
+const int Item::kDataFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Item::Item()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:MSG.Item)
+}
+
+void Item::InitAsDefaultInstance() {
+}
+
+Item::Item(const Item& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:MSG.Item)
+}
+
+void Item::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  tablename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Item::~Item() {
+  // @@protoc_insertion_point(destructor:MSG.Item)
+  SharedDtor();
+}
+
+void Item::SharedDtor() {
+  tablename_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void Item::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Item::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Item_descriptor_;
+}
+
+const Item& Item::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_SimTable_2eproto();
+  return *default_instance_;
+}
+
+Item* Item::default_instance_ = NULL;
+
+Item* Item::New(::google::protobuf::Arena* arena) const {
+  Item* n = new Item;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Item::Clear() {
+// @@protoc_insertion_point(message_clear_start:MSG.Item)
+  if (has_tablename()) {
+    tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  data_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool Item::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:MSG.Item)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string TableName = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_tablename()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->tablename().data(), this->tablename().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "MSG.Item.TableName");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_Data;
+        break;
+      }
+
+      // repeated .MSG.Item.ItemTable Data = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_Data:
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_Data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_loop_Data;
+        input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:MSG.Item)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:MSG.Item)
+  return false;
+#undef DO_
+}
+
+void Item::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:MSG.Item)
+  // required string TableName = 1;
+  if (has_tablename()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->tablename().data(), this->tablename().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.Item.TableName");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->tablename(), output);
+  }
+
+  // repeated .MSG.Item.ItemTable Data = 2;
+  for (unsigned int i = 0, n = this->data_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->data(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:MSG.Item)
+}
+
+::google::protobuf::uint8* Item::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MSG.Item)
+  // required string TableName = 1;
+  if (has_tablename()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->tablename().data(), this->tablename().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.Item.TableName");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->tablename(), target);
+  }
+
+  // repeated .MSG.Item.ItemTable Data = 2;
+  for (unsigned int i = 0, n = this->data_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, this->data(i), false, target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MSG.Item)
+  return target;
+}
+
+int Item::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:MSG.Item)
+  int total_size = 0;
+
+  // required string TableName = 1;
+  if (has_tablename()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->tablename());
+  }
+  // repeated .MSG.Item.ItemTable Data = 2;
+  total_size += 1 * this->data_size();
+  for (int i = 0; i < this->data_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->data(i));
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Item::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MSG.Item)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const Item* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Item>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MSG.Item)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MSG.Item)
+    MergeFrom(*source);
+  }
+}
+
+void Item::MergeFrom(const Item& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MSG.Item)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  data_.MergeFrom(from.data_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_tablename()) {
+      set_has_tablename();
+      tablename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tablename_);
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void Item::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MSG.Item)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Item::CopyFrom(const Item& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MSG.Item)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Item::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->data())) return false;
+  return true;
+}
+
+void Item::Swap(Item* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Item::InternalSwap(Item* other) {
+  tablename_.Swap(&other->tablename_);
+  data_.UnsafeArenaSwap(&other->data_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Item::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Item_descriptor_;
+  metadata.reflection = Item_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Item_ItemTable
+
+// required uint32 No = 1;
+bool Item_ItemTable::has_no() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void Item_ItemTable::set_has_no() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void Item_ItemTable::clear_has_no() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void Item_ItemTable::clear_no() {
+  no_ = 0u;
+  clear_has_no();
+}
+ ::google::protobuf::uint32 Item_ItemTable::no() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.No)
+  return no_;
+}
+ void Item_ItemTable::set_no(::google::protobuf::uint32 value) {
+  set_has_no();
+  no_ = value;
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.No)
+}
+
+// required string Name = 2;
+bool Item_ItemTable::has_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void Item_ItemTable::set_has_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void Item_ItemTable::clear_has_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void Item_ItemTable::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+ const ::std::string& Item_ItemTable::name() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Item_ItemTable::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Name)
+}
+ void Item_ItemTable::set_name(const char* value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.Item.ItemTable.Name)
+}
+ void Item_ItemTable::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.Item.ItemTable.Name)
+}
+ ::std::string* Item_ItemTable::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:MSG.Item.ItemTable.Name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* Item_ItemTable::release_name() {
+  // @@protoc_insertion_point(field_release:MSG.Item.ItemTable.Name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Item_ItemTable::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:MSG.Item.ItemTable.Name)
+}
+
+// required string Category = 3;
+bool Item_ItemTable::has_category() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void Item_ItemTable::set_has_category() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void Item_ItemTable::clear_has_category() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void Item_ItemTable::clear_category() {
+  category_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_category();
+}
+ const ::std::string& Item_ItemTable::category() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Category)
+  return category_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Item_ItemTable::set_category(const ::std::string& value) {
+  set_has_category();
+  category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Category)
+}
+ void Item_ItemTable::set_category(const char* value) {
+  set_has_category();
+  category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.Item.ItemTable.Category)
+}
+ void Item_ItemTable::set_category(const char* value, size_t size) {
+  set_has_category();
+  category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.Item.ItemTable.Category)
+}
+ ::std::string* Item_ItemTable::mutable_category() {
+  set_has_category();
+  // @@protoc_insertion_point(field_mutable:MSG.Item.ItemTable.Category)
+  return category_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* Item_ItemTable::release_category() {
+  // @@protoc_insertion_point(field_release:MSG.Item.ItemTable.Category)
+  clear_has_category();
+  return category_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Item_ItemTable::set_allocated_category(::std::string* category) {
+  if (category != NULL) {
+    set_has_category();
+  } else {
+    clear_has_category();
+  }
+  category_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), category);
+  // @@protoc_insertion_point(field_set_allocated:MSG.Item.ItemTable.Category)
+}
+
+// required uint32 CharNo = 4;
+bool Item_ItemTable::has_charno() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void Item_ItemTable::set_has_charno() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void Item_ItemTable::clear_has_charno() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void Item_ItemTable::clear_charno() {
+  charno_ = 0u;
+  clear_has_charno();
+}
+ ::google::protobuf::uint32 Item_ItemTable::charno() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.CharNo)
+  return charno_;
+}
+ void Item_ItemTable::set_charno(::google::protobuf::uint32 value) {
+  set_has_charno();
+  charno_ = value;
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.CharNo)
+}
+
+// required string Stat = 5;
+bool Item_ItemTable::has_stat() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void Item_ItemTable::set_has_stat() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void Item_ItemTable::clear_has_stat() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void Item_ItemTable::clear_stat() {
+  stat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_stat();
+}
+ const ::std::string& Item_ItemTable::stat() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Stat)
+  return stat_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Item_ItemTable::set_stat(const ::std::string& value) {
+  set_has_stat();
+  stat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Stat)
+}
+ void Item_ItemTable::set_stat(const char* value) {
+  set_has_stat();
+  stat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.Item.ItemTable.Stat)
+}
+ void Item_ItemTable::set_stat(const char* value, size_t size) {
+  set_has_stat();
+  stat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.Item.ItemTable.Stat)
+}
+ ::std::string* Item_ItemTable::mutable_stat() {
+  set_has_stat();
+  // @@protoc_insertion_point(field_mutable:MSG.Item.ItemTable.Stat)
+  return stat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* Item_ItemTable::release_stat() {
+  // @@protoc_insertion_point(field_release:MSG.Item.ItemTable.Stat)
+  clear_has_stat();
+  return stat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Item_ItemTable::set_allocated_stat(::std::string* stat) {
+  if (stat != NULL) {
+    set_has_stat();
+  } else {
+    clear_has_stat();
+  }
+  stat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), stat);
+  // @@protoc_insertion_point(field_set_allocated:MSG.Item.ItemTable.Stat)
+}
+
+// required uint32 Value = 6;
+bool Item_ItemTable::has_value() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void Item_ItemTable::set_has_value() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void Item_ItemTable::clear_has_value() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void Item_ItemTable::clear_value() {
+  value_ = 0u;
+  clear_has_value();
+}
+ ::google::protobuf::uint32 Item_ItemTable::value() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Value)
+  return value_;
+}
+ void Item_ItemTable::set_value(::google::protobuf::uint32 value) {
+  set_has_value();
+  value_ = value;
+  // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Value)
+}
+
+// -------------------------------------------------------------------
+
+// Item
+
+// required string TableName = 1;
+bool Item::has_tablename() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void Item::set_has_tablename() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void Item::clear_has_tablename() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void Item::clear_tablename() {
+  tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_tablename();
+}
+ const ::std::string& Item::tablename() const {
+  // @@protoc_insertion_point(field_get:MSG.Item.TableName)
+  return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Item::set_tablename(const ::std::string& value) {
+  set_has_tablename();
+  tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.Item.TableName)
+}
+ void Item::set_tablename(const char* value) {
+  set_has_tablename();
+  tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.Item.TableName)
+}
+ void Item::set_tablename(const char* value, size_t size) {
+  set_has_tablename();
+  tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.Item.TableName)
+}
+ ::std::string* Item::mutable_tablename() {
+  set_has_tablename();
+  // @@protoc_insertion_point(field_mutable:MSG.Item.TableName)
+  return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* Item::release_tablename() {
+  // @@protoc_insertion_point(field_release:MSG.Item.TableName)
+  clear_has_tablename();
+  return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Item::set_allocated_tablename(::std::string* tablename) {
+  if (tablename != NULL) {
+    set_has_tablename();
+  } else {
+    clear_has_tablename();
+  }
+  tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
+  // @@protoc_insertion_point(field_set_allocated:MSG.Item.TableName)
+}
+
+// repeated .MSG.Item.ItemTable Data = 2;
+int Item::data_size() const {
+  return data_.size();
+}
+void Item::clear_data() {
+  data_.Clear();
+}
+const ::MSG::Item_ItemTable& Item::data(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.Item.Data)
+  return data_.Get(index);
+}
+::MSG::Item_ItemTable* Item::mutable_data(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.Item.Data)
+  return data_.Mutable(index);
+}
+::MSG::Item_ItemTable* Item::add_data() {
+  // @@protoc_insertion_point(field_add:MSG.Item.Data)
+  return data_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::MSG::Item_ItemTable >*
+Item::mutable_data() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.Item.Data)
+  return &data_;
+}
+const ::google::protobuf::RepeatedPtrField< ::MSG::Item_ItemTable >&
+Item::data() const {
+  // @@protoc_insertion_point(field_list:MSG.Item.Data)
   return data_;
 }
 

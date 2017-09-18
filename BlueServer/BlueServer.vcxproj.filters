@@ -54,6 +54,9 @@
     <ClCompile Include="cpp\SimTable.pb.cc">
       <Filter>cpp</Filter>
     </ClCompile>
+    <ClCompile Include="Battle.cpp">
+      <Filter>Contents\Battle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -82,6 +85,9 @@
     </Filter>
     <Filter Include="Contents\Char">
       <UniqueIdentifier>{73e56bb7-18ed-4af0-a085-8aa6cac936f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Battle">
+      <UniqueIdentifier>{15f3240e-903a-4b02-83c6-e963b4e793a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +146,12 @@
     <ClInclude Include="BlueSession.h" />
     <ClInclude Include="cpp\SimTable.pb.h">
       <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle.h">
+      <Filter>Contents\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleObj.h">
+      <Filter>Contents\Battle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

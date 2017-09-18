@@ -40,5 +40,6 @@ CREATE TABLE `UserData` (
   `vc3` int(11) NOT NULL,
   `groupName` varchar(64) DEFAULT ' ',
   `language` varchar(64) DEFAULT ' ',
-  PRIMARY KEY (`uid`)
+  PRIMARY KEY (`uid`),
+  KEY `INDEX_NAME` (`name`,`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1142 DEFAULT CHARSET=utf8;

@@ -66,6 +66,7 @@
     </LibraryPath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="Battle.cpp" />
     <ClCompile Include="BlueSession.cpp" />
     <ClCompile Include="ChatChannel.cpp" />
     <ClCompile Include="ChatChannelManager.cpp" />
@@ -87,6 +88,8 @@
     <ClCompile Include="UserManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Battle.h" />
+    <ClInclude Include="BattleObj.h" />
     <ClInclude Include="BlueORM.h" />
     <ClInclude Include="BlueSession.h" />
     <ClInclude Include="ChatChannel.h" />
