@@ -37,6 +37,8 @@ void protobuf_AddDesc_game_2eproto();
 void protobuf_AssignDesc_game_2eproto();
 void protobuf_ShutdownFile_game_2eproto();
 
+class BattleLogAns;
+class BattleLogReq;
 class ContentsNot;
 class CreateCharAns;
 class CreateCharReq;
@@ -1364,6 +1366,207 @@ class TierupCharAns : public ::google::protobuf::Message /* @@protoc_insertion_p
   void InitAsDefaultInstance();
   static TierupCharAns* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class BattleLogReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.BattleLogReq) */ {
+ public:
+  BattleLogReq();
+  virtual ~BattleLogReq();
+
+  BattleLogReq(const BattleLogReq& from);
+
+  inline BattleLogReq& operator=(const BattleLogReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BattleLogReq& default_instance();
+
+  void Swap(BattleLogReq* other);
+
+  // implements Message ----------------------------------------------
+
+  inline BattleLogReq* New() const { return New(NULL); }
+
+  BattleLogReq* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BattleLogReq& from);
+  void MergeFrom(const BattleLogReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(BattleLogReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 lid = 1;
+  bool has_lid() const;
+  void clear_lid();
+  static const int kLidFieldNumber = 1;
+  ::google::protobuf::uint64 lid() const;
+  void set_lid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:MSG.BattleLogReq)
+ private:
+  inline void set_has_lid();
+  inline void clear_has_lid();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 lid_;
+  friend void  protobuf_AddDesc_game_2eproto();
+  friend void protobuf_AssignDesc_game_2eproto();
+  friend void protobuf_ShutdownFile_game_2eproto();
+
+  void InitAsDefaultInstance();
+  static BattleLogReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BattleLogAns : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.BattleLogAns) */ {
+ public:
+  BattleLogAns();
+  virtual ~BattleLogAns();
+
+  BattleLogAns(const BattleLogAns& from);
+
+  inline BattleLogAns& operator=(const BattleLogAns& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BattleLogAns& default_instance();
+
+  void Swap(BattleLogAns* other);
+
+  // implements Message ----------------------------------------------
+
+  inline BattleLogAns* New() const { return New(NULL); }
+
+  BattleLogAns* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BattleLogAns& from);
+  void MergeFrom(const BattleLogAns& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(BattleLogAns* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .MSG.ErrorCode err = 1;
+  bool has_err() const;
+  void clear_err();
+  static const int kErrFieldNumber = 1;
+  ::MSG::ErrorCode err() const;
+  void set_err(::MSG::ErrorCode value);
+
+  // required .MSG.DungeonPlayData_ data = 2;
+  bool has_data() const;
+  void clear_data();
+  static const int kDataFieldNumber = 2;
+  const ::MSG::DungeonPlayData_& data() const;
+  ::MSG::DungeonPlayData_* mutable_data();
+  ::MSG::DungeonPlayData_* release_data();
+  void set_allocated_data(::MSG::DungeonPlayData_* data);
+
+  // @@protoc_insertion_point(class_scope:MSG.BattleLogAns)
+ private:
+  inline void set_has_err();
+  inline void clear_has_err();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::MSG::DungeonPlayData_* data_;
+  int err_;
+  friend void  protobuf_AddDesc_game_2eproto();
+  friend void protobuf_AssignDesc_game_2eproto();
+  friend void protobuf_ShutdownFile_game_2eproto();
+
+  void InitAsDefaultInstance();
+  static BattleLogAns* default_instance_;
+};
 // ===================================================================
 
 
@@ -2201,7 +2404,112 @@ inline void TierupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   // @@protoc_insertion_point(field_set_allocated:MSG.TierupCharAns.char_)
 }
 
+// -------------------------------------------------------------------
+
+// BattleLogReq
+
+// required uint64 lid = 1;
+inline bool BattleLogReq::has_lid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BattleLogReq::set_has_lid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BattleLogReq::clear_has_lid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BattleLogReq::clear_lid() {
+  lid_ = GOOGLE_ULONGLONG(0);
+  clear_has_lid();
+}
+inline ::google::protobuf::uint64 BattleLogReq::lid() const {
+  // @@protoc_insertion_point(field_get:MSG.BattleLogReq.lid)
+  return lid_;
+}
+inline void BattleLogReq::set_lid(::google::protobuf::uint64 value) {
+  set_has_lid();
+  lid_ = value;
+  // @@protoc_insertion_point(field_set:MSG.BattleLogReq.lid)
+}
+
+// -------------------------------------------------------------------
+
+// BattleLogAns
+
+// required .MSG.ErrorCode err = 1;
+inline bool BattleLogAns::has_err() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BattleLogAns::set_has_err() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BattleLogAns::clear_has_err() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BattleLogAns::clear_err() {
+  err_ = 0;
+  clear_has_err();
+}
+inline ::MSG::ErrorCode BattleLogAns::err() const {
+  // @@protoc_insertion_point(field_get:MSG.BattleLogAns.err)
+  return static_cast< ::MSG::ErrorCode >(err_);
+}
+inline void BattleLogAns::set_err(::MSG::ErrorCode value) {
+  assert(::MSG::ErrorCode_IsValid(value));
+  set_has_err();
+  err_ = value;
+  // @@protoc_insertion_point(field_set:MSG.BattleLogAns.err)
+}
+
+// required .MSG.DungeonPlayData_ data = 2;
+inline bool BattleLogAns::has_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BattleLogAns::set_has_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BattleLogAns::clear_has_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BattleLogAns::clear_data() {
+  if (data_ != NULL) data_->::MSG::DungeonPlayData_::Clear();
+  clear_has_data();
+}
+inline const ::MSG::DungeonPlayData_& BattleLogAns::data() const {
+  // @@protoc_insertion_point(field_get:MSG.BattleLogAns.data)
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::MSG::DungeonPlayData_* BattleLogAns::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) {
+    data_ = new ::MSG::DungeonPlayData_;
+  }
+  // @@protoc_insertion_point(field_mutable:MSG.BattleLogAns.data)
+  return data_;
+}
+inline ::MSG::DungeonPlayData_* BattleLogAns::release_data() {
+  // @@protoc_insertion_point(field_release:MSG.BattleLogAns.data)
+  clear_has_data();
+  ::MSG::DungeonPlayData_* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void BattleLogAns::set_allocated_data(::MSG::DungeonPlayData_* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+  // @@protoc_insertion_point(field_set_allocated:MSG.BattleLogAns.data)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

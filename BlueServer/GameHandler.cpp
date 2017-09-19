@@ -10,7 +10,7 @@
 #include "UserManager.h"
 #include "DBQueryUser.h"
 #include "DBQueryChar.h"
-
+#include "DBQueryBattleLog.h"
 
 #include "Battle.h"
 
@@ -26,6 +26,7 @@ GameHandler::GameHandler()
 	REGIST_HANDLER(MSG::PLAYDUNGEON_REQ, PlayDungeonReq);
 	REGIST_HANDLER(MSG::LEVELUPCHAR_REQ, LevelupCharReq);
 	REGIST_HANDLER(MSG::TIERUPCHAR_REQ, TierupCharReq);
+	REGIST_HANDLER(MSG::BATTLELOG_REQ, BattleLogReq);
 }
 
 DEFINE_HANDLER(GameHandler, SessionPtr, CreateCharReq)
@@ -250,7 +251,6 @@ DEFINE_HANDLER(GameHandler, SessionPtr, PlayDungeonReq)
 	}
 
 	int no = 0;
-	int type = 3;
 	for (auto it : battle.getMonsterData())
 	{
 		MSG::CharData_* mob = ans.add_mobs();
@@ -259,6 +259,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, PlayDungeonReq)
 		mob->set_slotno(no++);
 		mob->set_typeno(it->getTypeNo());
 		mob->set_level(it->getLv());
+		mob->set_tier(it->getTier());
 	}
 
 	for (auto it : battleData)
@@ -268,6 +269,50 @@ DEFINE_HANDLER(GameHandler, SessionPtr, PlayDungeonReq)
 	}
 
 	session_->SendPacket(MSG::PLAYDUNGEON_ANS, &ans);
+
+	// db insert
+	{
+		MSG::DungeonPlayData_ data;
+		data.set_lid(0);
+		data.set_uid(userData->uid());
+		for (auto it : battleData)
+		{
+			auto  battle = data.add_battles();
+			battle->CopyFrom(*it);
+		}
+
+		for (int i = 0; i < userData->chars_size(); i++)
+		{
+			MSG::CharData_* character = data.add_chars();
+			auto charData = userData->mutable_chars(i);
+			character->CopyFrom(*charData);
+		}
+
+		int no = 0;
+		for (auto it : battle.getMonsterData())
+		{
+			MSG::CharData_* mob = data.add_mobs();
+			mob->set_cid(0);
+			mob->set_uid(0);
+			mob->set_slotno(no++);
+			mob->set_typeno(it->getTypeNo());
+			mob->set_level(it->getLv());
+			mob->set_tier(it->getTier());
+		}
+		data.set_regdate(DateTime::getCurrentDateTime().formatLocal().c_str());
+
+		DBQueryBattleLog query;
+		query.setData({ data, });
+		if (query.insertData() == false)
+		{
+			return true;
+		}
+
+		if (query.haveData() == false)
+		{
+			return true;
+		}
+	}
 	return true;
 }
 
@@ -502,5 +547,85 @@ DEFINE_HANDLER(GameHandler, SessionPtr, TierupCharReq)
 	return true;
 }
 
+
+
+DEFINE_HANDLER(GameHandler, SessionPtr, BattleLogReq)
+{
+	MSG::BattleLogReq req;
+	req.ParseFromArray(body_, len_);
+	LOG(L_INFO_, "recv packet info", "lid", (double)req.lid());
+
+	auto user = UserManager::getUserManager()->find(session_.get());
+	if (user == nullptr)
+	{
+		MSG::TierupCharAns ans;
+		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
+		session_->SendPacket(MSG::TIERUPCHAR_ANS, &ans);
+		return true;
+	}
+
+	// update time out
+	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
+	auto userData = user->getData();
+
+	{
+		DBQueryBattleLog query;
+		query.setWhere("uid=%I64u order by lid desc limit 0, 1", userData->uid());
+
+		if (query.selectData() == false)
+		{
+			MSG::BattleLogAns ans;
+			ans.set_err(MSG::ERR_AUTHORITY_FAIL);
+			session_->SendPacket(MSG::BATTLELOG_ANS, &ans);
+			return true;
+		}
+
+		std::vector<MSG::DungeonPlayData_> data;
+		query.getData(data);
+
+		for (auto dataIt : data)
+		{
+			//if( dataIt.lid() != req.lid()) continue;
+
+			LOG(L_INFO_, "start", "lid", (double)req.lid());
+
+			Battle battle;
+			auto battleCount = dataIt.battles_size();
+			MSG::BattleData_::Team team = MSG::BattleData_::ENEMY;
+			int turn = 0;
+			for (auto i = 0; i < battleCount; ++i)
+			{
+				auto battleData = dataIt.mutable_battles(i);
+				auto bData = new MSG::BattleData_();
+				bData->CopyFrom(*battleData);
+				battle.addBattleData(bData);
+			}
+
+			auto charCount = dataIt.chars_size();
+			for (auto i = 0; i < charCount; ++i)
+			{
+				auto charData = dataIt.mutable_chars(i);
+				auto battleObj = new BattleObj( charData->level(), charData->typeno(), charData->tier() );
+				battle.addBattleObj(battleObj, MSG::BattleData_::ALLY);
+			}
+
+			auto mobCount = dataIt.mobs_size();
+			for (auto i = 0; i < mobCount; ++i)
+			{
+				auto mobData = dataIt.mutable_mobs(i);
+				auto battleObj = new BattleObj(mobData->level(), mobData->typeno(), mobData->tier());
+				battle.addBattleObj(battleObj, MSG::BattleData_::ENEMY);
+			}
+			battle.replay();
+		}
+	}
+
+	// answer
+	MSG::BattleLogAns ans;
+	ans.set_err(MSG::ERR_SUCCESS);	
+	session_->SendPacket(MSG::BATTLELOG_ANS, &ans);
+
+	return true;
+}
 
 }

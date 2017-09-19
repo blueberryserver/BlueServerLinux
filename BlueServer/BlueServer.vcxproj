@@ -78,6 +78,7 @@
     <ClCompile Include="cpp\game.pb.cc" />
     <ClCompile Include="cpp\login.pb.cc" />
     <ClCompile Include="cpp\SimTable.pb.cc" />
+    <ClCompile Include="DBQueryBattleLog.cpp" />
     <ClCompile Include="DBQueryChar.cpp" />
     <ClCompile Include="DBQueryUser.cpp" />
     <ClCompile Include="DefaultHandler.cpp" />
@@ -102,6 +103,7 @@
     <ClInclude Include="cpp\game.pb.h" />
     <ClInclude Include="cpp\login.pb.h" />
     <ClInclude Include="cpp\SimTable.pb.h" />
+    <ClInclude Include="DBQueryBattleLog.h" />
     <ClInclude Include="DBQuery.h" />
     <ClInclude Include="DBQueryChar.h" />
     <ClInclude Include="DBQueryUser.h" />

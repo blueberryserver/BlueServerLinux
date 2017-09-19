@@ -49,7 +49,7 @@ void BlueSession::recvPacketProc()
 
 void BlueSession::SendPacket(short id_, google::protobuf::Message* msg_)
 {
-	char buffer[1024] = { 0, };
+	char buffer[1024* 32] = { 0, };
 	msg_->SerializeToArray(buffer, sizeof(buffer));
 
 

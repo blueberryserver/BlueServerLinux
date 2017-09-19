@@ -45,6 +45,7 @@ class ChatData_;
 class ChatRoom_;
 class Contents_;
 class DungeonData_;
+class DungeonPlayData_;
 class GMember_;
 class Group_;
 class UserData_;
@@ -164,11 +165,13 @@ enum MsgId {
   LEVELUPCHAR_REQ = 20181,
   LEVELUPCHAR_ANS = 20182,
   TIERUPCHAR_REQ = 20191,
-  TIERUPCHAR_ANS = 20192
+  TIERUPCHAR_ANS = 20192,
+  BATTLELOG_REQ = 20201,
+  BATTLELOG_ANS = 20202
 };
 bool MsgId_IsValid(int value);
 const MsgId MsgId_MIN = CLOSED;
-const MsgId MsgId_MAX = TIERUPCHAR_ANS;
+const MsgId MsgId_MAX = BATTLELOG_ANS;
 const int MsgId_ARRAYSIZE = MsgId_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MsgId_descriptor();
@@ -1929,6 +1932,166 @@ class BattleData_ : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   void InitAsDefaultInstance();
   static BattleData_* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DungeonPlayData_ : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:MSG.DungeonPlayData_) */ {
+ public:
+  DungeonPlayData_();
+  virtual ~DungeonPlayData_();
+
+  DungeonPlayData_(const DungeonPlayData_& from);
+
+  inline DungeonPlayData_& operator=(const DungeonPlayData_& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DungeonPlayData_& default_instance();
+
+  void Swap(DungeonPlayData_* other);
+
+  // implements Message ----------------------------------------------
+
+  inline DungeonPlayData_* New() const { return New(NULL); }
+
+  DungeonPlayData_* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DungeonPlayData_& from);
+  void MergeFrom(const DungeonPlayData_& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(DungeonPlayData_* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 lid = 1;
+  bool has_lid() const;
+  void clear_lid();
+  static const int kLidFieldNumber = 1;
+  ::google::protobuf::uint64 lid() const;
+  void set_lid(::google::protobuf::uint64 value);
+
+  // required uint64 uid = 2;
+  bool has_uid() const;
+  void clear_uid();
+  static const int kUidFieldNumber = 2;
+  ::google::protobuf::uint64 uid() const;
+  void set_uid(::google::protobuf::uint64 value);
+
+  // repeated .MSG.BattleData_ battles = 3;
+  int battles_size() const;
+  void clear_battles();
+  static const int kBattlesFieldNumber = 3;
+  const ::MSG::BattleData_& battles(int index) const;
+  ::MSG::BattleData_* mutable_battles(int index);
+  ::MSG::BattleData_* add_battles();
+  ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >*
+      mutable_battles();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >&
+      battles() const;
+
+  // repeated .MSG.CharData_ chars = 4;
+  int chars_size() const;
+  void clear_chars();
+  static const int kCharsFieldNumber = 4;
+  const ::MSG::CharData_& chars(int index) const;
+  ::MSG::CharData_* mutable_chars(int index);
+  ::MSG::CharData_* add_chars();
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+      mutable_chars();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+      chars() const;
+
+  // repeated .MSG.CharData_ mobs = 5;
+  int mobs_size() const;
+  void clear_mobs();
+  static const int kMobsFieldNumber = 5;
+  const ::MSG::CharData_& mobs(int index) const;
+  ::MSG::CharData_* mutable_mobs(int index);
+  ::MSG::CharData_* add_mobs();
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+      mutable_mobs();
+  const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+      mobs() const;
+
+  // required string regDate = 6;
+  bool has_regdate() const;
+  void clear_regdate();
+  static const int kRegDateFieldNumber = 6;
+  const ::std::string& regdate() const;
+  void set_regdate(const ::std::string& value);
+  void set_regdate(const char* value);
+  void set_regdate(const char* value, size_t size);
+  ::std::string* mutable_regdate();
+  ::std::string* release_regdate();
+  void set_allocated_regdate(::std::string* regdate);
+
+  // @@protoc_insertion_point(class_scope:MSG.DungeonPlayData_)
+ private:
+  inline void set_has_lid();
+  inline void clear_has_lid();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_regdate();
+  inline void clear_has_regdate();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 lid_;
+  ::google::protobuf::uint64 uid_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ > battles_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > chars_;
+  ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > mobs_;
+  ::google::protobuf::internal::ArenaStringPtr regdate_;
+  friend void  protobuf_AddDesc_common_2eproto();
+  friend void protobuf_AssignDesc_common_2eproto();
+  friend void protobuf_ShutdownFile_common_2eproto();
+
+  void InitAsDefaultInstance();
+  static DungeonPlayData_* default_instance_;
 };
 // ===================================================================
 
@@ -3807,7 +3970,205 @@ inline void BattleData_::set_team(::MSG::BattleData__Team value) {
   // @@protoc_insertion_point(field_set:MSG.BattleData_.team)
 }
 
+// -------------------------------------------------------------------
+
+// DungeonPlayData_
+
+// required uint64 lid = 1;
+inline bool DungeonPlayData_::has_lid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DungeonPlayData_::set_has_lid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DungeonPlayData_::clear_has_lid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DungeonPlayData_::clear_lid() {
+  lid_ = GOOGLE_ULONGLONG(0);
+  clear_has_lid();
+}
+inline ::google::protobuf::uint64 DungeonPlayData_::lid() const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonPlayData_.lid)
+  return lid_;
+}
+inline void DungeonPlayData_::set_lid(::google::protobuf::uint64 value) {
+  set_has_lid();
+  lid_ = value;
+  // @@protoc_insertion_point(field_set:MSG.DungeonPlayData_.lid)
+}
+
+// required uint64 uid = 2;
+inline bool DungeonPlayData_::has_uid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DungeonPlayData_::set_has_uid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DungeonPlayData_::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DungeonPlayData_::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 DungeonPlayData_::uid() const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonPlayData_.uid)
+  return uid_;
+}
+inline void DungeonPlayData_::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:MSG.DungeonPlayData_.uid)
+}
+
+// repeated .MSG.BattleData_ battles = 3;
+inline int DungeonPlayData_::battles_size() const {
+  return battles_.size();
+}
+inline void DungeonPlayData_::clear_battles() {
+  battles_.Clear();
+}
+inline const ::MSG::BattleData_& DungeonPlayData_::battles(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonPlayData_.battles)
+  return battles_.Get(index);
+}
+inline ::MSG::BattleData_* DungeonPlayData_::mutable_battles(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.DungeonPlayData_.battles)
+  return battles_.Mutable(index);
+}
+inline ::MSG::BattleData_* DungeonPlayData_::add_battles() {
+  // @@protoc_insertion_point(field_add:MSG.DungeonPlayData_.battles)
+  return battles_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >*
+DungeonPlayData_::mutable_battles() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.DungeonPlayData_.battles)
+  return &battles_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ >&
+DungeonPlayData_::battles() const {
+  // @@protoc_insertion_point(field_list:MSG.DungeonPlayData_.battles)
+  return battles_;
+}
+
+// repeated .MSG.CharData_ chars = 4;
+inline int DungeonPlayData_::chars_size() const {
+  return chars_.size();
+}
+inline void DungeonPlayData_::clear_chars() {
+  chars_.Clear();
+}
+inline const ::MSG::CharData_& DungeonPlayData_::chars(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonPlayData_.chars)
+  return chars_.Get(index);
+}
+inline ::MSG::CharData_* DungeonPlayData_::mutable_chars(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.DungeonPlayData_.chars)
+  return chars_.Mutable(index);
+}
+inline ::MSG::CharData_* DungeonPlayData_::add_chars() {
+  // @@protoc_insertion_point(field_add:MSG.DungeonPlayData_.chars)
+  return chars_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+DungeonPlayData_::mutable_chars() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.DungeonPlayData_.chars)
+  return &chars_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+DungeonPlayData_::chars() const {
+  // @@protoc_insertion_point(field_list:MSG.DungeonPlayData_.chars)
+  return chars_;
+}
+
+// repeated .MSG.CharData_ mobs = 5;
+inline int DungeonPlayData_::mobs_size() const {
+  return mobs_.size();
+}
+inline void DungeonPlayData_::clear_mobs() {
+  mobs_.Clear();
+}
+inline const ::MSG::CharData_& DungeonPlayData_::mobs(int index) const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonPlayData_.mobs)
+  return mobs_.Get(index);
+}
+inline ::MSG::CharData_* DungeonPlayData_::mutable_mobs(int index) {
+  // @@protoc_insertion_point(field_mutable:MSG.DungeonPlayData_.mobs)
+  return mobs_.Mutable(index);
+}
+inline ::MSG::CharData_* DungeonPlayData_::add_mobs() {
+  // @@protoc_insertion_point(field_add:MSG.DungeonPlayData_.mobs)
+  return mobs_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >*
+DungeonPlayData_::mutable_mobs() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.DungeonPlayData_.mobs)
+  return &mobs_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
+DungeonPlayData_::mobs() const {
+  // @@protoc_insertion_point(field_list:MSG.DungeonPlayData_.mobs)
+  return mobs_;
+}
+
+// required string regDate = 6;
+inline bool DungeonPlayData_::has_regdate() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void DungeonPlayData_::set_has_regdate() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void DungeonPlayData_::clear_has_regdate() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void DungeonPlayData_::clear_regdate() {
+  regdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_regdate();
+}
+inline const ::std::string& DungeonPlayData_::regdate() const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonPlayData_.regDate)
+  return regdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void DungeonPlayData_::set_regdate(const ::std::string& value) {
+  set_has_regdate();
+  regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.DungeonPlayData_.regDate)
+}
+inline void DungeonPlayData_::set_regdate(const char* value) {
+  set_has_regdate();
+  regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.DungeonPlayData_.regDate)
+}
+inline void DungeonPlayData_::set_regdate(const char* value, size_t size) {
+  set_has_regdate();
+  regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.DungeonPlayData_.regDate)
+}
+inline ::std::string* DungeonPlayData_::mutable_regdate() {
+  set_has_regdate();
+  // @@protoc_insertion_point(field_mutable:MSG.DungeonPlayData_.regDate)
+  return regdate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* DungeonPlayData_::release_regdate() {
+  // @@protoc_insertion_point(field_release:MSG.DungeonPlayData_.regDate)
+  clear_has_regdate();
+  return regdate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void DungeonPlayData_::set_allocated_regdate(::std::string* regdate) {
+  if (regdate != NULL) {
+    set_has_regdate();
+  } else {
+    clear_has_regdate();
+  }
+  regdate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), regdate);
+  // @@protoc_insertion_point(field_set_allocated:MSG.DungeonPlayData_.regDate)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

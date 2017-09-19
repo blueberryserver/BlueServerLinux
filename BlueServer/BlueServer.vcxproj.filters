@@ -57,6 +57,9 @@
     <ClCompile Include="Battle.cpp">
       <Filter>Contents\Battle</Filter>
     </ClCompile>
+    <ClCompile Include="DBQueryBattleLog.cpp">
+      <Filter>Contents\Battle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -151,6 +154,9 @@
       <Filter>Contents\Battle</Filter>
     </ClInclude>
     <ClInclude Include="BattleObj.h">
+      <Filter>Contents\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="DBQueryBattleLog.h">
       <Filter>Contents\Battle</Filter>
     </ClInclude>
   </ItemGroup>

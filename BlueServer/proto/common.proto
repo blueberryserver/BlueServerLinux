@@ -56,6 +56,9 @@ enum MsgId {
 
 	TIERUPCHAR_REQ = 20191;
 	TIERUPCHAR_ANS = 20192;
+
+	BATTLELOG_REQ = 20201;
+	BATTLELOG_ANS = 20202;
 }
 
 // Error type
@@ -220,4 +223,15 @@ message BattleData_ {
 	required uint32 srcNo = 1;
 	repeated Attack targets = 2;
 	required Team team = 3;
+}
+
+
+// dungeon play data log
+message DungeonPlayData_ {
+	required uint64 lid = 1;
+	required uint64 uid = 2;
+	repeated BattleData_ battles = 3;
+	repeated CharData_ chars = 4;
+	repeated CharData_ mobs = 5;	
+	required string regDate = 6;
 }

@@ -3,17 +3,17 @@
 import "common.proto";
 package MSG;
 
-// 컨텐츠 정보 통보
+// contents notify
 message ContentsNot {
 	repeated string contents = 1;
 
-	// 마지막 던전 플레이 정보
+	// last dungeon play info
 	required uint32 dungeonNo = 2;
 	required uint32 tier = 3;
 
 }
 
-// 휴식중 플레이 통보(1시간 1회 플레이)
+// idle play( 1 hour 1 play)
 message PlayDungeonNot {
 	message DungeonPlay {
 		required uint32 dungeonNo = 1;
@@ -27,7 +27,7 @@ message PlayDungeonNot {
 }
 
 
-// 캐릭터 생성( 캐릭터가 존재하지 않으면 무료 1개 캐릭터 생성 가능)
+// create character
 message CreateCharReq {
 	required uint32 charNo = 1;
 }
@@ -37,35 +37,35 @@ message CreateCharAns {
 	optional CharData_ char_ = 2;
 }
 
-// 재화 변화 통보
+// change currency notify
 message CurrencyNot {
-	required uint32 vc1 = 1;	// 레벨업
-	required uint32 vc2 = 2;	// 캐릭터 구매, 티어 업
+	required uint32 vc1 = 1;	// level up
+	required uint32 vc2 = 2;	// buy character, tier up
 	required uint32 vc3 = 3;
 }
 
 
-// 던전 플레이 요청
+// dungeon play req
 message PlayDungeonReq {
 	required uint32 dungeonNo = 1;
 	required uint32 tier = 2;
 }
 
-// 던전 플레이 결과
+// dungeon play ans
 message PlayDungeonAns {
 	required ErrorCode err = 1;
-	// 던전 플레이 결과
+	// battle play data
 	repeated BattleData_ battles = 2;
 	repeated CharData_ chars = 3;
 	repeated CharData_ mobs = 4;
 }
 
-// 캐릭터 렙벨업 요청
+// character level up req
 message LevelupCharReq {
 	required uint32 slotNo = 1;
 }
 
-// 캐릭터 렙벨업 결과
+// character level up ans
 message LevelupCharAns {
 	required ErrorCode err = 1;
 	optional CharData_ char_ = 2;
@@ -73,13 +73,22 @@ message LevelupCharAns {
 
 
 
-// 캐릭터 티어 업 요청
+// character tier up req
 message TierupCharReq {
 	required uint32 slotNo = 1;
 }
 
-// 캐릭터 렙벨업 결과
+// character tier up ans
 message TierupCharAns {
 	required ErrorCode err = 1;
 	optional CharData_ char_ = 2;
+}
+
+message BattleLogReq {
+	required uint64 lid = 1;
+}
+
+message BattleLogAns {
+	required ErrorCode err = 1;
+	required DungeonPlayData_ data = 2;	
 }

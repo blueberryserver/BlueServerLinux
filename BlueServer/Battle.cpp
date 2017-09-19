@@ -10,8 +10,9 @@
 namespace BLUE_BERRY
 {
 
-BLUE_BERRY::Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_, int tier_)
+Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_, int tier_)
 {
+	_battleDatas.clear();
 	auto table = JsonFileLoader::getJsonFileLoader()->get("SimTable.json");
 
 	// ally 
@@ -60,10 +61,12 @@ BLUE_BERRY::Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_,
 				break;
 			}
 		}
-
-		BattleObj* obj = new BattleObj(statTable->level(), characterTable->no(), statTable->atk(), statTable->def(), statTable->hp(), characterTable->attackrange());
+		auto charTier = 0;
+		if (charTierTable != nullptr) charTier = charTierTable->tier();
+		BattleObj* obj = new BattleObj(statTable->level(), characterTable->no(), charTier/*, statTable->atk(), statTable->def(), statTable->hp(), characterTable->attackrange()*/);
 		_ally.push_back(obj);
 
+		/*
 		if (charTierTable == nullptr) continue;
 		obj->addBuff(
 		{ 
@@ -72,6 +75,7 @@ BLUE_BERRY::Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_,
 			{ String2BuffType(charTierTable->buff3type(), charTierTable->buff3value()), String2BuffValue(charTierTable->buff3value()) },
 		}
 		);
+		*/
 	}
 
 	// enemy
@@ -142,7 +146,7 @@ BLUE_BERRY::Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_,
 
 			if (characterTable != nullptr)
 			{
-				BattleObj* obj = new BattleObj(mobAStatTable->level(), characterTable->no(), mobAStatTable->atk(), mobAStatTable->def(), mobAStatTable->hp(), characterTable->attackrange());
+				BattleObj* obj = new BattleObj(mobAStatTable->level(), characterTable->no(), tier_/*, mobAStatTable->atk(), mobAStatTable->def(), mobAStatTable->hp(), characterTable->attackrange()*/);
 				_enemy.push_back(obj);
 			}
 		}
@@ -162,7 +166,7 @@ BLUE_BERRY::Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_,
 
 			if (characterTable != nullptr)
 			{
-				BattleObj* obj = new BattleObj(mobAStatTable->level(), characterTable->no(), mobBStatTable->atk(), mobBStatTable->def(), mobBStatTable->hp(), characterTable->attackrange());
+				BattleObj* obj = new BattleObj(mobAStatTable->level(), characterTable->no(), tier_/*, mobBStatTable->atk(), mobBStatTable->def(), mobBStatTable->hp(), characterTable->attackrange()*/);
 				_enemy.push_back(obj);
 			}
 		}
@@ -182,11 +186,11 @@ BLUE_BERRY::Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_,
 
 			if (characterTable != nullptr)
 			{
-				BattleObj* obj = new BattleObj(mobAStatTable->level(), characterTable->no(), mobCStatTable->atk(), mobCStatTable->def(), mobCStatTable->hp(), characterTable->attackrange());
+				BattleObj* obj = new BattleObj(mobAStatTable->level(), characterTable->no(), tier_/*, mobCStatTable->atk(), mobCStatTable->def(), mobCStatTable->hp(), characterTable->attackrange()*/);
 				_enemy.push_back(obj);
 			}
 		}
-
+		/*
 		MSG::DungeonTier tier; json2Proto(table["DungeonTier"], tier);
 		MSG::DungeonTier::DungeonTierTable* dungeonTierTable = nullptr;
 		for (auto i = 0; i < tier.data_size(); i++)
@@ -211,9 +215,33 @@ BLUE_BERRY::Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_,
 				);
 			}
 		}
+		*/
 	}
 
 }
+
+Battle::Battle()
+{
+
+}
+
+void Battle::addBattleObj(BattleObj* obj_, MSG::BattleData_::Team team_)
+{
+	if (team_ == MSG::BattleData_::ALLY)
+	{
+		_ally.push_back(obj_);
+	}
+	else
+	{
+		_enemy.push_back(obj_);
+	}
+}
+
+void Battle::addBattleData(MSG::BattleData_* battleData_)
+{
+	_battleDatas.push_back(battleData_);
+}
+
 
 Battle::~Battle()
 {
@@ -227,6 +255,7 @@ Battle::~Battle()
 		delete it;
 	}
 
+
 	for (auto it : _battleDatas)
 	{
 		delete it;
@@ -235,7 +264,7 @@ Battle::~Battle()
 
 void Battle::play()
 {
-	LOG(L_INFO_, "start");
+	LOG(L_INFO_, "play start");
 
 	// 랜덤 시드 설정
 	std::random_device rd;
@@ -324,7 +353,7 @@ void Battle::play()
 					if (target->isAlive()) attackInfo->set_result(MSG::BattleData_::ALIVE);
 					else attackInfo->set_result(MSG::BattleData_::DEAD);
 
-					LOG(L_INFO_, "defence", "slot1", targetSlot, "damage", damage, "hp", target->getCurHp(), "result", (int)target->isAlive());
+					LOG(L_INFO_, "defence", "slot1", targetSlot, "damage", damage, "hp", target->getCurHp(), "result", MSG::BattleData_::AttackResult_Name(attackInfo->result()));
 				}
 
 
@@ -364,7 +393,7 @@ void Battle::play()
 						if (target2->isAlive()) attackInfo->set_result(MSG::BattleData_::ALIVE);
 						else attackInfo->set_result(MSG::BattleData_::DEAD);
 
-						LOG(L_INFO_, "defence", "slot2", target2Slot, "damage", damage, "hp", target2->getCurHp(), "result", (int)target2->isAlive());
+						LOG(L_INFO_, "defence", "slot2", target2Slot, "damage", damage, "hp", target2->getCurHp(), "result", MSG::BattleData_::AttackResult_Name(attackInfo->result()));
 					}
 				}
 
@@ -391,7 +420,63 @@ void Battle::play()
 	}
 
 	auto winnerTeam = winner();
-	LOG(L_INFO_, "battle", "result", MSG::BattleData_::Team_Name(winnerTeam));
+	LOG(L_INFO_, "battle", "winner", MSG::BattleData_::Team_Name(winnerTeam), "count", (int)_battleDatas.size());
+}
+
+void Battle::replay()
+{
+	LOG(L_INFO_, "replay start");
+
+	// 배틀 오브젝트 hp 초기화
+	for (auto it : _ally)
+	{
+		it->initHp();
+	}
+
+	for (auto it : _enemy)
+	{
+		it->initHp();
+	}
+	
+	MSG::BattleData_::Team attackTeam = MSG::BattleData_::ENEMY;
+	std::vector<BattleObj*>* attackTeamObjs = nullptr;
+	std::vector<BattleObj*>* defenceTeamObjs = nullptr;
+
+	int turn = 0;
+	for (auto battle : _battleDatas)
+	{
+		if (battle->team() != attackTeam)
+		{
+			attackTeam = battle->team();
+			LOG(L_INFO_, "battle", "turn", turn, "attack team", MSG::BattleData_::Team_Name(attackTeam));
+			turn++;
+			if (attackTeam == MSG::BattleData_::ALLY)
+			{
+				attackTeamObjs = &_ally;
+				defenceTeamObjs = &_enemy;
+			}
+			else
+			{
+				attackTeamObjs = &_enemy;
+				defenceTeamObjs = &_ally;
+			}
+		}
+		auto srcObj = (*attackTeamObjs)[battle->srcno()];
+
+		LOG(L_INFO_, "attack", "slot", (int)battle->srcno(), "range", srcObj->getRange());
+
+		auto targetCount = battle->targets_size();
+		for (auto i = 0; i < targetCount; ++i)
+		{
+			auto target = battle->mutable_targets(i);
+			auto targetObj = (*defenceTeamObjs)[target->no()];
+			targetObj->changeHp(-(int)target->damage());
+			LOG(L_INFO_, "defence", "slot1", (int)target->no(), "damage", (int)target->damage(), "hp", targetObj->getCurHp(), "result", MSG::BattleData_::AttackResult_Name(target->result()));
+		}
+	}
+	auto winnerTeam = winner();
+	LOG(L_INFO_, "battle", "winner", MSG::BattleData_::Team_Name(winnerTeam), "count", (int)_battleDatas.size());
+
 }
 
 bool Battle::isGameOver( MSG::BattleData_::Team team_)

@@ -14,6 +14,7 @@ public:
 	DECLARE_HANDLER(SessionPtr, PlayDungeonReq);
 	DECLARE_HANDLER(SessionPtr, LevelupCharReq);
 	DECLARE_HANDLER(SessionPtr, TierupCharReq);
+	DECLARE_HANDLER(SessionPtr, BattleLogReq);
 
 public:
 	DECLARE_MGR(GameHandler)
