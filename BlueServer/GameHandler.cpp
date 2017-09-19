@@ -270,6 +270,24 @@ DEFINE_HANDLER(GameHandler, SessionPtr, PlayDungeonReq)
 
 	session_->SendPacket(MSG::PLAYDUNGEON_ANS, &ans);
 
+	if (battle.winner() == MSG::BattleData_::ALLY)
+	{
+		userData->set_vc1(userData->vc1() + battle.getReward());
+
+		MSG::CurrencyNot notify;
+		notify.set_vc1(userData->vc1());
+		notify.set_vc2(userData->vc2());
+		notify.set_vc3(userData->vc3());
+		session_->SendPacket(MSG::CURRENCY_NOT, &notify);
+
+		DBQueryUser query;
+		query.setData(*userData);
+		if (query.updateData() == false)
+		{
+			return true;
+		}
+	}
+
 	// db insert
 	{
 		MSG::DungeonPlayData_ data;

@@ -25,11 +25,16 @@ public:
 
 	const std::vector<BattleObj*>& getMonsterData() { return _enemy; }
 
+	int getReward() { return _reward; }
+
+	MSG::BattleData_::Team winner();
 private:
 	bool isGameOver(MSG::BattleData_::Team team_);
-	MSG::BattleData_::Team winner();
 
 private:
+	int _dungeonNo;
+	int _tier;
+	int _reward;
 	// 플레이어 캐릭터
 	std::vector<BattleObj*> _ally;
 

@@ -11,6 +11,7 @@ namespace BLUE_BERRY
 {
 
 Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_, int tier_)
+	: _dungeonNo(dungeonNo_), _tier(tier_)
 {
 	_battleDatas.clear();
 	auto table = JsonFileLoader::getJsonFileLoader()->get("SimTable.json");
@@ -65,17 +66,6 @@ Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_, int tier_)
 		if (charTierTable != nullptr) charTier = charTierTable->tier();
 		BattleObj* obj = new BattleObj(statTable->level(), characterTable->no(), charTier/*, statTable->atk(), statTable->def(), statTable->hp(), characterTable->attackrange()*/);
 		_ally.push_back(obj);
-
-		/*
-		if (charTierTable == nullptr) continue;
-		obj->addBuff(
-		{ 
-			{ String2BuffType(charTierTable->buff1type(), charTierTable->buff1value()), String2BuffValue(charTierTable->buff1value()) },
-			{ String2BuffType(charTierTable->buff2type(), charTierTable->buff2value()), String2BuffValue(charTierTable->buff2value()) },
-			{ String2BuffType(charTierTable->buff3type(), charTierTable->buff3value()), String2BuffValue(charTierTable->buff3value()) },
-		}
-		);
-		*/
 	}
 
 	// enemy
@@ -92,7 +82,6 @@ Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_, int tier_)
 	}
 
 	if (dungeonTable == nullptr) return;
-
 
 	MSG::MobAStat mobAStat; json2Proto(table["MobAStat"], mobAStat);
 	MSG::MobAStat::MobAStatTable* mobAStatTable = nullptr;
@@ -190,34 +179,9 @@ Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_, int tier_)
 				_enemy.push_back(obj);
 			}
 		}
-		/*
-		MSG::DungeonTier tier; json2Proto(table["DungeonTier"], tier);
-		MSG::DungeonTier::DungeonTierTable* dungeonTierTable = nullptr;
-		for (auto i = 0; i < tier.data_size(); i++)
-		{
-			auto data = tier.mutable_data(i);
-			if (data->tier() == tier_)
-			{
-				dungeonTierTable = data;
-				break;
-			}
-		}
-
-		if (dungeonTierTable != nullptr)
-		{
-			for (auto it : _enemy)
-			{
-				it->addBuff({
-					{ String2BuffType(dungeonTierTable->buff1type(), dungeonTierTable->buff1value()), String2BuffValue(dungeonTierTable->buff1value()) },
-					{ String2BuffType(dungeonTierTable->buff2type(), dungeonTierTable->buff2value()), String2BuffValue(dungeonTierTable->buff2value()) },
-					{ String2BuffType(dungeonTierTable->buff3type(), dungeonTierTable->buff3value()), String2BuffValue(dungeonTierTable->buff3value()) },
-				}
-				);
-			}
-		}
-		*/
 	}
 
+	_reward = dungeonTable->reward() * ( _tier + 1);
 }
 
 Battle::Battle()
@@ -343,8 +307,16 @@ void Battle::play()
 				target = (*defenceTeamObjs)[targetSlot];
 				if (target != nullptr)
 				{
+					// 공격력 산출
+					// 최대 공격력
+					auto maxAtk = it->getAtk();
+					// 최소 공격력
+					auto minAtk = it->getAtk() / 2;
+					// 랜덤 최소 ~ 최대
+					int atk = minAtk + (g() % (maxAtk - minAtk));
+
 					// 데미지 계산
-					int damage = std::max(it->getAtk() - target->getDef(), 0);
+					int damage = std::max(atk - target->getDef(), 0);
 					target->changeHp(-damage);
 
 					auto attackInfo = battleData->add_targets();
@@ -383,8 +355,16 @@ void Battle::play()
 
 					if (target2 != nullptr && target2->isAlive() == true)
 					{
+						// 공격력 산출
+						// 최대 공격력
+						auto maxAtk = it->getAtk();
+						// 최소 공격력
+						auto minAtk = it->getAtk() / 2;
+						// 랜덤 최소 ~ 최대
+						int atk = minAtk + (g() % (maxAtk - minAtk));
+
 						// 데미지 계산
-						int damage = std::max(it->getAtk() - target2->getDef(), 0);
+						int damage = std::max(atk - target2->getDef(), 0);
 						target2->changeHp(-damage);
 
 						auto attackInfo = battleData->add_targets();
