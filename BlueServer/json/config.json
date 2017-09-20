@@ -13,7 +13,7 @@
     ]
   },
   "redis": {
-    "pool": 4,
+    "pool": 10,
     "connect_info": [
       {
         "connect_addr": "127.0.0.1",

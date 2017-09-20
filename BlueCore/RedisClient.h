@@ -99,6 +99,7 @@ public:
 				{
 					LOG(L_DEBUG_, "replay", "array", reply._array);
 				}
+
 				if( _keys.empty() == false)
 				{
 					size_t key;
@@ -729,6 +730,7 @@ public:
 
 	bool connect(boost::asio::io_service& io_, int serverNo_, const char* addr_, short port_, int db_)
 	{
+		_io = &io_;
 		if (serverNo_ > MAX_SERVER_SIZE || serverNo_ < 0) return false;
 
 		for (int i = 0; i < _poolCount; i++)
@@ -749,6 +751,9 @@ public:
 	{
 		std::shared_ptr< RedisConntion<Session> > client;
 		if (_pool[serverNo_].pop(client) == true) return client;
+
+		client = std::make_shared< RedisConntion<Session> >(*_io);
+		client->connect(_connAddrInfos[serverNo_]._addr.c_str(), _connAddrInfos[serverNo_]._port);
 		return client;
 	}
 
@@ -771,6 +776,7 @@ public:
 	DECLARE_MGR(RedisPool)
 
 private:
+	boost::asio::io_service* _io;
 	int _poolCount;
 	RedisServerAddr _connAddrInfos[MAX_SERVER_SIZE];
 	LockFreeQueue< std::shared_ptr< RedisConntion<Session> >, 65536 > _pool[MAX_SERVER_SIZE];
