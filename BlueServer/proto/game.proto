@@ -41,7 +41,7 @@ message CreateCharAns {
 message CurrencyNot {
 	required uint32 vc1 = 1;	// level up
 	required uint32 vc2 = 2;	// buy character, tier up
-	required uint32 vc3 = 3;
+	required uint32 vc3 = 3;	// not used
 }
 
 
@@ -90,5 +90,5 @@ message BattleLogReq {
 
 message BattleLogAns {
 	required ErrorCode err = 1;
-	required DungeonPlayData_ data = 2;	
+	repeated DungeonPlayData_ data = 2;	
 }

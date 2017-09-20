@@ -139,7 +139,6 @@
     <ClInclude Include="DBQuery.h">
       <Filter>Contents</Filter>
     </ClInclude>
-    <ClInclude Include="BlueORM.h" />
     <ClInclude Include="DBQueryChar.h">
       <Filter>Contents\User</Filter>
     </ClInclude>

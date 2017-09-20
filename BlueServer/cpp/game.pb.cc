@@ -409,7 +409,7 @@ void protobuf_AddDesc_game_2eproto() {
     "\002(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002 \001(\0132\016.MSG"
     ".CharData_\"\033\n\014BattleLogReq\022\013\n\003lid\030\001 \002(\004\""
     "P\n\014BattleLogAns\022\033\n\003err\030\001 \002(\0162\016.MSG.Error"
-    "Code\022#\n\004data\030\002 \002(\0132\025.MSG.DungeonPlayData"
+    "Code\022#\n\004data\030\002 \003(\0132\025.MSG.DungeonPlayData"
     "_", 1001);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "game.proto", &protobuf_RegisterTypes);
@@ -5323,7 +5323,6 @@ BattleLogAns::BattleLogAns()
 }
 
 void BattleLogAns::InitAsDefaultInstance() {
-  data_ = const_cast< ::MSG::DungeonPlayData_*>(&::MSG::DungeonPlayData_::default_instance());
 }
 
 BattleLogAns::BattleLogAns(const BattleLogAns& from)
@@ -5337,7 +5336,6 @@ BattleLogAns::BattleLogAns(const BattleLogAns& from)
 void BattleLogAns::SharedCtor() {
   _cached_size_ = 0;
   err_ = 0;
-  data_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -5348,7 +5346,6 @@ BattleLogAns::~BattleLogAns() {
 
 void BattleLogAns::SharedDtor() {
   if (this != default_instance_) {
-    delete data_;
   }
 }
 
@@ -5379,12 +5376,8 @@ BattleLogAns* BattleLogAns::New(::google::protobuf::Arena* arena) const {
 
 void BattleLogAns::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.BattleLogAns)
-  if (_has_bits_[0 / 32] & 3u) {
-    err_ = 0;
-    if (has_data()) {
-      if (data_ != NULL) data_->::MSG::DungeonPlayData_::Clear();
-    }
-  }
+  err_ = 0;
+  data_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -5420,15 +5413,19 @@ bool BattleLogAns::MergePartialFromCodedStream(
         break;
       }
 
-      // required .MSG.DungeonPlayData_ data = 2;
+      // repeated .MSG.DungeonPlayData_ data = 2;
       case 2: {
         if (tag == 18) {
          parse_data:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_data()));
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_data()));
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(18)) goto parse_loop_data;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -5464,10 +5461,10 @@ void BattleLogAns::SerializeWithCachedSizes(
       1, this->err(), output);
   }
 
-  // required .MSG.DungeonPlayData_ data = 2;
-  if (has_data()) {
+  // repeated .MSG.DungeonPlayData_ data = 2;
+  for (unsigned int i = 0, n = this->data_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->data_, output);
+      2, this->data(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5486,11 +5483,11 @@ void BattleLogAns::SerializeWithCachedSizes(
       1, this->err(), target);
   }
 
-  // required .MSG.DungeonPlayData_ data = 2;
-  if (has_data()) {
+  // repeated .MSG.DungeonPlayData_ data = 2;
+  for (unsigned int i = 0, n = this->data_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        2, *this->data_, false, target);
+        2, this->data(i), false, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5501,42 +5498,23 @@ void BattleLogAns::SerializeWithCachedSizes(
   return target;
 }
 
-int BattleLogAns::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.BattleLogAns)
-  int total_size = 0;
-
-  if (has_err()) {
-    // required .MSG.ErrorCode err = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
-  }
-
-  if (has_data()) {
-    // required .MSG.DungeonPlayData_ data = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->data_);
-  }
-
-  return total_size;
-}
 int BattleLogAns::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.BattleLogAns)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .MSG.ErrorCode err = 1;
+  // required .MSG.ErrorCode err = 1;
+  if (has_err()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
-
-    // required .MSG.DungeonPlayData_ data = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->data_);
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
+  // repeated .MSG.DungeonPlayData_ data = 2;
+  total_size += 1 * this->data_size();
+  for (int i = 0; i < this->data_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->data(i));
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -5570,12 +5548,10 @@ void BattleLogAns::MergeFrom(const BattleLogAns& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
+  data_.MergeFrom(from.data_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_err()) {
       set_err(from.err());
-    }
-    if (from.has_data()) {
-      mutable_data()->::MSG::DungeonPlayData_::MergeFrom(from.data());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -5598,11 +5574,9 @@ void BattleLogAns::CopyFrom(const BattleLogAns& from) {
 }
 
 bool BattleLogAns::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (has_data()) {
-    if (!this->data_->IsInitialized()) return false;
-  }
+  if (!::google::protobuf::internal::AllAreInitialized(this->data())) return false;
   return true;
 }
 
@@ -5612,7 +5586,7 @@ void BattleLogAns::Swap(BattleLogAns* other) {
 }
 void BattleLogAns::InternalSwap(BattleLogAns* other) {
   std::swap(err_, other->err_);
-  std::swap(data_, other->data_);
+  data_.UnsafeArenaSwap(&other->data_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -5654,48 +5628,34 @@ void BattleLogAns::clear_err() {
   // @@protoc_insertion_point(field_set:MSG.BattleLogAns.err)
 }
 
-// required .MSG.DungeonPlayData_ data = 2;
-bool BattleLogAns::has_data() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void BattleLogAns::set_has_data() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void BattleLogAns::clear_has_data() {
-  _has_bits_[0] &= ~0x00000002u;
+// repeated .MSG.DungeonPlayData_ data = 2;
+int BattleLogAns::data_size() const {
+  return data_.size();
 }
 void BattleLogAns::clear_data() {
-  if (data_ != NULL) data_->::MSG::DungeonPlayData_::Clear();
-  clear_has_data();
+  data_.Clear();
 }
-const ::MSG::DungeonPlayData_& BattleLogAns::data() const {
+const ::MSG::DungeonPlayData_& BattleLogAns::data(int index) const {
   // @@protoc_insertion_point(field_get:MSG.BattleLogAns.data)
-  return data_ != NULL ? *data_ : *default_instance_->data_;
+  return data_.Get(index);
 }
-::MSG::DungeonPlayData_* BattleLogAns::mutable_data() {
-  set_has_data();
-  if (data_ == NULL) {
-    data_ = new ::MSG::DungeonPlayData_;
-  }
+::MSG::DungeonPlayData_* BattleLogAns::mutable_data(int index) {
   // @@protoc_insertion_point(field_mutable:MSG.BattleLogAns.data)
+  return data_.Mutable(index);
+}
+::MSG::DungeonPlayData_* BattleLogAns::add_data() {
+  // @@protoc_insertion_point(field_add:MSG.BattleLogAns.data)
+  return data_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::MSG::DungeonPlayData_ >*
+BattleLogAns::mutable_data() {
+  // @@protoc_insertion_point(field_mutable_list:MSG.BattleLogAns.data)
+  return &data_;
+}
+const ::google::protobuf::RepeatedPtrField< ::MSG::DungeonPlayData_ >&
+BattleLogAns::data() const {
+  // @@protoc_insertion_point(field_list:MSG.BattleLogAns.data)
   return data_;
-}
-::MSG::DungeonPlayData_* BattleLogAns::release_data() {
-  // @@protoc_insertion_point(field_release:MSG.BattleLogAns.data)
-  clear_has_data();
-  ::MSG::DungeonPlayData_* temp = data_;
-  data_ = NULL;
-  return temp;
-}
-void BattleLogAns::set_allocated_data(::MSG::DungeonPlayData_* data) {
-  delete data_;
-  data_ = data;
-  if (data) {
-    set_has_data();
-  } else {
-    clear_has_data();
-  }
-  // @@protoc_insertion_point(field_set_allocated:MSG.BattleLogAns.data)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

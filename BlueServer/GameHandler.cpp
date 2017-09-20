@@ -586,6 +586,8 @@ DEFINE_HANDLER(GameHandler, SessionPtr, BattleLogReq)
 	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
 	auto userData = user->getData();
 
+	MSG::BattleLogAns ans;
+	ans.set_err(MSG::ERR_SUCCESS);
 	{
 		DBQueryBattleLog query;
 		query.setWhere("uid=%I64u order by lid desc limit 0, 1", userData->uid());
@@ -635,14 +637,13 @@ DEFINE_HANDLER(GameHandler, SessionPtr, BattleLogReq)
 				battle.addBattleObj(battleObj, MSG::BattleData_::ENEMY);
 			}
 			battle.replay();
+			auto battleLogData = ans.add_data();
+			battleLogData->CopyFrom(dataIt);
 		}
 	}
 
 	// answer
-	MSG::BattleLogAns ans;
-	ans.set_err(MSG::ERR_SUCCESS);	
 	session_->SendPacket(MSG::BATTLELOG_ANS, &ans);
-
 	return true;
 }
 
