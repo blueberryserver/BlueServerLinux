@@ -97,6 +97,7 @@ message UserData_ {
 	optional string language = 12;
 
 	repeated CharData_ chars = 13;
+	optional DungeonData_ lastDungeon = 14;
 }
 
 // contents info data
@@ -194,11 +195,13 @@ message CharData_ {
 
 // dungeon data
 message DungeonData_ {
-	required uint32 no = 1;
-	required uint32 tier = 2;
+	required uint64 uid = 1;
+	required uint32 dungeonNo = 2;
+	required uint32 dungeonTier = 3;
+	optional string updateDate = 4;
 
 	// monster table
-	repeated CharData_ monsters = 3;
+	repeated CharData_ monsters = 5;
 }
 
 // battle data

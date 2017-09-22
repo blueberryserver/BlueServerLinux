@@ -11,6 +11,7 @@
 #include "DBQueryUser.h"
 #include "DBQueryChar.h"
 #include "DBQueryBattleLog.h"
+#include "DBQueryDungeon.h"
 
 #include "Battle.h"
 
@@ -288,7 +289,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, PlayDungeonReq)
 		}
 	}
 
-	// db insert
+	// db insert battlelog
 	{
 		MSG::DungeonPlayData_ data;
 		data.set_lid(0);
@@ -322,6 +323,27 @@ DEFINE_HANDLER(GameHandler, SessionPtr, PlayDungeonReq)
 		DBQueryBattleLog query;
 		query.setData({ data, });
 		if (query.insertData() == false)
+		{
+			return true;
+		}
+
+		if (query.haveData() == false)
+		{
+			return true;
+		}
+	}
+
+	// db insert dungeondata
+	{
+		MSG::DungeonData_ data;
+		data.set_uid(userData->uid());
+		data.set_dungeonno(req.dungeonno());
+		data.set_dungeontier(req.tier());
+		data.set_updatedate(DateTime::getCurrentDateTime().formatLocal().c_str());
+
+		DBQueryDungeon query;
+		query.setData({ data, });
+		if (query.updateData() == false)
 		{
 			return true;
 		}
