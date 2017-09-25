@@ -951,10 +951,24 @@ class PlayDungeonAns : public ::google::protobuf::Message /* @@protoc_insertion_
   const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
       mobs() const;
 
+  // required .MSG.BattleData_ winner = 5;
+  bool has_winner() const;
+  void clear_winner();
+  static const int kWinnerFieldNumber = 5;
+  const ::MSG::BattleData_& winner() const;
+  ::MSG::BattleData_* mutable_winner();
+  ::MSG::BattleData_* release_winner();
+  void set_allocated_winner(::MSG::BattleData_* winner);
+
   // @@protoc_insertion_point(class_scope:MSG.PlayDungeonAns)
  private:
   inline void set_has_err();
   inline void clear_has_err();
+  inline void set_has_winner();
+  inline void clear_has_winner();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
@@ -962,6 +976,7 @@ class PlayDungeonAns : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ > battles_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > chars_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > mobs_;
+  ::MSG::BattleData_* winner_;
   int err_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
@@ -2198,6 +2213,50 @@ inline const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
 PlayDungeonAns::mobs() const {
   // @@protoc_insertion_point(field_list:MSG.PlayDungeonAns.mobs)
   return mobs_;
+}
+
+// required .MSG.BattleData_ winner = 5;
+inline bool PlayDungeonAns::has_winner() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void PlayDungeonAns::set_has_winner() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void PlayDungeonAns::clear_has_winner() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void PlayDungeonAns::clear_winner() {
+  if (winner_ != NULL) winner_->::MSG::BattleData_::Clear();
+  clear_has_winner();
+}
+inline const ::MSG::BattleData_& PlayDungeonAns::winner() const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.winner)
+  return winner_ != NULL ? *winner_ : *default_instance_->winner_;
+}
+inline ::MSG::BattleData_* PlayDungeonAns::mutable_winner() {
+  set_has_winner();
+  if (winner_ == NULL) {
+    winner_ = new ::MSG::BattleData_;
+  }
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonAns.winner)
+  return winner_;
+}
+inline ::MSG::BattleData_* PlayDungeonAns::release_winner() {
+  // @@protoc_insertion_point(field_release:MSG.PlayDungeonAns.winner)
+  clear_has_winner();
+  ::MSG::BattleData_* temp = winner_;
+  winner_ = NULL;
+  return temp;
+}
+inline void PlayDungeonAns::set_allocated_winner(::MSG::BattleData_* winner) {
+  delete winner_;
+  winner_ = winner;
+  if (winner) {
+    set_has_winner();
+  } else {
+    clear_has_winner();
+  }
+  // @@protoc_insertion_point(field_set_allocated:MSG.PlayDungeonAns.winner)
 }
 
 // -------------------------------------------------------------------

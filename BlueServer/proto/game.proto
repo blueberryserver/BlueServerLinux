@@ -58,6 +58,7 @@ message PlayDungeonAns {
 	repeated BattleData_ battles = 2;
 	repeated CharData_ chars = 3;
 	repeated CharData_ mobs = 4;
+	required BattleData_ winner = 5;
 }
 
 // character level up req

@@ -269,6 +269,8 @@ DEFINE_HANDLER(GameHandler, SessionPtr, PlayDungeonReq)
 		battle->CopyFrom(*it);
 	}
 
+	ans.mutable_winner()->set_team(battle.winner());
+
 	session_->SendPacket(MSG::PLAYDUNGEON_ANS, &ans);
 
 	if (battle.winner() == MSG::BattleData_::ALLY)
