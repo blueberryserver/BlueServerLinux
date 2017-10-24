@@ -152,6 +152,7 @@ private:
 	// rollback
 	// commit
 	// query string
+	// preparedstement pooling
 
 
 	

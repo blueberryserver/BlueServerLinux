@@ -133,6 +133,7 @@ static bool redisReplyParsing(_RedisReply& replay_, const char* buff_, size_t le
 	else if (cmd == ':') replay_._type = REPY_INTEGER;
 	else if (cmd == '*') replay_._type = REPY_ARRAY;
 	else if (cmd == '$') replay_._type = REPY_BULKSTRING;
+	else replay_._type = REPY_NIL;
 
 	if (replay_._type == REPY_STRING || replay_._type == REPY_ERROR)
 	{

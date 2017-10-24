@@ -163,7 +163,7 @@ public:
 		_buffs.clear();
 	}
 
-	void addBuff(std::vector<Buff>&& buffs_)
+	void addBuff(const std::vector<Buff>& buffs_)
 	{
 		for (auto it : buffs_)
 			_buffs.push_back(it);

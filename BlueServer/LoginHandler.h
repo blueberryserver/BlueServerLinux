@@ -18,7 +18,7 @@ public:
 	DECLARE_HANDLER(SessionPtr, RegistReq);
 
 	// db query proc function
-	static void dbSelectUser(const SessionPtr session_, const std::string name_);
+	static void dbSelectUser(SessionPtr session_, std::string name_);
 	static void dbInsertUser(SessionPtr session_, MSG::UserData_ data_);
 
 	// redis query proc function
