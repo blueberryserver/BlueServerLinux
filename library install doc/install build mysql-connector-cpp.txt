@@ -1,0 +1,14 @@
+$ wget https://github.com/mysql/mysql-connector-cpp/archive/2.0.4.tar.gz
+
+$ tar xf 2.0.4.tar.gz
+
+$ cd mysql-connector-cpp-2.0.4
+
+$ cmake .
+
+$ make
+
+
+$ sudo cp -a include /usr/local/include/mysqlcppconn2
+
+$ sudo cp -a libmysqlcppconn2.so* /usr/local/lib/

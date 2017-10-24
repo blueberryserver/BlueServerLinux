@@ -1,0 +1,140 @@
+syntax = "proto2";
+package MSG;
+
+message Char {
+	message CharacterTable {
+		required uint32 No = 1;
+		required string Name = 2;
+		required uint32 AttackRange = 3;
+	}
+	required string TableName = 1;
+	repeated CharacterTable Data = 2;
+}
+
+message Product {
+	message ProductTable {
+		required uint32 No = 1;
+		required string ProductCode = 2;
+		required uint32 CharNo = 3;
+		required string VCType = 4;
+		required uint32 Value = 5;
+	}
+	required string TableName = 1;
+	repeated ProductTable Data = 2;
+}
+
+message WarriorStat {
+	message WarriorStatTable {
+		required uint32 Level = 1;
+		required uint32 Exp = 2;
+		required uint32 Atk = 3;
+		required uint32 Def = 4;
+		required uint32 Hp = 5;
+	}
+	required string TableName = 1;
+	repeated WarriorStatTable Data = 2;
+}
+
+message ArcherStat {
+	message ArcherStatTable {
+		required uint32 Level = 1;
+		required uint32 Exp = 2;
+		required uint32 Atk = 3;
+		required uint32 Def = 4;
+		required uint32 Hp = 5;
+	}
+	required string TableName = 1;
+	repeated ArcherStatTable Data = 2;
+}
+
+message CharTier {
+	message CharTierTable {
+		required uint32 Tier = 1;
+		required string Buff1Type = 2;
+		required string Buff1Value = 3;
+		required string Buff2Type = 4;
+		required string Buff2Value = 5;
+		required string Buff3Type = 6;
+		required string Buff3Value = 7;
+	}
+	required string TableName = 1;
+	repeated CharTierTable Data = 2;
+}
+
+message DungeonTier {
+	message DungeonTierTable {
+		required uint32 Tier = 1;
+		required string Buff1Type = 2;
+		required string Buff1Value = 3;
+		required string Buff2Type = 4;
+		required string Buff2Value = 5;
+		required string Buff3Type = 6;
+		required string Buff3Value = 7;
+	}
+	required string TableName = 1;
+	repeated DungeonTierTable Data = 2;
+}
+
+message MobAStat {
+	message MobAStatTable {
+		required uint32 Level = 1;
+		required uint32 Exp = 2;
+		required uint32 Atk = 3;
+		required uint32 Def = 4;
+		required uint32 Hp = 5;
+	}
+	required string TableName = 1;
+	repeated MobAStatTable Data = 2;
+}
+
+message MobBStat {
+	message MobBStatTable {
+		required uint32 Level = 1;
+		required uint32 Exp = 2;
+		required uint32 Atk = 3;
+		required uint32 Def = 4;
+		required uint32 Hp = 5;
+	}
+	required string TableName = 1;
+	repeated MobBStatTable Data = 2;
+}
+
+message MobCStat {
+	message MobCStatTable {
+		required uint32 Level = 1;
+		required uint32 Exp = 2;
+		required uint32 Atk = 3;
+		required uint32 Def = 4;
+		required uint32 Hp = 5;
+	}
+	required string TableName = 1;
+	repeated MobCStatTable Data = 2;
+}
+
+message Dungeon {
+	message DungeonTable {
+		required uint32 No = 1;
+		required string Name = 2;
+		required uint32 Level = 3;
+		required uint32 Reward = 4;
+		required uint32 MobALv = 5;
+		required uint32 MobBLv = 6;
+		required uint32 MobCLv = 7;
+	}
+	required string TableName = 1;
+	repeated DungeonTable Data = 2;
+}
+
+message Item {
+	message ItemTable {
+		required uint32 No = 1;
+		required string Name = 2;
+		required string Category = 3;
+		required uint32 CharNo = 4;
+		required string Stat = 5;
+		required uint32 Value = 6;
+	}
+	required string TableName = 1;
+	repeated ItemTable Data = 2;
+}
+
