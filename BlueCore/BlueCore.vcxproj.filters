@@ -136,6 +136,9 @@
     <ClInclude Include="RedisHelper.h">
       <Filter>Redis</Filter>
     </ClInclude>
+    <ClInclude Include="RedisConnection.h">
+      <Filter>Redis</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Network">

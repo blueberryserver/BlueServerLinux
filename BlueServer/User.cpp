@@ -60,14 +60,20 @@ User::~User()
 
 	// cached data save
 	RedisClientPtr client;
+	std::future<_RedisReply> futureReply;
 	std::string jsonStr;
 	toJson(_data).dump(jsonStr);
-	auto keyHGetJon = client->hset("blue_server.UserData.json", std::to_string(_data.uid()).c_str(), jsonStr.c_str());
-	auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
-		LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
-	});
-	SyncJobManager::getSyncJobManager()->addJob(keyHGetJon, makePostJobStatic(hSetPostJobJson), nullptr);
 
+	if (true == client->hset("blue_server.UserData.json", std::to_string(_data.uid()).c_str(), jsonStr.c_str(), std::ref(futureReply)))
+	{
+		auto reply = futureReply.get();
+		LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply);
+	}
+
+	//auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
+	//	LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
+	//});
+	//SyncJobManager::getSyncJobManager()->addJob(keyHGetJon, makePostJobStatic(hSetPostJobJson), nullptr);
 
 	// db save
 	{

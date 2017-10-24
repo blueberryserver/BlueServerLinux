@@ -99,6 +99,7 @@
     <ClInclude Include="mysqldriver\mysql_error.h" />
     <ClInclude Include="Packet.h" />
     <ClInclude Include="RedisClient.h" />
+    <ClInclude Include="RedisConnection.h" />
     <ClInclude Include="RedisHelper.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="Session.h" />

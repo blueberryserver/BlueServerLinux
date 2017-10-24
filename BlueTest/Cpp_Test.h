@@ -1,21 +1,14 @@
 #pragma once
 #include <functional>
-#include "../../BlueCore/Callback.h"
+#include <future>
+#include "../BlueCore/Callback.h"
+
 
 template<typename T>
 void funcT(T t_)
 {
 	t_(10);
 }
-/*
-template<class... A>
-void makePostJobStatic(void(*func_)(A...))
-{
-	func_(10);
-}
-*/
-
-
 
 template<typename T>
 struct memfun_type
@@ -53,4 +46,19 @@ TEST(Cpp, Lamda)
 
 	auto job = BLUE_BERRY::makePostJobStatic(LamdaToFuncObj(lfunc));
 	BLUE_BERRY::executePostJob(job, 10, 200);
+}
+
+
+int TestFunc(int i)
+{
+	std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+	return i * 100;
+}
+
+TEST(Cpp, Future)
+{
+	auto futureResult = std::async(std::launch::async, TestFunc, 100);
+	auto result = futureResult.get();
+
+	ASSERT_EQ(result, 10000);
 }

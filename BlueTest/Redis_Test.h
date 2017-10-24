@@ -1,13 +1,14 @@
 #pragma once
 #include <gtest/gtest.h>
 
-#include "../../BlueCore/MemoryPool.h"
-#include "../../BlueCore/BufferPool.h"
-#include "../../BlueCore/IOService.h"
-#include "../../BlueCore/RedisClient.h"
-#include "../../BlueCore/Session.h"
-#include "../../BlueCore/Logger.h"
-#include "../../BlueCore/SyncJobHelper.h"
+#include "../BlueCore/MemoryPool.h"
+#include "../BlueCore/BufferPool.h"
+#include "../BlueCore/IOService.h"
+#include "../BlueCore/RedisClient.h"
+#include "../BlueCore/RedisConnection.h"
+#include "../BlueCore/Session.h"
+#include "../BlueCore/Logger.h"
+#include "../BlueCore/SyncJobHelper.h"
 
 
 using namespace BLUE_BERRY;
@@ -94,6 +95,19 @@ TEST(Redis, Simple)
 
 		//
 		std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+	}
+
+	{
+		auto conn = std::make_shared< RedisConnection<Session> >(IOService::getIOService()->getIO());
+		auto result = conn->connect("127.0.0.1", 6379);
+
+		std::future<_RedisReply> resultReply;
+		auto r = conn->select(1, std::ref(resultReply));
+
+		auto reply = resultReply.get();
+		{
+			LOG(L_INFO_, "Future", "replay", reply);
+		}
 	}
 
 	GlobalUnloading();

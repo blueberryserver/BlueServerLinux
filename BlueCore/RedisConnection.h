@@ -1,22 +1,13 @@
 #pragma once
-#include <vector>
-#include <string>
-
-#include "Logger.h"
-#include "BufferPool.h"
-#include "Session.h"
-#include "RedisHelper.h"
-#include "RedisConnection.h"
-#include "SyncJobHelper.h"
-#include "Macro.h"
-
+#include <future>
+#include "Callback.h"
 namespace BLUE_BERRY
 {
 
-/*
 template<typename T>
-class RedisConntion
+class RedisConnection
 {
+
 public:
 	enum REDIS_CONN_TYPE
 	{
@@ -27,19 +18,30 @@ public:
 
 	typedef typename std::shared_ptr<T> TPtr;
 
-	RedisConntion(boost::asio::io_service& io_)
+	RedisConnection(boost::asio::io_service& io_)
 	{
 		_MSession = std::make_shared<T>(io_);
 		_SSession = std::make_shared<T>(io_);
 		_SubSession = std::make_shared<T>(io_);
 
-		_MSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProc, this, std::placeholders::_1));
-		_SSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProc, this, std::placeholders::_1));
-		_SubSession->setPacketProcHandler(std::bind(&RedisConntion::recvPacketProcByPublish, this, std::placeholders::_1));
+		_MSession->setPacketProcHandler(std::bind(&RedisConnection::recvPacketProc, this, std::placeholders::_1));
+		_SSession->setPacketProcHandler(std::bind(&RedisConnection::recvPacketProc, this, std::placeholders::_1));
+		_SubSession->setPacketProcHandler(std::bind(&RedisConnection::recvPacketProcByPublish, this, std::placeholders::_1));
 
 	}
-	~RedisConntion()
+	~RedisConnection()
 	{}
+
+private:
+	TPtr _MSession;	// master session
+	TPtr _SSession;	// slave session
+
+	TPtr _SubSession;	// subscribe session
+	Callback* _channelMsgJob;
+
+
+	LockFreeQueue<size_t, 65536> _keys;
+	std::unordered_map<size_t, std::promise<_RedisReply>> _promises;
 
 
 public:
@@ -71,6 +73,7 @@ public:
 			return _SubSession->isConnected();
 		}
 	}
+
 	// buffer proc
 	void recvPacketProc(CircularBuffer* buff_)
 	{
@@ -102,25 +105,19 @@ public:
 					LOG(L_DEBUG_, "replay", "array", reply._array);
 				}
 
-				if( _keys.empty() == false)
+				if (_keys.empty() == false)
 				{
 					size_t key;
 					if (_keys.pop(key) == true)
 					{
-						Callback* job;
-						if (SyncJobManager::getSyncJobManager()->getPostJob(key, job) == true)
-						{
-							if (job != nullptr)
-							{
-								executePostJob(job, reply);
-							}
-						}
+						_promises[key].set_value(std::move(reply));
 					}
 					else
 					{
 						LOG(L_INFO_, "key pop fail");
 					}
 				}
+
 			}
 
 			recvBuffSize -= len;
@@ -169,7 +166,7 @@ public:
 	}
 
 	// server command
-	size_t select(int index_)
+	bool select(int index_, std::future<_RedisReply>& result_)
 	{
 		if (false == _MSession->isConnected()) return false;
 
@@ -180,10 +177,13 @@ public:
 		ss << "$1\r\n";
 		ss << index_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+
+		result_ = _promises[key].get_future();
+		return true;
 	}
 
-	size_t auth(const char* pw_)
+	bool auth(const char* pw_, std::future<_RedisReply>& result_)
 	{
 		if (false == _MSession->isConnected()) return false;
 
@@ -194,11 +194,13 @@ public:
 		ss << "$" << strlen(pw_) << "\r\n";
 		ss << pw_ << "\r\n";
 
-		return sendMsg(ss.str());
-
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 	}
 
-	size_t zadd(const char* key_, int score_, const char* value_)
+
+	bool zadd(const char* key_, int score_, const char* value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*4\r\n";
@@ -217,10 +219,12 @@ public:
 		ss << "$" << strlen(value_) << "\r\n";
 		ss << value_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t zrem(const char* key_, const char* value_)
+	bool zrem(const char* key_, const char* value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*3\r\n";
@@ -234,10 +238,12 @@ public:
 		ss << "$" << strlen(value_) << "\r\n";
 		ss << value_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t zcard(const char* key_)
+	bool zcard(const char* key_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*2\r\n";
@@ -247,10 +253,12 @@ public:
 		ss << "$" << strlen(key_) << "\r\n";
 		ss << key_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t zincrby(const char* key_, int score_, const char* value_)
+	bool zincrby(const char* key_, int score_, const char* value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*4\r\n";
@@ -269,10 +277,12 @@ public:
 		ss << "$" << strlen(value_) << "\r\n";
 		ss << value_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t zrange(const char* key_, int start_, int end_)
+	bool zrange(const char* key_, int start_, int end_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*4\r\n";
@@ -292,10 +302,12 @@ public:
 		ss << "$" << strEnd.length() << "\r\n";
 		ss << strEnd.c_str() << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t zrevrange(const char* key_, int start_, int end_)
+	bool zrevrange(const char* key_, int start_, int end_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*4\r\n";
@@ -315,10 +327,12 @@ public:
 		ss << "$" << strEnd.length() << "\r\n";
 		ss << strEnd.c_str() << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t zrank(const char* key_, const char* value_)
+	bool zrank(const char* key_, const char* value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*3\r\n";
@@ -332,10 +346,12 @@ public:
 		ss << "$" << strlen(value_) << "\r\n";
 		ss << value_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t zrevrank(const char* key_, const char* value_)
+	bool zrevrank(const char* key_, const char* value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*3\r\n";
@@ -349,10 +365,12 @@ public:
 		ss << "$" << strlen(value_) << "\r\n";
 		ss << value_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t zscore(const char* key_, const char* value_)
+	bool zscore(const char* key_, const char* value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*3\r\n";
@@ -366,12 +384,14 @@ public:
 		ss << "$" << strlen(value_) << "\r\n";
 		ss << value_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
 
 
-	size_t hset(const char* key_, const char* field_, const char* value_)
+	bool hset(const char* key_, const char* field_, const char* value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*4\r\n";
@@ -389,10 +409,12 @@ public:
 		ss << "$" << strlen(value_) << "\r\n";
 		ss << value_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t hset(const char* key_, const char* field_, std::vector<char>& value_)
+	bool hset(const char* key_, const char* field_, std::vector<char>& value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*4\r\n";
@@ -411,10 +433,12 @@ public:
 		ss.write(&value_[0], value_.size());
 		ss << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t hsetnx(const char* key_, const char* field_, const char* value_)
+	bool hsetnx(const char* key_, const char* field_, const char* value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*4\r\n";
@@ -432,10 +456,12 @@ public:
 		ss << "$" << strlen(value_) << "\r\n";
 		ss << value_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t hsetnx(const char* key_, const char* field_, std::vector<char>& value_)
+	bool hsetnx(const char* key_, const char* field_, std::vector<char>& value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*4\r\n";
@@ -454,11 +480,13 @@ public:
 		ss.write(&value_[0], value_.size());
 		ss << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
 	// exist field
-	size_t hexists(const char* key_, const char* field_)
+	bool hexists(const char* key_, const char* field_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*3\r\n";
@@ -472,11 +500,13 @@ public:
 		ss << "$" << strlen(field_) << "\r\n";
 		ss << field_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
 	// get value
-	size_t hget(const char* key_, const char* field_)
+	bool hget(const char* key_, const char* field_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*3\r\n";
@@ -490,11 +520,13 @@ public:
 		ss << "$" << strlen(field_) << "\r\n";
 		ss << field_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
 	// delete field
-	size_t hdel(const char* key_, const char* field_)
+	bool hdel(const char* key_, const char* field_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*3\r\n";
@@ -508,10 +540,12 @@ public:
 		ss << "$" << strlen(field_) << "\r\n";
 		ss << field_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t hgetall(const char* key_)
+	bool hgetall(const char* key_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*2\r\n";
@@ -521,10 +555,12 @@ public:
 		ss << "$" << strlen(key_) << "\r\n";
 		ss << key_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t hvals(const char* key_)
+	bool hvals(const char* key_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*2\r\n";
@@ -534,13 +570,15 @@ public:
 		ss << "$" << strlen(key_) << "\r\n";
 		ss << key_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
 
 
 	// expire key
-	size_t expire(const char* key_, int timeOut_)
+	bool expire(const char* key_, int timeOut_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*3\r\n";
@@ -556,10 +594,12 @@ public:
 		ss << "$" << strStart.length() << "\r\n";
 		ss << strStart.c_str() << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
-	size_t persist(const char* key_)
+	bool persist(const char* key_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*2\r\n";
@@ -570,11 +610,13 @@ public:
 		ss << "$" << strlen(key_) << "\r\n";
 		ss << key_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
 	// del key
-	size_t del(const char* key_)
+	bool del(const char* key_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
 		ss << "*2\r\n";
@@ -585,7 +627,9 @@ public:
 		ss << "$" << strlen(key_) << "\r\n";
 		ss << key_ << "\r\n";
 
-		return sendMsg(ss.str());
+		auto key = sendMsg(ss.str());
+		result_ = _promises[key].get_future();
+		return true;
 
 	}
 
@@ -672,8 +716,6 @@ public:
 		return sendMsg(ss.str(), PUBSUB_CONN);
 	}
 
-
-private:
 	size_t sendMsg(const std::string& msg_, REDIS_CONN_TYPE type_ = MASTER_CONN)
 	{
 		auto key = std::hash<std::string>{}(msg_);
@@ -698,108 +740,6 @@ private:
 		return key;
 	}
 
-private:
-	TPtr _MSession;	// master session
-	TPtr _SSession;	// slave session
-
-	TPtr _SubSession;	// subscribe session
-
-	Callback* _channelMsgJob;
-	// redis request keys
-	LockFreeQueue<size_t, 65536> _keys;
-
-};
-*/
-
-class RedisPool
-{
-	enum { MAX_SERVER_SIZE = 10, };
-	struct RedisServerAddr
-	{
-	public:
-		RedisServerAddr() {}
-		RedisServerAddr(const char* addr_, short port_, int db_)
-			: _addr(addr_), _port(port_), _dbNo(db_) {}
-
-		std::string _addr;
-		short _port;
-		int _dbNo;
-	};
-
-public:
-	RedisPool(int poolCount_)
-		: _poolCount(poolCount_) {}
-
-	bool connect(boost::asio::io_service& io_, int serverNo_, const char* addr_, short port_, int db_)
-	{
-		_io = &io_;
-		if (serverNo_ > MAX_SERVER_SIZE || serverNo_ < 0) return false;
-
-		for (int i = 0; i < _poolCount; i++)
-		{
-			auto client = std::make_shared< RedisConnection<Session> >(io_);
-			auto result = client->connect(addr_, port_);
-			if (result == true)
-			{
-				_connAddrInfos[serverNo_] = RedisServerAddr(addr_, port_, db_);
-				_pool[serverNo_].push(client);
-			}
-		}
-		return !_pool[serverNo_].empty();
-	}
-
-
-	std::shared_ptr< RedisConnection<Session> > acquire(int serverNo_)
-	{
-		std::shared_ptr< RedisConnection<Session> > client;
-		if (_pool[serverNo_].pop(client) == true) return client;
-
-		client = std::make_shared< RedisConnection<Session> >(*_io);
-		client->connect(_connAddrInfos[serverNo_]._addr.c_str(), _connAddrInfos[serverNo_]._port);
-		return client;
-	}
-
-	void release(int serverNo_, std::shared_ptr< RedisConnection<Session> > client_)
-	{
-		if (client_->checkConnection() == false)
-		{
-			client_->close();
-			client_->connect(_connAddrInfos[serverNo_]._addr.c_str(), _connAddrInfos[serverNo_]._port);
-		}
-
-		if (_pool[serverNo_].push(client_) == false)
-		{
-			// err
-		}
-	}
-
-
-public:
-	DECLARE_MGR(RedisPool)
-
-private:
-	boost::asio::io_service* _io;
-	int _poolCount;
-	RedisServerAddr _connAddrInfos[MAX_SERVER_SIZE];
-	LockFreeQueue< std::shared_ptr< RedisConnection<Session> >, 65536 > _pool[MAX_SERVER_SIZE];
-
-};
-
-class RedisClientPtr
-{
-public:
-	RedisClientPtr(int serverNo_ = 0)
-		: _serverNo(serverNo_), _con(RedisPool::getRedisPool()->acquire(serverNo_)){}
-	~RedisClientPtr()
-	{
-		RedisPool::getRedisPool()->release(_serverNo, _con);
-	}
-	
-	std::shared_ptr< RedisConnection<Session> > operator->() { return _con; }
-	std::shared_ptr< RedisConnection<Session> > get() { return _con; }
-private:
-	int _serverNo;
-	std::shared_ptr< RedisConnection<Session> > _con;
 };
 
 }
