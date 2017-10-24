@@ -55,7 +55,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 
 		query.getData(data);
 	}
-
+	
 	{
 		// db select char data
 		DBQueryChar query;
@@ -79,7 +79,7 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 	}
 
 	{
-	    // db select dungeon data
+		// db select dungeon data
 		DBQueryDungeon query;
 		query.setWhere("uid=%I64u", data.uid());
 		if (query.selectData() == false)
@@ -89,16 +89,16 @@ void LoginHandler::dbSelectUser(const SessionPtr session_, const std::string nam
 			session_->SendPacket(MSG::LOGIN_ANS, &ans);
 			return;
 		}
-		
+
 		std::vector<MSG::DungeonData_> lastDungeons;
 		query.getData(lastDungeons);
-		
+
 		for (auto it : lastDungeons)
 		{
 			auto lastDungeon = data.mutable_lastdungeon();
 			lastDungeon->CopyFrom(it);
 		}
-	}	
+	}
 
 	// update login date
 	auto now = DateTime::getCurrentDateTime().formatLocal();

@@ -77,7 +77,7 @@ void protobuf_AssignDesc_common_2eproto() {
       "common.proto");
   GOOGLE_CHECK(file != NULL);
   UserData__descriptor_ = file->message_type(0);
-  static const int UserData__offsets_[13] = {
+  static const int UserData__offsets_[14] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, did_),
@@ -91,6 +91,7 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, groupname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, language_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, chars_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserData_, lastdungeon_),
   };
   UserData__reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -234,9 +235,11 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharData_, _internal_metadata_),
       -1);
   DungeonData__descriptor_ = file->message_type(8);
-  static const int DungeonData__offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DungeonData_, no_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DungeonData_, tier_),
+  static const int DungeonData__offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DungeonData_, uid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DungeonData_, dungeonno_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DungeonData_, dungeontier_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DungeonData_, updatedate_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DungeonData_, monsters_),
   };
   DungeonData__reflection_ =
@@ -386,13 +389,14 @@ void protobuf_AddDesc_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014common.proto\022\003MSG\"\367\001\n\tUserData_\022\013\n\003uid"
+    "\n\014common.proto\022\003MSG\"\237\002\n\tUserData_\022\013\n\003uid"
     "\030\001 \002(\004\022\014\n\004name\030\002 \002(\t\022\013\n\003did\030\003 \001(\t\022\037\n\010pla"
     "tform\030\004 \001(\0162\r.MSG.PlatForm\022\021\n\tloginDate\030"
     "\005 \001(\t\022\022\n\nlogoutDate\030\006 \001(\t\022\017\n\007regDate\030\007 \001"
     "(\t\022\013\n\003vc1\030\010 \001(\r\022\013\n\003vc2\030\t \001(\r\022\013\n\003vc3\030\n \001("
     "\r\022\021\n\tgroupName\030\013 \001(\t\022\020\n\010language\030\014 \001(\t\022\035"
-    "\n\005chars\030\r \003(\0132\016.MSG.CharData_\"\202\001\n\tConten"
+    "\n\005chars\030\r \003(\0132\016.MSG.CharData_\022&\n\013lastDun"
+    "geon\030\016 \001(\0132\021.MSG.DungeonData_\"\202\001\n\tConten"
     "ts_\022(\n\004type\030\001 \002(\0162\032.MSG.Contents_.Conten"
     "tType\022\014\n\004name\030\002 \002(\t\"=\n\013ContentType\022\r\n\tCT"
     "_INGAME\020\001\022\016\n\nCT_OUTGAME\020\002\022\017\n\013CT_INAPPBUY"
@@ -412,44 +416,46 @@ void protobuf_AddDesc_common_2eproto() {
     ".ChatData_\"s\n\tCharData_\022\013\n\003cid\030\001 \002(\004\022\013\n\003"
     "uid\030\002 \002(\004\022\016\n\006slotNo\030\003 \001(\r\022\016\n\006typeNo\030\004 \001("
     "\r\022\r\n\005level\030\005 \001(\r\022\014\n\004tier\030\006 \001(\r\022\017\n\007regDat"
-    "e\030\007 \001(\t\"J\n\014DungeonData_\022\n\n\002no\030\001 \002(\r\022\014\n\004t"
-    "ier\030\002 \002(\r\022 \n\010monsters\030\003 \003(\0132\016.MSG.CharDa"
-    "ta_\"\202\002\n\013BattleData_\022\r\n\005srcNo\030\001 \002(\r\022(\n\007ta"
-    "rgets\030\002 \003(\0132\027.MSG.BattleData_.Attack\022#\n\004"
-    "team\030\003 \002(\0162\025.MSG.BattleData_.Team\032S\n\006Att"
-    "ack\022\n\n\002no\030\001 \002(\r\022\016\n\006damage\030\002 \002(\r\022-\n\006resul"
-    "t\030\003 \002(\0162\035.MSG.BattleData_.AttackResult\"#"
-    "\n\014AttackResult\022\t\n\005ALIVE\020\000\022\010\n\004DEAD\020\001\"\033\n\004T"
-    "eam\022\010\n\004ALLY\020\000\022\t\n\005ENEMY\020\001\"\235\001\n\020DungeonPlay"
-    "Data_\022\013\n\003lid\030\001 \002(\004\022\013\n\003uid\030\002 \002(\004\022!\n\007battl"
-    "es\030\003 \003(\0132\020.MSG.BattleData_\022\035\n\005chars\030\004 \003("
-    "\0132\016.MSG.CharData_\022\034\n\004mobs\030\005 \003(\0132\016.MSG.Ch"
-    "arData_\022\017\n\007regDate\030\006 \002(\t*\227\006\n\005MsgId\022\013\n\006CL"
-    "OSED\020\220N\022\016\n\tLOGIN_REQ\020\365N\022\016\n\tLOGIN_ANS\020\366N\022"
-    "\r\n\010PING_REQ\020\367N\022\r\n\010PONG_ANS\020\370N\022\017\n\nREGIST_"
-    "REQ\020\371N\022\017\n\nREGIST_ANS\020\372N\022\020\n\013VERSION_REQ\020\373"
-    "N\022\020\n\013VERSION_ANS\020\374N\022\016\n\010CHAT_REQ\020\205\235\001\022\016\n\010C"
-    "HAT_ANS\020\206\235\001\022\016\n\010CHAT_NOT\020\207\235\001\022\030\n\022CREATECHA"
-    "TROOM_REQ\020\217\235\001\022\030\n\022CREATECHATROOM_ANS\020\220\235\001\022"
-    "\030\n\022CREATECHATROOM_NOT\020\221\235\001\022\030\n\022INVITECHATR"
-    "OOM_REQ\020\231\235\001\022\030\n\022INVITECHATROOM_ANS\020\232\235\001\022\030\n"
-    "\022INVITECHATROOM_NOT\020\233\235\001\022\027\n\021ENTERCHATROOM"
-    "_REQ\020\243\235\001\022\027\n\021ENTERCHATROOM_ANS\020\244\235\001\022\027\n\021ENT"
-    "ERCHATROOM_NOT\020\245\235\001\022\027\n\021LEAVECHATROOM_REQ\020"
-    "\255\235\001\022\027\n\021LEAVECHATROOM_ANS\020\256\235\001\022\027\n\021LEAVECHA"
-    "TROOM_NOT\020\257\235\001\022\024\n\016CREATECHAR_REQ\020\267\235\001\022\024\n\016C"
-    "REATECHAR_ANS\020\270\235\001\022\022\n\014CONTENTS_NOT\020\301\235\001\022\022\n"
-    "\014CURRENCY_NOT\020\303\235\001\022\025\n\017PLAYDUNGEON_REQ\020\313\235\001"
-    "\022\025\n\017PLAYDUNGEON_ANS\020\314\235\001\022\025\n\017PLAYDUNGEON_N"
-    "OT\020\315\235\001\022\025\n\017LEVELUPCHAR_REQ\020\325\235\001\022\025\n\017LEVELUP"
-    "CHAR_ANS\020\326\235\001\022\024\n\016TIERUPCHAR_REQ\020\337\235\001\022\024\n\016TI"
-    "ERUPCHAR_ANS\020\340\235\001\022\023\n\rBATTLELOG_REQ\020\351\235\001\022\023\n"
-    "\rBATTLELOG_ANS\020\352\235\001*x\n\tErrorCode\022\017\n\013ERR_S"
-    "UCCESS\020\000\022\022\n\016ERR_LOGIN_FAIL\020\001\022\025\n\021ERR_ARGU"
-    "MENT_FAIL\020\002\022\026\n\022ERR_AUTHORITY_FAIL\020\003\022\027\n\023E"
-    "RR_SESSIONKEY_FAIL\020\004* \n\010PlatForm\022\007\n\003IOS\020"
-    "\000\022\013\n\007ANDROID\020\001*;\n\010ChatType\022\020\n\014CHAT_CHANN"
-    "EL\020\001\022\016\n\nCHAT_GROUP\020\002\022\r\n\tCHAT_ROOM\020\003", 2555);
+    "e\030\007 \001(\t\"y\n\014DungeonData_\022\013\n\003uid\030\001 \002(\004\022\021\n\t"
+    "dungeonNo\030\002 \002(\r\022\023\n\013dungeonTier\030\003 \002(\r\022\022\n\n"
+    "updateDate\030\004 \001(\t\022 \n\010monsters\030\005 \003(\0132\016.MSG"
+    ".CharData_\"\202\002\n\013BattleData_\022\r\n\005srcNo\030\001 \002("
+    "\r\022(\n\007targets\030\002 \003(\0132\027.MSG.BattleData_.Att"
+    "ack\022#\n\004team\030\003 \002(\0162\025.MSG.BattleData_.Team"
+    "\032S\n\006Attack\022\n\n\002no\030\001 \002(\r\022\016\n\006damage\030\002 \002(\r\022-"
+    "\n\006result\030\003 \002(\0162\035.MSG.BattleData_.AttackR"
+    "esult\"#\n\014AttackResult\022\t\n\005ALIVE\020\000\022\010\n\004DEAD"
+    "\020\001\"\033\n\004Team\022\010\n\004ALLY\020\000\022\t\n\005ENEMY\020\001\"\235\001\n\020Dung"
+    "eonPlayData_\022\013\n\003lid\030\001 \002(\004\022\013\n\003uid\030\002 \002(\004\022!"
+    "\n\007battles\030\003 \003(\0132\020.MSG.BattleData_\022\035\n\005cha"
+    "rs\030\004 \003(\0132\016.MSG.CharData_\022\034\n\004mobs\030\005 \003(\0132\016"
+    ".MSG.CharData_\022\017\n\007regDate\030\006 \002(\t*\227\006\n\005MsgI"
+    "d\022\013\n\006CLOSED\020\220N\022\016\n\tLOGIN_REQ\020\365N\022\016\n\tLOGIN_"
+    "ANS\020\366N\022\r\n\010PING_REQ\020\367N\022\r\n\010PONG_ANS\020\370N\022\017\n\n"
+    "REGIST_REQ\020\371N\022\017\n\nREGIST_ANS\020\372N\022\020\n\013VERSIO"
+    "N_REQ\020\373N\022\020\n\013VERSION_ANS\020\374N\022\016\n\010CHAT_REQ\020\205"
+    "\235\001\022\016\n\010CHAT_ANS\020\206\235\001\022\016\n\010CHAT_NOT\020\207\235\001\022\030\n\022CR"
+    "EATECHATROOM_REQ\020\217\235\001\022\030\n\022CREATECHATROOM_A"
+    "NS\020\220\235\001\022\030\n\022CREATECHATROOM_NOT\020\221\235\001\022\030\n\022INVI"
+    "TECHATROOM_REQ\020\231\235\001\022\030\n\022INVITECHATROOM_ANS"
+    "\020\232\235\001\022\030\n\022INVITECHATROOM_NOT\020\233\235\001\022\027\n\021ENTERC"
+    "HATROOM_REQ\020\243\235\001\022\027\n\021ENTERCHATROOM_ANS\020\244\235\001"
+    "\022\027\n\021ENTERCHATROOM_NOT\020\245\235\001\022\027\n\021LEAVECHATRO"
+    "OM_REQ\020\255\235\001\022\027\n\021LEAVECHATROOM_ANS\020\256\235\001\022\027\n\021L"
+    "EAVECHATROOM_NOT\020\257\235\001\022\024\n\016CREATECHAR_REQ\020\267"
+    "\235\001\022\024\n\016CREATECHAR_ANS\020\270\235\001\022\022\n\014CONTENTS_NOT"
+    "\020\301\235\001\022\022\n\014CURRENCY_NOT\020\303\235\001\022\025\n\017PLAYDUNGEON_"
+    "REQ\020\313\235\001\022\025\n\017PLAYDUNGEON_ANS\020\314\235\001\022\025\n\017PLAYDU"
+    "NGEON_NOT\020\315\235\001\022\025\n\017LEVELUPCHAR_REQ\020\325\235\001\022\025\n\017"
+    "LEVELUPCHAR_ANS\020\326\235\001\022\024\n\016TIERUPCHAR_REQ\020\337\235"
+    "\001\022\024\n\016TIERUPCHAR_ANS\020\340\235\001\022\023\n\rBATTLELOG_REQ"
+    "\020\351\235\001\022\023\n\rBATTLELOG_ANS\020\352\235\001*x\n\tErrorCode\022\017"
+    "\n\013ERR_SUCCESS\020\000\022\022\n\016ERR_LOGIN_FAIL\020\001\022\025\n\021E"
+    "RR_ARGUMENT_FAIL\020\002\022\026\n\022ERR_AUTHORITY_FAIL"
+    "\020\003\022\027\n\023ERR_SESSIONKEY_FAIL\020\004* \n\010PlatForm\022"
+    "\007\n\003IOS\020\000\022\013\n\007ANDROID\020\001*;\n\010ChatType\022\020\n\014CHA"
+    "T_CHANNEL\020\001\022\016\n\nCHAT_GROUP\020\002\022\r\n\tCHAT_ROOM"
+    "\020\003", 2642);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   UserData_::default_instance_ = new UserData_();
@@ -597,6 +603,7 @@ const int UserData_::kVc3FieldNumber;
 const int UserData_::kGroupNameFieldNumber;
 const int UserData_::kLanguageFieldNumber;
 const int UserData_::kCharsFieldNumber;
+const int UserData_::kLastDungeonFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 UserData_::UserData_()
@@ -606,6 +613,7 @@ UserData_::UserData_()
 }
 
 void UserData_::InitAsDefaultInstance() {
+  lastdungeon_ = const_cast< ::MSG::DungeonData_*>(&::MSG::DungeonData_::default_instance());
 }
 
 UserData_::UserData_(const UserData_& from)
@@ -631,6 +639,7 @@ void UserData_::SharedCtor() {
   vc3_ = 0u;
   groupname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  lastdungeon_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -648,6 +657,7 @@ void UserData_::SharedDtor() {
   groupname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   language_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
+    delete lastdungeon_;
   }
 }
 
@@ -713,13 +723,16 @@ void UserData_::Clear() {
       regdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
-  if (_has_bits_[8 / 32] & 3840u) {
+  if (_has_bits_[8 / 32] & 12032u) {
     ZR_(vc2_, vc3_);
     if (has_groupname()) {
       groupname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_language()) {
       language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_lastdungeon()) {
+      if (lastdungeon_ != NULL) lastdungeon_->::MSG::DungeonData_::Clear();
     }
   }
 
@@ -954,6 +967,19 @@ bool UserData_::MergePartialFromCodedStream(
         }
         if (input->ExpectTag(106)) goto parse_loop_chars;
         input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectTag(114)) goto parse_lastDungeon;
+        break;
+      }
+
+      // optional .MSG.DungeonData_ lastDungeon = 14;
+      case 14: {
+        if (tag == 114) {
+         parse_lastDungeon:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_lastdungeon()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1085,6 +1111,12 @@ void UserData_::SerializeWithCachedSizes(
       13, this->chars(i), output);
   }
 
+  // optional .MSG.DungeonData_ lastDungeon = 14;
+  if (has_lastdungeon()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      14, *this->lastdungeon_, output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1205,6 +1237,13 @@ void UserData_::SerializeWithCachedSizes(
         13, this->chars(i), false, target);
   }
 
+  // optional .MSG.DungeonData_ lastDungeon = 14;
+  if (has_lastdungeon()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        14, *this->lastdungeon_, false, target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1294,7 +1333,7 @@ int UserData_::ByteSize() const {
     }
 
   }
-  if (_has_bits_[8 / 32] & 3840u) {
+  if (_has_bits_[8 / 32] & 12032u) {
     // optional uint32 vc2 = 9;
     if (has_vc2()) {
       total_size += 1 +
@@ -1321,6 +1360,13 @@ int UserData_::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->language());
+    }
+
+    // optional .MSG.DungeonData_ lastDungeon = 14;
+    if (has_lastdungeon()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->lastdungeon_);
     }
 
   }
@@ -1412,6 +1458,9 @@ void UserData_::MergeFrom(const UserData_& from) {
       set_has_language();
       language_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.language_);
     }
+    if (from.has_lastdungeon()) {
+      mutable_lastdungeon()->::MSG::DungeonData_::MergeFrom(from.lastdungeon());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1436,6 +1485,9 @@ bool UserData_::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->chars())) return false;
+  if (has_lastdungeon()) {
+    if (!this->lastdungeon_->IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1457,6 +1509,7 @@ void UserData_::InternalSwap(UserData_* other) {
   groupname_.Swap(&other->groupname_);
   language_.Swap(&other->language_);
   chars_.UnsafeArenaSwap(&other->chars_);
+  std::swap(lastdungeon_, other->lastdungeon_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2000,6 +2053,50 @@ const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
 UserData_::chars() const {
   // @@protoc_insertion_point(field_list:MSG.UserData_.chars)
   return chars_;
+}
+
+// optional .MSG.DungeonData_ lastDungeon = 14;
+bool UserData_::has_lastdungeon() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+void UserData_::set_has_lastdungeon() {
+  _has_bits_[0] |= 0x00002000u;
+}
+void UserData_::clear_has_lastdungeon() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+void UserData_::clear_lastdungeon() {
+  if (lastdungeon_ != NULL) lastdungeon_->::MSG::DungeonData_::Clear();
+  clear_has_lastdungeon();
+}
+const ::MSG::DungeonData_& UserData_::lastdungeon() const {
+  // @@protoc_insertion_point(field_get:MSG.UserData_.lastDungeon)
+  return lastdungeon_ != NULL ? *lastdungeon_ : *default_instance_->lastdungeon_;
+}
+::MSG::DungeonData_* UserData_::mutable_lastdungeon() {
+  set_has_lastdungeon();
+  if (lastdungeon_ == NULL) {
+    lastdungeon_ = new ::MSG::DungeonData_;
+  }
+  // @@protoc_insertion_point(field_mutable:MSG.UserData_.lastDungeon)
+  return lastdungeon_;
+}
+::MSG::DungeonData_* UserData_::release_lastdungeon() {
+  // @@protoc_insertion_point(field_release:MSG.UserData_.lastDungeon)
+  clear_has_lastdungeon();
+  ::MSG::DungeonData_* temp = lastdungeon_;
+  lastdungeon_ = NULL;
+  return temp;
+}
+void UserData_::set_allocated_lastdungeon(::MSG::DungeonData_* lastdungeon) {
+  delete lastdungeon_;
+  lastdungeon_ = lastdungeon;
+  if (lastdungeon) {
+    set_has_lastdungeon();
+  } else {
+    clear_has_lastdungeon();
+  }
+  // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.lastDungeon)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -6187,8 +6284,10 @@ void CharData_::clear_regdate() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int DungeonData_::kNoFieldNumber;
-const int DungeonData_::kTierFieldNumber;
+const int DungeonData_::kUidFieldNumber;
+const int DungeonData_::kDungeonNoFieldNumber;
+const int DungeonData_::kDungeonTierFieldNumber;
+const int DungeonData_::kUpdateDateFieldNumber;
 const int DungeonData_::kMonstersFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -6210,9 +6309,12 @@ DungeonData_::DungeonData_(const DungeonData_& from)
 }
 
 void DungeonData_::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  no_ = 0u;
-  tier_ = 0u;
+  uid_ = GOOGLE_ULONGLONG(0);
+  dungeonno_ = 0u;
+  dungeontier_ = 0u;
+  updatedate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6222,6 +6324,7 @@ DungeonData_::~DungeonData_() {
 }
 
 void DungeonData_::SharedDtor() {
+  updatedate_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -6269,7 +6372,12 @@ void DungeonData_::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(no_, tier_);
+  if (_has_bits_[0 / 32] & 15u) {
+    ZR_(uid_, dungeontier_);
+    if (has_updatedate()) {
+      updatedate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+  }
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -6291,38 +6399,70 @@ bool DungeonData_::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 no = 1;
+      // required uint64 uid = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &no_)));
-          set_has_no();
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &uid_)));
+          set_has_uid();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_tier;
+        if (input->ExpectTag(16)) goto parse_dungeonNo;
         break;
       }
 
-      // required uint32 tier = 2;
+      // required uint32 dungeonNo = 2;
       case 2: {
         if (tag == 16) {
-         parse_tier:
+         parse_dungeonNo:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &tier_)));
-          set_has_tier();
+                 input, &dungeonno_)));
+          set_has_dungeonno();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_monsters;
+        if (input->ExpectTag(24)) goto parse_dungeonTier;
         break;
       }
 
-      // repeated .MSG.CharData_ monsters = 3;
+      // required uint32 dungeonTier = 3;
       case 3: {
-        if (tag == 26) {
+        if (tag == 24) {
+         parse_dungeonTier:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &dungeontier_)));
+          set_has_dungeontier();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_updateDate;
+        break;
+      }
+
+      // optional string updateDate = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_updateDate:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_updatedate()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->updatedate().data(), this->updatedate().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "MSG.DungeonData_.updateDate");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_monsters;
+        break;
+      }
+
+      // repeated .MSG.CharData_ monsters = 5;
+      case 5: {
+        if (tag == 42) {
          parse_monsters:
           DO_(input->IncrementRecursionDepth());
          parse_loop_monsters:
@@ -6331,7 +6471,7 @@ bool DungeonData_::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_loop_monsters;
+        if (input->ExpectTag(42)) goto parse_loop_monsters;
         input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
@@ -6362,20 +6502,35 @@ failure:
 void DungeonData_::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.DungeonData_)
-  // required uint32 no = 1;
-  if (has_no()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->no(), output);
+  // required uint64 uid = 1;
+  if (has_uid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->uid(), output);
   }
 
-  // required uint32 tier = 2;
-  if (has_tier()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->tier(), output);
+  // required uint32 dungeonNo = 2;
+  if (has_dungeonno()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->dungeonno(), output);
   }
 
-  // repeated .MSG.CharData_ monsters = 3;
+  // required uint32 dungeonTier = 3;
+  if (has_dungeontier()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->dungeontier(), output);
+  }
+
+  // optional string updateDate = 4;
+  if (has_updatedate()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->updatedate().data(), this->updatedate().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.DungeonData_.updateDate");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->updatedate(), output);
+  }
+
+  // repeated .MSG.CharData_ monsters = 5;
   for (unsigned int i = 0, n = this->monsters_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->monsters(i), output);
+      5, this->monsters(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6388,21 +6543,37 @@ void DungeonData_::SerializeWithCachedSizes(
 ::google::protobuf::uint8* DungeonData_::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.DungeonData_)
-  // required uint32 no = 1;
-  if (has_no()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->no(), target);
+  // required uint64 uid = 1;
+  if (has_uid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->uid(), target);
   }
 
-  // required uint32 tier = 2;
-  if (has_tier()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->tier(), target);
+  // required uint32 dungeonNo = 2;
+  if (has_dungeonno()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->dungeonno(), target);
   }
 
-  // repeated .MSG.CharData_ monsters = 3;
+  // required uint32 dungeonTier = 3;
+  if (has_dungeontier()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->dungeontier(), target);
+  }
+
+  // optional string updateDate = 4;
+  if (has_updatedate()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->updatedate().data(), this->updatedate().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "MSG.DungeonData_.updateDate");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->updatedate(), target);
+  }
+
+  // repeated .MSG.CharData_ monsters = 5;
   for (unsigned int i = 0, n = this->monsters_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        3, this->monsters(i), false, target);
+        5, this->monsters(i), false, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6417,18 +6588,25 @@ int DungeonData_::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.DungeonData_)
   int total_size = 0;
 
-  if (has_no()) {
-    // required uint32 no = 1;
+  if (has_uid()) {
+    // required uint64 uid = 1;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->no());
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->uid());
   }
 
-  if (has_tier()) {
-    // required uint32 tier = 2;
+  if (has_dungeonno()) {
+    // required uint32 dungeonNo = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->tier());
+        this->dungeonno());
+  }
+
+  if (has_dungeontier()) {
+    // required uint32 dungeonTier = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->dungeontier());
   }
 
   return total_size;
@@ -6437,21 +6615,33 @@ int DungeonData_::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.DungeonData_)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required uint32 no = 1;
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required uint64 uid = 1;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->no());
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->uid());
 
-    // required uint32 tier = 2;
+    // required uint32 dungeonNo = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->tier());
+        this->dungeonno());
+
+    // required uint32 dungeonTier = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->dungeontier());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // repeated .MSG.CharData_ monsters = 3;
+  // optional string updateDate = 4;
+  if (has_updatedate()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->updatedate());
+  }
+
+  // repeated .MSG.CharData_ monsters = 5;
   total_size += 1 * this->monsters_size();
   for (int i = 0; i < this->monsters_size(); i++) {
     total_size +=
@@ -6494,11 +6684,18 @@ void DungeonData_::MergeFrom(const DungeonData_& from) {
   }
   monsters_.MergeFrom(from.monsters_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_no()) {
-      set_no(from.no());
+    if (from.has_uid()) {
+      set_uid(from.uid());
     }
-    if (from.has_tier()) {
-      set_tier(from.tier());
+    if (from.has_dungeonno()) {
+      set_dungeonno(from.dungeonno());
+    }
+    if (from.has_dungeontier()) {
+      set_dungeontier(from.dungeontier());
+    }
+    if (from.has_updatedate()) {
+      set_has_updatedate();
+      updatedate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.updatedate_);
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -6521,7 +6718,7 @@ void DungeonData_::CopyFrom(const DungeonData_& from) {
 }
 
 bool DungeonData_::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->monsters())) return false;
   return true;
@@ -6532,8 +6729,10 @@ void DungeonData_::Swap(DungeonData_* other) {
   InternalSwap(other);
 }
 void DungeonData_::InternalSwap(DungeonData_* other) {
-  std::swap(no_, other->no_);
-  std::swap(tier_, other->tier_);
+  std::swap(uid_, other->uid_);
+  std::swap(dungeonno_, other->dungeonno_);
+  std::swap(dungeontier_, other->dungeontier_);
+  updatedate_.Swap(&other->updatedate_);
   monsters_.UnsafeArenaSwap(&other->monsters_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -6551,55 +6750,133 @@ void DungeonData_::InternalSwap(DungeonData_* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // DungeonData_
 
-// required uint32 no = 1;
-bool DungeonData_::has_no() const {
+// required uint64 uid = 1;
+bool DungeonData_::has_uid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void DungeonData_::set_has_no() {
+void DungeonData_::set_has_uid() {
   _has_bits_[0] |= 0x00000001u;
 }
-void DungeonData_::clear_has_no() {
+void DungeonData_::clear_has_uid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void DungeonData_::clear_no() {
-  no_ = 0u;
-  clear_has_no();
+void DungeonData_::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
 }
- ::google::protobuf::uint32 DungeonData_::no() const {
-  // @@protoc_insertion_point(field_get:MSG.DungeonData_.no)
-  return no_;
+ ::google::protobuf::uint64 DungeonData_::uid() const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonData_.uid)
+  return uid_;
 }
- void DungeonData_::set_no(::google::protobuf::uint32 value) {
-  set_has_no();
-  no_ = value;
-  // @@protoc_insertion_point(field_set:MSG.DungeonData_.no)
+ void DungeonData_::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:MSG.DungeonData_.uid)
 }
 
-// required uint32 tier = 2;
-bool DungeonData_::has_tier() const {
+// required uint32 dungeonNo = 2;
+bool DungeonData_::has_dungeonno() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void DungeonData_::set_has_tier() {
+void DungeonData_::set_has_dungeonno() {
   _has_bits_[0] |= 0x00000002u;
 }
-void DungeonData_::clear_has_tier() {
+void DungeonData_::clear_has_dungeonno() {
   _has_bits_[0] &= ~0x00000002u;
 }
-void DungeonData_::clear_tier() {
-  tier_ = 0u;
-  clear_has_tier();
+void DungeonData_::clear_dungeonno() {
+  dungeonno_ = 0u;
+  clear_has_dungeonno();
 }
- ::google::protobuf::uint32 DungeonData_::tier() const {
-  // @@protoc_insertion_point(field_get:MSG.DungeonData_.tier)
-  return tier_;
+ ::google::protobuf::uint32 DungeonData_::dungeonno() const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonData_.dungeonNo)
+  return dungeonno_;
 }
- void DungeonData_::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
-  tier_ = value;
-  // @@protoc_insertion_point(field_set:MSG.DungeonData_.tier)
+ void DungeonData_::set_dungeonno(::google::protobuf::uint32 value) {
+  set_has_dungeonno();
+  dungeonno_ = value;
+  // @@protoc_insertion_point(field_set:MSG.DungeonData_.dungeonNo)
 }
 
-// repeated .MSG.CharData_ monsters = 3;
+// required uint32 dungeonTier = 3;
+bool DungeonData_::has_dungeontier() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void DungeonData_::set_has_dungeontier() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void DungeonData_::clear_has_dungeontier() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void DungeonData_::clear_dungeontier() {
+  dungeontier_ = 0u;
+  clear_has_dungeontier();
+}
+ ::google::protobuf::uint32 DungeonData_::dungeontier() const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonData_.dungeonTier)
+  return dungeontier_;
+}
+ void DungeonData_::set_dungeontier(::google::protobuf::uint32 value) {
+  set_has_dungeontier();
+  dungeontier_ = value;
+  // @@protoc_insertion_point(field_set:MSG.DungeonData_.dungeonTier)
+}
+
+// optional string updateDate = 4;
+bool DungeonData_::has_updatedate() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void DungeonData_::set_has_updatedate() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void DungeonData_::clear_has_updatedate() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void DungeonData_::clear_updatedate() {
+  updatedate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_updatedate();
+}
+ const ::std::string& DungeonData_::updatedate() const {
+  // @@protoc_insertion_point(field_get:MSG.DungeonData_.updateDate)
+  return updatedate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void DungeonData_::set_updatedate(const ::std::string& value) {
+  set_has_updatedate();
+  updatedate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:MSG.DungeonData_.updateDate)
+}
+ void DungeonData_::set_updatedate(const char* value) {
+  set_has_updatedate();
+  updatedate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:MSG.DungeonData_.updateDate)
+}
+ void DungeonData_::set_updatedate(const char* value, size_t size) {
+  set_has_updatedate();
+  updatedate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:MSG.DungeonData_.updateDate)
+}
+ ::std::string* DungeonData_::mutable_updatedate() {
+  set_has_updatedate();
+  // @@protoc_insertion_point(field_mutable:MSG.DungeonData_.updateDate)
+  return updatedate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* DungeonData_::release_updatedate() {
+  // @@protoc_insertion_point(field_release:MSG.DungeonData_.updateDate)
+  clear_has_updatedate();
+  return updatedate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void DungeonData_::set_allocated_updatedate(::std::string* updatedate) {
+  if (updatedate != NULL) {
+    set_has_updatedate();
+  } else {
+    clear_has_updatedate();
+  }
+  updatedate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), updatedate);
+  // @@protoc_insertion_point(field_set_allocated:MSG.DungeonData_.updateDate)
+}
+
+// repeated .MSG.CharData_ monsters = 5;
 int DungeonData_::monsters_size() const {
   return monsters_.size();
 }

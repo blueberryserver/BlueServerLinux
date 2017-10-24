@@ -190,11 +190,12 @@ void protobuf_AssignDesc_game_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonReq, _internal_metadata_),
       -1);
   PlayDungeonAns_descriptor_ = file->message_type(6);
-  static const int PlayDungeonAns_offsets_[4] = {
+  static const int PlayDungeonAns_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, err_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, battles_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, chars_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, mobs_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, winner_),
   };
   PlayDungeonAns_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -398,19 +399,19 @@ void protobuf_AddDesc_game_2eproto() {
     "\001(\0132\016.MSG.CharData_\"4\n\013CurrencyNot\022\013\n\003vc"
     "1\030\001 \002(\r\022\013\n\003vc2\030\002 \002(\r\022\013\n\003vc3\030\003 \002(\r\"1\n\016Pla"
     "yDungeonReq\022\021\n\tdungeonNo\030\001 \002(\r\022\014\n\004tier\030\002"
-    " \002(\r\"\215\001\n\016PlayDungeonAns\022\033\n\003err\030\001 \002(\0162\016.M"
+    " \002(\r\"\257\001\n\016PlayDungeonAns\022\033\n\003err\030\001 \002(\0162\016.M"
     "SG.ErrorCode\022!\n\007battles\030\002 \003(\0132\020.MSG.Batt"
     "leData_\022\035\n\005chars\030\003 \003(\0132\016.MSG.CharData_\022\034"
-    "\n\004mobs\030\004 \003(\0132\016.MSG.CharData_\" \n\016LevelupC"
-    "harReq\022\016\n\006slotNo\030\001 \002(\r\"L\n\016LevelupCharAns"
-    "\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002"
-    " \001(\0132\016.MSG.CharData_\"\037\n\rTierupCharReq\022\016\n"
-    "\006slotNo\030\001 \002(\r\"K\n\rTierupCharAns\022\033\n\003err\030\001 "
-    "\002(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002 \001(\0132\016.MSG"
-    ".CharData_\"\033\n\014BattleLogReq\022\013\n\003lid\030\001 \002(\004\""
-    "P\n\014BattleLogAns\022\033\n\003err\030\001 \002(\0162\016.MSG.Error"
-    "Code\022#\n\004data\030\002 \003(\0132\025.MSG.DungeonPlayData"
-    "_", 1001);
+    "\n\004mobs\030\004 \003(\0132\016.MSG.CharData_\022 \n\006winner\030\005"
+    " \002(\0132\020.MSG.BattleData_\" \n\016LevelupCharReq"
+    "\022\016\n\006slotNo\030\001 \002(\r\"L\n\016LevelupCharAns\022\033\n\003er"
+    "r\030\001 \002(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002 \001(\0132\016"
+    ".MSG.CharData_\"\037\n\rTierupCharReq\022\016\n\006slotN"
+    "o\030\001 \002(\r\"K\n\rTierupCharAns\022\033\n\003err\030\001 \002(\0162\016."
+    "MSG.ErrorCode\022\035\n\005char_\030\002 \001(\0132\016.MSG.CharD"
+    "ata_\"\033\n\014BattleLogReq\022\013\n\003lid\030\001 \002(\004\"P\n\014Bat"
+    "tleLogAns\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\022#"
+    "\n\004data\030\002 \003(\0132\025.MSG.DungeonPlayData_", 1035);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "game.proto", &protobuf_RegisterTypes);
   ContentsNot::default_instance_ = new ContentsNot();
@@ -3266,6 +3267,7 @@ const int PlayDungeonAns::kErrFieldNumber;
 const int PlayDungeonAns::kBattlesFieldNumber;
 const int PlayDungeonAns::kCharsFieldNumber;
 const int PlayDungeonAns::kMobsFieldNumber;
+const int PlayDungeonAns::kWinnerFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PlayDungeonAns::PlayDungeonAns()
@@ -3275,6 +3277,7 @@ PlayDungeonAns::PlayDungeonAns()
 }
 
 void PlayDungeonAns::InitAsDefaultInstance() {
+  winner_ = const_cast< ::MSG::BattleData_*>(&::MSG::BattleData_::default_instance());
 }
 
 PlayDungeonAns::PlayDungeonAns(const PlayDungeonAns& from)
@@ -3288,6 +3291,7 @@ PlayDungeonAns::PlayDungeonAns(const PlayDungeonAns& from)
 void PlayDungeonAns::SharedCtor() {
   _cached_size_ = 0;
   err_ = 0;
+  winner_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3298,6 +3302,7 @@ PlayDungeonAns::~PlayDungeonAns() {
 
 void PlayDungeonAns::SharedDtor() {
   if (this != default_instance_) {
+    delete winner_;
   }
 }
 
@@ -3328,7 +3333,12 @@ PlayDungeonAns* PlayDungeonAns::New(::google::protobuf::Arena* arena) const {
 
 void PlayDungeonAns::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.PlayDungeonAns)
-  err_ = 0;
+  if (_has_bits_[0 / 32] & 17u) {
+    err_ = 0;
+    if (has_winner()) {
+      if (winner_ != NULL) winner_->::MSG::BattleData_::Clear();
+    }
+  }
   battles_.Clear();
   chars_.Clear();
   mobs_.Clear();
@@ -3412,6 +3422,19 @@ bool PlayDungeonAns::MergePartialFromCodedStream(
         }
         if (input->ExpectTag(34)) goto parse_loop_mobs;
         input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectTag(42)) goto parse_winner;
+        break;
+      }
+
+      // required .MSG.BattleData_ winner = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_winner:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_winner()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -3465,6 +3488,12 @@ void PlayDungeonAns::SerializeWithCachedSizes(
       4, this->mobs(i), output);
   }
 
+  // required .MSG.BattleData_ winner = 5;
+  if (has_winner()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, *this->winner_, output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3502,6 +3531,13 @@ void PlayDungeonAns::SerializeWithCachedSizes(
         4, this->mobs(i), false, target);
   }
 
+  // required .MSG.BattleData_ winner = 5;
+  if (has_winner()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, *this->winner_, false, target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -3510,14 +3546,41 @@ void PlayDungeonAns::SerializeWithCachedSizes(
   return target;
 }
 
+int PlayDungeonAns::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.PlayDungeonAns)
+  int total_size = 0;
+
+  if (has_err()) {
+    // required .MSG.ErrorCode err = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
+  }
+
+  if (has_winner()) {
+    // required .MSG.BattleData_ winner = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->winner_);
+  }
+
+  return total_size;
+}
 int PlayDungeonAns::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.PlayDungeonAns)
   int total_size = 0;
 
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  if (((_has_bits_[0] & 0x00000011) ^ 0x00000011) == 0) {  // All required fields are present.
+    // required .MSG.ErrorCode err = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
+
+    // required .MSG.BattleData_ winner = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->winner_);
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   // repeated .MSG.BattleData_ battles = 2;
   total_size += 1 * this->battles_size();
@@ -3583,6 +3646,9 @@ void PlayDungeonAns::MergeFrom(const PlayDungeonAns& from) {
     if (from.has_err()) {
       set_err(from.err());
     }
+    if (from.has_winner()) {
+      mutable_winner()->::MSG::BattleData_::MergeFrom(from.winner());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3604,11 +3670,14 @@ void PlayDungeonAns::CopyFrom(const PlayDungeonAns& from) {
 }
 
 bool PlayDungeonAns::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000011) != 0x00000011) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->battles())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->chars())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->mobs())) return false;
+  if (has_winner()) {
+    if (!this->winner_->IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -3621,6 +3690,7 @@ void PlayDungeonAns::InternalSwap(PlayDungeonAns* other) {
   battles_.UnsafeArenaSwap(&other->battles_);
   chars_.UnsafeArenaSwap(&other->chars_);
   mobs_.UnsafeArenaSwap(&other->mobs_);
+  std::swap(winner_, other->winner_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -3750,6 +3820,50 @@ const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
 PlayDungeonAns::mobs() const {
   // @@protoc_insertion_point(field_list:MSG.PlayDungeonAns.mobs)
   return mobs_;
+}
+
+// required .MSG.BattleData_ winner = 5;
+bool PlayDungeonAns::has_winner() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void PlayDungeonAns::set_has_winner() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void PlayDungeonAns::clear_has_winner() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void PlayDungeonAns::clear_winner() {
+  if (winner_ != NULL) winner_->::MSG::BattleData_::Clear();
+  clear_has_winner();
+}
+const ::MSG::BattleData_& PlayDungeonAns::winner() const {
+  // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.winner)
+  return winner_ != NULL ? *winner_ : *default_instance_->winner_;
+}
+::MSG::BattleData_* PlayDungeonAns::mutable_winner() {
+  set_has_winner();
+  if (winner_ == NULL) {
+    winner_ = new ::MSG::BattleData_;
+  }
+  // @@protoc_insertion_point(field_mutable:MSG.PlayDungeonAns.winner)
+  return winner_;
+}
+::MSG::BattleData_* PlayDungeonAns::release_winner() {
+  // @@protoc_insertion_point(field_release:MSG.PlayDungeonAns.winner)
+  clear_has_winner();
+  ::MSG::BattleData_* temp = winner_;
+  winner_ = NULL;
+  return temp;
+}
+void PlayDungeonAns::set_allocated_winner(::MSG::BattleData_* winner) {
+  delete winner_;
+  winner_ = winner;
+  if (winner) {
+    set_has_winner();
+  } else {
+    clear_has_winner();
+  }
+  // @@protoc_insertion_point(field_set_allocated:MSG.PlayDungeonAns.winner)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
