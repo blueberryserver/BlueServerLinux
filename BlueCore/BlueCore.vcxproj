@@ -67,6 +67,8 @@
     </LibraryPath>
     <OutDir>$(ProjectDir)\..\lib\</OutDir>
     <TargetExt>.so</TargetExt>
+    <ProjectPublicIncludePath>
+    </ProjectPublicIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(ProjectDir)\..\lib\</OutDir>
@@ -124,9 +126,10 @@
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <CppLanguageStandard>c++1y</CppLanguageStandard>
+      <CppLanguageStandard>c++14</CppLanguageStandard>
       <PositionIndependentCode>true</PositionIndependentCode>
       <PreprocessorDefinitions>_DEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../3rdLibrary/boost_1_57_0;../../3rdLibrary/mysql-connector/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <LibraryDependencies>boost_system;boost_thread;boost_filesystem;pthread</LibraryDependencies>

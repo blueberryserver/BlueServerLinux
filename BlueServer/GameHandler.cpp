@@ -68,7 +68,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, CreateCharReq)
 		{
 			auto data = product.mutable_data(i);
 			if (data->productcode() == "CreateChar" &&
-				data->charno() == (int)req.charno())
+				data->charno() == req.charno())
 			{
 				productTable = data;
 				find = true;
@@ -119,7 +119,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, CreateCharReq)
 	for (auto i = 0; i < character.data_size(); i++)
 	{
 		auto data = character.mutable_data(i);
-		if (data->no() == (int)req.charno())
+		if (data->no() == req.charno())
 		{
 			characterTable = data;
 			find = true;
@@ -397,7 +397,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, LevelupCharReq)
 	for (auto i = 0; i < character.data_size(); i++)
 	{
 		auto data = character.mutable_data(i);
-		if (data->no() == (int)charData->typeno())
+		if (data->no() == charData->typeno())
 		{
 			characterTable = data;
 			break;
@@ -413,7 +413,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, LevelupCharReq)
 	for (auto i = 0; i < stat.data_size(); i++)
 	{
 		auto data = stat.mutable_data(i);
-		if (data->level() == (int)charData->level())
+		if (data->level() == charData->level())
 		{
 			needGold = data->exp();
 			break;
@@ -635,8 +635,8 @@ DEFINE_HANDLER(GameHandler, SessionPtr, BattleLogReq)
 
 			Battle battle;
 			auto battleCount = dataIt.battles_size();
-			MSG::BattleData_::Team team = MSG::BattleData_::ENEMY;
-			int turn = 0;
+			//MSG::BattleData_::Team team = MSG::BattleData_::ENEMY;
+			//int turn = 0;
 			for (auto i = 0; i < battleCount; ++i)
 			{
 				auto battleData = dataIt.mutable_battles(i);

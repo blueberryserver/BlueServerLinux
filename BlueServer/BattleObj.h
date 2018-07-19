@@ -235,9 +235,9 @@ public:
 	bool isAlive() { return _curHp > 0; }
 
 private:
-	int _lv;
-	int _typeNo;
-	int _tier;
+	unsigned int _lv;
+	unsigned int _typeNo;
+	unsigned int _tier;
 	// default stat
 	int _atk;
 	int _def;

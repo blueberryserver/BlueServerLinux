@@ -10,7 +10,7 @@
 namespace BLUE_BERRY
 {
 
-Battle::Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_, int tier_)
+Battle::Battle(std::vector<MSG::CharData_*>& chars_, unsigned int dungeonNo_, int tier_)
 	: _dungeonNo(dungeonNo_), _tier(tier_)
 {
 	_battleDatas.clear();
@@ -380,9 +380,13 @@ void Battle::play()
 				_battleDatas.push_back(battleData);
 
 				if (attackTeam == MSG::BattleData_::ENEMY)
+				{
 					if (isGameOver(MSG::BattleData_::ALLY) == true) break;
+				}
 				else
+				{
 					if (isGameOver(MSG::BattleData_::ENEMY) == true) break;
+				}
 
 			}
 

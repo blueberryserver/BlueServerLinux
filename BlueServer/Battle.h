@@ -9,7 +9,7 @@ class Battle
 {
 public:
 	Battle();
-	Battle(std::vector<MSG::CharData_*>& chars_, int dungeonNo_, int tier_);
+	Battle(std::vector<MSG::CharData_*>& chars_, unsigned int dungeonNo_, int tier_);
 	virtual ~Battle();
 
 	void addBattleObj(BattleObj* obj_, MSG::BattleData_::Team team_);
@@ -32,8 +32,8 @@ private:
 	bool isGameOver(MSG::BattleData_::Team team_);
 
 private:
-	int _dungeonNo;
-	int _tier;
+	unsigned int _dungeonNo;
+	unsigned int _tier;
 	int _reward;
 	// 플레이어 캐릭터
 	std::vector<BattleObj*> _ally;
