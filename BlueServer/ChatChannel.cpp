@@ -69,7 +69,7 @@ void ChatChannel::publishEnter(uint64_t uid_, const char * name_)
 	std::string jsonDump;
 	Json(data).dump(jsonDump);
 	auto key = _redis->publish(_country.c_str(), jsonDump.c_str());
-	auto publishFunc = LamdaToFuncObj([=](_RedisReply reply_) -> void {
+	auto publishFunc = CapturedLamdaToFuncObj([=](_RedisReply reply_) -> void {
 		LOG(L_INFO_, "Redis", "publish", _country, "reply", reply_);
 	});
 
@@ -91,7 +91,7 @@ void ChatChannel::publishLeave(uint64_t uid_, const char * name_)
 	std::string jsonDump;
 	Json(data).dump(jsonDump);
 	auto key = _redis->publish(_country.c_str(), jsonDump.c_str());
-	auto publishFunc = LamdaToFuncObj([=](_RedisReply reply_) -> void {
+	auto publishFunc = CapturedLamdaToFuncObj([=](_RedisReply reply_) -> void {
 		LOG(L_INFO_, "Redis", "publish", _country, "reply", reply_);
 	});
 
@@ -115,7 +115,7 @@ void ChatChannel::publishChat(MSG::ChatData_ & chat_)
 	std::string jsonDump;
 	Json(data).dump(jsonDump);
 	auto key = _redis->publish(_country.c_str(), jsonDump.c_str());
-	auto publishFunc = LamdaToFuncObj([=](_RedisReply reply_) -> void {
+	auto publishFunc = CapturedLamdaToFuncObj([=](_RedisReply reply_) -> void {
 		LOG(L_INFO_, "Redis", "publish", _country, "reply", reply_);
 	});
 

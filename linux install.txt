@@ -51,3 +51,5 @@ protoc --version
 
 create file (bluecore.conf) and setting library path
 
+
+

@@ -8,7 +8,7 @@ namespace BLUE_BERRY
 class ConsoleWriter : public LogWriter
 {
 public:
-	virtual void write(const LogData* data_)
+	virtual void write(const LogData* data_) override
 	{
 		auto now = DateTime(data_->_time).formatLocal();
 

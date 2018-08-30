@@ -64,6 +64,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Boost_Test.h" />
     <ClInclude Include="Buffer_Test.h" />
     <ClInclude Include="Chrono_Test.h" />
     <ClInclude Include="Contents_Test.h" />
@@ -78,11 +79,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <LibraryDependencies>gtest;BlueCore;boost_system;boost_thread;boost_filesystem;pthread;protobuf;mysqlcppconn</LibraryDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$HOME/projects/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);/home/ubuntu/projects/lib</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
       <CppLanguageStandard>c++1y</CppLanguageStandard>
       <PreprocessorDefinitions>_DEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../3rdLibrary/googletest/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

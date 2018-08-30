@@ -81,7 +81,7 @@ struct memfun_type<R(C::*)(A...) const>
 
 template<typename F>
 typename memfun_type<decltype(&F::operator())>::type
-LamdaToFuncObj(F const &func)
+CapturedLamdaToFuncObj(F const &func)
 {
 	return func;
 }

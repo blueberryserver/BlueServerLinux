@@ -24,7 +24,7 @@ struct memfun_type<R(C::*)(A...) const>
 
 template<typename F>
 typename memfun_type<decltype(&F::operator())>::type
-LamdaToFuncObj(F const &func)
+CapturedLamdaToFuncObj(F const &func)
 {
 	return func;
 }
@@ -44,7 +44,7 @@ TEST(Cpp, Lamda)
 	};
 	//funcT(lfunc);
 
-	auto job = BLUE_BERRY::makePostJobStatic(LamdaToFuncObj(lfunc));
+	auto job = BLUE_BERRY::makePostJobStatic(CapturedLamdaToFuncObj(lfunc));
 	BLUE_BERRY::executePostJob(job, 10, 200);
 }
 

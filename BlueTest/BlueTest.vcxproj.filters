@@ -14,6 +14,7 @@
     <ClInclude Include="Redis_Test.h" />
     <ClInclude Include="Contents_Test.h" />
     <ClInclude Include="Cpp_Test.h" />
+    <ClInclude Include="Boost_Test.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="cpp">

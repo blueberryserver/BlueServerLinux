@@ -70,7 +70,7 @@ User::~User()
 		LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply);
 	}
 
-	//auto hSetPostJobJson = LamdaToFuncObj([](_RedisReply reply_) -> void {
+	//auto hSetPostJobJson = CapturedLamdaToFuncObj([](_RedisReply reply_) -> void {
 	//	LOG(L_INFO_, "Redis", "hset", "blue_server.UserData.json", "reply", reply_);
 	//});
 	//SyncJobManager::getSyncJobManager()->addJob(keyHGetJon, makePostJobStatic(hSetPostJobJson), nullptr);

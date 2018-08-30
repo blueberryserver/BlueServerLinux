@@ -58,8 +58,6 @@ public:
 	std::string format() const;
 	std::string formatLocal() const;
 
-
-
 	// static member
 	static DateTime getCurrentDateTime();
 	static int getGMTOff();

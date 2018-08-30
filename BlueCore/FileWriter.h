@@ -10,7 +10,7 @@ class FileWriter : public LogWriter
 public:
 	explicit FileWriter(const char* name_, const char* path_, size_t fileSize_ = _5MB);
 	virtual ~FileWriter();
-	virtual void write(const LogData* data_);
+	virtual void write(const LogData* data_) override;
 
 private:
 	bool createFile();
