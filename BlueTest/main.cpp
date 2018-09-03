@@ -9,8 +9,8 @@
 //#include "Protobuf_Test.h"
 //#include "Mysql_Test.h"
 //#include "Redis_Test.h"
-//#include "Cpp_Test.h"
-#include "Boost_Test.h"
+#include "Cpp_Test.h"
+//#include "Boost_Test.h"
 
 TEST(SAMPLE, TEST1)
 {

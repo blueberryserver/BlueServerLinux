@@ -4,20 +4,14 @@ namespace BLUE_BERRY {
 template<int N>
 struct TupleUnpacker
 {
-	template<class _T, class... _ARGS, class... _TupleARGS, class... _Args>
-	static void doExecute(_T* obj_, void(_T::*memfunc_)(_ARGS...), const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
+	template<class _T, class _Fn, class... _ARGS, class... _TupleARGS, class... _Args>
+	static void doExecute(_T* obj_, _Fn& func_, const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
 	{
-		TupleUnpacker<N - 1>::doExecute(obj_, memfunc_, tupleArgs_, std::get<N - 1>(tupleArgs_), args_...);
+		TupleUnpacker<N - 1>::doExecute(obj_, func_, tupleArgs_, std::get<N - 1>(tupleArgs_), args_...);
 	}
 
-	template<class... _ARGS, class... _TupleARGS, class... _Args>
-	static void doExecute(void(*func_)(_ARGS...), const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
-	{
-		TupleUnpacker<N - 1>::doExecute(func_, tupleArgs_, std::get<N - 1>(tupleArgs_), args_...);
-	}
-
-	template<class... _ARGS, class... _TupleARGS, class... _Args>
-	static void doExecute(std::function<void(_ARGS...)> func_, const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
+	template<class _Fn, class... _ARGS, class... _TupleARGS, class... _Args>
+	static void doExecute(_Fn& func_, const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
 	{
 		TupleUnpacker<N - 1>::doExecute(func_, tupleArgs_, std::get<N - 1>(tupleArgs_), args_...);
 	}
@@ -26,40 +20,27 @@ struct TupleUnpacker
 template<>
 struct TupleUnpacker<0>
 {
-	template<class _T, class... _ARGS, class... _TupleARGS, class... _Args>
-	static void doExecute(_T* obj_, void(_T::*memfunc_)(_ARGS...), const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
+	template<class _T, class _Fn, class... _ARGS, class... _TupleARGS, class... _Args>
+	static void doExecute(_T* obj_, _Fn& func_, const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
 	{
-		(obj_->*memfunc_)(args_...);
+		(obj_->*func_)(args_...);
 	}
 
-	template<class... _ARGS, class... _TupleARGS, class... _Args>
-	static void doExecute(void(*func_)(_ARGS...), const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
-	{
-		(*func_)(args_...);
-	}
-
-	template<class... _ARGS, class... _TupleARGS, class... _Args>
-	static void doExecute(std::function<void(_ARGS...)> func_, const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
+	template<class _Fn, class... _ARGS, class... _TupleARGS, class... _Args>
+	static void doExecute(_Fn& func_, const std::tuple<_TupleARGS...>& tupleArgs_, _Args... args_)
 	{
 		func_(args_...);
 	}
 };
 
-template<class _T, class... _ARGS, class... _TupleARGS>
-void doExecute(_T* obj_, void(_T::*memfunc_)(_ARGS...), const std::tuple<_TupleARGS...>& tupleArgs_)
+template<class _T, class _Fn, class... _ARGS, class... _TupleARGS>
+void doExecute(_T* obj_, _Fn& func, const std::tuple<_TupleARGS...>& tupleArgs_)
 {
-	TupleUnpacker<sizeof...(_TupleARGS)>::doExecute(obj_, memfunc_, tupleArgs_);
+	TupleUnpacker<sizeof...(_TupleARGS)>::doExecute(obj_, func, tupleArgs_);
 }
 
-
-template<class... _ARGS, class... _TupleARGS>
-void doExecute( void(*func_)(_ARGS...), const std::tuple<_TupleARGS...>& tupleArgs_)
-{
-	TupleUnpacker<sizeof...(_TupleARGS)>::doExecute(func_, tupleArgs_);
-}
-
-template<class... _ARGS, class... _TupleARGS>
-void doExecute(std::function<void(_ARGS...)> func_, const std::tuple<_TupleARGS...>& tupleArgs_)
+template<class _Fn, class... _ARGS, class... _TupleARGS>
+void doExecute(_Fn& func_, const std::tuple<_TupleARGS...>& tupleArgs_)
 {
 	TupleUnpacker<sizeof...(_TupleARGS)>::doExecute(func_, tupleArgs_);
 }

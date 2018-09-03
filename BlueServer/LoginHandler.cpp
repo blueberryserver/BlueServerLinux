@@ -261,7 +261,7 @@ void LoginHandler::redisSelectUser(SessionPtr session_, std::string name_)
 	//		LOG(L_INFO_, "Redis", "hget", "blue_server.UserData.name", "reply", reply_);
 
 	//		// request select user data
-	//		asyncJob(&LoginHandler::dbSelectUser, std::move(const_cast<SessionPtr&>(session_)), std::move(const_cast<std::string&>(name_)));
+	//		asyncJob(&LoginHandler::dbSelectUser, session_), name_));
 	//		return;
 	//	}
 
@@ -309,7 +309,7 @@ void LoginHandler::redisSelectUser(SessionPtr session_, std::string name_)
 			LOG(L_INFO_, "Redis", "hget", "blue_server.UserData.name", "reply", reply);
 
 			// request select user data
-			asyncJob(LoginHandler::dbSelectUser, std::forward<SessionPtr>(session_), std::forward<std::string>(name_));
+			asyncJob(LoginHandler::dbSelectUser, session_, name_);
 			return;
 		}
 
@@ -348,7 +348,7 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, LoginReq)
 
 	LOG(L_INFO_, "recv packet info", "id", req.name());
 	{
-		asyncJob(LoginHandler::dbSelectUser, std::forward<SessionPtr>(session_), std::forward<std::string>(*req.mutable_name()));
+		asyncJob(LoginHandler::dbSelectUser, session_, *req.mutable_name());
 	}
 	
 	return true;
@@ -365,7 +365,7 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, RegistReq)
 	// data insert
 	{
 		// request select user data
-		asyncJob(LoginHandler::dbInsertUser, std::forward<SessionPtr>(session_), std::forward<MSG::UserData_>(*req.mutable_data()));
+		asyncJob(LoginHandler::dbInsertUser, session_, *req.mutable_data());
 	}
 	return true;
 }

@@ -12,3 +12,4 @@ TEST(Boost, Optional)
 	auto val = testOption(100);
 	if (val) ASSERT_EQ(*val, 100);
 }
+

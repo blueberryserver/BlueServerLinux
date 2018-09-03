@@ -94,17 +94,21 @@ static void asyncJob(_T* ptr_, void (_T::*memFunc_)(_ARGS...), _ARGS&&... args_)
 	IOService::getIOService()->asyncJob(new AsyncJob<_T, _ARGS...>(static_cast<_T*>(ptr_), memFunc_, std::forward<_ARGS>(args_)...));
 }
 
-template<class... _ARGS>
-static void asyncJob(void(*func_)(_ARGS...), _ARGS&&... args_)
+//template<class... _ARGS>
+//static void asyncJob(void(*func_)(_ARGS...), _ARGS&&... args_)
+//{
+//	IOService::getIOService()->asyncJob(new AsyncJobStc<_ARGS...>(func_, std::forward<_ARGS>(args_)...));
+//}
+//
+//template<class... _ARGS>
+//static void asyncJob(std::function<void(_ARGS...)> func_, _ARGS&&... args_)
+//{
+//	IOService::getIOService()->asyncJob(new AsyncJobStc<_ARGS...>(func_, std::forward<_ARGS>(args_)...));
+//}
+
+template<typename _Fn, typename... _ARGS>
+static void asyncJob(_Fn&& func_, _ARGS&&... args_)
 {
-	IOService::getIOService()->asyncJob(new AsyncJobStc<_ARGS...>(func_, std::forward<_ARGS>(args_)...));
+	IOService::getIOService()->asyncJob(new AsyncJobStc<_Fn, _ARGS...>(std::forward<_Fn>(func_), std::forward<_ARGS>(args_)...));
 }
-
-template<class... _ARGS>
-static void asyncJob(std::function<void(_ARGS...)> func_, _ARGS&&... args_)
-{
-	IOService::getIOService()->asyncJob(new AsyncJobStc<_ARGS...>(func_, std::forward<_ARGS>(args_)...));
-}
-
-
 }
