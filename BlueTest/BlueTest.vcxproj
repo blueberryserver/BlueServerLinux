@@ -69,6 +69,7 @@
     <ClInclude Include="Chrono_Test.h" />
     <ClInclude Include="Contents_Test.h" />
     <ClInclude Include="Cpp_Test.h" />
+    <ClInclude Include="fmt_Test.h" />
     <ClInclude Include="Logger_Test.h" />
     <ClInclude Include="Mutex_Test.h" />
     <ClInclude Include="Mysql_Test.h" />
@@ -82,7 +83,7 @@
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);/home/ubuntu/projects/lib</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
-      <CppLanguageStandard>c++1y</CppLanguageStandard>
+      <CppLanguageStandard>c++14</CppLanguageStandard>
       <PreprocessorDefinitions>_DEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../../3rdLibrary/googletest/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>

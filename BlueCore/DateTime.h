@@ -63,6 +63,7 @@ public:
 	static int getGMTOff();
 	static int64_t GetTickCount();
 	static int64_t GetTickCountM();
+	static uint32_t GetTickCount32();
 
 	// friend 
 	friend std::ostream& operator<<(std::ostream& s_, const DateTime& time_);

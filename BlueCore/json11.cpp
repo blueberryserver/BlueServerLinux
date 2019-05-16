@@ -256,6 +256,7 @@ namespace json11 {
 	Json::Json(std::nullptr_t) noexcept : m_ptr(statics().null) {}
 	Json::Json(double value) : m_ptr(make_shared<JsonDouble>(value)) {}
 	Json::Json(int value) : m_ptr(make_shared<JsonInt>(value)) {}
+	Json::Json(int64_t value) : m_ptr(make_shared<JsonDouble>( static_cast<double>(value))) {}
 	Json::Json(bool value) : m_ptr(value ? statics().t : statics().f) {}
 	Json::Json(const string &value) : m_ptr(make_shared<JsonString>(value)) {}
 	Json::Json(string &&value) : m_ptr(make_shared<JsonString>(move(value))) {}

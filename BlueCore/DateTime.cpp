@@ -151,6 +151,14 @@ int64_t DateTime::GetTickCountM()
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
+uint32_t DateTime::GetTickCount32()
+{
+	auto tick = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	tick <<= 32; tick >>= 32;
+	return static_cast<uint32_t>(tick);
+}
+
+
 std::ostream& operator<<(std::ostream& s_, const DateTime& time_)
 {
 	return s_ << time_.format();

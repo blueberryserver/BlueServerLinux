@@ -67,7 +67,7 @@ namespace BLUE_BERRY
 		int _id;
 		int _no;
 		int _line;
-		int _thread;
+		int64_t _thread;
 		//int _symbol;
 		_LogLevel _level;
 		//int _group;
@@ -78,7 +78,7 @@ namespace BLUE_BERRY
 		ParamVec _params;
 		objects _objects;
 	public:
-		LogData( int id_, int no_, int line_, int thread_, _LogLevel level_, const std::string& func_,  const std::string& file_, const std::string& desc_)
+		LogData( int id_, int no_, int line_, int64_t thread_, _LogLevel level_, const std::string& func_,  const std::string& file_, const std::string& desc_)
 			: _id(id_), _no(no_), _line(line_), _thread(thread_), _level(level_), _func(func_), _file(file_), _desc(desc_)
 		{
 			time(&_time);
@@ -94,33 +94,50 @@ namespace BLUE_BERRY
 			return typeid(T).name();
 		}
 
-		static const std::string ToString(const char* v_)
+		//static const std::string ToString(const char* v_)
+		//{
+		//	return std::string(v_);
+		//}
+		//static const std::string ToString(const std::string& v_)
+		//{
+		//	return v_;
+		//}
+		//static const std::string ToString(const char v_)
+		//{
+		//	return std::to_string(v_);
+		//}
+		//static const std::string ToString(const int& v_)
+		//{
+		//	return std::to_string(v_);
+		//}
+		//static const std::string ToString(const long& v_)
+		//{
+		//	return std::to_string(v_);
+		//}
+		//static const std::string ToString(const double& v_)
+		//{
+		//	return std::to_string(v_);
+		//}
+		//static const std::string ToString(const float& v_)
+		//{
+		//	return std::to_string(v_);
+		//}
+		template<typename std::enable_if_t<!std::is_base_of<std::string, std::decay_t<T>>::value>::type>
+		static const std::string ToString(T&& v_)
 		{
-			return std::string(v_);
+			return std::to_string(v_);
 		}
-		static const std::string ToString(const std::string& v_)
+
+		template<typename std::enable_if_t<std::is_base_of<std::string, std::decay_t<T>>::value>::type>
+		static const std::string ToString(T&& v_)
 		{
 			return v_;
 		}
-		static const std::string ToString(const char v_)
+
+		template<typename std::enable_if_t<std::is_same<char*, std::decay_t<T>>::value>::type>
+		static const std::string ToString(T&& v_)
 		{
-			return std::to_string(v_);
-		}
-		static const std::string ToString(const int& v_)
-		{
-			return std::to_string(v_);
-		}
-		static const std::string ToString(const long& v_)
-		{
-			return std::to_string(v_);
-		}
-		static const std::string ToString(const double& v_)
-		{
-			return std::to_string(v_);
-		}
-		static const std::string ToString(const float& v_)
-		{
-			return std::to_string(v_);
+			return std::string(v_);
 		}
 	};
 

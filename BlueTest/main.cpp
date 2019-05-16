@@ -11,6 +11,7 @@
 //#include "Redis_Test.h"
 #include "Cpp_Test.h"
 //#include "Boost_Test.h"
+#include "fmt_Test.h"
 
 TEST(SAMPLE, TEST1)
 {

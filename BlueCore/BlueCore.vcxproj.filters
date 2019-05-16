@@ -37,6 +37,12 @@
     <ClCompile Include="RedisClient.cpp">
       <Filter>Redis</Filter>
     </ClCompile>
+    <ClCompile Include="fmtlib\format.cc">
+      <Filter>Fmtlib</Filter>
+    </ClCompile>
+    <ClCompile Include="fmtlib\posix.cc">
+      <Filter>Fmtlib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h">
@@ -139,6 +145,30 @@
     <ClInclude Include="RedisConnection.h">
       <Filter>Redis</Filter>
     </ClInclude>
+    <ClInclude Include="fmtlib\core.h">
+      <Filter>Fmtlib</Filter>
+    </ClInclude>
+    <ClInclude Include="fmtlib\format.h">
+      <Filter>Fmtlib</Filter>
+    </ClInclude>
+    <ClInclude Include="fmtlib\format-inl.h">
+      <Filter>Fmtlib</Filter>
+    </ClInclude>
+    <ClInclude Include="fmtlib\ostream.h">
+      <Filter>Fmtlib</Filter>
+    </ClInclude>
+    <ClInclude Include="fmtlib\posix.h">
+      <Filter>Fmtlib</Filter>
+    </ClInclude>
+    <ClInclude Include="fmtlib\printf.h">
+      <Filter>Fmtlib</Filter>
+    </ClInclude>
+    <ClInclude Include="fmtlib\ranges.h">
+      <Filter>Fmtlib</Filter>
+    </ClInclude>
+    <ClInclude Include="fmtlib\time.h">
+      <Filter>Fmtlib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Network">
@@ -173,6 +203,9 @@
     </Filter>
     <Filter Include="Msg">
       <UniqueIdentifier>{3b29bf2c-a606-4558-bd6b-46e4dbd547b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fmtlib">
+      <UniqueIdentifier>{5b2942d7-7a94-4673-800e-ddaf75e058df}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

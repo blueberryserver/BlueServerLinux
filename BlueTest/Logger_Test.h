@@ -4,10 +4,10 @@
 #include <gtest/gtest.h>
 
 
-#include "../../BlueCore/Logger.h"
-#include "../../BlueCore/ThreadUtil.h"
-#include "../../BlueCore/IOService.h"
-#include "../../BlueCore/JobExec.h"
+#include "../BlueCore/Logger.h"
+#include "../BlueCore/ThreadUtil.h"
+#include "../BlueCore/IOService.h"
+#include "../BlueCore/JobExec.h"
 using namespace BLUE_BERRY;
 
 void GlobalLoadingLoggerTest()

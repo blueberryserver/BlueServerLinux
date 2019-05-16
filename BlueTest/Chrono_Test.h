@@ -5,7 +5,7 @@
 #include <ctime>
 #include <thread>
 
-#include "../../BlueCore/DateTime.h"
+#include "../BlueCore/DateTime.h"
 using namespace BLUE_BERRY;
 
 TEST(Chrono, Simple)
@@ -99,4 +99,20 @@ TEST(DateTime, Simple)
 	auto t2 = DateTime::getCurrentDateTime();
 	std::this_thread::sleep_for(std::chrono::milliseconds(1235));
 	std::cout << " estimate time: " << (DateTime::getCurrentDateTime() - t2).count() << std::endl;
+}
+
+TEST(Chrono, 32)
+{
+	auto tick = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+	std::cout << "tick :" << DateTime::GetTickCount32() << " " << DateTime::GetTickCountM() << std::endl;
+	std::this_thread::sleep_for(std::chrono::milliseconds(1200));
+	std::cout << "tick :" << DateTime::GetTickCount32() << " " << DateTime::GetTickCountM() << std::endl;
+
+	auto ticksec = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+
+	std::cout << "tick nano :" << std::make_shared<DateTime>(std::chrono::system_clock::now().time_since_epoch())->format() << std::endl;
+	std::cout << "tick sec :" << std::make_shared<DateTime>(ticksec)->format() << std::endl;
+
+	ASSERT_EQ(tick, ticksec);
 }

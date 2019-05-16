@@ -83,6 +83,14 @@
     <ClInclude Include="ConsoleWriter.h" />
     <ClInclude Include="DateTime.h" />
     <ClInclude Include="FileWriter.h" />
+    <ClInclude Include="fmtlib\core.h" />
+    <ClInclude Include="fmtlib\format-inl.h" />
+    <ClInclude Include="fmtlib\format.h" />
+    <ClInclude Include="fmtlib\ostream.h" />
+    <ClInclude Include="fmtlib\posix.h" />
+    <ClInclude Include="fmtlib\printf.h" />
+    <ClInclude Include="fmtlib\ranges.h" />
+    <ClInclude Include="fmtlib\time.h" />
     <ClInclude Include="IOService.h" />
     <ClInclude Include="Job.h" />
     <ClInclude Include="JobHelper.h" />
@@ -114,6 +122,8 @@
     <ClCompile Include="BufferPool.cpp" />
     <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="FileWriter.cpp" />
+    <ClCompile Include="fmtlib\format.cc" />
+    <ClCompile Include="fmtlib\posix.cc" />
     <ClCompile Include="IOService.cpp" />
     <ClCompile Include="json11.cpp" />
     <ClCompile Include="JsonFileLoader.cpp" />
