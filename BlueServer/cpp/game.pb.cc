@@ -85,12 +85,12 @@ void protobuf_AssignDesc_game_2eproto() {
       ContentsNot_descriptor_,
       ContentsNot::default_instance_,
       ContentsNot_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentsNot, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(ContentsNot),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentsNot, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContentsNot, _is_default_instance_));
   PlayDungeonNot_descriptor_ = file->message_type(1);
   static const int PlayDungeonNot_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot, plays_),
@@ -100,12 +100,12 @@ void protobuf_AssignDesc_game_2eproto() {
       PlayDungeonNot_descriptor_,
       PlayDungeonNot::default_instance_,
       PlayDungeonNot_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(PlayDungeonNot),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot, _is_default_instance_));
   PlayDungeonNot_DungeonPlay_descriptor_ = PlayDungeonNot_descriptor_->nested_type(0);
   static const int PlayDungeonNot_DungeonPlay_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot_DungeonPlay, dungeonno_),
@@ -119,12 +119,12 @@ void protobuf_AssignDesc_game_2eproto() {
       PlayDungeonNot_DungeonPlay_descriptor_,
       PlayDungeonNot_DungeonPlay::default_instance_,
       PlayDungeonNot_DungeonPlay_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot_DungeonPlay, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(PlayDungeonNot_DungeonPlay),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot_DungeonPlay, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonNot_DungeonPlay, _is_default_instance_));
   CreateCharReq_descriptor_ = file->message_type(2);
   static const int CreateCharReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCharReq, charno_),
@@ -134,12 +134,12 @@ void protobuf_AssignDesc_game_2eproto() {
       CreateCharReq_descriptor_,
       CreateCharReq::default_instance_,
       CreateCharReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCharReq, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(CreateCharReq),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCharReq, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCharReq, _is_default_instance_));
   CreateCharAns_descriptor_ = file->message_type(3);
   static const int CreateCharAns_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCharAns, err_),
@@ -150,12 +150,12 @@ void protobuf_AssignDesc_game_2eproto() {
       CreateCharAns_descriptor_,
       CreateCharAns::default_instance_,
       CreateCharAns_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCharAns, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(CreateCharAns),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCharAns, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCharAns, _is_default_instance_));
   CurrencyNot_descriptor_ = file->message_type(4);
   static const int CurrencyNot_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CurrencyNot, vc1_),
@@ -167,12 +167,12 @@ void protobuf_AssignDesc_game_2eproto() {
       CurrencyNot_descriptor_,
       CurrencyNot::default_instance_,
       CurrencyNot_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CurrencyNot, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(CurrencyNot),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CurrencyNot, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CurrencyNot, _is_default_instance_));
   PlayDungeonReq_descriptor_ = file->message_type(5);
   static const int PlayDungeonReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonReq, dungeonno_),
@@ -183,12 +183,12 @@ void protobuf_AssignDesc_game_2eproto() {
       PlayDungeonReq_descriptor_,
       PlayDungeonReq::default_instance_,
       PlayDungeonReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonReq, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(PlayDungeonReq),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonReq, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonReq, _is_default_instance_));
   PlayDungeonAns_descriptor_ = file->message_type(6);
   static const int PlayDungeonAns_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, err_),
@@ -202,12 +202,12 @@ void protobuf_AssignDesc_game_2eproto() {
       PlayDungeonAns_descriptor_,
       PlayDungeonAns::default_instance_,
       PlayDungeonAns_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(PlayDungeonAns),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayDungeonAns, _is_default_instance_));
   LevelupCharReq_descriptor_ = file->message_type(7);
   static const int LevelupCharReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharReq, slotno_),
@@ -217,12 +217,12 @@ void protobuf_AssignDesc_game_2eproto() {
       LevelupCharReq_descriptor_,
       LevelupCharReq::default_instance_,
       LevelupCharReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharReq, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(LevelupCharReq),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharReq, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharReq, _is_default_instance_));
   LevelupCharAns_descriptor_ = file->message_type(8);
   static const int LevelupCharAns_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharAns, err_),
@@ -233,12 +233,12 @@ void protobuf_AssignDesc_game_2eproto() {
       LevelupCharAns_descriptor_,
       LevelupCharAns::default_instance_,
       LevelupCharAns_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharAns, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(LevelupCharAns),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharAns, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LevelupCharAns, _is_default_instance_));
   TierupCharReq_descriptor_ = file->message_type(9);
   static const int TierupCharReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharReq, slotno_),
@@ -248,12 +248,12 @@ void protobuf_AssignDesc_game_2eproto() {
       TierupCharReq_descriptor_,
       TierupCharReq::default_instance_,
       TierupCharReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharReq, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(TierupCharReq),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharReq, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharReq, _is_default_instance_));
   TierupCharAns_descriptor_ = file->message_type(10);
   static const int TierupCharAns_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharAns, err_),
@@ -264,12 +264,12 @@ void protobuf_AssignDesc_game_2eproto() {
       TierupCharAns_descriptor_,
       TierupCharAns::default_instance_,
       TierupCharAns_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharAns, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(TierupCharAns),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharAns, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TierupCharAns, _is_default_instance_));
   BattleLogReq_descriptor_ = file->message_type(11);
   static const int BattleLogReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleLogReq, lid_),
@@ -279,12 +279,12 @@ void protobuf_AssignDesc_game_2eproto() {
       BattleLogReq_descriptor_,
       BattleLogReq::default_instance_,
       BattleLogReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleLogReq, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(BattleLogReq),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleLogReq, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleLogReq, _is_default_instance_));
   BattleLogAns_descriptor_ = file->message_type(12);
   static const int BattleLogAns_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleLogAns, err_),
@@ -295,12 +295,12 @@ void protobuf_AssignDesc_game_2eproto() {
       BattleLogAns_descriptor_,
       BattleLogAns::default_instance_,
       BattleLogAns_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleLogAns, _has_bits_[0]),
+      -1,
       -1,
       -1,
       sizeof(BattleLogAns),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleLogAns, _internal_metadata_),
-      -1);
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BattleLogAns, _is_default_instance_));
 }
 
 namespace {
@@ -388,30 +388,31 @@ void protobuf_AddDesc_game_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\ngame.proto\022\003MSG\032\014common.proto\"@\n\013Conte"
     "ntsNot\022\020\n\010contents\030\001 \003(\t\022\021\n\tdungeonNo\030\002 "
-    "\002(\r\022\014\n\004tier\030\003 \002(\r\"\321\001\n\016PlayDungeonNot\022.\n\005"
+    "\001(\r\022\014\n\004tier\030\003 \001(\r\"\321\001\n\016PlayDungeonNot\022.\n\005"
     "plays\030\001 \003(\0132\037.MSG.PlayDungeonNot.Dungeon"
-    "Play\032\216\001\n\013DungeonPlay\022\021\n\tdungeonNo\030\001 \002(\r\022"
-    "\014\n\004tier\030\002 \002(\r\022!\n\007battles\030\003 \003(\0132\020.MSG.Bat"
+    "Play\032\216\001\n\013DungeonPlay\022\021\n\tdungeonNo\030\001 \001(\r\022"
+    "\014\n\004tier\030\002 \001(\r\022!\n\007battles\030\003 \003(\0132\020.MSG.Bat"
     "tleData_\022\035\n\005chars\030\004 \003(\0132\016.MSG.CharData_\022"
     "\034\n\004mobs\030\005 \003(\0132\016.MSG.CharData_\"\037\n\rCreateC"
-    "harReq\022\016\n\006charNo\030\001 \002(\r\"K\n\rCreateCharAns\022"
-    "\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002 "
+    "harReq\022\016\n\006charNo\030\001 \001(\r\"K\n\rCreateCharAns\022"
+    "\033\n\003err\030\001 \001(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002 "
     "\001(\0132\016.MSG.CharData_\"4\n\013CurrencyNot\022\013\n\003vc"
-    "1\030\001 \002(\r\022\013\n\003vc2\030\002 \002(\r\022\013\n\003vc3\030\003 \002(\r\"1\n\016Pla"
-    "yDungeonReq\022\021\n\tdungeonNo\030\001 \002(\r\022\014\n\004tier\030\002"
-    " \002(\r\"\257\001\n\016PlayDungeonAns\022\033\n\003err\030\001 \002(\0162\016.M"
+    "1\030\001 \001(\r\022\013\n\003vc2\030\002 \001(\r\022\013\n\003vc3\030\003 \001(\r\"1\n\016Pla"
+    "yDungeonReq\022\021\n\tdungeonNo\030\001 \001(\r\022\014\n\004tier\030\002"
+    " \001(\r\"\257\001\n\016PlayDungeonAns\022\033\n\003err\030\001 \001(\0162\016.M"
     "SG.ErrorCode\022!\n\007battles\030\002 \003(\0132\020.MSG.Batt"
     "leData_\022\035\n\005chars\030\003 \003(\0132\016.MSG.CharData_\022\034"
     "\n\004mobs\030\004 \003(\0132\016.MSG.CharData_\022 \n\006winner\030\005"
-    " \002(\0132\020.MSG.BattleData_\" \n\016LevelupCharReq"
-    "\022\016\n\006slotNo\030\001 \002(\r\"L\n\016LevelupCharAns\022\033\n\003er"
-    "r\030\001 \002(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002 \001(\0132\016"
+    " \001(\0132\020.MSG.BattleData_\" \n\016LevelupCharReq"
+    "\022\016\n\006slotNo\030\001 \001(\r\"L\n\016LevelupCharAns\022\033\n\003er"
+    "r\030\001 \001(\0162\016.MSG.ErrorCode\022\035\n\005char_\030\002 \001(\0132\016"
     ".MSG.CharData_\"\037\n\rTierupCharReq\022\016\n\006slotN"
-    "o\030\001 \002(\r\"K\n\rTierupCharAns\022\033\n\003err\030\001 \002(\0162\016."
+    "o\030\001 \001(\r\"K\n\rTierupCharAns\022\033\n\003err\030\001 \001(\0162\016."
     "MSG.ErrorCode\022\035\n\005char_\030\002 \001(\0132\016.MSG.CharD"
-    "ata_\"\033\n\014BattleLogReq\022\013\n\003lid\030\001 \002(\004\"P\n\014Bat"
-    "tleLogAns\022\033\n\003err\030\001 \002(\0162\016.MSG.ErrorCode\022#"
-    "\n\004data\030\002 \003(\0132\025.MSG.DungeonPlayData_", 1035);
+    "ata_\"\033\n\014BattleLogReq\022\013\n\003lid\030\001 \001(\004\"P\n\014Bat"
+    "tleLogAns\022\033\n\003err\030\001 \001(\0162\016.MSG.ErrorCode\022#"
+    "\n\004data\030\002 \003(\0132\025.MSG.DungeonPlayData_b\006pro"
+    "to3", 1043);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "game.proto", &protobuf_RegisterTypes);
   ContentsNot::default_instance_ = new ContentsNot();
@@ -467,6 +468,7 @@ ContentsNot::ContentsNot()
 }
 
 void ContentsNot::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 ContentsNot::ContentsNot(const ContentsNot& from)
@@ -478,11 +480,11 @@ ContentsNot::ContentsNot(const ContentsNot& from)
 }
 
 void ContentsNot::SharedCtor() {
+    _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   dungeonno_ = 0u;
   tier_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 ContentsNot::~ContentsNot() {
@@ -544,10 +546,6 @@ void ContentsNot::Clear() {
 #undef ZR_
 
   contents_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool ContentsNot::MergePartialFromCodedStream(
@@ -566,11 +564,11 @@ bool ContentsNot::MergePartialFromCodedStream(
          parse_contents:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_contents()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->contents(this->contents_size() - 1).data(),
             this->contents(this->contents_size() - 1).length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "MSG.ContentsNot.contents");
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "MSG.ContentsNot.contents"));
         } else {
           goto handle_unusual;
         }
@@ -579,14 +577,14 @@ bool ContentsNot::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 dungeonNo = 2;
+      // optional uint32 dungeonNo = 2;
       case 2: {
         if (tag == 16) {
          parse_dungeonNo:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &dungeonno_)));
-          set_has_dungeonno();
+
         } else {
           goto handle_unusual;
         }
@@ -594,14 +592,14 @@ bool ContentsNot::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 tier = 3;
+      // optional uint32 tier = 3;
       case 3: {
         if (tag == 24) {
          parse_tier:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &tier_)));
-          set_has_tier();
+
         } else {
           goto handle_unusual;
         }
@@ -616,8 +614,7 @@ bool ContentsNot::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -636,28 +633,24 @@ void ContentsNot::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_start:MSG.ContentsNot)
   // repeated string contents = 1;
   for (int i = 0; i < this->contents_size(); i++) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->contents(i).data(), this->contents(i).length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "MSG.ContentsNot.contents");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->contents(i), output);
   }
 
-  // required uint32 dungeonNo = 2;
-  if (has_dungeonno()) {
+  // optional uint32 dungeonNo = 2;
+  if (this->dungeonno() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->dungeonno(), output);
   }
 
-  // required uint32 tier = 3;
-  if (has_tier()) {
+  // optional uint32 tier = 3;
+  if (this->tier() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->tier(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.ContentsNot)
 }
 
@@ -666,70 +659,46 @@ void ContentsNot::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_to_array_start:MSG.ContentsNot)
   // repeated string contents = 1;
   for (int i = 0; i < this->contents_size(); i++) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->contents(i).data(), this->contents(i).length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "MSG.ContentsNot.contents");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->contents(i), target);
   }
 
-  // required uint32 dungeonNo = 2;
-  if (has_dungeonno()) {
+  // optional uint32 dungeonNo = 2;
+  if (this->dungeonno() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->dungeonno(), target);
   }
 
-  // required uint32 tier = 3;
-  if (has_tier()) {
+  // optional uint32 tier = 3;
+  if (this->tier() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->tier(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.ContentsNot)
   return target;
 }
 
-int ContentsNot::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.ContentsNot)
-  int total_size = 0;
-
-  if (has_dungeonno()) {
-    // required uint32 dungeonNo = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->dungeonno());
-  }
-
-  if (has_tier()) {
-    // required uint32 tier = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->tier());
-  }
-
-  return total_size;
-}
 int ContentsNot::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.ContentsNot)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000006) ^ 0x00000006) == 0) {  // All required fields are present.
-    // required uint32 dungeonNo = 2;
+  // optional uint32 dungeonNo = 2;
+  if (this->dungeonno() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->dungeonno());
+  }
 
-    // required uint32 tier = 3;
+  // optional uint32 tier = 3;
+  if (this->tier() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->tier());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
+
   // repeated string contents = 1;
   total_size += 1 * this->contents_size();
   for (int i = 0; i < this->contents_size(); i++) {
@@ -737,11 +706,6 @@ int ContentsNot::ByteSize() const {
       this->contents(i));
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -771,16 +735,11 @@ void ContentsNot::MergeFrom(const ContentsNot& from) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
   contents_.MergeFrom(from.contents_);
-  if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
-    if (from.has_dungeonno()) {
-      set_dungeonno(from.dungeonno());
-    }
-    if (from.has_tier()) {
-      set_tier(from.tier());
-    }
+  if (from.dungeonno() != 0) {
+    set_dungeonno(from.dungeonno());
   }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.tier() != 0) {
+    set_tier(from.tier());
   }
 }
 
@@ -799,7 +758,6 @@ void ContentsNot::CopyFrom(const ContentsNot& from) {
 }
 
 bool ContentsNot::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000006) != 0x00000006) return false;
 
   return true;
 }
@@ -812,7 +770,6 @@ void ContentsNot::InternalSwap(ContentsNot* other) {
   contents_.UnsafeArenaSwap(&other->contents_);
   std::swap(dungeonno_, other->dungeonno_);
   std::swap(tier_, other->tier_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -883,50 +840,30 @@ ContentsNot::mutable_contents() {
   return &contents_;
 }
 
-// required uint32 dungeonNo = 2;
-bool ContentsNot::has_dungeonno() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void ContentsNot::set_has_dungeonno() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void ContentsNot::clear_has_dungeonno() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 dungeonNo = 2;
 void ContentsNot::clear_dungeonno() {
   dungeonno_ = 0u;
-  clear_has_dungeonno();
 }
  ::google::protobuf::uint32 ContentsNot::dungeonno() const {
   // @@protoc_insertion_point(field_get:MSG.ContentsNot.dungeonNo)
   return dungeonno_;
 }
  void ContentsNot::set_dungeonno(::google::protobuf::uint32 value) {
-  set_has_dungeonno();
+  
   dungeonno_ = value;
   // @@protoc_insertion_point(field_set:MSG.ContentsNot.dungeonNo)
 }
 
-// required uint32 tier = 3;
-bool ContentsNot::has_tier() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-void ContentsNot::set_has_tier() {
-  _has_bits_[0] |= 0x00000004u;
-}
-void ContentsNot::clear_has_tier() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 tier = 3;
 void ContentsNot::clear_tier() {
   tier_ = 0u;
-  clear_has_tier();
 }
  ::google::protobuf::uint32 ContentsNot::tier() const {
   // @@protoc_insertion_point(field_get:MSG.ContentsNot.tier)
   return tier_;
 }
  void ContentsNot::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
+  
   tier_ = value;
   // @@protoc_insertion_point(field_set:MSG.ContentsNot.tier)
 }
@@ -950,6 +887,7 @@ PlayDungeonNot_DungeonPlay::PlayDungeonNot_DungeonPlay()
 }
 
 void PlayDungeonNot_DungeonPlay::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 PlayDungeonNot_DungeonPlay::PlayDungeonNot_DungeonPlay(const PlayDungeonNot_DungeonPlay& from)
@@ -961,10 +899,10 @@ PlayDungeonNot_DungeonPlay::PlayDungeonNot_DungeonPlay(const PlayDungeonNot_Dung
 }
 
 void PlayDungeonNot_DungeonPlay::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   dungeonno_ = 0u;
   tier_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 PlayDungeonNot_DungeonPlay::~PlayDungeonNot_DungeonPlay() {
@@ -1028,10 +966,6 @@ void PlayDungeonNot_DungeonPlay::Clear() {
   battles_.Clear();
   chars_.Clear();
   mobs_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool PlayDungeonNot_DungeonPlay::MergePartialFromCodedStream(
@@ -1044,13 +978,13 @@ bool PlayDungeonNot_DungeonPlay::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 dungeonNo = 1;
+      // optional uint32 dungeonNo = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &dungeonno_)));
-          set_has_dungeonno();
+
         } else {
           goto handle_unusual;
         }
@@ -1058,14 +992,14 @@ bool PlayDungeonNot_DungeonPlay::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 tier = 2;
+      // optional uint32 tier = 2;
       case 2: {
         if (tag == 16) {
          parse_tier:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &tier_)));
-          set_has_tier();
+
         } else {
           goto handle_unusual;
         }
@@ -1129,8 +1063,7 @@ bool PlayDungeonNot_DungeonPlay::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -1147,13 +1080,13 @@ failure:
 void PlayDungeonNot_DungeonPlay::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.PlayDungeonNot.DungeonPlay)
-  // required uint32 dungeonNo = 1;
-  if (has_dungeonno()) {
+  // optional uint32 dungeonNo = 1;
+  if (this->dungeonno() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->dungeonno(), output);
   }
 
-  // required uint32 tier = 2;
-  if (has_tier()) {
+  // optional uint32 tier = 2;
+  if (this->tier() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->tier(), output);
   }
 
@@ -1175,23 +1108,19 @@ void PlayDungeonNot_DungeonPlay::SerializeWithCachedSizes(
       5, this->mobs(i), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.PlayDungeonNot.DungeonPlay)
 }
 
 ::google::protobuf::uint8* PlayDungeonNot_DungeonPlay::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.PlayDungeonNot.DungeonPlay)
-  // required uint32 dungeonNo = 1;
-  if (has_dungeonno()) {
+  // optional uint32 dungeonNo = 1;
+  if (this->dungeonno() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->dungeonno(), target);
   }
 
-  // required uint32 tier = 2;
-  if (has_tier()) {
+  // optional uint32 tier = 2;
+  if (this->tier() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->tier(), target);
   }
 
@@ -1216,52 +1145,28 @@ void PlayDungeonNot_DungeonPlay::SerializeWithCachedSizes(
         5, this->mobs(i), false, target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.PlayDungeonNot.DungeonPlay)
   return target;
 }
 
-int PlayDungeonNot_DungeonPlay::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.PlayDungeonNot.DungeonPlay)
-  int total_size = 0;
-
-  if (has_dungeonno()) {
-    // required uint32 dungeonNo = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->dungeonno());
-  }
-
-  if (has_tier()) {
-    // required uint32 tier = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->tier());
-  }
-
-  return total_size;
-}
 int PlayDungeonNot_DungeonPlay::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.PlayDungeonNot.DungeonPlay)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required uint32 dungeonNo = 1;
+  // optional uint32 dungeonNo = 1;
+  if (this->dungeonno() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->dungeonno());
+  }
 
-    // required uint32 tier = 2;
+  // optional uint32 tier = 2;
+  if (this->tier() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->tier());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
+
   // repeated .MSG.BattleData_ battles = 3;
   total_size += 1 * this->battles_size();
   for (int i = 0; i < this->battles_size(); i++) {
@@ -1286,11 +1191,6 @@ int PlayDungeonNot_DungeonPlay::ByteSize() const {
         this->mobs(i));
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -1322,16 +1222,11 @@ void PlayDungeonNot_DungeonPlay::MergeFrom(const PlayDungeonNot_DungeonPlay& fro
   battles_.MergeFrom(from.battles_);
   chars_.MergeFrom(from.chars_);
   mobs_.MergeFrom(from.mobs_);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_dungeonno()) {
-      set_dungeonno(from.dungeonno());
-    }
-    if (from.has_tier()) {
-      set_tier(from.tier());
-    }
+  if (from.dungeonno() != 0) {
+    set_dungeonno(from.dungeonno());
   }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.tier() != 0) {
+    set_tier(from.tier());
   }
 }
 
@@ -1350,11 +1245,7 @@ void PlayDungeonNot_DungeonPlay::CopyFrom(const PlayDungeonNot_DungeonPlay& from
 }
 
 bool PlayDungeonNot_DungeonPlay::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
-  if (!::google::protobuf::internal::AllAreInitialized(this->battles())) return false;
-  if (!::google::protobuf::internal::AllAreInitialized(this->chars())) return false;
-  if (!::google::protobuf::internal::AllAreInitialized(this->mobs())) return false;
   return true;
 }
 
@@ -1368,7 +1259,6 @@ void PlayDungeonNot_DungeonPlay::InternalSwap(PlayDungeonNot_DungeonPlay* other)
   battles_.UnsafeArenaSwap(&other->battles_);
   chars_.UnsafeArenaSwap(&other->chars_);
   mobs_.UnsafeArenaSwap(&other->mobs_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1395,6 +1285,7 @@ PlayDungeonNot::PlayDungeonNot()
 }
 
 void PlayDungeonNot::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 PlayDungeonNot::PlayDungeonNot(const PlayDungeonNot& from)
@@ -1406,8 +1297,8 @@ PlayDungeonNot::PlayDungeonNot(const PlayDungeonNot& from)
 }
 
 void PlayDungeonNot::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 PlayDungeonNot::~PlayDungeonNot() {
@@ -1448,10 +1339,6 @@ PlayDungeonNot* PlayDungeonNot::New(::google::protobuf::Arena* arena) const {
 void PlayDungeonNot::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.PlayDungeonNot)
   plays_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool PlayDungeonNot::MergePartialFromCodedStream(
@@ -1487,8 +1374,7 @@ bool PlayDungeonNot::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -1511,10 +1397,6 @@ void PlayDungeonNot::SerializeWithCachedSizes(
       1, this->plays(i), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.PlayDungeonNot)
 }
 
@@ -1528,10 +1410,6 @@ void PlayDungeonNot::SerializeWithCachedSizes(
         1, this->plays(i), false, target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.PlayDungeonNot)
   return target;
 }
@@ -1548,11 +1426,6 @@ int PlayDungeonNot::ByteSize() const {
         this->plays(i));
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -1582,9 +1455,6 @@ void PlayDungeonNot::MergeFrom(const PlayDungeonNot& from) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
   plays_.MergeFrom(from.plays_);
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-  }
 }
 
 void PlayDungeonNot::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1603,7 +1473,6 @@ void PlayDungeonNot::CopyFrom(const PlayDungeonNot& from) {
 
 bool PlayDungeonNot::IsInitialized() const {
 
-  if (!::google::protobuf::internal::AllAreInitialized(this->plays())) return false;
   return true;
 }
 
@@ -1613,7 +1482,6 @@ void PlayDungeonNot::Swap(PlayDungeonNot* other) {
 }
 void PlayDungeonNot::InternalSwap(PlayDungeonNot* other) {
   plays_.UnsafeArenaSwap(&other->plays_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1629,50 +1497,30 @@ void PlayDungeonNot::InternalSwap(PlayDungeonNot* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PlayDungeonNot_DungeonPlay
 
-// required uint32 dungeonNo = 1;
-bool PlayDungeonNot_DungeonPlay::has_dungeonno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void PlayDungeonNot_DungeonPlay::set_has_dungeonno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void PlayDungeonNot_DungeonPlay::clear_has_dungeonno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 dungeonNo = 1;
 void PlayDungeonNot_DungeonPlay::clear_dungeonno() {
   dungeonno_ = 0u;
-  clear_has_dungeonno();
 }
  ::google::protobuf::uint32 PlayDungeonNot_DungeonPlay::dungeonno() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonNot.DungeonPlay.dungeonNo)
   return dungeonno_;
 }
  void PlayDungeonNot_DungeonPlay::set_dungeonno(::google::protobuf::uint32 value) {
-  set_has_dungeonno();
+  
   dungeonno_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonNot.DungeonPlay.dungeonNo)
 }
 
-// required uint32 tier = 2;
-bool PlayDungeonNot_DungeonPlay::has_tier() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void PlayDungeonNot_DungeonPlay::set_has_tier() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void PlayDungeonNot_DungeonPlay::clear_has_tier() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 tier = 2;
 void PlayDungeonNot_DungeonPlay::clear_tier() {
   tier_ = 0u;
-  clear_has_tier();
 }
  ::google::protobuf::uint32 PlayDungeonNot_DungeonPlay::tier() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonNot.DungeonPlay.tier)
   return tier_;
 }
  void PlayDungeonNot_DungeonPlay::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
+  
   tier_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonNot.DungeonPlay.tier)
 }
@@ -1816,6 +1664,7 @@ CreateCharReq::CreateCharReq()
 }
 
 void CreateCharReq::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 CreateCharReq::CreateCharReq(const CreateCharReq& from)
@@ -1827,9 +1676,9 @@ CreateCharReq::CreateCharReq(const CreateCharReq& from)
 }
 
 void CreateCharReq::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   charno_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 CreateCharReq::~CreateCharReq() {
@@ -1870,10 +1719,6 @@ CreateCharReq* CreateCharReq::New(::google::protobuf::Arena* arena) const {
 void CreateCharReq::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.CreateCharReq)
   charno_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool CreateCharReq::MergePartialFromCodedStream(
@@ -1886,13 +1731,13 @@ bool CreateCharReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 charNo = 1;
+      // optional uint32 charNo = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &charno_)));
-          set_has_charno();
+
         } else {
           goto handle_unusual;
         }
@@ -1907,8 +1752,7 @@ bool CreateCharReq::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -1925,30 +1769,22 @@ failure:
 void CreateCharReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.CreateCharReq)
-  // required uint32 charNo = 1;
-  if (has_charno()) {
+  // optional uint32 charNo = 1;
+  if (this->charno() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->charno(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.CreateCharReq)
 }
 
 ::google::protobuf::uint8* CreateCharReq::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.CreateCharReq)
-  // required uint32 charNo = 1;
-  if (has_charno()) {
+  // optional uint32 charNo = 1;
+  if (this->charno() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->charno(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.CreateCharReq)
   return target;
 }
@@ -1957,17 +1793,13 @@ int CreateCharReq::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.CreateCharReq)
   int total_size = 0;
 
-  // required uint32 charNo = 1;
-  if (has_charno()) {
+  // optional uint32 charNo = 1;
+  if (this->charno() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->charno());
   }
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
+
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -1996,13 +1828,8 @@ void CreateCharReq::MergeFrom(const CreateCharReq& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_charno()) {
-      set_charno(from.charno());
-    }
-  }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.charno() != 0) {
+    set_charno(from.charno());
   }
 }
 
@@ -2021,7 +1848,6 @@ void CreateCharReq::CopyFrom(const CreateCharReq& from) {
 }
 
 bool CreateCharReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
@@ -2032,7 +1858,6 @@ void CreateCharReq::Swap(CreateCharReq* other) {
 }
 void CreateCharReq::InternalSwap(CreateCharReq* other) {
   std::swap(charno_, other->charno_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2048,26 +1873,16 @@ void CreateCharReq::InternalSwap(CreateCharReq* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // CreateCharReq
 
-// required uint32 charNo = 1;
-bool CreateCharReq::has_charno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void CreateCharReq::set_has_charno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void CreateCharReq::clear_has_charno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 charNo = 1;
 void CreateCharReq::clear_charno() {
   charno_ = 0u;
-  clear_has_charno();
 }
  ::google::protobuf::uint32 CreateCharReq::charno() const {
   // @@protoc_insertion_point(field_get:MSG.CreateCharReq.charNo)
   return charno_;
 }
  void CreateCharReq::set_charno(::google::protobuf::uint32 value) {
-  set_has_charno();
+  
   charno_ = value;
   // @@protoc_insertion_point(field_set:MSG.CreateCharReq.charNo)
 }
@@ -2088,6 +1903,7 @@ CreateCharAns::CreateCharAns()
 }
 
 void CreateCharAns::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
   char__ = const_cast< ::MSG::CharData_*>(&::MSG::CharData_::default_instance());
 }
 
@@ -2100,10 +1916,10 @@ CreateCharAns::CreateCharAns(const CreateCharAns& from)
 }
 
 void CreateCharAns::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   err_ = 0;
   char__ = NULL;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 CreateCharAns::~CreateCharAns() {
@@ -2144,16 +1960,9 @@ CreateCharAns* CreateCharAns::New(::google::protobuf::Arena* arena) const {
 
 void CreateCharAns::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.CreateCharAns)
-  if (_has_bits_[0 / 32] & 3u) {
-    err_ = 0;
-    if (has_char_()) {
-      if (char__ != NULL) char__->::MSG::CharData_::Clear();
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
+  err_ = 0;
+  if (GetArenaNoVirtual() == NULL && char__ != NULL) delete char__;
+  char__ = NULL;
 }
 
 bool CreateCharAns::MergePartialFromCodedStream(
@@ -2166,18 +1975,14 @@ bool CreateCharAns::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .MSG.ErrorCode err = 1;
+      // optional .MSG.ErrorCode err = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::MSG::ErrorCode_IsValid(value)) {
-            set_err(static_cast< ::MSG::ErrorCode >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+          set_err(static_cast< ::MSG::ErrorCode >(value));
         } else {
           goto handle_unusual;
         }
@@ -2205,8 +2010,7 @@ bool CreateCharAns::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -2223,45 +2027,37 @@ failure:
 void CreateCharAns::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.CreateCharAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->err(), output);
   }
 
   // optional .MSG.CharData_ char_ = 2;
-  if (has_char_()) {
+  if (this->has_char_()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->char__, output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.CreateCharAns)
 }
 
 ::google::protobuf::uint8* CreateCharAns::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.CreateCharAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->err(), target);
   }
 
   // optional .MSG.CharData_ char_ = 2;
-  if (has_char_()) {
+  if (this->has_char_()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, *this->char__, false, target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.CreateCharAns)
   return target;
 }
@@ -2270,23 +2066,19 @@ int CreateCharAns::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.CreateCharAns)
   int total_size = 0;
 
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
   }
+
   // optional .MSG.CharData_ char_ = 2;
-  if (has_char_()) {
+  if (this->has_char_()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->char__);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -2315,16 +2107,11 @@ void CreateCharAns::MergeFrom(const CreateCharAns& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_err()) {
-      set_err(from.err());
-    }
-    if (from.has_char_()) {
-      mutable_char_()->::MSG::CharData_::MergeFrom(from.char_());
-    }
+  if (from.err() != 0) {
+    set_err(from.err());
   }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.has_char_()) {
+    mutable_char_()->::MSG::CharData_::MergeFrom(from.char_());
   }
 }
 
@@ -2343,11 +2130,7 @@ void CreateCharAns::CopyFrom(const CreateCharAns& from) {
 }
 
 bool CreateCharAns::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (has_char_()) {
-    if (!this->char__->IsInitialized()) return false;
-  }
   return true;
 }
 
@@ -2358,7 +2141,6 @@ void CreateCharAns::Swap(CreateCharAns* other) {
 void CreateCharAns::InternalSwap(CreateCharAns* other) {
   std::swap(err_, other->err_);
   std::swap(char__, other->char__);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2374,51 +2156,34 @@ void CreateCharAns::InternalSwap(CreateCharAns* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // CreateCharAns
 
-// required .MSG.ErrorCode err = 1;
-bool CreateCharAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void CreateCharAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void CreateCharAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 void CreateCharAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
  ::MSG::ErrorCode CreateCharAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.CreateCharAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
  void CreateCharAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.CreateCharAns.err)
 }
 
 // optional .MSG.CharData_ char_ = 2;
 bool CreateCharAns::has_char_() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void CreateCharAns::set_has_char_() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void CreateCharAns::clear_has_char_() {
-  _has_bits_[0] &= ~0x00000002u;
+  return !_is_default_instance_ && char__ != NULL;
 }
 void CreateCharAns::clear_char_() {
-  if (char__ != NULL) char__->::MSG::CharData_::Clear();
-  clear_has_char_();
+  if (GetArenaNoVirtual() == NULL && char__ != NULL) delete char__;
+  char__ = NULL;
 }
 const ::MSG::CharData_& CreateCharAns::char_() const {
   // @@protoc_insertion_point(field_get:MSG.CreateCharAns.char_)
   return char__ != NULL ? *char__ : *default_instance_->char__;
 }
 ::MSG::CharData_* CreateCharAns::mutable_char_() {
-  set_has_char_();
+  
   if (char__ == NULL) {
     char__ = new ::MSG::CharData_;
   }
@@ -2427,7 +2192,7 @@ const ::MSG::CharData_& CreateCharAns::char_() const {
 }
 ::MSG::CharData_* CreateCharAns::release_char_() {
   // @@protoc_insertion_point(field_release:MSG.CreateCharAns.char_)
-  clear_has_char_();
+  
   ::MSG::CharData_* temp = char__;
   char__ = NULL;
   return temp;
@@ -2436,9 +2201,9 @@ void CreateCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   delete char__;
   char__ = char_;
   if (char_) {
-    set_has_char_();
+    
   } else {
-    clear_has_char_();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.CreateCharAns.char_)
 }
@@ -2460,6 +2225,7 @@ CurrencyNot::CurrencyNot()
 }
 
 void CurrencyNot::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 CurrencyNot::CurrencyNot(const CurrencyNot& from)
@@ -2471,11 +2237,11 @@ CurrencyNot::CurrencyNot(const CurrencyNot& from)
 }
 
 void CurrencyNot::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   vc1_ = 0u;
   vc2_ = 0u;
   vc3_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 CurrencyNot::~CurrencyNot() {
@@ -2536,10 +2302,6 @@ void CurrencyNot::Clear() {
 #undef ZR_HELPER_
 #undef ZR_
 
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool CurrencyNot::MergePartialFromCodedStream(
@@ -2552,13 +2314,13 @@ bool CurrencyNot::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 vc1 = 1;
+      // optional uint32 vc1 = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &vc1_)));
-          set_has_vc1();
+
         } else {
           goto handle_unusual;
         }
@@ -2566,14 +2328,14 @@ bool CurrencyNot::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 vc2 = 2;
+      // optional uint32 vc2 = 2;
       case 2: {
         if (tag == 16) {
          parse_vc2:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &vc2_)));
-          set_has_vc2();
+
         } else {
           goto handle_unusual;
         }
@@ -2581,14 +2343,14 @@ bool CurrencyNot::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 vc3 = 3;
+      // optional uint32 vc3 = 3;
       case 3: {
         if (tag == 24) {
          parse_vc3:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &vc3_)));
-          set_has_vc3();
+
         } else {
           goto handle_unusual;
         }
@@ -2603,8 +2365,7 @@ bool CurrencyNot::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -2621,109 +2382,71 @@ failure:
 void CurrencyNot::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.CurrencyNot)
-  // required uint32 vc1 = 1;
-  if (has_vc1()) {
+  // optional uint32 vc1 = 1;
+  if (this->vc1() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->vc1(), output);
   }
 
-  // required uint32 vc2 = 2;
-  if (has_vc2()) {
+  // optional uint32 vc2 = 2;
+  if (this->vc2() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->vc2(), output);
   }
 
-  // required uint32 vc3 = 3;
-  if (has_vc3()) {
+  // optional uint32 vc3 = 3;
+  if (this->vc3() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->vc3(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.CurrencyNot)
 }
 
 ::google::protobuf::uint8* CurrencyNot::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.CurrencyNot)
-  // required uint32 vc1 = 1;
-  if (has_vc1()) {
+  // optional uint32 vc1 = 1;
+  if (this->vc1() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->vc1(), target);
   }
 
-  // required uint32 vc2 = 2;
-  if (has_vc2()) {
+  // optional uint32 vc2 = 2;
+  if (this->vc2() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->vc2(), target);
   }
 
-  // required uint32 vc3 = 3;
-  if (has_vc3()) {
+  // optional uint32 vc3 = 3;
+  if (this->vc3() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->vc3(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.CurrencyNot)
   return target;
 }
 
-int CurrencyNot::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.CurrencyNot)
-  int total_size = 0;
-
-  if (has_vc1()) {
-    // required uint32 vc1 = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->vc1());
-  }
-
-  if (has_vc2()) {
-    // required uint32 vc2 = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->vc2());
-  }
-
-  if (has_vc3()) {
-    // required uint32 vc3 = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->vc3());
-  }
-
-  return total_size;
-}
 int CurrencyNot::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.CurrencyNot)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required uint32 vc1 = 1;
+  // optional uint32 vc1 = 1;
+  if (this->vc1() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->vc1());
+  }
 
-    // required uint32 vc2 = 2;
+  // optional uint32 vc2 = 2;
+  if (this->vc2() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->vc2());
+  }
 
-    // required uint32 vc3 = 3;
+  // optional uint32 vc3 = 3;
+  if (this->vc3() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->vc3());
+  }
 
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -2752,19 +2475,14 @@ void CurrencyNot::MergeFrom(const CurrencyNot& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_vc1()) {
-      set_vc1(from.vc1());
-    }
-    if (from.has_vc2()) {
-      set_vc2(from.vc2());
-    }
-    if (from.has_vc3()) {
-      set_vc3(from.vc3());
-    }
+  if (from.vc1() != 0) {
+    set_vc1(from.vc1());
   }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.vc2() != 0) {
+    set_vc2(from.vc2());
+  }
+  if (from.vc3() != 0) {
+    set_vc3(from.vc3());
   }
 }
 
@@ -2783,7 +2501,6 @@ void CurrencyNot::CopyFrom(const CurrencyNot& from) {
 }
 
 bool CurrencyNot::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
@@ -2796,7 +2513,6 @@ void CurrencyNot::InternalSwap(CurrencyNot* other) {
   std::swap(vc1_, other->vc1_);
   std::swap(vc2_, other->vc2_);
   std::swap(vc3_, other->vc3_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2812,74 +2528,44 @@ void CurrencyNot::InternalSwap(CurrencyNot* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // CurrencyNot
 
-// required uint32 vc1 = 1;
-bool CurrencyNot::has_vc1() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void CurrencyNot::set_has_vc1() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void CurrencyNot::clear_has_vc1() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 vc1 = 1;
 void CurrencyNot::clear_vc1() {
   vc1_ = 0u;
-  clear_has_vc1();
 }
  ::google::protobuf::uint32 CurrencyNot::vc1() const {
   // @@protoc_insertion_point(field_get:MSG.CurrencyNot.vc1)
   return vc1_;
 }
  void CurrencyNot::set_vc1(::google::protobuf::uint32 value) {
-  set_has_vc1();
+  
   vc1_ = value;
   // @@protoc_insertion_point(field_set:MSG.CurrencyNot.vc1)
 }
 
-// required uint32 vc2 = 2;
-bool CurrencyNot::has_vc2() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void CurrencyNot::set_has_vc2() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void CurrencyNot::clear_has_vc2() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 vc2 = 2;
 void CurrencyNot::clear_vc2() {
   vc2_ = 0u;
-  clear_has_vc2();
 }
  ::google::protobuf::uint32 CurrencyNot::vc2() const {
   // @@protoc_insertion_point(field_get:MSG.CurrencyNot.vc2)
   return vc2_;
 }
  void CurrencyNot::set_vc2(::google::protobuf::uint32 value) {
-  set_has_vc2();
+  
   vc2_ = value;
   // @@protoc_insertion_point(field_set:MSG.CurrencyNot.vc2)
 }
 
-// required uint32 vc3 = 3;
-bool CurrencyNot::has_vc3() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-void CurrencyNot::set_has_vc3() {
-  _has_bits_[0] |= 0x00000004u;
-}
-void CurrencyNot::clear_has_vc3() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 vc3 = 3;
 void CurrencyNot::clear_vc3() {
   vc3_ = 0u;
-  clear_has_vc3();
 }
  ::google::protobuf::uint32 CurrencyNot::vc3() const {
   // @@protoc_insertion_point(field_get:MSG.CurrencyNot.vc3)
   return vc3_;
 }
  void CurrencyNot::set_vc3(::google::protobuf::uint32 value) {
-  set_has_vc3();
+  
   vc3_ = value;
   // @@protoc_insertion_point(field_set:MSG.CurrencyNot.vc3)
 }
@@ -2900,6 +2586,7 @@ PlayDungeonReq::PlayDungeonReq()
 }
 
 void PlayDungeonReq::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 PlayDungeonReq::PlayDungeonReq(const PlayDungeonReq& from)
@@ -2911,10 +2598,10 @@ PlayDungeonReq::PlayDungeonReq(const PlayDungeonReq& from)
 }
 
 void PlayDungeonReq::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   dungeonno_ = 0u;
   tier_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 PlayDungeonReq::~PlayDungeonReq() {
@@ -2975,10 +2662,6 @@ void PlayDungeonReq::Clear() {
 #undef ZR_HELPER_
 #undef ZR_
 
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool PlayDungeonReq::MergePartialFromCodedStream(
@@ -2991,13 +2674,13 @@ bool PlayDungeonReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 dungeonNo = 1;
+      // optional uint32 dungeonNo = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &dungeonno_)));
-          set_has_dungeonno();
+
         } else {
           goto handle_unusual;
         }
@@ -3005,14 +2688,14 @@ bool PlayDungeonReq::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 tier = 2;
+      // optional uint32 tier = 2;
       case 2: {
         if (tag == 16) {
          parse_tier:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &tier_)));
-          set_has_tier();
+
         } else {
           goto handle_unusual;
         }
@@ -3027,8 +2710,7 @@ bool PlayDungeonReq::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -3045,87 +2727,54 @@ failure:
 void PlayDungeonReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.PlayDungeonReq)
-  // required uint32 dungeonNo = 1;
-  if (has_dungeonno()) {
+  // optional uint32 dungeonNo = 1;
+  if (this->dungeonno() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->dungeonno(), output);
   }
 
-  // required uint32 tier = 2;
-  if (has_tier()) {
+  // optional uint32 tier = 2;
+  if (this->tier() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->tier(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.PlayDungeonReq)
 }
 
 ::google::protobuf::uint8* PlayDungeonReq::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.PlayDungeonReq)
-  // required uint32 dungeonNo = 1;
-  if (has_dungeonno()) {
+  // optional uint32 dungeonNo = 1;
+  if (this->dungeonno() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->dungeonno(), target);
   }
 
-  // required uint32 tier = 2;
-  if (has_tier()) {
+  // optional uint32 tier = 2;
+  if (this->tier() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->tier(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.PlayDungeonReq)
   return target;
 }
 
-int PlayDungeonReq::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.PlayDungeonReq)
-  int total_size = 0;
-
-  if (has_dungeonno()) {
-    // required uint32 dungeonNo = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->dungeonno());
-  }
-
-  if (has_tier()) {
-    // required uint32 tier = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->tier());
-  }
-
-  return total_size;
-}
 int PlayDungeonReq::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.PlayDungeonReq)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required uint32 dungeonNo = 1;
+  // optional uint32 dungeonNo = 1;
+  if (this->dungeonno() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->dungeonno());
+  }
 
-    // required uint32 tier = 2;
+  // optional uint32 tier = 2;
+  if (this->tier() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->tier());
+  }
 
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -3154,16 +2803,11 @@ void PlayDungeonReq::MergeFrom(const PlayDungeonReq& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_dungeonno()) {
-      set_dungeonno(from.dungeonno());
-    }
-    if (from.has_tier()) {
-      set_tier(from.tier());
-    }
+  if (from.dungeonno() != 0) {
+    set_dungeonno(from.dungeonno());
   }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.tier() != 0) {
+    set_tier(from.tier());
   }
 }
 
@@ -3182,7 +2826,6 @@ void PlayDungeonReq::CopyFrom(const PlayDungeonReq& from) {
 }
 
 bool PlayDungeonReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
@@ -3194,7 +2837,6 @@ void PlayDungeonReq::Swap(PlayDungeonReq* other) {
 void PlayDungeonReq::InternalSwap(PlayDungeonReq* other) {
   std::swap(dungeonno_, other->dungeonno_);
   std::swap(tier_, other->tier_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -3210,50 +2852,30 @@ void PlayDungeonReq::InternalSwap(PlayDungeonReq* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PlayDungeonReq
 
-// required uint32 dungeonNo = 1;
-bool PlayDungeonReq::has_dungeonno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void PlayDungeonReq::set_has_dungeonno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void PlayDungeonReq::clear_has_dungeonno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 dungeonNo = 1;
 void PlayDungeonReq::clear_dungeonno() {
   dungeonno_ = 0u;
-  clear_has_dungeonno();
 }
  ::google::protobuf::uint32 PlayDungeonReq::dungeonno() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonReq.dungeonNo)
   return dungeonno_;
 }
  void PlayDungeonReq::set_dungeonno(::google::protobuf::uint32 value) {
-  set_has_dungeonno();
+  
   dungeonno_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonReq.dungeonNo)
 }
 
-// required uint32 tier = 2;
-bool PlayDungeonReq::has_tier() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void PlayDungeonReq::set_has_tier() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void PlayDungeonReq::clear_has_tier() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 tier = 2;
 void PlayDungeonReq::clear_tier() {
   tier_ = 0u;
-  clear_has_tier();
 }
  ::google::protobuf::uint32 PlayDungeonReq::tier() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonReq.tier)
   return tier_;
 }
  void PlayDungeonReq::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
+  
   tier_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonReq.tier)
 }
@@ -3277,6 +2899,7 @@ PlayDungeonAns::PlayDungeonAns()
 }
 
 void PlayDungeonAns::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
   winner_ = const_cast< ::MSG::BattleData_*>(&::MSG::BattleData_::default_instance());
 }
 
@@ -3289,10 +2912,10 @@ PlayDungeonAns::PlayDungeonAns(const PlayDungeonAns& from)
 }
 
 void PlayDungeonAns::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   err_ = 0;
   winner_ = NULL;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 PlayDungeonAns::~PlayDungeonAns() {
@@ -3333,19 +2956,12 @@ PlayDungeonAns* PlayDungeonAns::New(::google::protobuf::Arena* arena) const {
 
 void PlayDungeonAns::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.PlayDungeonAns)
-  if (_has_bits_[0 / 32] & 17u) {
-    err_ = 0;
-    if (has_winner()) {
-      if (winner_ != NULL) winner_->::MSG::BattleData_::Clear();
-    }
-  }
+  err_ = 0;
+  if (GetArenaNoVirtual() == NULL && winner_ != NULL) delete winner_;
+  winner_ = NULL;
   battles_.Clear();
   chars_.Clear();
   mobs_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool PlayDungeonAns::MergePartialFromCodedStream(
@@ -3358,18 +2974,14 @@ bool PlayDungeonAns::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .MSG.ErrorCode err = 1;
+      // optional .MSG.ErrorCode err = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::MSG::ErrorCode_IsValid(value)) {
-            set_err(static_cast< ::MSG::ErrorCode >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+          set_err(static_cast< ::MSG::ErrorCode >(value));
         } else {
           goto handle_unusual;
         }
@@ -3426,7 +3038,7 @@ bool PlayDungeonAns::MergePartialFromCodedStream(
         break;
       }
 
-      // required .MSG.BattleData_ winner = 5;
+      // optional .MSG.BattleData_ winner = 5;
       case 5: {
         if (tag == 42) {
          parse_winner:
@@ -3446,8 +3058,7 @@ bool PlayDungeonAns::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -3464,8 +3075,8 @@ failure:
 void PlayDungeonAns::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.PlayDungeonAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->err(), output);
   }
@@ -3488,24 +3099,20 @@ void PlayDungeonAns::SerializeWithCachedSizes(
       4, this->mobs(i), output);
   }
 
-  // required .MSG.BattleData_ winner = 5;
-  if (has_winner()) {
+  // optional .MSG.BattleData_ winner = 5;
+  if (this->has_winner()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->winner_, output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.PlayDungeonAns)
 }
 
 ::google::protobuf::uint8* PlayDungeonAns::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.PlayDungeonAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->err(), target);
   }
@@ -3531,57 +3138,34 @@ void PlayDungeonAns::SerializeWithCachedSizes(
         4, this->mobs(i), false, target);
   }
 
-  // required .MSG.BattleData_ winner = 5;
-  if (has_winner()) {
+  // optional .MSG.BattleData_ winner = 5;
+  if (this->has_winner()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         5, *this->winner_, false, target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.PlayDungeonAns)
   return target;
 }
 
-int PlayDungeonAns::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:MSG.PlayDungeonAns)
-  int total_size = 0;
-
-  if (has_err()) {
-    // required .MSG.ErrorCode err = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
-  }
-
-  if (has_winner()) {
-    // required .MSG.BattleData_ winner = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->winner_);
-  }
-
-  return total_size;
-}
 int PlayDungeonAns::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.PlayDungeonAns)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000011) ^ 0x00000011) == 0) {  // All required fields are present.
-    // required .MSG.ErrorCode err = 1;
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
+  }
 
-    // required .MSG.BattleData_ winner = 5;
+  // optional .MSG.BattleData_ winner = 5;
+  if (this->has_winner()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->winner_);
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
+
   // repeated .MSG.BattleData_ battles = 2;
   total_size += 1 * this->battles_size();
   for (int i = 0; i < this->battles_size(); i++) {
@@ -3606,11 +3190,6 @@ int PlayDungeonAns::ByteSize() const {
         this->mobs(i));
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -3642,16 +3221,11 @@ void PlayDungeonAns::MergeFrom(const PlayDungeonAns& from) {
   battles_.MergeFrom(from.battles_);
   chars_.MergeFrom(from.chars_);
   mobs_.MergeFrom(from.mobs_);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_err()) {
-      set_err(from.err());
-    }
-    if (from.has_winner()) {
-      mutable_winner()->::MSG::BattleData_::MergeFrom(from.winner());
-    }
+  if (from.err() != 0) {
+    set_err(from.err());
   }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.has_winner()) {
+    mutable_winner()->::MSG::BattleData_::MergeFrom(from.winner());
   }
 }
 
@@ -3670,14 +3244,7 @@ void PlayDungeonAns::CopyFrom(const PlayDungeonAns& from) {
 }
 
 bool PlayDungeonAns::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000011) != 0x00000011) return false;
 
-  if (!::google::protobuf::internal::AllAreInitialized(this->battles())) return false;
-  if (!::google::protobuf::internal::AllAreInitialized(this->chars())) return false;
-  if (!::google::protobuf::internal::AllAreInitialized(this->mobs())) return false;
-  if (has_winner()) {
-    if (!this->winner_->IsInitialized()) return false;
-  }
   return true;
 }
 
@@ -3691,7 +3258,6 @@ void PlayDungeonAns::InternalSwap(PlayDungeonAns* other) {
   chars_.UnsafeArenaSwap(&other->chars_);
   mobs_.UnsafeArenaSwap(&other->mobs_);
   std::swap(winner_, other->winner_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -3707,27 +3273,16 @@ void PlayDungeonAns::InternalSwap(PlayDungeonAns* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PlayDungeonAns
 
-// required .MSG.ErrorCode err = 1;
-bool PlayDungeonAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void PlayDungeonAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void PlayDungeonAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 void PlayDungeonAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
  ::MSG::ErrorCode PlayDungeonAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
  void PlayDungeonAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonAns.err)
 }
@@ -3822,26 +3377,20 @@ PlayDungeonAns::mobs() const {
   return mobs_;
 }
 
-// required .MSG.BattleData_ winner = 5;
+// optional .MSG.BattleData_ winner = 5;
 bool PlayDungeonAns::has_winner() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-void PlayDungeonAns::set_has_winner() {
-  _has_bits_[0] |= 0x00000010u;
-}
-void PlayDungeonAns::clear_has_winner() {
-  _has_bits_[0] &= ~0x00000010u;
+  return !_is_default_instance_ && winner_ != NULL;
 }
 void PlayDungeonAns::clear_winner() {
-  if (winner_ != NULL) winner_->::MSG::BattleData_::Clear();
-  clear_has_winner();
+  if (GetArenaNoVirtual() == NULL && winner_ != NULL) delete winner_;
+  winner_ = NULL;
 }
 const ::MSG::BattleData_& PlayDungeonAns::winner() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.winner)
   return winner_ != NULL ? *winner_ : *default_instance_->winner_;
 }
 ::MSG::BattleData_* PlayDungeonAns::mutable_winner() {
-  set_has_winner();
+  
   if (winner_ == NULL) {
     winner_ = new ::MSG::BattleData_;
   }
@@ -3850,7 +3399,7 @@ const ::MSG::BattleData_& PlayDungeonAns::winner() const {
 }
 ::MSG::BattleData_* PlayDungeonAns::release_winner() {
   // @@protoc_insertion_point(field_release:MSG.PlayDungeonAns.winner)
-  clear_has_winner();
+  
   ::MSG::BattleData_* temp = winner_;
   winner_ = NULL;
   return temp;
@@ -3859,9 +3408,9 @@ void PlayDungeonAns::set_allocated_winner(::MSG::BattleData_* winner) {
   delete winner_;
   winner_ = winner;
   if (winner) {
-    set_has_winner();
+    
   } else {
-    clear_has_winner();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.PlayDungeonAns.winner)
 }
@@ -3881,6 +3430,7 @@ LevelupCharReq::LevelupCharReq()
 }
 
 void LevelupCharReq::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 LevelupCharReq::LevelupCharReq(const LevelupCharReq& from)
@@ -3892,9 +3442,9 @@ LevelupCharReq::LevelupCharReq(const LevelupCharReq& from)
 }
 
 void LevelupCharReq::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   slotno_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 LevelupCharReq::~LevelupCharReq() {
@@ -3935,10 +3485,6 @@ LevelupCharReq* LevelupCharReq::New(::google::protobuf::Arena* arena) const {
 void LevelupCharReq::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.LevelupCharReq)
   slotno_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool LevelupCharReq::MergePartialFromCodedStream(
@@ -3951,13 +3497,13 @@ bool LevelupCharReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 slotNo = 1;
+      // optional uint32 slotNo = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &slotno_)));
-          set_has_slotno();
+
         } else {
           goto handle_unusual;
         }
@@ -3972,8 +3518,7 @@ bool LevelupCharReq::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -3990,30 +3535,22 @@ failure:
 void LevelupCharReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.LevelupCharReq)
-  // required uint32 slotNo = 1;
-  if (has_slotno()) {
+  // optional uint32 slotNo = 1;
+  if (this->slotno() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->slotno(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.LevelupCharReq)
 }
 
 ::google::protobuf::uint8* LevelupCharReq::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.LevelupCharReq)
-  // required uint32 slotNo = 1;
-  if (has_slotno()) {
+  // optional uint32 slotNo = 1;
+  if (this->slotno() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->slotno(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.LevelupCharReq)
   return target;
 }
@@ -4022,17 +3559,13 @@ int LevelupCharReq::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.LevelupCharReq)
   int total_size = 0;
 
-  // required uint32 slotNo = 1;
-  if (has_slotno()) {
+  // optional uint32 slotNo = 1;
+  if (this->slotno() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->slotno());
   }
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
+
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -4061,13 +3594,8 @@ void LevelupCharReq::MergeFrom(const LevelupCharReq& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_slotno()) {
-      set_slotno(from.slotno());
-    }
-  }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.slotno() != 0) {
+    set_slotno(from.slotno());
   }
 }
 
@@ -4086,7 +3614,6 @@ void LevelupCharReq::CopyFrom(const LevelupCharReq& from) {
 }
 
 bool LevelupCharReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
@@ -4097,7 +3624,6 @@ void LevelupCharReq::Swap(LevelupCharReq* other) {
 }
 void LevelupCharReq::InternalSwap(LevelupCharReq* other) {
   std::swap(slotno_, other->slotno_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -4113,26 +3639,16 @@ void LevelupCharReq::InternalSwap(LevelupCharReq* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // LevelupCharReq
 
-// required uint32 slotNo = 1;
-bool LevelupCharReq::has_slotno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void LevelupCharReq::set_has_slotno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void LevelupCharReq::clear_has_slotno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 slotNo = 1;
 void LevelupCharReq::clear_slotno() {
   slotno_ = 0u;
-  clear_has_slotno();
 }
  ::google::protobuf::uint32 LevelupCharReq::slotno() const {
   // @@protoc_insertion_point(field_get:MSG.LevelupCharReq.slotNo)
   return slotno_;
 }
  void LevelupCharReq::set_slotno(::google::protobuf::uint32 value) {
-  set_has_slotno();
+  
   slotno_ = value;
   // @@protoc_insertion_point(field_set:MSG.LevelupCharReq.slotNo)
 }
@@ -4153,6 +3669,7 @@ LevelupCharAns::LevelupCharAns()
 }
 
 void LevelupCharAns::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
   char__ = const_cast< ::MSG::CharData_*>(&::MSG::CharData_::default_instance());
 }
 
@@ -4165,10 +3682,10 @@ LevelupCharAns::LevelupCharAns(const LevelupCharAns& from)
 }
 
 void LevelupCharAns::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   err_ = 0;
   char__ = NULL;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 LevelupCharAns::~LevelupCharAns() {
@@ -4209,16 +3726,9 @@ LevelupCharAns* LevelupCharAns::New(::google::protobuf::Arena* arena) const {
 
 void LevelupCharAns::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.LevelupCharAns)
-  if (_has_bits_[0 / 32] & 3u) {
-    err_ = 0;
-    if (has_char_()) {
-      if (char__ != NULL) char__->::MSG::CharData_::Clear();
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
+  err_ = 0;
+  if (GetArenaNoVirtual() == NULL && char__ != NULL) delete char__;
+  char__ = NULL;
 }
 
 bool LevelupCharAns::MergePartialFromCodedStream(
@@ -4231,18 +3741,14 @@ bool LevelupCharAns::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .MSG.ErrorCode err = 1;
+      // optional .MSG.ErrorCode err = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::MSG::ErrorCode_IsValid(value)) {
-            set_err(static_cast< ::MSG::ErrorCode >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+          set_err(static_cast< ::MSG::ErrorCode >(value));
         } else {
           goto handle_unusual;
         }
@@ -4270,8 +3776,7 @@ bool LevelupCharAns::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -4288,45 +3793,37 @@ failure:
 void LevelupCharAns::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.LevelupCharAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->err(), output);
   }
 
   // optional .MSG.CharData_ char_ = 2;
-  if (has_char_()) {
+  if (this->has_char_()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->char__, output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.LevelupCharAns)
 }
 
 ::google::protobuf::uint8* LevelupCharAns::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.LevelupCharAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->err(), target);
   }
 
   // optional .MSG.CharData_ char_ = 2;
-  if (has_char_()) {
+  if (this->has_char_()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, *this->char__, false, target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.LevelupCharAns)
   return target;
 }
@@ -4335,23 +3832,19 @@ int LevelupCharAns::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.LevelupCharAns)
   int total_size = 0;
 
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
   }
+
   // optional .MSG.CharData_ char_ = 2;
-  if (has_char_()) {
+  if (this->has_char_()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->char__);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -4380,16 +3873,11 @@ void LevelupCharAns::MergeFrom(const LevelupCharAns& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_err()) {
-      set_err(from.err());
-    }
-    if (from.has_char_()) {
-      mutable_char_()->::MSG::CharData_::MergeFrom(from.char_());
-    }
+  if (from.err() != 0) {
+    set_err(from.err());
   }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.has_char_()) {
+    mutable_char_()->::MSG::CharData_::MergeFrom(from.char_());
   }
 }
 
@@ -4408,11 +3896,7 @@ void LevelupCharAns::CopyFrom(const LevelupCharAns& from) {
 }
 
 bool LevelupCharAns::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (has_char_()) {
-    if (!this->char__->IsInitialized()) return false;
-  }
   return true;
 }
 
@@ -4423,7 +3907,6 @@ void LevelupCharAns::Swap(LevelupCharAns* other) {
 void LevelupCharAns::InternalSwap(LevelupCharAns* other) {
   std::swap(err_, other->err_);
   std::swap(char__, other->char__);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -4439,51 +3922,34 @@ void LevelupCharAns::InternalSwap(LevelupCharAns* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // LevelupCharAns
 
-// required .MSG.ErrorCode err = 1;
-bool LevelupCharAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void LevelupCharAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void LevelupCharAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 void LevelupCharAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
  ::MSG::ErrorCode LevelupCharAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.LevelupCharAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
  void LevelupCharAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.LevelupCharAns.err)
 }
 
 // optional .MSG.CharData_ char_ = 2;
 bool LevelupCharAns::has_char_() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void LevelupCharAns::set_has_char_() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void LevelupCharAns::clear_has_char_() {
-  _has_bits_[0] &= ~0x00000002u;
+  return !_is_default_instance_ && char__ != NULL;
 }
 void LevelupCharAns::clear_char_() {
-  if (char__ != NULL) char__->::MSG::CharData_::Clear();
-  clear_has_char_();
+  if (GetArenaNoVirtual() == NULL && char__ != NULL) delete char__;
+  char__ = NULL;
 }
 const ::MSG::CharData_& LevelupCharAns::char_() const {
   // @@protoc_insertion_point(field_get:MSG.LevelupCharAns.char_)
   return char__ != NULL ? *char__ : *default_instance_->char__;
 }
 ::MSG::CharData_* LevelupCharAns::mutable_char_() {
-  set_has_char_();
+  
   if (char__ == NULL) {
     char__ = new ::MSG::CharData_;
   }
@@ -4492,7 +3958,7 @@ const ::MSG::CharData_& LevelupCharAns::char_() const {
 }
 ::MSG::CharData_* LevelupCharAns::release_char_() {
   // @@protoc_insertion_point(field_release:MSG.LevelupCharAns.char_)
-  clear_has_char_();
+  
   ::MSG::CharData_* temp = char__;
   char__ = NULL;
   return temp;
@@ -4501,9 +3967,9 @@ void LevelupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   delete char__;
   char__ = char_;
   if (char_) {
-    set_has_char_();
+    
   } else {
-    clear_has_char_();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.LevelupCharAns.char_)
 }
@@ -4523,6 +3989,7 @@ TierupCharReq::TierupCharReq()
 }
 
 void TierupCharReq::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 TierupCharReq::TierupCharReq(const TierupCharReq& from)
@@ -4534,9 +4001,9 @@ TierupCharReq::TierupCharReq(const TierupCharReq& from)
 }
 
 void TierupCharReq::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   slotno_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 TierupCharReq::~TierupCharReq() {
@@ -4577,10 +4044,6 @@ TierupCharReq* TierupCharReq::New(::google::protobuf::Arena* arena) const {
 void TierupCharReq::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.TierupCharReq)
   slotno_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool TierupCharReq::MergePartialFromCodedStream(
@@ -4593,13 +4056,13 @@ bool TierupCharReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 slotNo = 1;
+      // optional uint32 slotNo = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &slotno_)));
-          set_has_slotno();
+
         } else {
           goto handle_unusual;
         }
@@ -4614,8 +4077,7 @@ bool TierupCharReq::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -4632,30 +4094,22 @@ failure:
 void TierupCharReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.TierupCharReq)
-  // required uint32 slotNo = 1;
-  if (has_slotno()) {
+  // optional uint32 slotNo = 1;
+  if (this->slotno() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->slotno(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.TierupCharReq)
 }
 
 ::google::protobuf::uint8* TierupCharReq::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.TierupCharReq)
-  // required uint32 slotNo = 1;
-  if (has_slotno()) {
+  // optional uint32 slotNo = 1;
+  if (this->slotno() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->slotno(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.TierupCharReq)
   return target;
 }
@@ -4664,17 +4118,13 @@ int TierupCharReq::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.TierupCharReq)
   int total_size = 0;
 
-  // required uint32 slotNo = 1;
-  if (has_slotno()) {
+  // optional uint32 slotNo = 1;
+  if (this->slotno() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->slotno());
   }
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
+
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -4703,13 +4153,8 @@ void TierupCharReq::MergeFrom(const TierupCharReq& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_slotno()) {
-      set_slotno(from.slotno());
-    }
-  }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.slotno() != 0) {
+    set_slotno(from.slotno());
   }
 }
 
@@ -4728,7 +4173,6 @@ void TierupCharReq::CopyFrom(const TierupCharReq& from) {
 }
 
 bool TierupCharReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
@@ -4739,7 +4183,6 @@ void TierupCharReq::Swap(TierupCharReq* other) {
 }
 void TierupCharReq::InternalSwap(TierupCharReq* other) {
   std::swap(slotno_, other->slotno_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -4755,26 +4198,16 @@ void TierupCharReq::InternalSwap(TierupCharReq* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TierupCharReq
 
-// required uint32 slotNo = 1;
-bool TierupCharReq::has_slotno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void TierupCharReq::set_has_slotno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void TierupCharReq::clear_has_slotno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 slotNo = 1;
 void TierupCharReq::clear_slotno() {
   slotno_ = 0u;
-  clear_has_slotno();
 }
  ::google::protobuf::uint32 TierupCharReq::slotno() const {
   // @@protoc_insertion_point(field_get:MSG.TierupCharReq.slotNo)
   return slotno_;
 }
  void TierupCharReq::set_slotno(::google::protobuf::uint32 value) {
-  set_has_slotno();
+  
   slotno_ = value;
   // @@protoc_insertion_point(field_set:MSG.TierupCharReq.slotNo)
 }
@@ -4795,6 +4228,7 @@ TierupCharAns::TierupCharAns()
 }
 
 void TierupCharAns::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
   char__ = const_cast< ::MSG::CharData_*>(&::MSG::CharData_::default_instance());
 }
 
@@ -4807,10 +4241,10 @@ TierupCharAns::TierupCharAns(const TierupCharAns& from)
 }
 
 void TierupCharAns::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   err_ = 0;
   char__ = NULL;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 TierupCharAns::~TierupCharAns() {
@@ -4851,16 +4285,9 @@ TierupCharAns* TierupCharAns::New(::google::protobuf::Arena* arena) const {
 
 void TierupCharAns::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.TierupCharAns)
-  if (_has_bits_[0 / 32] & 3u) {
-    err_ = 0;
-    if (has_char_()) {
-      if (char__ != NULL) char__->::MSG::CharData_::Clear();
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
+  err_ = 0;
+  if (GetArenaNoVirtual() == NULL && char__ != NULL) delete char__;
+  char__ = NULL;
 }
 
 bool TierupCharAns::MergePartialFromCodedStream(
@@ -4873,18 +4300,14 @@ bool TierupCharAns::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .MSG.ErrorCode err = 1;
+      // optional .MSG.ErrorCode err = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::MSG::ErrorCode_IsValid(value)) {
-            set_err(static_cast< ::MSG::ErrorCode >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+          set_err(static_cast< ::MSG::ErrorCode >(value));
         } else {
           goto handle_unusual;
         }
@@ -4912,8 +4335,7 @@ bool TierupCharAns::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -4930,45 +4352,37 @@ failure:
 void TierupCharAns::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.TierupCharAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->err(), output);
   }
 
   // optional .MSG.CharData_ char_ = 2;
-  if (has_char_()) {
+  if (this->has_char_()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->char__, output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.TierupCharAns)
 }
 
 ::google::protobuf::uint8* TierupCharAns::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.TierupCharAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->err(), target);
   }
 
   // optional .MSG.CharData_ char_ = 2;
-  if (has_char_()) {
+  if (this->has_char_()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, *this->char__, false, target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.TierupCharAns)
   return target;
 }
@@ -4977,23 +4391,19 @@ int TierupCharAns::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.TierupCharAns)
   int total_size = 0;
 
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
   }
+
   // optional .MSG.CharData_ char_ = 2;
-  if (has_char_()) {
+  if (this->has_char_()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->char__);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -5022,16 +4432,11 @@ void TierupCharAns::MergeFrom(const TierupCharAns& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_err()) {
-      set_err(from.err());
-    }
-    if (from.has_char_()) {
-      mutable_char_()->::MSG::CharData_::MergeFrom(from.char_());
-    }
+  if (from.err() != 0) {
+    set_err(from.err());
   }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.has_char_()) {
+    mutable_char_()->::MSG::CharData_::MergeFrom(from.char_());
   }
 }
 
@@ -5050,11 +4455,7 @@ void TierupCharAns::CopyFrom(const TierupCharAns& from) {
 }
 
 bool TierupCharAns::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (has_char_()) {
-    if (!this->char__->IsInitialized()) return false;
-  }
   return true;
 }
 
@@ -5065,7 +4466,6 @@ void TierupCharAns::Swap(TierupCharAns* other) {
 void TierupCharAns::InternalSwap(TierupCharAns* other) {
   std::swap(err_, other->err_);
   std::swap(char__, other->char__);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -5081,51 +4481,34 @@ void TierupCharAns::InternalSwap(TierupCharAns* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TierupCharAns
 
-// required .MSG.ErrorCode err = 1;
-bool TierupCharAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void TierupCharAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void TierupCharAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 void TierupCharAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
  ::MSG::ErrorCode TierupCharAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.TierupCharAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
  void TierupCharAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.TierupCharAns.err)
 }
 
 // optional .MSG.CharData_ char_ = 2;
 bool TierupCharAns::has_char_() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void TierupCharAns::set_has_char_() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void TierupCharAns::clear_has_char_() {
-  _has_bits_[0] &= ~0x00000002u;
+  return !_is_default_instance_ && char__ != NULL;
 }
 void TierupCharAns::clear_char_() {
-  if (char__ != NULL) char__->::MSG::CharData_::Clear();
-  clear_has_char_();
+  if (GetArenaNoVirtual() == NULL && char__ != NULL) delete char__;
+  char__ = NULL;
 }
 const ::MSG::CharData_& TierupCharAns::char_() const {
   // @@protoc_insertion_point(field_get:MSG.TierupCharAns.char_)
   return char__ != NULL ? *char__ : *default_instance_->char__;
 }
 ::MSG::CharData_* TierupCharAns::mutable_char_() {
-  set_has_char_();
+  
   if (char__ == NULL) {
     char__ = new ::MSG::CharData_;
   }
@@ -5134,7 +4517,7 @@ const ::MSG::CharData_& TierupCharAns::char_() const {
 }
 ::MSG::CharData_* TierupCharAns::release_char_() {
   // @@protoc_insertion_point(field_release:MSG.TierupCharAns.char_)
-  clear_has_char_();
+  
   ::MSG::CharData_* temp = char__;
   char__ = NULL;
   return temp;
@@ -5143,9 +4526,9 @@ void TierupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   delete char__;
   char__ = char_;
   if (char_) {
-    set_has_char_();
+    
   } else {
-    clear_has_char_();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.TierupCharAns.char_)
 }
@@ -5165,6 +4548,7 @@ BattleLogReq::BattleLogReq()
 }
 
 void BattleLogReq::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 BattleLogReq::BattleLogReq(const BattleLogReq& from)
@@ -5176,9 +4560,9 @@ BattleLogReq::BattleLogReq(const BattleLogReq& from)
 }
 
 void BattleLogReq::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   lid_ = GOOGLE_ULONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 BattleLogReq::~BattleLogReq() {
@@ -5219,10 +4603,6 @@ BattleLogReq* BattleLogReq::New(::google::protobuf::Arena* arena) const {
 void BattleLogReq::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.BattleLogReq)
   lid_ = GOOGLE_ULONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool BattleLogReq::MergePartialFromCodedStream(
@@ -5235,13 +4615,13 @@ bool BattleLogReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint64 lid = 1;
+      // optional uint64 lid = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &lid_)));
-          set_has_lid();
+
         } else {
           goto handle_unusual;
         }
@@ -5256,8 +4636,7 @@ bool BattleLogReq::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -5274,30 +4653,22 @@ failure:
 void BattleLogReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.BattleLogReq)
-  // required uint64 lid = 1;
-  if (has_lid()) {
+  // optional uint64 lid = 1;
+  if (this->lid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->lid(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.BattleLogReq)
 }
 
 ::google::protobuf::uint8* BattleLogReq::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.BattleLogReq)
-  // required uint64 lid = 1;
-  if (has_lid()) {
+  // optional uint64 lid = 1;
+  if (this->lid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->lid(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.BattleLogReq)
   return target;
 }
@@ -5306,17 +4677,13 @@ int BattleLogReq::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.BattleLogReq)
   int total_size = 0;
 
-  // required uint64 lid = 1;
-  if (has_lid()) {
+  // optional uint64 lid = 1;
+  if (this->lid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->lid());
   }
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
+
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -5345,13 +4712,8 @@ void BattleLogReq::MergeFrom(const BattleLogReq& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lid()) {
-      set_lid(from.lid());
-    }
-  }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.lid() != 0) {
+    set_lid(from.lid());
   }
 }
 
@@ -5370,7 +4732,6 @@ void BattleLogReq::CopyFrom(const BattleLogReq& from) {
 }
 
 bool BattleLogReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
@@ -5381,7 +4742,6 @@ void BattleLogReq::Swap(BattleLogReq* other) {
 }
 void BattleLogReq::InternalSwap(BattleLogReq* other) {
   std::swap(lid_, other->lid_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -5397,26 +4757,16 @@ void BattleLogReq::InternalSwap(BattleLogReq* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // BattleLogReq
 
-// required uint64 lid = 1;
-bool BattleLogReq::has_lid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void BattleLogReq::set_has_lid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void BattleLogReq::clear_has_lid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 lid = 1;
 void BattleLogReq::clear_lid() {
   lid_ = GOOGLE_ULONGLONG(0);
-  clear_has_lid();
 }
  ::google::protobuf::uint64 BattleLogReq::lid() const {
   // @@protoc_insertion_point(field_get:MSG.BattleLogReq.lid)
   return lid_;
 }
  void BattleLogReq::set_lid(::google::protobuf::uint64 value) {
-  set_has_lid();
+  
   lid_ = value;
   // @@protoc_insertion_point(field_set:MSG.BattleLogReq.lid)
 }
@@ -5437,6 +4787,7 @@ BattleLogAns::BattleLogAns()
 }
 
 void BattleLogAns::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 BattleLogAns::BattleLogAns(const BattleLogAns& from)
@@ -5448,9 +4799,9 @@ BattleLogAns::BattleLogAns(const BattleLogAns& from)
 }
 
 void BattleLogAns::SharedCtor() {
+    _is_default_instance_ = false;
   _cached_size_ = 0;
   err_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 BattleLogAns::~BattleLogAns() {
@@ -5492,10 +4843,6 @@ void BattleLogAns::Clear() {
 // @@protoc_insertion_point(message_clear_start:MSG.BattleLogAns)
   err_ = 0;
   data_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
 }
 
 bool BattleLogAns::MergePartialFromCodedStream(
@@ -5508,18 +4855,14 @@ bool BattleLogAns::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .MSG.ErrorCode err = 1;
+      // optional .MSG.ErrorCode err = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::MSG::ErrorCode_IsValid(value)) {
-            set_err(static_cast< ::MSG::ErrorCode >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+          set_err(static_cast< ::MSG::ErrorCode >(value));
         } else {
           goto handle_unusual;
         }
@@ -5551,8 +4894,7 @@ bool BattleLogAns::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
         break;
       }
     }
@@ -5569,8 +4911,8 @@ failure:
 void BattleLogAns::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:MSG.BattleLogAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->err(), output);
   }
@@ -5581,18 +4923,14 @@ void BattleLogAns::SerializeWithCachedSizes(
       2, this->data(i), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
   // @@protoc_insertion_point(serialize_end:MSG.BattleLogAns)
 }
 
 ::google::protobuf::uint8* BattleLogAns::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:MSG.BattleLogAns)
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->err(), target);
   }
@@ -5604,10 +4942,6 @@ void BattleLogAns::SerializeWithCachedSizes(
         2, this->data(i), false, target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
   // @@protoc_insertion_point(serialize_to_array_end:MSG.BattleLogAns)
   return target;
 }
@@ -5616,11 +4950,12 @@ int BattleLogAns::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:MSG.BattleLogAns)
   int total_size = 0;
 
-  // required .MSG.ErrorCode err = 1;
-  if (has_err()) {
+  // optional .MSG.ErrorCode err = 1;
+  if (this->err() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->err());
   }
+
   // repeated .MSG.DungeonPlayData_ data = 2;
   total_size += 1 * this->data_size();
   for (int i = 0; i < this->data_size(); i++) {
@@ -5629,11 +4964,6 @@ int BattleLogAns::ByteSize() const {
         this->data(i));
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -5663,13 +4993,8 @@ void BattleLogAns::MergeFrom(const BattleLogAns& from) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
   data_.MergeFrom(from.data_);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_err()) {
-      set_err(from.err());
-    }
-  }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from.err() != 0) {
+    set_err(from.err());
   }
 }
 
@@ -5688,9 +5013,7 @@ void BattleLogAns::CopyFrom(const BattleLogAns& from) {
 }
 
 bool BattleLogAns::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (!::google::protobuf::internal::AllAreInitialized(this->data())) return false;
   return true;
 }
 
@@ -5701,7 +5024,6 @@ void BattleLogAns::Swap(BattleLogAns* other) {
 void BattleLogAns::InternalSwap(BattleLogAns* other) {
   std::swap(err_, other->err_);
   data_.UnsafeArenaSwap(&other->data_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -5717,27 +5039,16 @@ void BattleLogAns::InternalSwap(BattleLogAns* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // BattleLogAns
 
-// required .MSG.ErrorCode err = 1;
-bool BattleLogAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-void BattleLogAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-void BattleLogAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 void BattleLogAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
  ::MSG::ErrorCode BattleLogAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.BattleLogAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
  void BattleLogAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.BattleLogAns.err)
 }

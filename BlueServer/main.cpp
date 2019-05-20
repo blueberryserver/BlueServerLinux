@@ -84,10 +84,10 @@ int main(int argc, char *argv[])
 	{
 		auto connectAddr = it["connect_addr"].string_value();
 		auto databaseNo = it["database_no"].int_value();
-		auto port = it["port"].int_value();
+		auto port = it["port"].string_value();
 		auto regionNo = it["region_no"].int_value();
 
-		RedisPool::getRedisPool()->connect(IOService::getIOService()->getIO(), regionNo, connectAddr.c_str(), (short)port, databaseNo);
+		RedisPool::getRedisPool()->connect(IOService::getIOService()->getIO(), regionNo, connectAddr, port, databaseNo);
 		//RedisPool::getRedisPool()->connect(IOService::getIOService()->getIO(), 0, "127.0.0.1", 6379, 0);
 
 		LOG(L_INFO_, "Redis Info", "addr", connectAddr, "port", port, "database", databaseNo, "region", regionNo);
@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
 	LOG(L_INFO_, "Logger Info", "name", logName, "level", logLevel, "type", logType);
 
 	//server start
-	auto server = new Server<BlueSession>();
+	auto server = std::make_shared<Server<BlueSession>>();
 	server->start((short)tcpPort);
 
 	DefaultHandler::setDefaultHandler(new DefaultHandler());
@@ -125,8 +125,6 @@ int main(int argc, char *argv[])
 	UserManager::deleteUserManager();
 
 	ChatChannelManager::deleteChatChannelManager();
-
-	delete server;
 
 	Logger::getLogger()->stop();
 	IOService::deleteIOService();

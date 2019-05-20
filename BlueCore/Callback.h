@@ -43,13 +43,9 @@ static decltype(auto) makePostJob(T* t_, void (T::*func_)(A...))
 template<typename... A>
 class PostJobStatic : public Callback
 {
-	//typedef void(*Func)(A...);
 	typedef std::tuple<A...> TupleArgs;
 
 public:
-	//explicit PostJobStatic(Func func_)
-	//	: _func(func_) {}
-
 	explicit PostJobStatic(std::function<void(A...)> func_)
 		: _func(func_) {}
 	virtual ~PostJobStatic() { _func = nullptr; }

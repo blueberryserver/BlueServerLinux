@@ -18,7 +18,7 @@ public:
 
 	typedef typename std::shared_ptr<T> TPtr;
 
-	RedisConnection(boost::asio::io_service& io_)
+	RedisConnection(boost::asio::io_context& io_)
 	{
 		_MSession = std::make_shared<T>(io_);
 		_SSession = std::make_shared<T>(io_);
@@ -45,7 +45,7 @@ private:
 
 
 public:
-	bool connect(const char* addr_, short port_)
+	bool connect(const std::string& addr_, const std::string& port_)
 	{
 		_MSession->connect(addr_, port_);
 		_SSession->connect(addr_, port_);

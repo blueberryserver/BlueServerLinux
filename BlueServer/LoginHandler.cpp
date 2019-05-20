@@ -309,7 +309,9 @@ void LoginHandler::redisSelectUser(SessionPtr session_, std::string name_)
 			LOG(L_INFO_, "Redis", "hget", "blue_server.UserData.name", "reply", reply);
 
 			// request select user data
-			asyncJob(LoginHandler::dbSelectUser, session_, name_);
+			asyncJob(
+				[session_, name_]() { LoginHandler::dbSelectUser(session_, name_); }
+			);
 			return;
 		}
 
@@ -348,7 +350,9 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, LoginReq)
 
 	LOG(L_INFO_, "recv packet info", "id", req.name());
 	{
-		asyncJob(LoginHandler::dbSelectUser, session_, *req.mutable_name());
+		asyncJob(
+			[session_, req]() mutable { LoginHandler::dbSelectUser(session_, *req.mutable_name()); }
+		);
 	}
 	
 	return true;
@@ -365,7 +369,9 @@ DEFINE_HANDLER(LoginHandler, SessionPtr, RegistReq)
 	// data insert
 	{
 		// request select user data
-		asyncJob(LoginHandler::dbInsertUser, session_, *req.mutable_data());
+		asyncJob(
+			[session_, req]() mutable {LoginHandler::dbInsertUser(session_, *req.mutable_data()); }
+		);
 	}
 	return true;
 }

@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <atomic>
 #include <mutex>
+#include <iostream>
 
 #include "Macro.h"
 #include "LogHelper.h"
@@ -33,7 +34,6 @@ public:
 		auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, func_, file_, desc_);
 		AddJsonObject(data->_objects, args_...);
 
-		//std::lock_guard<std::recursive_mutex> guard(_mtx);
 		if (_logs.push(data) == false)
 		{
 			std::cout << "Logger::write fail" << std::endl;
@@ -47,7 +47,6 @@ public:
 
 		auto data = new LogData(_instanceId, _no++, line_, getThreadId(), level_, func_, file_, desc_);
 
-		//std::lock_guard<std::recursive_mutex> guard(_mtx);
 		if (_logs.push(data) == false)
 		{
 			std::cout << "Logger::write fail" << std::endl;
@@ -70,7 +69,6 @@ public:
 	LogWriterMap _writers;
 
 	std::atomic<bool> _running;
-	//std::recursive_mutex _mtx;
 	LockFreeQueue<LogData*, 65536> _logs;
 
 public:

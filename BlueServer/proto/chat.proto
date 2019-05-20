@@ -1,4 +1,4 @@
-syntax="proto2";
+syntax="proto3";
 
 import "common.proto";
 package MSG;
@@ -6,88 +6,88 @@ package MSG;
 
 // chat
 message ChatReq {
-	required string msg = 1;
-	required ChatType type = 2;
+	string msg = 1;
+	ChatType type = 2;
 }
 
 message ChatAns {
-	required ErrorCode err = 1;
+	ErrorCode err = 1;
 }
 
 message ChatNot {
-	required ChatData_ chats = 1;
-	required ChatType type = 2;
+	ChatData_ chats = 1;
+	ChatType type = 2;
 }
 
 
 // create chat room
 message CreateChatRoomReq {
-	required string name = 1;
-	required string greeting = 2;
+	string name = 1;
+	string greeting = 2;
 }
 
 message CreateChatRoomAns {
-	required ErrorCode err = 1;
-	optional uint64 rid = 2;
-	optional string rkey = 3;
+	ErrorCode err = 1;
+	uint64 rid = 2;
+	string rkey = 3;
 }
 
 // invite chat room
 message InviteChatRoomReq {
 	// room info
-	required uint64 rid = 1;
-	required string rkey = 2;
+	uint64 rid = 1;
+	string rkey = 2;
 
 	// invite target info
-	required uint64 targetUid = 3;
-	required string targetName = 4;
+	uint64 targetUid = 3;
+	string targetName = 4;
 
 }
 
 message InviteChatRoomAns {
-	required ErrorCode err = 1;
+	ErrorCode err = 1;
 }
 
 message InviteChatRoomNot {
 	// room info
-	required uint64 rid = 1;
-	required string rkey = 2;
+	uint64 rid = 1;
+	string rkey = 2;
 
 	// room owner info
-	required uint64 ownerUid = 3;
-	required string ownerName = 4;
+	uint64 ownerUid = 3;
+	string ownerName = 4;
 
 }
 
 // enter chat room
 message EnterChatRoomReq {
 	// room info
-	required uint64 rid = 1;
-	required string rkey = 2;
+	uint64 rid = 1;
+	string rkey = 2;
 }
 
 message EnterChatRoomAns {
-	required ErrorCode err = 1;
+	ErrorCode err = 1;
 }
 
 message EnterChatRoomNot {
-	required uint64 uid = 1;
-	required string name = 2;
+	uint64 uid = 1;
+	string name = 2;
 }
 
 
 // leave chat room
 message LeaveChatRoomReq {
 	// room info
-	required uint64 rid = 1;
-	required string rkey = 2;
+	uint64 rid = 1;
+	string rkey = 2;
 }
 
 message LeaveChatRoomAns {
-	required ErrorCode err = 1;
+	ErrorCode err = 1;
 }
 
 message LeaveChatRoomNot {
-	required uint64 uid = 1;
-	required string name = 2;
+	uint64 uid = 1;
+	string name = 2;
 }

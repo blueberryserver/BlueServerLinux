@@ -132,7 +132,6 @@
     <ClInclude Include="Packet.h">
       <Filter>Msg</Filter>
     </ClInclude>
-    <ClInclude Include="LockFreeMap.h" />
     <ClInclude Include="JsonFileLoader.h">
       <Filter>Etc</Filter>
     </ClInclude>
@@ -168,6 +167,9 @@
     </ClInclude>
     <ClInclude Include="fmtlib\time.h">
       <Filter>Fmtlib</Filter>
+    </ClInclude>
+    <ClInclude Include="LockFreeMap.h">
+      <Filter>Container</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

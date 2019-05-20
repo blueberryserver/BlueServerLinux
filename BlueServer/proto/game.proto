@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 import "common.proto";
 package MSG;
@@ -8,16 +8,16 @@ message ContentsNot {
 	repeated string contents = 1;
 
 	// last dungeon play info
-	required uint32 dungeonNo = 2;
-	required uint32 tier = 3;
+	uint32 dungeonNo = 2;
+	uint32 tier = 3;
 
 }
 
 // idle play( 1 hour 1 play)
 message PlayDungeonNot {
 	message DungeonPlay {
-		required uint32 dungeonNo = 1;
-		required uint32 tier = 2;
+		uint32 dungeonNo = 1;
+		uint32 tier = 2;
 		repeated BattleData_ battles = 3;
 		repeated CharData_ chars = 4;
 		repeated CharData_ mobs = 5;
@@ -29,67 +29,67 @@ message PlayDungeonNot {
 
 // create character
 message CreateCharReq {
-	required uint32 charNo = 1;
+	uint32 charNo = 1;
 }
 
 message CreateCharAns {
-	required ErrorCode err = 1;
-	optional CharData_ char_ = 2;
+	ErrorCode err = 1;
+	CharData_ char_ = 2;
 }
 
 // change currency notify
 message CurrencyNot {
-	required uint32 vc1 = 1;	// level up
-	required uint32 vc2 = 2;	// buy character, tier up
-	required uint32 vc3 = 3;	// not used
+	uint32 vc1 = 1;	// level up
+	uint32 vc2 = 2;	// buy character, tier up
+	uint32 vc3 = 3;	// not used
 }
 
 
 // dungeon play req
 message PlayDungeonReq {
-	required uint32 dungeonNo = 1;
-	required uint32 tier = 2;
+	uint32 dungeonNo = 1;
+	uint32 tier = 2;
 }
 
 // dungeon play ans
 message PlayDungeonAns {
-	required ErrorCode err = 1;
+	ErrorCode err = 1;
 	// battle play data
 	repeated BattleData_ battles = 2;
 	repeated CharData_ chars = 3;
 	repeated CharData_ mobs = 4;
-	required BattleData_ winner = 5;
+	BattleData_ winner = 5;
 }
 
 // character level up req
 message LevelupCharReq {
-	required uint32 slotNo = 1;
+	uint32 slotNo = 1;
 }
 
 // character level up ans
 message LevelupCharAns {
-	required ErrorCode err = 1;
-	optional CharData_ char_ = 2;
+	ErrorCode err = 1;
+	CharData_ char_ = 2;
 }
 
 
 
 // character tier up req
 message TierupCharReq {
-	required uint32 slotNo = 1;
+	uint32 slotNo = 1;
 }
 
 // character tier up ans
 message TierupCharAns {
-	required ErrorCode err = 1;
-	optional CharData_ char_ = 2;
+	ErrorCode err = 1;
+	CharData_ char_ = 2;
 }
 
 message BattleLogReq {
-	required uint64 lid = 1;
+	uint64 lid = 1;
 }
 
 message BattleLogAns {
-	required ErrorCode err = 1;
+	ErrorCode err = 1;
 	repeated DungeonPlayData_ data = 2;	
 }

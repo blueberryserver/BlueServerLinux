@@ -66,14 +66,6 @@ class ContentsNot : public ::google::protobuf::Message /* @@protoc_insertion_poi
     return *this;
   }
 
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
   static const ::google::protobuf::Descriptor* descriptor();
   static const ContentsNot& default_instance();
 
@@ -138,15 +130,13 @@ class ContentsNot : public ::google::protobuf::Message /* @@protoc_insertion_poi
   const ::google::protobuf::RepeatedPtrField< ::std::string>& contents() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_contents();
 
-  // required uint32 dungeonNo = 2;
-  bool has_dungeonno() const;
+  // optional uint32 dungeonNo = 2;
   void clear_dungeonno();
   static const int kDungeonNoFieldNumber = 2;
   ::google::protobuf::uint32 dungeonno() const;
   void set_dungeonno(::google::protobuf::uint32 value);
 
-  // required uint32 tier = 3;
-  bool has_tier() const;
+  // optional uint32 tier = 3;
   void clear_tier();
   static const int kTierFieldNumber = 3;
   ::google::protobuf::uint32 tier() const;
@@ -154,20 +144,13 @@ class ContentsNot : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // @@protoc_insertion_point(class_scope:MSG.ContentsNot)
  private:
-  inline void set_has_dungeonno();
-  inline void clear_has_dungeonno();
-  inline void set_has_tier();
-  inline void clear_has_tier();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::RepeatedPtrField< ::std::string> contents_;
   ::google::protobuf::uint32 dungeonno_;
   ::google::protobuf::uint32 tier_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -187,14 +170,6 @@ class PlayDungeonNot_DungeonPlay : public ::google::protobuf::Message /* @@proto
   inline PlayDungeonNot_DungeonPlay& operator=(const PlayDungeonNot_DungeonPlay& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -245,15 +220,13 @@ class PlayDungeonNot_DungeonPlay : public ::google::protobuf::Message /* @@proto
 
   // accessors -------------------------------------------------------
 
-  // required uint32 dungeonNo = 1;
-  bool has_dungeonno() const;
+  // optional uint32 dungeonNo = 1;
   void clear_dungeonno();
   static const int kDungeonNoFieldNumber = 1;
   ::google::protobuf::uint32 dungeonno() const;
   void set_dungeonno(::google::protobuf::uint32 value);
 
-  // required uint32 tier = 2;
-  bool has_tier() const;
+  // optional uint32 tier = 2;
   void clear_tier();
   static const int kTierFieldNumber = 2;
   ::google::protobuf::uint32 tier() const;
@@ -297,22 +270,15 @@ class PlayDungeonNot_DungeonPlay : public ::google::protobuf::Message /* @@proto
 
   // @@protoc_insertion_point(class_scope:MSG.PlayDungeonNot.DungeonPlay)
  private:
-  inline void set_has_dungeonno();
-  inline void clear_has_dungeonno();
-  inline void set_has_tier();
-  inline void clear_has_tier();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 dungeonno_;
   ::google::protobuf::uint32 tier_;
   ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ > battles_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > chars_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > mobs_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -332,14 +298,6 @@ class PlayDungeonNot : public ::google::protobuf::Message /* @@protoc_insertion_
   inline PlayDungeonNot& operator=(const PlayDungeonNot& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -408,9 +366,9 @@ class PlayDungeonNot : public ::google::protobuf::Message /* @@protoc_insertion_
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::RepeatedPtrField< ::MSG::PlayDungeonNot_DungeonPlay > plays_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -430,14 +388,6 @@ class CreateCharReq : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline CreateCharReq& operator=(const CreateCharReq& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -488,8 +438,7 @@ class CreateCharReq : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // required uint32 charNo = 1;
-  bool has_charno() const;
+  // optional uint32 charNo = 1;
   void clear_charno();
   static const int kCharNoFieldNumber = 1;
   ::google::protobuf::uint32 charno() const;
@@ -497,13 +446,11 @@ class CreateCharReq : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // @@protoc_insertion_point(class_scope:MSG.CreateCharReq)
  private:
-  inline void set_has_charno();
-  inline void clear_has_charno();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 charno_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -523,14 +470,6 @@ class CreateCharAns : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline CreateCharAns& operator=(const CreateCharAns& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -581,8 +520,7 @@ class CreateCharAns : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.ErrorCode err = 1;
-  bool has_err() const;
+  // optional .MSG.ErrorCode err = 1;
   void clear_err();
   static const int kErrFieldNumber = 1;
   ::MSG::ErrorCode err() const;
@@ -599,16 +537,12 @@ class CreateCharAns : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // @@protoc_insertion_point(class_scope:MSG.CreateCharAns)
  private:
-  inline void set_has_err();
-  inline void clear_has_err();
-  inline void set_has_char_();
-  inline void clear_has_char_();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::MSG::CharData_* char__;
   int err_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -628,14 +562,6 @@ class CurrencyNot : public ::google::protobuf::Message /* @@protoc_insertion_poi
   inline CurrencyNot& operator=(const CurrencyNot& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -686,22 +612,19 @@ class CurrencyNot : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
-  // required uint32 vc1 = 1;
-  bool has_vc1() const;
+  // optional uint32 vc1 = 1;
   void clear_vc1();
   static const int kVc1FieldNumber = 1;
   ::google::protobuf::uint32 vc1() const;
   void set_vc1(::google::protobuf::uint32 value);
 
-  // required uint32 vc2 = 2;
-  bool has_vc2() const;
+  // optional uint32 vc2 = 2;
   void clear_vc2();
   static const int kVc2FieldNumber = 2;
   ::google::protobuf::uint32 vc2() const;
   void set_vc2(::google::protobuf::uint32 value);
 
-  // required uint32 vc3 = 3;
-  bool has_vc3() const;
+  // optional uint32 vc3 = 3;
   void clear_vc3();
   static const int kVc3FieldNumber = 3;
   ::google::protobuf::uint32 vc3() const;
@@ -709,22 +632,13 @@ class CurrencyNot : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // @@protoc_insertion_point(class_scope:MSG.CurrencyNot)
  private:
-  inline void set_has_vc1();
-  inline void clear_has_vc1();
-  inline void set_has_vc2();
-  inline void clear_has_vc2();
-  inline void set_has_vc3();
-  inline void clear_has_vc3();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 vc1_;
   ::google::protobuf::uint32 vc2_;
   ::google::protobuf::uint32 vc3_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -744,14 +658,6 @@ class PlayDungeonReq : public ::google::protobuf::Message /* @@protoc_insertion_
   inline PlayDungeonReq& operator=(const PlayDungeonReq& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -802,15 +708,13 @@ class PlayDungeonReq : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // required uint32 dungeonNo = 1;
-  bool has_dungeonno() const;
+  // optional uint32 dungeonNo = 1;
   void clear_dungeonno();
   static const int kDungeonNoFieldNumber = 1;
   ::google::protobuf::uint32 dungeonno() const;
   void set_dungeonno(::google::protobuf::uint32 value);
 
-  // required uint32 tier = 2;
-  bool has_tier() const;
+  // optional uint32 tier = 2;
   void clear_tier();
   static const int kTierFieldNumber = 2;
   ::google::protobuf::uint32 tier() const;
@@ -818,19 +722,12 @@ class PlayDungeonReq : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // @@protoc_insertion_point(class_scope:MSG.PlayDungeonReq)
  private:
-  inline void set_has_dungeonno();
-  inline void clear_has_dungeonno();
-  inline void set_has_tier();
-  inline void clear_has_tier();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 dungeonno_;
   ::google::protobuf::uint32 tier_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -850,14 +747,6 @@ class PlayDungeonAns : public ::google::protobuf::Message /* @@protoc_insertion_
   inline PlayDungeonAns& operator=(const PlayDungeonAns& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -908,8 +797,7 @@ class PlayDungeonAns : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.ErrorCode err = 1;
-  bool has_err() const;
+  // optional .MSG.ErrorCode err = 1;
   void clear_err();
   static const int kErrFieldNumber = 1;
   ::MSG::ErrorCode err() const;
@@ -951,7 +839,7 @@ class PlayDungeonAns : public ::google::protobuf::Message /* @@protoc_insertion_
   const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
       mobs() const;
 
-  // required .MSG.BattleData_ winner = 5;
+  // optional .MSG.BattleData_ winner = 5;
   bool has_winner() const;
   void clear_winner();
   static const int kWinnerFieldNumber = 5;
@@ -962,22 +850,15 @@ class PlayDungeonAns : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // @@protoc_insertion_point(class_scope:MSG.PlayDungeonAns)
  private:
-  inline void set_has_err();
-  inline void clear_has_err();
-  inline void set_has_winner();
-  inline void clear_has_winner();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ > battles_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > chars_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > mobs_;
   ::MSG::BattleData_* winner_;
   int err_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -997,14 +878,6 @@ class LevelupCharReq : public ::google::protobuf::Message /* @@protoc_insertion_
   inline LevelupCharReq& operator=(const LevelupCharReq& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1055,8 +928,7 @@ class LevelupCharReq : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // required uint32 slotNo = 1;
-  bool has_slotno() const;
+  // optional uint32 slotNo = 1;
   void clear_slotno();
   static const int kSlotNoFieldNumber = 1;
   ::google::protobuf::uint32 slotno() const;
@@ -1064,13 +936,11 @@ class LevelupCharReq : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // @@protoc_insertion_point(class_scope:MSG.LevelupCharReq)
  private:
-  inline void set_has_slotno();
-  inline void clear_has_slotno();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 slotno_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -1090,14 +960,6 @@ class LevelupCharAns : public ::google::protobuf::Message /* @@protoc_insertion_
   inline LevelupCharAns& operator=(const LevelupCharAns& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1148,8 +1010,7 @@ class LevelupCharAns : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.ErrorCode err = 1;
-  bool has_err() const;
+  // optional .MSG.ErrorCode err = 1;
   void clear_err();
   static const int kErrFieldNumber = 1;
   ::MSG::ErrorCode err() const;
@@ -1166,16 +1027,12 @@ class LevelupCharAns : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // @@protoc_insertion_point(class_scope:MSG.LevelupCharAns)
  private:
-  inline void set_has_err();
-  inline void clear_has_err();
-  inline void set_has_char_();
-  inline void clear_has_char_();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::MSG::CharData_* char__;
   int err_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -1195,14 +1052,6 @@ class TierupCharReq : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline TierupCharReq& operator=(const TierupCharReq& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1253,8 +1102,7 @@ class TierupCharReq : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // required uint32 slotNo = 1;
-  bool has_slotno() const;
+  // optional uint32 slotNo = 1;
   void clear_slotno();
   static const int kSlotNoFieldNumber = 1;
   ::google::protobuf::uint32 slotno() const;
@@ -1262,13 +1110,11 @@ class TierupCharReq : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // @@protoc_insertion_point(class_scope:MSG.TierupCharReq)
  private:
-  inline void set_has_slotno();
-  inline void clear_has_slotno();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 slotno_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -1288,14 +1134,6 @@ class TierupCharAns : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline TierupCharAns& operator=(const TierupCharAns& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1346,8 +1184,7 @@ class TierupCharAns : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.ErrorCode err = 1;
-  bool has_err() const;
+  // optional .MSG.ErrorCode err = 1;
   void clear_err();
   static const int kErrFieldNumber = 1;
   ::MSG::ErrorCode err() const;
@@ -1364,16 +1201,12 @@ class TierupCharAns : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // @@protoc_insertion_point(class_scope:MSG.TierupCharAns)
  private:
-  inline void set_has_err();
-  inline void clear_has_err();
-  inline void set_has_char_();
-  inline void clear_has_char_();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::MSG::CharData_* char__;
   int err_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -1393,14 +1226,6 @@ class BattleLogReq : public ::google::protobuf::Message /* @@protoc_insertion_po
   inline BattleLogReq& operator=(const BattleLogReq& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1451,8 +1276,7 @@ class BattleLogReq : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // required uint64 lid = 1;
-  bool has_lid() const;
+  // optional uint64 lid = 1;
   void clear_lid();
   static const int kLidFieldNumber = 1;
   ::google::protobuf::uint64 lid() const;
@@ -1460,13 +1284,11 @@ class BattleLogReq : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // @@protoc_insertion_point(class_scope:MSG.BattleLogReq)
  private:
-  inline void set_has_lid();
-  inline void clear_has_lid();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 lid_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -1486,14 +1308,6 @@ class BattleLogAns : public ::google::protobuf::Message /* @@protoc_insertion_po
   inline BattleLogAns& operator=(const BattleLogAns& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1544,8 +1358,7 @@ class BattleLogAns : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.ErrorCode err = 1;
-  bool has_err() const;
+  // optional .MSG.ErrorCode err = 1;
   void clear_err();
   static const int kErrFieldNumber = 1;
   ::MSG::ErrorCode err() const;
@@ -1565,14 +1378,12 @@ class BattleLogAns : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // @@protoc_insertion_point(class_scope:MSG.BattleLogAns)
  private:
-  inline void set_has_err();
-  inline void clear_has_err();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::RepeatedPtrField< ::MSG::DungeonPlayData_ > data_;
   int err_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_game_2eproto();
   friend void protobuf_AssignDesc_game_2eproto();
   friend void protobuf_ShutdownFile_game_2eproto();
@@ -1643,50 +1454,30 @@ ContentsNot::mutable_contents() {
   return &contents_;
 }
 
-// required uint32 dungeonNo = 2;
-inline bool ContentsNot::has_dungeonno() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void ContentsNot::set_has_dungeonno() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void ContentsNot::clear_has_dungeonno() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 dungeonNo = 2;
 inline void ContentsNot::clear_dungeonno() {
   dungeonno_ = 0u;
-  clear_has_dungeonno();
 }
 inline ::google::protobuf::uint32 ContentsNot::dungeonno() const {
   // @@protoc_insertion_point(field_get:MSG.ContentsNot.dungeonNo)
   return dungeonno_;
 }
 inline void ContentsNot::set_dungeonno(::google::protobuf::uint32 value) {
-  set_has_dungeonno();
+  
   dungeonno_ = value;
   // @@protoc_insertion_point(field_set:MSG.ContentsNot.dungeonNo)
 }
 
-// required uint32 tier = 3;
-inline bool ContentsNot::has_tier() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void ContentsNot::set_has_tier() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void ContentsNot::clear_has_tier() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 tier = 3;
 inline void ContentsNot::clear_tier() {
   tier_ = 0u;
-  clear_has_tier();
 }
 inline ::google::protobuf::uint32 ContentsNot::tier() const {
   // @@protoc_insertion_point(field_get:MSG.ContentsNot.tier)
   return tier_;
 }
 inline void ContentsNot::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
+  
   tier_ = value;
   // @@protoc_insertion_point(field_set:MSG.ContentsNot.tier)
 }
@@ -1695,50 +1486,30 @@ inline void ContentsNot::set_tier(::google::protobuf::uint32 value) {
 
 // PlayDungeonNot_DungeonPlay
 
-// required uint32 dungeonNo = 1;
-inline bool PlayDungeonNot_DungeonPlay::has_dungeonno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void PlayDungeonNot_DungeonPlay::set_has_dungeonno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void PlayDungeonNot_DungeonPlay::clear_has_dungeonno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 dungeonNo = 1;
 inline void PlayDungeonNot_DungeonPlay::clear_dungeonno() {
   dungeonno_ = 0u;
-  clear_has_dungeonno();
 }
 inline ::google::protobuf::uint32 PlayDungeonNot_DungeonPlay::dungeonno() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonNot.DungeonPlay.dungeonNo)
   return dungeonno_;
 }
 inline void PlayDungeonNot_DungeonPlay::set_dungeonno(::google::protobuf::uint32 value) {
-  set_has_dungeonno();
+  
   dungeonno_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonNot.DungeonPlay.dungeonNo)
 }
 
-// required uint32 tier = 2;
-inline bool PlayDungeonNot_DungeonPlay::has_tier() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void PlayDungeonNot_DungeonPlay::set_has_tier() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void PlayDungeonNot_DungeonPlay::clear_has_tier() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 tier = 2;
 inline void PlayDungeonNot_DungeonPlay::clear_tier() {
   tier_ = 0u;
-  clear_has_tier();
 }
 inline ::google::protobuf::uint32 PlayDungeonNot_DungeonPlay::tier() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonNot.DungeonPlay.tier)
   return tier_;
 }
 inline void PlayDungeonNot_DungeonPlay::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
+  
   tier_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonNot.DungeonPlay.tier)
 }
@@ -1871,26 +1642,16 @@ PlayDungeonNot::plays() const {
 
 // CreateCharReq
 
-// required uint32 charNo = 1;
-inline bool CreateCharReq::has_charno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void CreateCharReq::set_has_charno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void CreateCharReq::clear_has_charno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 charNo = 1;
 inline void CreateCharReq::clear_charno() {
   charno_ = 0u;
-  clear_has_charno();
 }
 inline ::google::protobuf::uint32 CreateCharReq::charno() const {
   // @@protoc_insertion_point(field_get:MSG.CreateCharReq.charNo)
   return charno_;
 }
 inline void CreateCharReq::set_charno(::google::protobuf::uint32 value) {
-  set_has_charno();
+  
   charno_ = value;
   // @@protoc_insertion_point(field_set:MSG.CreateCharReq.charNo)
 }
@@ -1899,51 +1660,34 @@ inline void CreateCharReq::set_charno(::google::protobuf::uint32 value) {
 
 // CreateCharAns
 
-// required .MSG.ErrorCode err = 1;
-inline bool CreateCharAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void CreateCharAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void CreateCharAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 inline void CreateCharAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
 inline ::MSG::ErrorCode CreateCharAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.CreateCharAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
 inline void CreateCharAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.CreateCharAns.err)
 }
 
 // optional .MSG.CharData_ char_ = 2;
 inline bool CreateCharAns::has_char_() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void CreateCharAns::set_has_char_() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void CreateCharAns::clear_has_char_() {
-  _has_bits_[0] &= ~0x00000002u;
+  return !_is_default_instance_ && char__ != NULL;
 }
 inline void CreateCharAns::clear_char_() {
-  if (char__ != NULL) char__->::MSG::CharData_::Clear();
-  clear_has_char_();
+  if (GetArenaNoVirtual() == NULL && char__ != NULL) delete char__;
+  char__ = NULL;
 }
 inline const ::MSG::CharData_& CreateCharAns::char_() const {
   // @@protoc_insertion_point(field_get:MSG.CreateCharAns.char_)
   return char__ != NULL ? *char__ : *default_instance_->char__;
 }
 inline ::MSG::CharData_* CreateCharAns::mutable_char_() {
-  set_has_char_();
+  
   if (char__ == NULL) {
     char__ = new ::MSG::CharData_;
   }
@@ -1952,7 +1696,7 @@ inline ::MSG::CharData_* CreateCharAns::mutable_char_() {
 }
 inline ::MSG::CharData_* CreateCharAns::release_char_() {
   // @@protoc_insertion_point(field_release:MSG.CreateCharAns.char_)
-  clear_has_char_();
+  
   ::MSG::CharData_* temp = char__;
   char__ = NULL;
   return temp;
@@ -1961,9 +1705,9 @@ inline void CreateCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   delete char__;
   char__ = char_;
   if (char_) {
-    set_has_char_();
+    
   } else {
-    clear_has_char_();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.CreateCharAns.char_)
 }
@@ -1972,74 +1716,44 @@ inline void CreateCharAns::set_allocated_char_(::MSG::CharData_* char_) {
 
 // CurrencyNot
 
-// required uint32 vc1 = 1;
-inline bool CurrencyNot::has_vc1() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void CurrencyNot::set_has_vc1() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void CurrencyNot::clear_has_vc1() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 vc1 = 1;
 inline void CurrencyNot::clear_vc1() {
   vc1_ = 0u;
-  clear_has_vc1();
 }
 inline ::google::protobuf::uint32 CurrencyNot::vc1() const {
   // @@protoc_insertion_point(field_get:MSG.CurrencyNot.vc1)
   return vc1_;
 }
 inline void CurrencyNot::set_vc1(::google::protobuf::uint32 value) {
-  set_has_vc1();
+  
   vc1_ = value;
   // @@protoc_insertion_point(field_set:MSG.CurrencyNot.vc1)
 }
 
-// required uint32 vc2 = 2;
-inline bool CurrencyNot::has_vc2() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void CurrencyNot::set_has_vc2() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void CurrencyNot::clear_has_vc2() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 vc2 = 2;
 inline void CurrencyNot::clear_vc2() {
   vc2_ = 0u;
-  clear_has_vc2();
 }
 inline ::google::protobuf::uint32 CurrencyNot::vc2() const {
   // @@protoc_insertion_point(field_get:MSG.CurrencyNot.vc2)
   return vc2_;
 }
 inline void CurrencyNot::set_vc2(::google::protobuf::uint32 value) {
-  set_has_vc2();
+  
   vc2_ = value;
   // @@protoc_insertion_point(field_set:MSG.CurrencyNot.vc2)
 }
 
-// required uint32 vc3 = 3;
-inline bool CurrencyNot::has_vc3() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void CurrencyNot::set_has_vc3() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void CurrencyNot::clear_has_vc3() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 vc3 = 3;
 inline void CurrencyNot::clear_vc3() {
   vc3_ = 0u;
-  clear_has_vc3();
 }
 inline ::google::protobuf::uint32 CurrencyNot::vc3() const {
   // @@protoc_insertion_point(field_get:MSG.CurrencyNot.vc3)
   return vc3_;
 }
 inline void CurrencyNot::set_vc3(::google::protobuf::uint32 value) {
-  set_has_vc3();
+  
   vc3_ = value;
   // @@protoc_insertion_point(field_set:MSG.CurrencyNot.vc3)
 }
@@ -2048,50 +1762,30 @@ inline void CurrencyNot::set_vc3(::google::protobuf::uint32 value) {
 
 // PlayDungeonReq
 
-// required uint32 dungeonNo = 1;
-inline bool PlayDungeonReq::has_dungeonno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void PlayDungeonReq::set_has_dungeonno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void PlayDungeonReq::clear_has_dungeonno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 dungeonNo = 1;
 inline void PlayDungeonReq::clear_dungeonno() {
   dungeonno_ = 0u;
-  clear_has_dungeonno();
 }
 inline ::google::protobuf::uint32 PlayDungeonReq::dungeonno() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonReq.dungeonNo)
   return dungeonno_;
 }
 inline void PlayDungeonReq::set_dungeonno(::google::protobuf::uint32 value) {
-  set_has_dungeonno();
+  
   dungeonno_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonReq.dungeonNo)
 }
 
-// required uint32 tier = 2;
-inline bool PlayDungeonReq::has_tier() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void PlayDungeonReq::set_has_tier() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void PlayDungeonReq::clear_has_tier() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 tier = 2;
 inline void PlayDungeonReq::clear_tier() {
   tier_ = 0u;
-  clear_has_tier();
 }
 inline ::google::protobuf::uint32 PlayDungeonReq::tier() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonReq.tier)
   return tier_;
 }
 inline void PlayDungeonReq::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
+  
   tier_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonReq.tier)
 }
@@ -2100,27 +1794,16 @@ inline void PlayDungeonReq::set_tier(::google::protobuf::uint32 value) {
 
 // PlayDungeonAns
 
-// required .MSG.ErrorCode err = 1;
-inline bool PlayDungeonAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void PlayDungeonAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void PlayDungeonAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 inline void PlayDungeonAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
 inline ::MSG::ErrorCode PlayDungeonAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
 inline void PlayDungeonAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.PlayDungeonAns.err)
 }
@@ -2215,26 +1898,20 @@ PlayDungeonAns::mobs() const {
   return mobs_;
 }
 
-// required .MSG.BattleData_ winner = 5;
+// optional .MSG.BattleData_ winner = 5;
 inline bool PlayDungeonAns::has_winner() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void PlayDungeonAns::set_has_winner() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void PlayDungeonAns::clear_has_winner() {
-  _has_bits_[0] &= ~0x00000010u;
+  return !_is_default_instance_ && winner_ != NULL;
 }
 inline void PlayDungeonAns::clear_winner() {
-  if (winner_ != NULL) winner_->::MSG::BattleData_::Clear();
-  clear_has_winner();
+  if (GetArenaNoVirtual() == NULL && winner_ != NULL) delete winner_;
+  winner_ = NULL;
 }
 inline const ::MSG::BattleData_& PlayDungeonAns::winner() const {
   // @@protoc_insertion_point(field_get:MSG.PlayDungeonAns.winner)
   return winner_ != NULL ? *winner_ : *default_instance_->winner_;
 }
 inline ::MSG::BattleData_* PlayDungeonAns::mutable_winner() {
-  set_has_winner();
+  
   if (winner_ == NULL) {
     winner_ = new ::MSG::BattleData_;
   }
@@ -2243,7 +1920,7 @@ inline ::MSG::BattleData_* PlayDungeonAns::mutable_winner() {
 }
 inline ::MSG::BattleData_* PlayDungeonAns::release_winner() {
   // @@protoc_insertion_point(field_release:MSG.PlayDungeonAns.winner)
-  clear_has_winner();
+  
   ::MSG::BattleData_* temp = winner_;
   winner_ = NULL;
   return temp;
@@ -2252,9 +1929,9 @@ inline void PlayDungeonAns::set_allocated_winner(::MSG::BattleData_* winner) {
   delete winner_;
   winner_ = winner;
   if (winner) {
-    set_has_winner();
+    
   } else {
-    clear_has_winner();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.PlayDungeonAns.winner)
 }
@@ -2263,26 +1940,16 @@ inline void PlayDungeonAns::set_allocated_winner(::MSG::BattleData_* winner) {
 
 // LevelupCharReq
 
-// required uint32 slotNo = 1;
-inline bool LevelupCharReq::has_slotno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void LevelupCharReq::set_has_slotno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void LevelupCharReq::clear_has_slotno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 slotNo = 1;
 inline void LevelupCharReq::clear_slotno() {
   slotno_ = 0u;
-  clear_has_slotno();
 }
 inline ::google::protobuf::uint32 LevelupCharReq::slotno() const {
   // @@protoc_insertion_point(field_get:MSG.LevelupCharReq.slotNo)
   return slotno_;
 }
 inline void LevelupCharReq::set_slotno(::google::protobuf::uint32 value) {
-  set_has_slotno();
+  
   slotno_ = value;
   // @@protoc_insertion_point(field_set:MSG.LevelupCharReq.slotNo)
 }
@@ -2291,51 +1958,34 @@ inline void LevelupCharReq::set_slotno(::google::protobuf::uint32 value) {
 
 // LevelupCharAns
 
-// required .MSG.ErrorCode err = 1;
-inline bool LevelupCharAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void LevelupCharAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void LevelupCharAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 inline void LevelupCharAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
 inline ::MSG::ErrorCode LevelupCharAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.LevelupCharAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
 inline void LevelupCharAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.LevelupCharAns.err)
 }
 
 // optional .MSG.CharData_ char_ = 2;
 inline bool LevelupCharAns::has_char_() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void LevelupCharAns::set_has_char_() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void LevelupCharAns::clear_has_char_() {
-  _has_bits_[0] &= ~0x00000002u;
+  return !_is_default_instance_ && char__ != NULL;
 }
 inline void LevelupCharAns::clear_char_() {
-  if (char__ != NULL) char__->::MSG::CharData_::Clear();
-  clear_has_char_();
+  if (GetArenaNoVirtual() == NULL && char__ != NULL) delete char__;
+  char__ = NULL;
 }
 inline const ::MSG::CharData_& LevelupCharAns::char_() const {
   // @@protoc_insertion_point(field_get:MSG.LevelupCharAns.char_)
   return char__ != NULL ? *char__ : *default_instance_->char__;
 }
 inline ::MSG::CharData_* LevelupCharAns::mutable_char_() {
-  set_has_char_();
+  
   if (char__ == NULL) {
     char__ = new ::MSG::CharData_;
   }
@@ -2344,7 +1994,7 @@ inline ::MSG::CharData_* LevelupCharAns::mutable_char_() {
 }
 inline ::MSG::CharData_* LevelupCharAns::release_char_() {
   // @@protoc_insertion_point(field_release:MSG.LevelupCharAns.char_)
-  clear_has_char_();
+  
   ::MSG::CharData_* temp = char__;
   char__ = NULL;
   return temp;
@@ -2353,9 +2003,9 @@ inline void LevelupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   delete char__;
   char__ = char_;
   if (char_) {
-    set_has_char_();
+    
   } else {
-    clear_has_char_();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.LevelupCharAns.char_)
 }
@@ -2364,26 +2014,16 @@ inline void LevelupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
 
 // TierupCharReq
 
-// required uint32 slotNo = 1;
-inline bool TierupCharReq::has_slotno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void TierupCharReq::set_has_slotno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void TierupCharReq::clear_has_slotno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 slotNo = 1;
 inline void TierupCharReq::clear_slotno() {
   slotno_ = 0u;
-  clear_has_slotno();
 }
 inline ::google::protobuf::uint32 TierupCharReq::slotno() const {
   // @@protoc_insertion_point(field_get:MSG.TierupCharReq.slotNo)
   return slotno_;
 }
 inline void TierupCharReq::set_slotno(::google::protobuf::uint32 value) {
-  set_has_slotno();
+  
   slotno_ = value;
   // @@protoc_insertion_point(field_set:MSG.TierupCharReq.slotNo)
 }
@@ -2392,51 +2032,34 @@ inline void TierupCharReq::set_slotno(::google::protobuf::uint32 value) {
 
 // TierupCharAns
 
-// required .MSG.ErrorCode err = 1;
-inline bool TierupCharAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void TierupCharAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void TierupCharAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 inline void TierupCharAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
 inline ::MSG::ErrorCode TierupCharAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.TierupCharAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
 inline void TierupCharAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.TierupCharAns.err)
 }
 
 // optional .MSG.CharData_ char_ = 2;
 inline bool TierupCharAns::has_char_() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void TierupCharAns::set_has_char_() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void TierupCharAns::clear_has_char_() {
-  _has_bits_[0] &= ~0x00000002u;
+  return !_is_default_instance_ && char__ != NULL;
 }
 inline void TierupCharAns::clear_char_() {
-  if (char__ != NULL) char__->::MSG::CharData_::Clear();
-  clear_has_char_();
+  if (GetArenaNoVirtual() == NULL && char__ != NULL) delete char__;
+  char__ = NULL;
 }
 inline const ::MSG::CharData_& TierupCharAns::char_() const {
   // @@protoc_insertion_point(field_get:MSG.TierupCharAns.char_)
   return char__ != NULL ? *char__ : *default_instance_->char__;
 }
 inline ::MSG::CharData_* TierupCharAns::mutable_char_() {
-  set_has_char_();
+  
   if (char__ == NULL) {
     char__ = new ::MSG::CharData_;
   }
@@ -2445,7 +2068,7 @@ inline ::MSG::CharData_* TierupCharAns::mutable_char_() {
 }
 inline ::MSG::CharData_* TierupCharAns::release_char_() {
   // @@protoc_insertion_point(field_release:MSG.TierupCharAns.char_)
-  clear_has_char_();
+  
   ::MSG::CharData_* temp = char__;
   char__ = NULL;
   return temp;
@@ -2454,9 +2077,9 @@ inline void TierupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
   delete char__;
   char__ = char_;
   if (char_) {
-    set_has_char_();
+    
   } else {
-    clear_has_char_();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.TierupCharAns.char_)
 }
@@ -2465,26 +2088,16 @@ inline void TierupCharAns::set_allocated_char_(::MSG::CharData_* char_) {
 
 // BattleLogReq
 
-// required uint64 lid = 1;
-inline bool BattleLogReq::has_lid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void BattleLogReq::set_has_lid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void BattleLogReq::clear_has_lid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 lid = 1;
 inline void BattleLogReq::clear_lid() {
   lid_ = GOOGLE_ULONGLONG(0);
-  clear_has_lid();
 }
 inline ::google::protobuf::uint64 BattleLogReq::lid() const {
   // @@protoc_insertion_point(field_get:MSG.BattleLogReq.lid)
   return lid_;
 }
 inline void BattleLogReq::set_lid(::google::protobuf::uint64 value) {
-  set_has_lid();
+  
   lid_ = value;
   // @@protoc_insertion_point(field_set:MSG.BattleLogReq.lid)
 }
@@ -2493,27 +2106,16 @@ inline void BattleLogReq::set_lid(::google::protobuf::uint64 value) {
 
 // BattleLogAns
 
-// required .MSG.ErrorCode err = 1;
-inline bool BattleLogAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void BattleLogAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void BattleLogAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 inline void BattleLogAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
 inline ::MSG::ErrorCode BattleLogAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.BattleLogAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
 inline void BattleLogAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.BattleLogAns.err)
 }

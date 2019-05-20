@@ -313,7 +313,7 @@ void Battle::play()
 					// 최소 공격력
 					auto minAtk = it->getAtk() / 2;
 					// 랜덤 최소 ~ 최대
-					int atk = minAtk + (g() % (maxAtk - minAtk));
+					int atk = minAtk + (static_cast<int>(g()) % (maxAtk - minAtk));
 
 					// 데미지 계산
 					int damage = std::max(atk - target->getDef(), 0);
@@ -336,11 +336,11 @@ void Battle::play()
 					if (targetSlot == 1)
 					{
 						// 1 or -1
-						auto randValue = (g() % 2);
+						auto randValue = (static_cast<int>(g()) % 2);
 						if (randValue == 0) randValue = -1;
 
 						target2Slot = targetSlot + randValue;
-						if (target2Slot > (*defenceTeamObjs).size() - 1)
+						if (target2Slot > static_cast<int>((*defenceTeamObjs).size()) - 1)
 						{
 							target2Slot = targetSlot - randValue;
 						}
@@ -361,7 +361,7 @@ void Battle::play()
 						// 최소 공격력
 						auto minAtk = it->getAtk() / 2;
 						// 랜덤 최소 ~ 최대
-						int atk = minAtk + (g() % (maxAtk - minAtk));
+						int atk = minAtk + (static_cast<int>(g()) % (maxAtk - minAtk));
 
 						// 데미지 계산
 						int damage = std::max(atk - target2->getDef(), 0);

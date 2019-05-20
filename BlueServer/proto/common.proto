@@ -1,8 +1,9 @@
-syntax = "proto2";
+syntax = "proto3";
 package MSG;
 
 // message type
 enum MsgId {
+	NONE = 0;
 	CLOSED = 10000;
 
 	LOGIN_REQ = 10101;
@@ -80,30 +81,31 @@ enum PlatForm {
 // user data
 message UserData_ {
 
-	required uint64 uid = 1;
-	required string name = 2;
-	optional string did = 3;
-	optional PlatForm platform = 4;
+	uint64 uid = 1;
+	string name = 2;
+	string did = 3;
+	PlatForm platform = 4;
 
-	optional string loginDate = 5;
-	optional string logoutDate = 6;
-	optional string regDate = 7;
+	string loginDate = 5;
+	string logoutDate = 6;
+	string regDate = 7;
 
-	optional uint32 vc1 = 8;
-	optional uint32 vc2 = 9;
-	optional uint32 vc3 = 10;
+	uint32 vc1 = 8;
+	uint32 vc2 = 9;
+	uint32 vc3 = 10;
 
-	optional string groupName = 11;
-	optional string language = 12;
+	string groupName = 11;
+	string language = 12;
 
 	repeated CharData_ chars = 13;
-	optional DungeonData_ lastDungeon = 14;
+	DungeonData_ lastDungeon = 14;
 }
 
 // contents info data
 message Contents_ {
 	// contents type
 	enum ContentType {
+		CT_NONE = 0;
 		// ingame
 		CT_INGAME = 1;
 
@@ -114,14 +116,15 @@ message Contents_ {
 		CT_INAPPBUY = 3;
 	}
 
-	required ContentType type = 1;
-	required string name = 2;
+	ContentType type = 1;
+	string name = 2;
 	
 }
 
 // group memebr
 message GMember_ {
 	enum GradeType {
+		Grade_0 = 0;
 		Grade_1 = 1;
 		Grade_2 = 2;
 		Grade_3 = 3;
@@ -129,26 +132,27 @@ message GMember_ {
 		Grade_5 = 5;
 	}
 
-	required uint64 uid = 1;
-	required string name = 2;
-	required GradeType grade = 3;
+	uint64 uid = 1;
+	string name = 2;
+	GradeType grade = 3;
 }
 
 // group
 message Group_ {
-	required uint64 gid = 1;
-	required string name = 2;
-	required string country = 3;
-	required uint64 leader = 4;
+	uint64 gid = 1;
+	string name = 2;
+	string country = 3;
+	uint64 leader = 4;
 
 
-	required uint32 limit = 5;
+	uint32 limit = 5;
 	repeated GMember_ members = 6;
 }
 
 
 // chat type
 enum ChatType {
+	CHAT_NONE = 0;
 	CHAT_CHANNEL = 1;
 	CHAT_GROUP = 2;
 	CHAT_ROOM = 3;
@@ -156,27 +160,27 @@ enum ChatType {
 
 // chat 
 message ChatData_ {
-	required uint64 uid = 1;
-	required string name = 2;
-	required string groupName = 3;
+	uint64 uid = 1;
+	string name = 2;
+	string groupName = 3;
 
-	required string language = 4;
-	required string chat = 5;
-	required uint64 regDate = 6;
+	string language = 4;
+	string chat = 5;
+	uint64 regDate = 6;
 }
 
 // chat room
 message ChatRoom_ {
-	required uint64 rid = 1;
-	required string name = 2;
+	uint64 rid = 1;
+	string name = 2;
 
 	repeated ChatData_ chats = 3;
 }
 
 // chat channel
 message ChatChannel_ {
-	required uint64 cid = 1;
-	required string name = 2;
+	uint64 cid = 1;
+	string name = 2;
 	
 	repeated ChatData_ chats = 3;
 }
@@ -184,21 +188,21 @@ message ChatChannel_ {
 
 // character data
 message CharData_ {
-	required uint64 cid = 1;
-	required uint64 uid = 2;
-	optional uint32 slotNo = 3;
-	optional uint32 typeNo = 4;
-	optional uint32 level = 5;
-	optional uint32 tier = 6;
-	optional string regDate = 7;
+	uint64 cid = 1;
+	uint64 uid = 2;
+	uint32 slotNo = 3;
+	uint32 typeNo = 4;
+	uint32 level = 5;
+	uint32 tier = 6;
+	string regDate = 7;
 }
 
 // dungeon data
 message DungeonData_ {
-	required uint64 uid = 1;
-	required uint32 dungeonNo = 2;
-	required uint32 dungeonTier = 3;
-	optional string updateDate = 4;
+	uint64 uid = 1;
+	uint32 dungeonNo = 2;
+	uint32 dungeonTier = 3;
+	string updateDate = 4;
 
 	// monster table
 	repeated CharData_ monsters = 5;
@@ -217,24 +221,24 @@ message BattleData_ {
 	}
 
 	message Attack {
-		required uint32 no = 1;
-		required uint32 damage = 2;
-		required AttackResult result = 3;
+		uint32 no = 1;
+		uint32 damage = 2;
+		AttackResult result = 3;
 	}
 	
 
-	required uint32 srcNo = 1;
+	uint32 srcNo = 1;
 	repeated Attack targets = 2;
-	required Team team = 3;
+	Team team = 3;
 }
 
 
 // dungeon play data log
 message DungeonPlayData_ {
-	required uint64 lid = 1;
-	required uint64 uid = 2;
+	uint64 lid = 1;
+	uint64 uid = 2;
 	repeated BattleData_ battles = 3;
 	repeated CharData_ chars = 4;
 	repeated CharData_ mobs = 5;	
-	required string regDate = 6;
+	string regDate = 6;
 }

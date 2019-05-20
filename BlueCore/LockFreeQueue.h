@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 //#include <boost/lockfree/queue.hpp>
 #include "concurrentqueue.h"
 namespace BLUE_BERRY {

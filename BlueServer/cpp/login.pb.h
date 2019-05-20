@@ -60,14 +60,6 @@ class PingReq : public ::google::protobuf::Message /* @@protoc_insertion_point(c
     return *this;
   }
 
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
   static const ::google::protobuf::Descriptor* descriptor();
   static const PingReq& default_instance();
 
@@ -116,8 +108,7 @@ class PingReq : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // required string sessionKey = 1;
-  bool has_sessionkey() const;
+  // optional string sessionKey = 1;
   void clear_sessionkey();
   static const int kSessionKeyFieldNumber = 1;
   const ::std::string& sessionkey() const;
@@ -130,13 +121,11 @@ class PingReq : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // @@protoc_insertion_point(class_scope:MSG.PingReq)
  private:
-  inline void set_has_sessionkey();
-  inline void clear_has_sessionkey();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr sessionkey_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -156,14 +145,6 @@ class PongAns : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   inline PongAns& operator=(const PongAns& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -214,8 +195,7 @@ class PongAns : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.ErrorCode err = 1;
-  bool has_err() const;
+  // optional .MSG.ErrorCode err = 1;
   void clear_err();
   static const int kErrFieldNumber = 1;
   ::MSG::ErrorCode err() const;
@@ -223,13 +203,11 @@ class PongAns : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // @@protoc_insertion_point(class_scope:MSG.PongAns)
  private:
-  inline void set_has_err();
-  inline void clear_has_err();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   int err_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -249,14 +227,6 @@ class LoginReq : public ::google::protobuf::Message /* @@protoc_insertion_point(
   inline LoginReq& operator=(const LoginReq& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -307,8 +277,7 @@ class LoginReq : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required string name = 1;
-  bool has_name() const;
+  // optional string name = 1;
   void clear_name();
   static const int kNameFieldNumber = 1;
   const ::std::string& name() const;
@@ -321,13 +290,11 @@ class LoginReq : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // @@protoc_insertion_point(class_scope:MSG.LoginReq)
  private:
-  inline void set_has_name();
-  inline void clear_has_name();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -347,14 +314,6 @@ class LoginAns : public ::google::protobuf::Message /* @@protoc_insertion_point(
   inline LoginAns& operator=(const LoginAns& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -405,15 +364,13 @@ class LoginAns : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.ErrorCode err = 1;
-  bool has_err() const;
+  // optional .MSG.ErrorCode err = 1;
   void clear_err();
   static const int kErrFieldNumber = 1;
   ::MSG::ErrorCode err() const;
   void set_err(::MSG::ErrorCode value);
 
   // optional string sessionKey = 2;
-  bool has_sessionkey() const;
   void clear_sessionkey();
   static const int kSessionKeyFieldNumber = 2;
   const ::std::string& sessionkey() const;
@@ -435,19 +392,13 @@ class LoginAns : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // @@protoc_insertion_point(class_scope:MSG.LoginAns)
  private:
-  inline void set_has_err();
-  inline void clear_has_err();
-  inline void set_has_sessionkey();
-  inline void clear_has_sessionkey();
-  inline void set_has_data();
-  inline void clear_has_data();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr sessionkey_;
   ::MSG::UserData_* data_;
   int err_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -467,14 +418,6 @@ class RegistReq : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline RegistReq& operator=(const RegistReq& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -525,7 +468,7 @@ class RegistReq : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.UserData_ data = 1;
+  // optional .MSG.UserData_ data = 1;
   bool has_data() const;
   void clear_data();
   static const int kDataFieldNumber = 1;
@@ -536,13 +479,11 @@ class RegistReq : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // @@protoc_insertion_point(class_scope:MSG.RegistReq)
  private:
-  inline void set_has_data();
-  inline void clear_has_data();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::MSG::UserData_* data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -562,14 +503,6 @@ class RegistAns : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline RegistAns& operator=(const RegistAns& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -620,8 +553,7 @@ class RegistAns : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.ErrorCode err = 1;
-  bool has_err() const;
+  // optional .MSG.ErrorCode err = 1;
   void clear_err();
   static const int kErrFieldNumber = 1;
   ::MSG::ErrorCode err() const;
@@ -629,13 +561,11 @@ class RegistAns : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // @@protoc_insertion_point(class_scope:MSG.RegistAns)
  private:
-  inline void set_has_err();
-  inline void clear_has_err();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   int err_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -655,14 +585,6 @@ class VersionReq : public ::google::protobuf::Message /* @@protoc_insertion_poin
   inline VersionReq& operator=(const VersionReq& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -713,8 +635,7 @@ class VersionReq : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // required string version = 1;
-  bool has_version() const;
+  // optional string version = 1;
   void clear_version();
   static const int kVersionFieldNumber = 1;
   const ::std::string& version() const;
@@ -727,13 +648,11 @@ class VersionReq : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // @@protoc_insertion_point(class_scope:MSG.VersionReq)
  private:
-  inline void set_has_version();
-  inline void clear_has_version();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr version_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -753,14 +672,6 @@ class VersionAns : public ::google::protobuf::Message /* @@protoc_insertion_poin
   inline VersionAns& operator=(const VersionAns& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -811,8 +722,7 @@ class VersionAns : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.ErrorCode err = 1;
-  bool has_err() const;
+  // optional .MSG.ErrorCode err = 1;
   void clear_err();
   static const int kErrFieldNumber = 1;
   ::MSG::ErrorCode err() const;
@@ -832,14 +742,12 @@ class VersionAns : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // @@protoc_insertion_point(class_scope:MSG.VersionAns)
  private:
-  inline void set_has_err();
-  inline void clear_has_err();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::RepeatedPtrField< ::MSG::Contents_ > contents_;
   int err_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -855,55 +763,45 @@ class VersionAns : public ::google::protobuf::Message /* @@protoc_insertion_poin
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // PingReq
 
-// required string sessionKey = 1;
-inline bool PingReq::has_sessionkey() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void PingReq::set_has_sessionkey() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void PingReq::clear_has_sessionkey() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string sessionKey = 1;
 inline void PingReq::clear_sessionkey() {
   sessionkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_sessionkey();
 }
 inline const ::std::string& PingReq::sessionkey() const {
   // @@protoc_insertion_point(field_get:MSG.PingReq.sessionKey)
   return sessionkey_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void PingReq::set_sessionkey(const ::std::string& value) {
-  set_has_sessionkey();
+  
   sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.PingReq.sessionKey)
 }
 inline void PingReq::set_sessionkey(const char* value) {
-  set_has_sessionkey();
+  
   sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.PingReq.sessionKey)
 }
 inline void PingReq::set_sessionkey(const char* value, size_t size) {
-  set_has_sessionkey();
+  
   sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.PingReq.sessionKey)
 }
 inline ::std::string* PingReq::mutable_sessionkey() {
-  set_has_sessionkey();
+  
   // @@protoc_insertion_point(field_mutable:MSG.PingReq.sessionKey)
   return sessionkey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* PingReq::release_sessionkey() {
   // @@protoc_insertion_point(field_release:MSG.PingReq.sessionKey)
-  clear_has_sessionkey();
+  
   return sessionkey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void PingReq::set_allocated_sessionkey(::std::string* sessionkey) {
   if (sessionkey != NULL) {
-    set_has_sessionkey();
+    
   } else {
-    clear_has_sessionkey();
+    
   }
   sessionkey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sessionkey);
   // @@protoc_insertion_point(field_set_allocated:MSG.PingReq.sessionKey)
@@ -913,27 +811,16 @@ inline void PingReq::set_allocated_sessionkey(::std::string* sessionkey) {
 
 // PongAns
 
-// required .MSG.ErrorCode err = 1;
-inline bool PongAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void PongAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void PongAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 inline void PongAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
 inline ::MSG::ErrorCode PongAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.PongAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
 inline void PongAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.PongAns.err)
 }
@@ -942,55 +829,45 @@ inline void PongAns::set_err(::MSG::ErrorCode value) {
 
 // LoginReq
 
-// required string name = 1;
-inline bool LoginReq::has_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void LoginReq::set_has_name() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void LoginReq::clear_has_name() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string name = 1;
 inline void LoginReq::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& LoginReq::name() const {
   // @@protoc_insertion_point(field_get:MSG.LoginReq.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void LoginReq::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.LoginReq.name)
 }
 inline void LoginReq::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.LoginReq.name)
 }
 inline void LoginReq::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.LoginReq.name)
 }
 inline ::std::string* LoginReq::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.LoginReq.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* LoginReq::release_name() {
   // @@protoc_insertion_point(field_release:MSG.LoginReq.name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void LoginReq::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.LoginReq.name)
@@ -1000,80 +877,59 @@ inline void LoginReq::set_allocated_name(::std::string* name) {
 
 // LoginAns
 
-// required .MSG.ErrorCode err = 1;
-inline bool LoginAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void LoginAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void LoginAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 inline void LoginAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
 inline ::MSG::ErrorCode LoginAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.LoginAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
 inline void LoginAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.LoginAns.err)
 }
 
 // optional string sessionKey = 2;
-inline bool LoginAns::has_sessionkey() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void LoginAns::set_has_sessionkey() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void LoginAns::clear_has_sessionkey() {
-  _has_bits_[0] &= ~0x00000002u;
-}
 inline void LoginAns::clear_sessionkey() {
   sessionkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_sessionkey();
 }
 inline const ::std::string& LoginAns::sessionkey() const {
   // @@protoc_insertion_point(field_get:MSG.LoginAns.sessionKey)
   return sessionkey_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void LoginAns::set_sessionkey(const ::std::string& value) {
-  set_has_sessionkey();
+  
   sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.LoginAns.sessionKey)
 }
 inline void LoginAns::set_sessionkey(const char* value) {
-  set_has_sessionkey();
+  
   sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.LoginAns.sessionKey)
 }
 inline void LoginAns::set_sessionkey(const char* value, size_t size) {
-  set_has_sessionkey();
+  
   sessionkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.LoginAns.sessionKey)
 }
 inline ::std::string* LoginAns::mutable_sessionkey() {
-  set_has_sessionkey();
+  
   // @@protoc_insertion_point(field_mutable:MSG.LoginAns.sessionKey)
   return sessionkey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* LoginAns::release_sessionkey() {
   // @@protoc_insertion_point(field_release:MSG.LoginAns.sessionKey)
-  clear_has_sessionkey();
+  
   return sessionkey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void LoginAns::set_allocated_sessionkey(::std::string* sessionkey) {
   if (sessionkey != NULL) {
-    set_has_sessionkey();
+    
   } else {
-    clear_has_sessionkey();
+    
   }
   sessionkey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sessionkey);
   // @@protoc_insertion_point(field_set_allocated:MSG.LoginAns.sessionKey)
@@ -1081,24 +937,18 @@ inline void LoginAns::set_allocated_sessionkey(::std::string* sessionkey) {
 
 // optional .MSG.UserData_ data = 3;
 inline bool LoginAns::has_data() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void LoginAns::set_has_data() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void LoginAns::clear_has_data() {
-  _has_bits_[0] &= ~0x00000004u;
+  return !_is_default_instance_ && data_ != NULL;
 }
 inline void LoginAns::clear_data() {
-  if (data_ != NULL) data_->::MSG::UserData_::Clear();
-  clear_has_data();
+  if (GetArenaNoVirtual() == NULL && data_ != NULL) delete data_;
+  data_ = NULL;
 }
 inline const ::MSG::UserData_& LoginAns::data() const {
   // @@protoc_insertion_point(field_get:MSG.LoginAns.data)
   return data_ != NULL ? *data_ : *default_instance_->data_;
 }
 inline ::MSG::UserData_* LoginAns::mutable_data() {
-  set_has_data();
+  
   if (data_ == NULL) {
     data_ = new ::MSG::UserData_;
   }
@@ -1107,7 +957,7 @@ inline ::MSG::UserData_* LoginAns::mutable_data() {
 }
 inline ::MSG::UserData_* LoginAns::release_data() {
   // @@protoc_insertion_point(field_release:MSG.LoginAns.data)
-  clear_has_data();
+  
   ::MSG::UserData_* temp = data_;
   data_ = NULL;
   return temp;
@@ -1116,9 +966,9 @@ inline void LoginAns::set_allocated_data(::MSG::UserData_* data) {
   delete data_;
   data_ = data;
   if (data) {
-    set_has_data();
+    
   } else {
-    clear_has_data();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.LoginAns.data)
 }
@@ -1127,26 +977,20 @@ inline void LoginAns::set_allocated_data(::MSG::UserData_* data) {
 
 // RegistReq
 
-// required .MSG.UserData_ data = 1;
+// optional .MSG.UserData_ data = 1;
 inline bool RegistReq::has_data() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void RegistReq::set_has_data() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void RegistReq::clear_has_data() {
-  _has_bits_[0] &= ~0x00000001u;
+  return !_is_default_instance_ && data_ != NULL;
 }
 inline void RegistReq::clear_data() {
-  if (data_ != NULL) data_->::MSG::UserData_::Clear();
-  clear_has_data();
+  if (GetArenaNoVirtual() == NULL && data_ != NULL) delete data_;
+  data_ = NULL;
 }
 inline const ::MSG::UserData_& RegistReq::data() const {
   // @@protoc_insertion_point(field_get:MSG.RegistReq.data)
   return data_ != NULL ? *data_ : *default_instance_->data_;
 }
 inline ::MSG::UserData_* RegistReq::mutable_data() {
-  set_has_data();
+  
   if (data_ == NULL) {
     data_ = new ::MSG::UserData_;
   }
@@ -1155,7 +999,7 @@ inline ::MSG::UserData_* RegistReq::mutable_data() {
 }
 inline ::MSG::UserData_* RegistReq::release_data() {
   // @@protoc_insertion_point(field_release:MSG.RegistReq.data)
-  clear_has_data();
+  
   ::MSG::UserData_* temp = data_;
   data_ = NULL;
   return temp;
@@ -1164,9 +1008,9 @@ inline void RegistReq::set_allocated_data(::MSG::UserData_* data) {
   delete data_;
   data_ = data;
   if (data) {
-    set_has_data();
+    
   } else {
-    clear_has_data();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.RegistReq.data)
 }
@@ -1175,27 +1019,16 @@ inline void RegistReq::set_allocated_data(::MSG::UserData_* data) {
 
 // RegistAns
 
-// required .MSG.ErrorCode err = 1;
-inline bool RegistAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void RegistAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void RegistAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 inline void RegistAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
 inline ::MSG::ErrorCode RegistAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.RegistAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
 inline void RegistAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.RegistAns.err)
 }
@@ -1204,55 +1037,45 @@ inline void RegistAns::set_err(::MSG::ErrorCode value) {
 
 // VersionReq
 
-// required string version = 1;
-inline bool VersionReq::has_version() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void VersionReq::set_has_version() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void VersionReq::clear_has_version() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string version = 1;
 inline void VersionReq::clear_version() {
   version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_version();
 }
 inline const ::std::string& VersionReq::version() const {
   // @@protoc_insertion_point(field_get:MSG.VersionReq.version)
   return version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void VersionReq::set_version(const ::std::string& value) {
-  set_has_version();
+  
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.VersionReq.version)
 }
 inline void VersionReq::set_version(const char* value) {
-  set_has_version();
+  
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.VersionReq.version)
 }
 inline void VersionReq::set_version(const char* value, size_t size) {
-  set_has_version();
+  
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.VersionReq.version)
 }
 inline ::std::string* VersionReq::mutable_version() {
-  set_has_version();
+  
   // @@protoc_insertion_point(field_mutable:MSG.VersionReq.version)
   return version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* VersionReq::release_version() {
   // @@protoc_insertion_point(field_release:MSG.VersionReq.version)
-  clear_has_version();
+  
   return version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void VersionReq::set_allocated_version(::std::string* version) {
   if (version != NULL) {
-    set_has_version();
+    
   } else {
-    clear_has_version();
+    
   }
   version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), version);
   // @@protoc_insertion_point(field_set_allocated:MSG.VersionReq.version)
@@ -1262,27 +1085,16 @@ inline void VersionReq::set_allocated_version(::std::string* version) {
 
 // VersionAns
 
-// required .MSG.ErrorCode err = 1;
-inline bool VersionAns::has_err() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void VersionAns::set_has_err() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void VersionAns::clear_has_err() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.ErrorCode err = 1;
 inline void VersionAns::clear_err() {
   err_ = 0;
-  clear_has_err();
 }
 inline ::MSG::ErrorCode VersionAns::err() const {
   // @@protoc_insertion_point(field_get:MSG.VersionAns.err)
   return static_cast< ::MSG::ErrorCode >(err_);
 }
 inline void VersionAns::set_err(::MSG::ErrorCode value) {
-  assert(::MSG::ErrorCode_IsValid(value));
-  set_has_err();
+  
   err_ = value;
   // @@protoc_insertion_point(field_set:MSG.VersionAns.err)
 }

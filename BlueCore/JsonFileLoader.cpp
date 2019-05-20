@@ -18,7 +18,9 @@ JsonFileLoader::~JsonFileLoader()
 
 void JsonFileLoader::start()
 {
-	doTimer(std::chrono::duration_cast<_seconds>(_minutes(1)).count(), true, &JsonFileLoader::tick);
+	doTimer(std::chrono::duration_cast<_seconds>(_minutes(1)).count(), true, 
+		[this]() {this->tick(); }
+	);
 }
 
 void JsonFileLoader::stop()

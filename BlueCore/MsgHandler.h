@@ -30,4 +30,7 @@ public:
 #define CC_NAMESPACE_NS(class___) ::class___
 #define DEFINE_HANDLER(class___, session___, function___) bool class___ CC_NAMESPACE_NS(function___) (session___ session_, char* body_, unsigned short len_)
 
+template<typename T>
+using SharedPtr = std::shared_ptr<T>;
+//ex) SharedPtr<Object> ptr;
 }

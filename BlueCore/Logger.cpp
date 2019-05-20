@@ -50,7 +50,9 @@ void Logger::write(_LogLevel level_, const std::string& func_, const std::string
 
 void Logger::start()
 {
-	doTimer(1000, true, &Logger::tick);
+	doTimer(1000, true, 
+		[this]() { this->tick(); }
+	);
 	_running.store(true);
 }
 

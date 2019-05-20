@@ -1,0 +1,55 @@
+-- install g++, gdb, gdbserve 
+sudo apt-get install openssh-server g++ gdb gdbserver
+
+sudo service ssh start
+
+
+
+-- install boost lib
+sudo apt-get install libboost-all-dev
+
+
+install path lib
+	/usr/lib/x86_64-linux-gnu$
+
+install path include
+	/usr/include/boost/
+
+
+-- mysql connect
+apt-get install libmysqlcppconn-dev
+
+
+wget https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
+wget https://github.com/google/protobuf/releases/download/v3.0.0/protobuf-cpp-3.0.0.tar.gz
+
+
+tar -xf protobuf-2.6.1.tar.gz
+
+
+sudo ./configure
+
+sudo make
+
+sudo make check
+
+sudo make install
+
+
+-- check install
+protoc --version
+
+
+sudo ldconfig
+
+protoc --version
+
+
+
+
+/etc/ls.so.conf.d/
+
+create file (bluecore.conf) and setting library path
+
+
+

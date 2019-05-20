@@ -7,9 +7,18 @@
 
 namespace BLUE_BERRY
 {
+Session::Session(tcp::socket socket_)
+	: _socket(std::move(socket_)), _packetProc(nullptr)
+{
+	_recvBuff = new CircularBuffer();
+	_sendBuff = new CircularBuffer();
+	_reservedSendBuffCount.store(0);
+	_sending.store(false);
+	_connected.store(false);
+}
 
-Session::Session(boost::asio::io_service& io_)
-	: _socket(io_), _packetProc(nullptr)
+Session::Session(boost::asio::io_context& io_)
+	:_socket(io_), _packetProc(nullptr)
 {
 	_recvBuff = new CircularBuffer();
 	_sendBuff = new CircularBuffer();
@@ -36,15 +45,15 @@ Session::~Session()
 
 void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t length_)
 {
-	if (errCode_ != nullptr && errCode_ != boost::asio::error::operation_aborted )
+	if (errCode_ != boost::asio::error::operation_aborted )
 	{
-		LOG(L_DEBUG_, "Disconnect", "socket", (int)_socket.native(), "length", (int)length_);
+		LOG(L_DEBUG_, "Disconnect", "socket", (int)_socket.native_handle(), "length", (int)length_);
 		_connected.store(false);
 		onClose();
 		return;
 	}
 
-	LOG(L_DEBUG_, "Recv Complete", "socket", (int)_socket.native(), "length", (int)length_);
+	LOG(L_DEBUG_, "Recv Complete", "socket", (int)_socket.native_handle(), "length", (int)length_);
 
 	_recvBuff->commit(length_);
 
@@ -65,7 +74,7 @@ void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t len
 
 void Session::onSendComplete(boost::system::error_code errCode_, std::size_t length_)
 {
-	LOG(L_DEBUG_, "Send Complete", "socket", (int)_socket.native(), "length", (int)length_);
+	LOG(L_DEBUG_, "Send Complete", "socket", (int)_socket.native_handle(), "length", (int)length_);
 	_sending.store(false);
 
 	_sendBuff->remove(length_);
@@ -75,7 +84,7 @@ void Session::onSendComplete(boost::system::error_code errCode_, std::size_t len
 
 void Session::onAcceptComplete()
 {
-	LOG(L_DEBUG_, "Accept Complete", "socket", (int)_socket.native());
+	LOG(L_DEBUG_, "Accept Complete", "socket", (int)_socket.native_handle());
 	_connected.store(true);
 
 	// call async recv
@@ -84,7 +93,7 @@ void Session::onAcceptComplete()
 
 void Session::onConnectComplete(boost::system::error_code errCode_)
 {
-	LOG(L_DEBUG_, "Connect Complete", "socket", (int)_socket.native());
+	LOG(L_DEBUG_, "Connect Complete", "socket", (int)_socket.native_handle());
 	_connected.store(true);
 
 	// call async recv
@@ -100,7 +109,7 @@ void Session::send(BufferHelperPtr sendBuff_)
 
 	if (_reservedSendBuffCount.load() >= SHRT_MAX)
 	{
-		LOG(L_DEBUG_, "disconnect", "socket", (int)_socket.native());
+		LOG(L_DEBUG_, "disconnect", "socket", (int)_socket.native_handle());
 		disconnect();
 		return;
 	}
@@ -125,16 +134,20 @@ bool Session::isConnected()
 	return _connected.load() == true;
 }
 
-void Session::connect(const char * addr_, short port_)
+void Session::connect(const std::string& addr_, const std::string& port_)
 {
 	//boost::asio::ip::tcp::endpoint endPoint(boost::asio::ip::address::from_string(addr_), port_);
 	//_socket.async_connect(endPoint, std::bind(&Session::onConnectComplete, shared_from_this(), std::placeholders::_1));
 
-	boost::asio::ip::tcp::resolver resolver(_socket.get_io_service());
-	boost::asio::ip::tcp::resolver::query query(addr_, std::to_string(port_));
+	tcp::resolver resolver(_socket.get_executor());
+	auto endpoints = resolver.resolve(tcp::resolver::query(addr_, port_));
 
-	auto endpointIt = resolver.resolve(query);
-	boost::asio::async_connect(_socket, endpointIt, std::bind(&Session::onConnectComplete, shared_from_this(), std::placeholders::_1));
+	boost::asio::async_connect(_socket, endpoints, [this](boost::system::error_code ec_, tcp::endpoint endpoint_) {
+		if (!ec_)
+		{
+			this->onConnectComplete(ec_);
+		}
+	});		
 }
 
 void Session::postRecv()

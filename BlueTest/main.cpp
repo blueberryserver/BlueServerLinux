@@ -3,15 +3,15 @@
 
 //#include "Buffer_Test.h"
 //#include "Mutex_Test.h"
-//#include "Timer_Test.h"
+#include "Timer_Test.h"
 //#include "Logger_Test.h"
 //#include "Chrono_Test.h"
 //#include "Protobuf_Test.h"
 //#include "Mysql_Test.h"
 //#include "Redis_Test.h"
-#include "Cpp_Test.h"
+//#include "Cpp_Test.h"
 //#include "Boost_Test.h"
-#include "fmt_Test.h"
+//#include "fmt_Test.h"
 
 TEST(SAMPLE, TEST1)
 {

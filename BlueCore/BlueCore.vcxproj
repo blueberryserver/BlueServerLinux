@@ -139,7 +139,7 @@
       <CppLanguageStandard>c++14</CppLanguageStandard>
       <PositionIndependentCode>true</PositionIndependentCode>
       <PreprocessorDefinitions>_DEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../3rdLibrary/boost_1_57_0;../../3rdLibrary/mysql-connector/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>/usr/local/include;/usr/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <LibraryDependencies>boost_system;boost_thread;boost_filesystem;pthread</LibraryDependencies>

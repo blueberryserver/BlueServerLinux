@@ -17,7 +17,6 @@
 	void class___ CC_SET_NS(class___) (class___* mgr_) { ___ ## class___ = mgr_; } \
 	void class___ CC_DELETE_NS(class___) ()  { delete ___ ## class___; } \
 
-
 // smart ptr
 #define DECLARE_SMART_PTR(class___) typedef std::shared_ptr<class___> class___ ## Ptr;
 

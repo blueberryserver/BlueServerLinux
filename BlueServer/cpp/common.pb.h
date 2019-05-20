@@ -51,12 +51,15 @@ class Group_;
 class UserData_;
 
 enum Contents__ContentType {
+  Contents__ContentType_CT_NONE = 0,
   Contents__ContentType_CT_INGAME = 1,
   Contents__ContentType_CT_OUTGAME = 2,
-  Contents__ContentType_CT_INAPPBUY = 3
+  Contents__ContentType_CT_INAPPBUY = 3,
+  Contents__ContentType_Contents__ContentType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  Contents__ContentType_Contents__ContentType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool Contents__ContentType_IsValid(int value);
-const Contents__ContentType Contents__ContentType_ContentType_MIN = Contents__ContentType_CT_INGAME;
+const Contents__ContentType Contents__ContentType_ContentType_MIN = Contents__ContentType_CT_NONE;
 const Contents__ContentType Contents__ContentType_ContentType_MAX = Contents__ContentType_CT_INAPPBUY;
 const int Contents__ContentType_ContentType_ARRAYSIZE = Contents__ContentType_ContentType_MAX + 1;
 
@@ -71,14 +74,17 @@ inline bool Contents__ContentType_Parse(
     Contents__ContentType_descriptor(), name, value);
 }
 enum GMember__GradeType {
+  GMember__GradeType_Grade_0 = 0,
   GMember__GradeType_Grade_1 = 1,
   GMember__GradeType_Grade_2 = 2,
   GMember__GradeType_Grade_3 = 3,
   GMember__GradeType_Grade_4 = 4,
-  GMember__GradeType_Grade_5 = 5
+  GMember__GradeType_Grade_5 = 5,
+  GMember__GradeType_GMember__GradeType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  GMember__GradeType_GMember__GradeType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool GMember__GradeType_IsValid(int value);
-const GMember__GradeType GMember__GradeType_GradeType_MIN = GMember__GradeType_Grade_1;
+const GMember__GradeType GMember__GradeType_GradeType_MIN = GMember__GradeType_Grade_0;
 const GMember__GradeType GMember__GradeType_GradeType_MAX = GMember__GradeType_Grade_5;
 const int GMember__GradeType_GradeType_ARRAYSIZE = GMember__GradeType_GradeType_MAX + 1;
 
@@ -94,7 +100,9 @@ inline bool GMember__GradeType_Parse(
 }
 enum BattleData__AttackResult {
   BattleData__AttackResult_ALIVE = 0,
-  BattleData__AttackResult_DEAD = 1
+  BattleData__AttackResult_DEAD = 1,
+  BattleData__AttackResult_BattleData__AttackResult_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  BattleData__AttackResult_BattleData__AttackResult_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool BattleData__AttackResult_IsValid(int value);
 const BattleData__AttackResult BattleData__AttackResult_AttackResult_MIN = BattleData__AttackResult_ALIVE;
@@ -113,7 +121,9 @@ inline bool BattleData__AttackResult_Parse(
 }
 enum BattleData__Team {
   BattleData__Team_ALLY = 0,
-  BattleData__Team_ENEMY = 1
+  BattleData__Team_ENEMY = 1,
+  BattleData__Team_BattleData__Team_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  BattleData__Team_BattleData__Team_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool BattleData__Team_IsValid(int value);
 const BattleData__Team BattleData__Team_Team_MIN = BattleData__Team_ALLY;
@@ -131,6 +141,7 @@ inline bool BattleData__Team_Parse(
     BattleData__Team_descriptor(), name, value);
 }
 enum MsgId {
+  NONE = 0,
   CLOSED = 10000,
   LOGIN_REQ = 10101,
   LOGIN_ANS = 10102,
@@ -167,10 +178,12 @@ enum MsgId {
   TIERUPCHAR_REQ = 20191,
   TIERUPCHAR_ANS = 20192,
   BATTLELOG_REQ = 20201,
-  BATTLELOG_ANS = 20202
+  BATTLELOG_ANS = 20202,
+  MsgId_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  MsgId_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool MsgId_IsValid(int value);
-const MsgId MsgId_MIN = CLOSED;
+const MsgId MsgId_MIN = NONE;
 const MsgId MsgId_MAX = BATTLELOG_ANS;
 const int MsgId_ARRAYSIZE = MsgId_MAX + 1;
 
@@ -189,7 +202,9 @@ enum ErrorCode {
   ERR_LOGIN_FAIL = 1,
   ERR_ARGUMENT_FAIL = 2,
   ERR_AUTHORITY_FAIL = 3,
-  ERR_SESSIONKEY_FAIL = 4
+  ERR_SESSIONKEY_FAIL = 4,
+  ErrorCode_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  ErrorCode_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool ErrorCode_IsValid(int value);
 const ErrorCode ErrorCode_MIN = ERR_SUCCESS;
@@ -208,7 +223,9 @@ inline bool ErrorCode_Parse(
 }
 enum PlatForm {
   IOS = 0,
-  ANDROID = 1
+  ANDROID = 1,
+  PlatForm_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  PlatForm_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool PlatForm_IsValid(int value);
 const PlatForm PlatForm_MIN = IOS;
@@ -226,12 +243,15 @@ inline bool PlatForm_Parse(
     PlatForm_descriptor(), name, value);
 }
 enum ChatType {
+  CHAT_NONE = 0,
   CHAT_CHANNEL = 1,
   CHAT_GROUP = 2,
-  CHAT_ROOM = 3
+  CHAT_ROOM = 3,
+  ChatType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  ChatType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool ChatType_IsValid(int value);
-const ChatType ChatType_MIN = CHAT_CHANNEL;
+const ChatType ChatType_MIN = CHAT_NONE;
 const ChatType ChatType_MAX = CHAT_ROOM;
 const int ChatType_ARRAYSIZE = ChatType_MAX + 1;
 
@@ -257,14 +277,6 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline UserData_& operator=(const UserData_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -315,15 +327,13 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // accessors -------------------------------------------------------
 
-  // required uint64 uid = 1;
-  bool has_uid() const;
+  // optional uint64 uid = 1;
   void clear_uid();
   static const int kUidFieldNumber = 1;
   ::google::protobuf::uint64 uid() const;
   void set_uid(::google::protobuf::uint64 value);
 
-  // required string name = 2;
-  bool has_name() const;
+  // optional string name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -335,7 +345,6 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   void set_allocated_name(::std::string* name);
 
   // optional string did = 3;
-  bool has_did() const;
   void clear_did();
   static const int kDidFieldNumber = 3;
   const ::std::string& did() const;
@@ -347,14 +356,12 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   void set_allocated_did(::std::string* did);
 
   // optional .MSG.PlatForm platform = 4;
-  bool has_platform() const;
   void clear_platform();
   static const int kPlatformFieldNumber = 4;
   ::MSG::PlatForm platform() const;
   void set_platform(::MSG::PlatForm value);
 
   // optional string loginDate = 5;
-  bool has_logindate() const;
   void clear_logindate();
   static const int kLoginDateFieldNumber = 5;
   const ::std::string& logindate() const;
@@ -366,7 +373,6 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   void set_allocated_logindate(::std::string* logindate);
 
   // optional string logoutDate = 6;
-  bool has_logoutdate() const;
   void clear_logoutdate();
   static const int kLogoutDateFieldNumber = 6;
   const ::std::string& logoutdate() const;
@@ -378,7 +384,6 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   void set_allocated_logoutdate(::std::string* logoutdate);
 
   // optional string regDate = 7;
-  bool has_regdate() const;
   void clear_regdate();
   static const int kRegDateFieldNumber = 7;
   const ::std::string& regdate() const;
@@ -390,28 +395,24 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   void set_allocated_regdate(::std::string* regdate);
 
   // optional uint32 vc1 = 8;
-  bool has_vc1() const;
   void clear_vc1();
   static const int kVc1FieldNumber = 8;
   ::google::protobuf::uint32 vc1() const;
   void set_vc1(::google::protobuf::uint32 value);
 
   // optional uint32 vc2 = 9;
-  bool has_vc2() const;
   void clear_vc2();
   static const int kVc2FieldNumber = 9;
   ::google::protobuf::uint32 vc2() const;
   void set_vc2(::google::protobuf::uint32 value);
 
   // optional uint32 vc3 = 10;
-  bool has_vc3() const;
   void clear_vc3();
   static const int kVc3FieldNumber = 10;
   ::google::protobuf::uint32 vc3() const;
   void set_vc3(::google::protobuf::uint32 value);
 
   // optional string groupName = 11;
-  bool has_groupname() const;
   void clear_groupname();
   static const int kGroupNameFieldNumber = 11;
   const ::std::string& groupname() const;
@@ -423,7 +424,6 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   void set_allocated_groupname(::std::string* groupname);
 
   // optional string language = 12;
-  bool has_language() const;
   void clear_language();
   static const int kLanguageFieldNumber = 12;
   const ::std::string& language() const;
@@ -457,39 +457,9 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // @@protoc_insertion_point(class_scope:MSG.UserData_)
  private:
-  inline void set_has_uid();
-  inline void clear_has_uid();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_did();
-  inline void clear_has_did();
-  inline void set_has_platform();
-  inline void clear_has_platform();
-  inline void set_has_logindate();
-  inline void clear_has_logindate();
-  inline void set_has_logoutdate();
-  inline void clear_has_logoutdate();
-  inline void set_has_regdate();
-  inline void clear_has_regdate();
-  inline void set_has_vc1();
-  inline void clear_has_vc1();
-  inline void set_has_vc2();
-  inline void clear_has_vc2();
-  inline void set_has_vc3();
-  inline void clear_has_vc3();
-  inline void set_has_groupname();
-  inline void clear_has_groupname();
-  inline void set_has_language();
-  inline void clear_has_language();
-  inline void set_has_lastdungeon();
-  inline void clear_has_lastdungeon();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr did_;
@@ -504,6 +474,7 @@ class UserData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::internal::ArenaStringPtr language_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > chars_;
   ::MSG::DungeonData_* lastdungeon_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -523,14 +494,6 @@ class Contents_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline Contents_& operator=(const Contents_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -580,6 +543,8 @@ class Contents_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   // nested types ----------------------------------------------------
 
   typedef Contents__ContentType ContentType;
+  static const ContentType CT_NONE =
+    Contents__ContentType_CT_NONE;
   static const ContentType CT_INGAME =
     Contents__ContentType_CT_INGAME;
   static const ContentType CT_OUTGAME =
@@ -609,15 +574,13 @@ class Contents_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // accessors -------------------------------------------------------
 
-  // required .MSG.Contents_.ContentType type = 1;
-  bool has_type() const;
+  // optional .MSG.Contents_.ContentType type = 1;
   void clear_type();
   static const int kTypeFieldNumber = 1;
   ::MSG::Contents__ContentType type() const;
   void set_type(::MSG::Contents__ContentType value);
 
-  // required string name = 2;
-  bool has_name() const;
+  // optional string name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -630,19 +593,12 @@ class Contents_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // @@protoc_insertion_point(class_scope:MSG.Contents_)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_name();
-  inline void clear_has_name();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   int type_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -662,14 +618,6 @@ class GMember_ : public ::google::protobuf::Message /* @@protoc_insertion_point(
   inline GMember_& operator=(const GMember_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -719,6 +667,8 @@ class GMember_ : public ::google::protobuf::Message /* @@protoc_insertion_point(
   // nested types ----------------------------------------------------
 
   typedef GMember__GradeType GradeType;
+  static const GradeType Grade_0 =
+    GMember__GradeType_Grade_0;
   static const GradeType Grade_1 =
     GMember__GradeType_Grade_1;
   static const GradeType Grade_2 =
@@ -752,15 +702,13 @@ class GMember_ : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required uint64 uid = 1;
-  bool has_uid() const;
+  // optional uint64 uid = 1;
   void clear_uid();
   static const int kUidFieldNumber = 1;
   ::google::protobuf::uint64 uid() const;
   void set_uid(::google::protobuf::uint64 value);
 
-  // required string name = 2;
-  bool has_name() const;
+  // optional string name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -771,8 +719,7 @@ class GMember_ : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required .MSG.GMember_.GradeType grade = 3;
-  bool has_grade() const;
+  // optional .MSG.GMember_.GradeType grade = 3;
   void clear_grade();
   static const int kGradeFieldNumber = 3;
   ::MSG::GMember__GradeType grade() const;
@@ -780,22 +727,13 @@ class GMember_ : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // @@protoc_insertion_point(class_scope:MSG.GMember_)
  private:
-  inline void set_has_uid();
-  inline void clear_has_uid();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_grade();
-  inline void clear_has_grade();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   int grade_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -815,14 +753,6 @@ class Group_ : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   inline Group_& operator=(const Group_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -873,15 +803,13 @@ class Group_ : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 
   // accessors -------------------------------------------------------
 
-  // required uint64 gid = 1;
-  bool has_gid() const;
+  // optional uint64 gid = 1;
   void clear_gid();
   static const int kGidFieldNumber = 1;
   ::google::protobuf::uint64 gid() const;
   void set_gid(::google::protobuf::uint64 value);
 
-  // required string name = 2;
-  bool has_name() const;
+  // optional string name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -892,8 +820,7 @@ class Group_ : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required string country = 3;
-  bool has_country() const;
+  // optional string country = 3;
   void clear_country();
   static const int kCountryFieldNumber = 3;
   const ::std::string& country() const;
@@ -904,15 +831,13 @@ class Group_ : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::std::string* release_country();
   void set_allocated_country(::std::string* country);
 
-  // required uint64 leader = 4;
-  bool has_leader() const;
+  // optional uint64 leader = 4;
   void clear_leader();
   static const int kLeaderFieldNumber = 4;
   ::google::protobuf::uint64 leader() const;
   void set_leader(::google::protobuf::uint64 value);
 
-  // required uint32 limit = 5;
-  bool has_limit() const;
+  // optional uint32 limit = 5;
   void clear_limit();
   static const int kLimitFieldNumber = 5;
   ::google::protobuf::uint32 limit() const;
@@ -932,29 +857,16 @@ class Group_ : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 
   // @@protoc_insertion_point(class_scope:MSG.Group_)
  private:
-  inline void set_has_gid();
-  inline void clear_has_gid();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_country();
-  inline void clear_has_country();
-  inline void set_has_leader();
-  inline void clear_has_leader();
-  inline void set_has_limit();
-  inline void clear_has_limit();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 gid_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr country_;
   ::google::protobuf::uint64 leader_;
   ::google::protobuf::RepeatedPtrField< ::MSG::GMember_ > members_;
   ::google::protobuf::uint32 limit_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -974,14 +886,6 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline ChatData_& operator=(const ChatData_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1032,15 +936,13 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // accessors -------------------------------------------------------
 
-  // required uint64 uid = 1;
-  bool has_uid() const;
+  // optional uint64 uid = 1;
   void clear_uid();
   static const int kUidFieldNumber = 1;
   ::google::protobuf::uint64 uid() const;
   void set_uid(::google::protobuf::uint64 value);
 
-  // required string name = 2;
-  bool has_name() const;
+  // optional string name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -1051,8 +953,7 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required string groupName = 3;
-  bool has_groupname() const;
+  // optional string groupName = 3;
   void clear_groupname();
   static const int kGroupNameFieldNumber = 3;
   const ::std::string& groupname() const;
@@ -1063,8 +964,7 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::std::string* release_groupname();
   void set_allocated_groupname(::std::string* groupname);
 
-  // required string language = 4;
-  bool has_language() const;
+  // optional string language = 4;
   void clear_language();
   static const int kLanguageFieldNumber = 4;
   const ::std::string& language() const;
@@ -1075,8 +975,7 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::std::string* release_language();
   void set_allocated_language(::std::string* language);
 
-  // required string chat = 5;
-  bool has_chat() const;
+  // optional string chat = 5;
   void clear_chat();
   static const int kChatFieldNumber = 5;
   const ::std::string& chat() const;
@@ -1087,8 +986,7 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::std::string* release_chat();
   void set_allocated_chat(::std::string* chat);
 
-  // required uint64 regDate = 6;
-  bool has_regdate() const;
+  // optional uint64 regDate = 6;
   void clear_regdate();
   static const int kRegDateFieldNumber = 6;
   ::google::protobuf::uint64 regdate() const;
@@ -1096,31 +994,16 @@ class ChatData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // @@protoc_insertion_point(class_scope:MSG.ChatData_)
  private:
-  inline void set_has_uid();
-  inline void clear_has_uid();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_groupname();
-  inline void clear_has_groupname();
-  inline void set_has_language();
-  inline void clear_has_language();
-  inline void set_has_chat();
-  inline void clear_has_chat();
-  inline void set_has_regdate();
-  inline void clear_has_regdate();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr groupname_;
   ::google::protobuf::internal::ArenaStringPtr language_;
   ::google::protobuf::internal::ArenaStringPtr chat_;
   ::google::protobuf::uint64 regdate_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1140,14 +1023,6 @@ class ChatRoom_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline ChatRoom_& operator=(const ChatRoom_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1198,15 +1073,13 @@ class ChatRoom_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // accessors -------------------------------------------------------
 
-  // required uint64 rid = 1;
-  bool has_rid() const;
+  // optional uint64 rid = 1;
   void clear_rid();
   static const int kRidFieldNumber = 1;
   ::google::protobuf::uint64 rid() const;
   void set_rid(::google::protobuf::uint64 value);
 
-  // required string name = 2;
-  bool has_name() const;
+  // optional string name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -1231,20 +1104,13 @@ class ChatRoom_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // @@protoc_insertion_point(class_scope:MSG.ChatRoom_)
  private:
-  inline void set_has_rid();
-  inline void clear_has_rid();
-  inline void set_has_name();
-  inline void clear_has_name();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 rid_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::RepeatedPtrField< ::MSG::ChatData_ > chats_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1264,14 +1130,6 @@ class ChatChannel_ : public ::google::protobuf::Message /* @@protoc_insertion_po
   inline ChatChannel_& operator=(const ChatChannel_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1322,15 +1180,13 @@ class ChatChannel_ : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // required uint64 cid = 1;
-  bool has_cid() const;
+  // optional uint64 cid = 1;
   void clear_cid();
   static const int kCidFieldNumber = 1;
   ::google::protobuf::uint64 cid() const;
   void set_cid(::google::protobuf::uint64 value);
 
-  // required string name = 2;
-  bool has_name() const;
+  // optional string name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -1355,20 +1211,13 @@ class ChatChannel_ : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // @@protoc_insertion_point(class_scope:MSG.ChatChannel_)
  private:
-  inline void set_has_cid();
-  inline void clear_has_cid();
-  inline void set_has_name();
-  inline void clear_has_name();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 cid_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::RepeatedPtrField< ::MSG::ChatData_ > chats_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1388,14 +1237,6 @@ class CharData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   inline CharData_& operator=(const CharData_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1446,50 +1287,43 @@ class CharData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // accessors -------------------------------------------------------
 
-  // required uint64 cid = 1;
-  bool has_cid() const;
+  // optional uint64 cid = 1;
   void clear_cid();
   static const int kCidFieldNumber = 1;
   ::google::protobuf::uint64 cid() const;
   void set_cid(::google::protobuf::uint64 value);
 
-  // required uint64 uid = 2;
-  bool has_uid() const;
+  // optional uint64 uid = 2;
   void clear_uid();
   static const int kUidFieldNumber = 2;
   ::google::protobuf::uint64 uid() const;
   void set_uid(::google::protobuf::uint64 value);
 
   // optional uint32 slotNo = 3;
-  bool has_slotno() const;
   void clear_slotno();
   static const int kSlotNoFieldNumber = 3;
   ::google::protobuf::uint32 slotno() const;
   void set_slotno(::google::protobuf::uint32 value);
 
   // optional uint32 typeNo = 4;
-  bool has_typeno() const;
   void clear_typeno();
   static const int kTypeNoFieldNumber = 4;
   ::google::protobuf::uint32 typeno() const;
   void set_typeno(::google::protobuf::uint32 value);
 
   // optional uint32 level = 5;
-  bool has_level() const;
   void clear_level();
   static const int kLevelFieldNumber = 5;
   ::google::protobuf::uint32 level() const;
   void set_level(::google::protobuf::uint32 value);
 
   // optional uint32 tier = 6;
-  bool has_tier() const;
   void clear_tier();
   static const int kTierFieldNumber = 6;
   ::google::protobuf::uint32 tier() const;
   void set_tier(::google::protobuf::uint32 value);
 
   // optional string regDate = 7;
-  bool has_regdate() const;
   void clear_regdate();
   static const int kRegDateFieldNumber = 7;
   const ::std::string& regdate() const;
@@ -1502,27 +1336,9 @@ class CharData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // @@protoc_insertion_point(class_scope:MSG.CharData_)
  private:
-  inline void set_has_cid();
-  inline void clear_has_cid();
-  inline void set_has_uid();
-  inline void clear_has_uid();
-  inline void set_has_slotno();
-  inline void clear_has_slotno();
-  inline void set_has_typeno();
-  inline void clear_has_typeno();
-  inline void set_has_level();
-  inline void clear_has_level();
-  inline void set_has_tier();
-  inline void clear_has_tier();
-  inline void set_has_regdate();
-  inline void clear_has_regdate();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 cid_;
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::uint32 slotno_;
@@ -1530,6 +1346,7 @@ class CharData_ : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::uint32 level_;
   ::google::protobuf::uint32 tier_;
   ::google::protobuf::internal::ArenaStringPtr regdate_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1549,14 +1366,6 @@ class DungeonData_ : public ::google::protobuf::Message /* @@protoc_insertion_po
   inline DungeonData_& operator=(const DungeonData_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1607,29 +1416,25 @@ class DungeonData_ : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // required uint64 uid = 1;
-  bool has_uid() const;
+  // optional uint64 uid = 1;
   void clear_uid();
   static const int kUidFieldNumber = 1;
   ::google::protobuf::uint64 uid() const;
   void set_uid(::google::protobuf::uint64 value);
 
-  // required uint32 dungeonNo = 2;
-  bool has_dungeonno() const;
+  // optional uint32 dungeonNo = 2;
   void clear_dungeonno();
   static const int kDungeonNoFieldNumber = 2;
   ::google::protobuf::uint32 dungeonno() const;
   void set_dungeonno(::google::protobuf::uint32 value);
 
-  // required uint32 dungeonTier = 3;
-  bool has_dungeontier() const;
+  // optional uint32 dungeonTier = 3;
   void clear_dungeontier();
   static const int kDungeonTierFieldNumber = 3;
   ::google::protobuf::uint32 dungeontier() const;
   void set_dungeontier(::google::protobuf::uint32 value);
 
   // optional string updateDate = 4;
-  bool has_updatedate() const;
   void clear_updatedate();
   static const int kUpdateDateFieldNumber = 4;
   const ::std::string& updatedate() const;
@@ -1654,26 +1459,15 @@ class DungeonData_ : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // @@protoc_insertion_point(class_scope:MSG.DungeonData_)
  private:
-  inline void set_has_uid();
-  inline void clear_has_uid();
-  inline void set_has_dungeonno();
-  inline void clear_has_dungeonno();
-  inline void set_has_dungeontier();
-  inline void clear_has_dungeontier();
-  inline void set_has_updatedate();
-  inline void clear_has_updatedate();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::uint32 dungeonno_;
   ::google::protobuf::uint32 dungeontier_;
   ::google::protobuf::internal::ArenaStringPtr updatedate_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > monsters_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1693,14 +1487,6 @@ class BattleData__Attack : public ::google::protobuf::Message /* @@protoc_insert
   inline BattleData__Attack& operator=(const BattleData__Attack& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1751,22 +1537,19 @@ class BattleData__Attack : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // required uint32 no = 1;
-  bool has_no() const;
+  // optional uint32 no = 1;
   void clear_no();
   static const int kNoFieldNumber = 1;
   ::google::protobuf::uint32 no() const;
   void set_no(::google::protobuf::uint32 value);
 
-  // required uint32 damage = 2;
-  bool has_damage() const;
+  // optional uint32 damage = 2;
   void clear_damage();
   static const int kDamageFieldNumber = 2;
   ::google::protobuf::uint32 damage() const;
   void set_damage(::google::protobuf::uint32 value);
 
-  // required .MSG.BattleData_.AttackResult result = 3;
-  bool has_result() const;
+  // optional .MSG.BattleData_.AttackResult result = 3;
   void clear_result();
   static const int kResultFieldNumber = 3;
   ::MSG::BattleData__AttackResult result() const;
@@ -1774,22 +1557,13 @@ class BattleData__Attack : public ::google::protobuf::Message /* @@protoc_insert
 
   // @@protoc_insertion_point(class_scope:MSG.BattleData_.Attack)
  private:
-  inline void set_has_no();
-  inline void clear_has_no();
-  inline void set_has_damage();
-  inline void clear_has_damage();
-  inline void set_has_result();
-  inline void clear_has_result();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 no_;
   ::google::protobuf::uint32 damage_;
   int result_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1809,14 +1583,6 @@ class BattleData_ : public ::google::protobuf::Message /* @@protoc_insertion_poi
   inline BattleData_& operator=(const BattleData_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1921,8 +1687,7 @@ class BattleData_ : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
-  // required uint32 srcNo = 1;
-  bool has_srcno() const;
+  // optional uint32 srcNo = 1;
   void clear_srcno();
   static const int kSrcNoFieldNumber = 1;
   ::google::protobuf::uint32 srcno() const;
@@ -1940,8 +1705,7 @@ class BattleData_ : public ::google::protobuf::Message /* @@protoc_insertion_poi
   const ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack >&
       targets() const;
 
-  // required .MSG.BattleData_.Team team = 3;
-  bool has_team() const;
+  // optional .MSG.BattleData_.Team team = 3;
   void clear_team();
   static const int kTeamFieldNumber = 3;
   ::MSG::BattleData__Team team() const;
@@ -1949,20 +1713,13 @@ class BattleData_ : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // @@protoc_insertion_point(class_scope:MSG.BattleData_)
  private:
-  inline void set_has_srcno();
-  inline void clear_has_srcno();
-  inline void set_has_team();
-  inline void clear_has_team();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::RepeatedPtrField< ::MSG::BattleData__Attack > targets_;
   ::google::protobuf::uint32 srcno_;
   int team_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1982,14 +1739,6 @@ class DungeonPlayData_ : public ::google::protobuf::Message /* @@protoc_insertio
   inline DungeonPlayData_& operator=(const DungeonPlayData_& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -2040,15 +1789,13 @@ class DungeonPlayData_ : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // required uint64 lid = 1;
-  bool has_lid() const;
+  // optional uint64 lid = 1;
   void clear_lid();
   static const int kLidFieldNumber = 1;
   ::google::protobuf::uint64 lid() const;
   void set_lid(::google::protobuf::uint64 value);
 
-  // required uint64 uid = 2;
-  bool has_uid() const;
+  // optional uint64 uid = 2;
   void clear_uid();
   static const int kUidFieldNumber = 2;
   ::google::protobuf::uint64 uid() const;
@@ -2090,8 +1837,7 @@ class DungeonPlayData_ : public ::google::protobuf::Message /* @@protoc_insertio
   const ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ >&
       mobs() const;
 
-  // required string regDate = 6;
-  bool has_regdate() const;
+  // optional string regDate = 6;
   void clear_regdate();
   static const int kRegDateFieldNumber = 6;
   const ::std::string& regdate() const;
@@ -2104,25 +1850,16 @@ class DungeonPlayData_ : public ::google::protobuf::Message /* @@protoc_insertio
 
   // @@protoc_insertion_point(class_scope:MSG.DungeonPlayData_)
  private:
-  inline void set_has_lid();
-  inline void clear_has_lid();
-  inline void set_has_uid();
-  inline void clear_has_uid();
-  inline void set_has_regdate();
-  inline void clear_has_regdate();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint64 lid_;
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::RepeatedPtrField< ::MSG::BattleData_ > battles_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > chars_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharData_ > mobs_;
   ::google::protobuf::internal::ArenaStringPtr regdate_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2138,500 +1875,379 @@ class DungeonPlayData_ : public ::google::protobuf::Message /* @@protoc_insertio
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // UserData_
 
-// required uint64 uid = 1;
-inline bool UserData_::has_uid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void UserData_::set_has_uid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void UserData_::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 uid = 1;
 inline void UserData_::clear_uid() {
   uid_ = GOOGLE_ULONGLONG(0);
-  clear_has_uid();
 }
 inline ::google::protobuf::uint64 UserData_::uid() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.uid)
   return uid_;
 }
 inline void UserData_::set_uid(::google::protobuf::uint64 value) {
-  set_has_uid();
+  
   uid_ = value;
   // @@protoc_insertion_point(field_set:MSG.UserData_.uid)
 }
 
-// required string name = 2;
-inline bool UserData_::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void UserData_::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void UserData_::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string name = 2;
 inline void UserData_::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& UserData_::name() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.UserData_.name)
 }
 inline void UserData_::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.UserData_.name)
 }
 inline void UserData_::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.name)
 }
 inline ::std::string* UserData_::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.UserData_.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UserData_::release_name() {
   // @@protoc_insertion_point(field_release:MSG.UserData_.name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.name)
 }
 
 // optional string did = 3;
-inline bool UserData_::has_did() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void UserData_::set_has_did() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void UserData_::clear_has_did() {
-  _has_bits_[0] &= ~0x00000004u;
-}
 inline void UserData_::clear_did() {
   did_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_did();
 }
 inline const ::std::string& UserData_::did() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.did)
   return did_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_did(const ::std::string& value) {
-  set_has_did();
+  
   did_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.UserData_.did)
 }
 inline void UserData_::set_did(const char* value) {
-  set_has_did();
+  
   did_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.UserData_.did)
 }
 inline void UserData_::set_did(const char* value, size_t size) {
-  set_has_did();
+  
   did_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.did)
 }
 inline ::std::string* UserData_::mutable_did() {
-  set_has_did();
+  
   // @@protoc_insertion_point(field_mutable:MSG.UserData_.did)
   return did_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UserData_::release_did() {
   // @@protoc_insertion_point(field_release:MSG.UserData_.did)
-  clear_has_did();
+  
   return did_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_allocated_did(::std::string* did) {
   if (did != NULL) {
-    set_has_did();
+    
   } else {
-    clear_has_did();
+    
   }
   did_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), did);
   // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.did)
 }
 
 // optional .MSG.PlatForm platform = 4;
-inline bool UserData_::has_platform() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void UserData_::set_has_platform() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void UserData_::clear_has_platform() {
-  _has_bits_[0] &= ~0x00000008u;
-}
 inline void UserData_::clear_platform() {
   platform_ = 0;
-  clear_has_platform();
 }
 inline ::MSG::PlatForm UserData_::platform() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.platform)
   return static_cast< ::MSG::PlatForm >(platform_);
 }
 inline void UserData_::set_platform(::MSG::PlatForm value) {
-  assert(::MSG::PlatForm_IsValid(value));
-  set_has_platform();
+  
   platform_ = value;
   // @@protoc_insertion_point(field_set:MSG.UserData_.platform)
 }
 
 // optional string loginDate = 5;
-inline bool UserData_::has_logindate() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void UserData_::set_has_logindate() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void UserData_::clear_has_logindate() {
-  _has_bits_[0] &= ~0x00000010u;
-}
 inline void UserData_::clear_logindate() {
   logindate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_logindate();
 }
 inline const ::std::string& UserData_::logindate() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.loginDate)
   return logindate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_logindate(const ::std::string& value) {
-  set_has_logindate();
+  
   logindate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.UserData_.loginDate)
 }
 inline void UserData_::set_logindate(const char* value) {
-  set_has_logindate();
+  
   logindate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.UserData_.loginDate)
 }
 inline void UserData_::set_logindate(const char* value, size_t size) {
-  set_has_logindate();
+  
   logindate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.loginDate)
 }
 inline ::std::string* UserData_::mutable_logindate() {
-  set_has_logindate();
+  
   // @@protoc_insertion_point(field_mutable:MSG.UserData_.loginDate)
   return logindate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UserData_::release_logindate() {
   // @@protoc_insertion_point(field_release:MSG.UserData_.loginDate)
-  clear_has_logindate();
+  
   return logindate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_allocated_logindate(::std::string* logindate) {
   if (logindate != NULL) {
-    set_has_logindate();
+    
   } else {
-    clear_has_logindate();
+    
   }
   logindate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), logindate);
   // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.loginDate)
 }
 
 // optional string logoutDate = 6;
-inline bool UserData_::has_logoutdate() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void UserData_::set_has_logoutdate() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void UserData_::clear_has_logoutdate() {
-  _has_bits_[0] &= ~0x00000020u;
-}
 inline void UserData_::clear_logoutdate() {
   logoutdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_logoutdate();
 }
 inline const ::std::string& UserData_::logoutdate() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.logoutDate)
   return logoutdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_logoutdate(const ::std::string& value) {
-  set_has_logoutdate();
+  
   logoutdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.UserData_.logoutDate)
 }
 inline void UserData_::set_logoutdate(const char* value) {
-  set_has_logoutdate();
+  
   logoutdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.UserData_.logoutDate)
 }
 inline void UserData_::set_logoutdate(const char* value, size_t size) {
-  set_has_logoutdate();
+  
   logoutdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.logoutDate)
 }
 inline ::std::string* UserData_::mutable_logoutdate() {
-  set_has_logoutdate();
+  
   // @@protoc_insertion_point(field_mutable:MSG.UserData_.logoutDate)
   return logoutdate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UserData_::release_logoutdate() {
   // @@protoc_insertion_point(field_release:MSG.UserData_.logoutDate)
-  clear_has_logoutdate();
+  
   return logoutdate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_allocated_logoutdate(::std::string* logoutdate) {
   if (logoutdate != NULL) {
-    set_has_logoutdate();
+    
   } else {
-    clear_has_logoutdate();
+    
   }
   logoutdate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), logoutdate);
   // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.logoutDate)
 }
 
 // optional string regDate = 7;
-inline bool UserData_::has_regdate() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void UserData_::set_has_regdate() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void UserData_::clear_has_regdate() {
-  _has_bits_[0] &= ~0x00000040u;
-}
 inline void UserData_::clear_regdate() {
   regdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_regdate();
 }
 inline const ::std::string& UserData_::regdate() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.regDate)
   return regdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_regdate(const ::std::string& value) {
-  set_has_regdate();
+  
   regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.UserData_.regDate)
 }
 inline void UserData_::set_regdate(const char* value) {
-  set_has_regdate();
+  
   regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.UserData_.regDate)
 }
 inline void UserData_::set_regdate(const char* value, size_t size) {
-  set_has_regdate();
+  
   regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.regDate)
 }
 inline ::std::string* UserData_::mutable_regdate() {
-  set_has_regdate();
+  
   // @@protoc_insertion_point(field_mutable:MSG.UserData_.regDate)
   return regdate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UserData_::release_regdate() {
   // @@protoc_insertion_point(field_release:MSG.UserData_.regDate)
-  clear_has_regdate();
+  
   return regdate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_allocated_regdate(::std::string* regdate) {
   if (regdate != NULL) {
-    set_has_regdate();
+    
   } else {
-    clear_has_regdate();
+    
   }
   regdate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), regdate);
   // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.regDate)
 }
 
 // optional uint32 vc1 = 8;
-inline bool UserData_::has_vc1() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-inline void UserData_::set_has_vc1() {
-  _has_bits_[0] |= 0x00000080u;
-}
-inline void UserData_::clear_has_vc1() {
-  _has_bits_[0] &= ~0x00000080u;
-}
 inline void UserData_::clear_vc1() {
   vc1_ = 0u;
-  clear_has_vc1();
 }
 inline ::google::protobuf::uint32 UserData_::vc1() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.vc1)
   return vc1_;
 }
 inline void UserData_::set_vc1(::google::protobuf::uint32 value) {
-  set_has_vc1();
+  
   vc1_ = value;
   // @@protoc_insertion_point(field_set:MSG.UserData_.vc1)
 }
 
 // optional uint32 vc2 = 9;
-inline bool UserData_::has_vc2() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-inline void UserData_::set_has_vc2() {
-  _has_bits_[0] |= 0x00000100u;
-}
-inline void UserData_::clear_has_vc2() {
-  _has_bits_[0] &= ~0x00000100u;
-}
 inline void UserData_::clear_vc2() {
   vc2_ = 0u;
-  clear_has_vc2();
 }
 inline ::google::protobuf::uint32 UserData_::vc2() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.vc2)
   return vc2_;
 }
 inline void UserData_::set_vc2(::google::protobuf::uint32 value) {
-  set_has_vc2();
+  
   vc2_ = value;
   // @@protoc_insertion_point(field_set:MSG.UserData_.vc2)
 }
 
 // optional uint32 vc3 = 10;
-inline bool UserData_::has_vc3() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-inline void UserData_::set_has_vc3() {
-  _has_bits_[0] |= 0x00000200u;
-}
-inline void UserData_::clear_has_vc3() {
-  _has_bits_[0] &= ~0x00000200u;
-}
 inline void UserData_::clear_vc3() {
   vc3_ = 0u;
-  clear_has_vc3();
 }
 inline ::google::protobuf::uint32 UserData_::vc3() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.vc3)
   return vc3_;
 }
 inline void UserData_::set_vc3(::google::protobuf::uint32 value) {
-  set_has_vc3();
+  
   vc3_ = value;
   // @@protoc_insertion_point(field_set:MSG.UserData_.vc3)
 }
 
 // optional string groupName = 11;
-inline bool UserData_::has_groupname() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void UserData_::set_has_groupname() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void UserData_::clear_has_groupname() {
-  _has_bits_[0] &= ~0x00000400u;
-}
 inline void UserData_::clear_groupname() {
   groupname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_groupname();
 }
 inline const ::std::string& UserData_::groupname() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.groupName)
   return groupname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_groupname(const ::std::string& value) {
-  set_has_groupname();
+  
   groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.UserData_.groupName)
 }
 inline void UserData_::set_groupname(const char* value) {
-  set_has_groupname();
+  
   groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.UserData_.groupName)
 }
 inline void UserData_::set_groupname(const char* value, size_t size) {
-  set_has_groupname();
+  
   groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.groupName)
 }
 inline ::std::string* UserData_::mutable_groupname() {
-  set_has_groupname();
+  
   // @@protoc_insertion_point(field_mutable:MSG.UserData_.groupName)
   return groupname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UserData_::release_groupname() {
   // @@protoc_insertion_point(field_release:MSG.UserData_.groupName)
-  clear_has_groupname();
+  
   return groupname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_allocated_groupname(::std::string* groupname) {
   if (groupname != NULL) {
-    set_has_groupname();
+    
   } else {
-    clear_has_groupname();
+    
   }
   groupname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), groupname);
   // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.groupName)
 }
 
 // optional string language = 12;
-inline bool UserData_::has_language() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
-}
-inline void UserData_::set_has_language() {
-  _has_bits_[0] |= 0x00000800u;
-}
-inline void UserData_::clear_has_language() {
-  _has_bits_[0] &= ~0x00000800u;
-}
 inline void UserData_::clear_language() {
   language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_language();
 }
 inline const ::std::string& UserData_::language() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.language)
   return language_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_language(const ::std::string& value) {
-  set_has_language();
+  
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.UserData_.language)
 }
 inline void UserData_::set_language(const char* value) {
-  set_has_language();
+  
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.UserData_.language)
 }
 inline void UserData_::set_language(const char* value, size_t size) {
-  set_has_language();
+  
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.UserData_.language)
 }
 inline ::std::string* UserData_::mutable_language() {
-  set_has_language();
+  
   // @@protoc_insertion_point(field_mutable:MSG.UserData_.language)
   return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* UserData_::release_language() {
   // @@protoc_insertion_point(field_release:MSG.UserData_.language)
-  clear_has_language();
+  
   return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void UserData_::set_allocated_language(::std::string* language) {
   if (language != NULL) {
-    set_has_language();
+    
   } else {
-    clear_has_language();
+    
   }
   language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
   // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.language)
@@ -2669,24 +2285,18 @@ UserData_::chars() const {
 
 // optional .MSG.DungeonData_ lastDungeon = 14;
 inline bool UserData_::has_lastdungeon() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
-}
-inline void UserData_::set_has_lastdungeon() {
-  _has_bits_[0] |= 0x00002000u;
-}
-inline void UserData_::clear_has_lastdungeon() {
-  _has_bits_[0] &= ~0x00002000u;
+  return !_is_default_instance_ && lastdungeon_ != NULL;
 }
 inline void UserData_::clear_lastdungeon() {
-  if (lastdungeon_ != NULL) lastdungeon_->::MSG::DungeonData_::Clear();
-  clear_has_lastdungeon();
+  if (GetArenaNoVirtual() == NULL && lastdungeon_ != NULL) delete lastdungeon_;
+  lastdungeon_ = NULL;
 }
 inline const ::MSG::DungeonData_& UserData_::lastdungeon() const {
   // @@protoc_insertion_point(field_get:MSG.UserData_.lastDungeon)
   return lastdungeon_ != NULL ? *lastdungeon_ : *default_instance_->lastdungeon_;
 }
 inline ::MSG::DungeonData_* UserData_::mutable_lastdungeon() {
-  set_has_lastdungeon();
+  
   if (lastdungeon_ == NULL) {
     lastdungeon_ = new ::MSG::DungeonData_;
   }
@@ -2695,7 +2305,7 @@ inline ::MSG::DungeonData_* UserData_::mutable_lastdungeon() {
 }
 inline ::MSG::DungeonData_* UserData_::release_lastdungeon() {
   // @@protoc_insertion_point(field_release:MSG.UserData_.lastDungeon)
-  clear_has_lastdungeon();
+  
   ::MSG::DungeonData_* temp = lastdungeon_;
   lastdungeon_ = NULL;
   return temp;
@@ -2704,9 +2314,9 @@ inline void UserData_::set_allocated_lastdungeon(::MSG::DungeonData_* lastdungeo
   delete lastdungeon_;
   lastdungeon_ = lastdungeon;
   if (lastdungeon) {
-    set_has_lastdungeon();
+    
   } else {
-    clear_has_lastdungeon();
+    
   }
   // @@protoc_insertion_point(field_set_allocated:MSG.UserData_.lastDungeon)
 }
@@ -2715,80 +2325,59 @@ inline void UserData_::set_allocated_lastdungeon(::MSG::DungeonData_* lastdungeo
 
 // Contents_
 
-// required .MSG.Contents_.ContentType type = 1;
-inline bool Contents_::has_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Contents_::set_has_type() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Contents_::clear_has_type() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional .MSG.Contents_.ContentType type = 1;
 inline void Contents_::clear_type() {
-  type_ = 1;
-  clear_has_type();
+  type_ = 0;
 }
 inline ::MSG::Contents__ContentType Contents_::type() const {
   // @@protoc_insertion_point(field_get:MSG.Contents_.type)
   return static_cast< ::MSG::Contents__ContentType >(type_);
 }
 inline void Contents_::set_type(::MSG::Contents__ContentType value) {
-  assert(::MSG::Contents__ContentType_IsValid(value));
-  set_has_type();
+  
   type_ = value;
   // @@protoc_insertion_point(field_set:MSG.Contents_.type)
 }
 
-// required string name = 2;
-inline bool Contents_::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Contents_::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Contents_::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string name = 2;
 inline void Contents_::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& Contents_::name() const {
   // @@protoc_insertion_point(field_get:MSG.Contents_.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Contents_::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Contents_.name)
 }
 inline void Contents_::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Contents_.name)
 }
 inline void Contents_::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Contents_.name)
 }
 inline ::std::string* Contents_::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Contents_.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Contents_::release_name() {
   // @@protoc_insertion_point(field_release:MSG.Contents_.name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Contents_::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.Contents_.name)
@@ -2798,105 +2387,74 @@ inline void Contents_::set_allocated_name(::std::string* name) {
 
 // GMember_
 
-// required uint64 uid = 1;
-inline bool GMember_::has_uid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void GMember_::set_has_uid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void GMember_::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 uid = 1;
 inline void GMember_::clear_uid() {
   uid_ = GOOGLE_ULONGLONG(0);
-  clear_has_uid();
 }
 inline ::google::protobuf::uint64 GMember_::uid() const {
   // @@protoc_insertion_point(field_get:MSG.GMember_.uid)
   return uid_;
 }
 inline void GMember_::set_uid(::google::protobuf::uint64 value) {
-  set_has_uid();
+  
   uid_ = value;
   // @@protoc_insertion_point(field_set:MSG.GMember_.uid)
 }
 
-// required string name = 2;
-inline bool GMember_::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void GMember_::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void GMember_::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string name = 2;
 inline void GMember_::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& GMember_::name() const {
   // @@protoc_insertion_point(field_get:MSG.GMember_.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GMember_::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.GMember_.name)
 }
 inline void GMember_::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.GMember_.name)
 }
 inline void GMember_::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.GMember_.name)
 }
 inline ::std::string* GMember_::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.GMember_.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GMember_::release_name() {
   // @@protoc_insertion_point(field_release:MSG.GMember_.name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GMember_::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.GMember_.name)
 }
 
-// required .MSG.GMember_.GradeType grade = 3;
-inline bool GMember_::has_grade() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void GMember_::set_has_grade() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void GMember_::clear_has_grade() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional .MSG.GMember_.GradeType grade = 3;
 inline void GMember_::clear_grade() {
-  grade_ = 1;
-  clear_has_grade();
+  grade_ = 0;
 }
 inline ::MSG::GMember__GradeType GMember_::grade() const {
   // @@protoc_insertion_point(field_get:MSG.GMember_.grade)
   return static_cast< ::MSG::GMember__GradeType >(grade_);
 }
 inline void GMember_::set_grade(::MSG::GMember__GradeType value) {
-  assert(::MSG::GMember__GradeType_IsValid(value));
-  set_has_grade();
+  
   grade_ = value;
   // @@protoc_insertion_point(field_set:MSG.GMember_.grade)
 }
@@ -2905,182 +2463,132 @@ inline void GMember_::set_grade(::MSG::GMember__GradeType value) {
 
 // Group_
 
-// required uint64 gid = 1;
-inline bool Group_::has_gid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Group_::set_has_gid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Group_::clear_has_gid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 gid = 1;
 inline void Group_::clear_gid() {
   gid_ = GOOGLE_ULONGLONG(0);
-  clear_has_gid();
 }
 inline ::google::protobuf::uint64 Group_::gid() const {
   // @@protoc_insertion_point(field_get:MSG.Group_.gid)
   return gid_;
 }
 inline void Group_::set_gid(::google::protobuf::uint64 value) {
-  set_has_gid();
+  
   gid_ = value;
   // @@protoc_insertion_point(field_set:MSG.Group_.gid)
 }
 
-// required string name = 2;
-inline bool Group_::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Group_::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Group_::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string name = 2;
 inline void Group_::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& Group_::name() const {
   // @@protoc_insertion_point(field_get:MSG.Group_.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Group_::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Group_.name)
 }
 inline void Group_::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Group_.name)
 }
 inline void Group_::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Group_.name)
 }
 inline ::std::string* Group_::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Group_.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Group_::release_name() {
   // @@protoc_insertion_point(field_release:MSG.Group_.name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Group_::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.Group_.name)
 }
 
-// required string country = 3;
-inline bool Group_::has_country() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Group_::set_has_country() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Group_::clear_has_country() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional string country = 3;
 inline void Group_::clear_country() {
   country_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_country();
 }
 inline const ::std::string& Group_::country() const {
   // @@protoc_insertion_point(field_get:MSG.Group_.country)
   return country_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Group_::set_country(const ::std::string& value) {
-  set_has_country();
+  
   country_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Group_.country)
 }
 inline void Group_::set_country(const char* value) {
-  set_has_country();
+  
   country_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Group_.country)
 }
 inline void Group_::set_country(const char* value, size_t size) {
-  set_has_country();
+  
   country_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Group_.country)
 }
 inline ::std::string* Group_::mutable_country() {
-  set_has_country();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Group_.country)
   return country_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Group_::release_country() {
   // @@protoc_insertion_point(field_release:MSG.Group_.country)
-  clear_has_country();
+  
   return country_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Group_::set_allocated_country(::std::string* country) {
   if (country != NULL) {
-    set_has_country();
+    
   } else {
-    clear_has_country();
+    
   }
   country_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), country);
   // @@protoc_insertion_point(field_set_allocated:MSG.Group_.country)
 }
 
-// required uint64 leader = 4;
-inline bool Group_::has_leader() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void Group_::set_has_leader() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void Group_::clear_has_leader() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional uint64 leader = 4;
 inline void Group_::clear_leader() {
   leader_ = GOOGLE_ULONGLONG(0);
-  clear_has_leader();
 }
 inline ::google::protobuf::uint64 Group_::leader() const {
   // @@protoc_insertion_point(field_get:MSG.Group_.leader)
   return leader_;
 }
 inline void Group_::set_leader(::google::protobuf::uint64 value) {
-  set_has_leader();
+  
   leader_ = value;
   // @@protoc_insertion_point(field_set:MSG.Group_.leader)
 }
 
-// required uint32 limit = 5;
-inline bool Group_::has_limit() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void Group_::set_has_limit() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void Group_::clear_has_limit() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional uint32 limit = 5;
 inline void Group_::clear_limit() {
   limit_ = 0u;
-  clear_has_limit();
 }
 inline ::google::protobuf::uint32 Group_::limit() const {
   // @@protoc_insertion_point(field_get:MSG.Group_.limit)
   return limit_;
 }
 inline void Group_::set_limit(::google::protobuf::uint32 value) {
-  set_has_limit();
+  
   limit_ = value;
   // @@protoc_insertion_point(field_set:MSG.Group_.limit)
 }
@@ -3119,266 +2627,206 @@ Group_::members() const {
 
 // ChatData_
 
-// required uint64 uid = 1;
-inline bool ChatData_::has_uid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void ChatData_::set_has_uid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void ChatData_::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 uid = 1;
 inline void ChatData_::clear_uid() {
   uid_ = GOOGLE_ULONGLONG(0);
-  clear_has_uid();
 }
 inline ::google::protobuf::uint64 ChatData_::uid() const {
   // @@protoc_insertion_point(field_get:MSG.ChatData_.uid)
   return uid_;
 }
 inline void ChatData_::set_uid(::google::protobuf::uint64 value) {
-  set_has_uid();
+  
   uid_ = value;
   // @@protoc_insertion_point(field_set:MSG.ChatData_.uid)
 }
 
-// required string name = 2;
-inline bool ChatData_::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void ChatData_::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void ChatData_::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string name = 2;
 inline void ChatData_::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& ChatData_::name() const {
   // @@protoc_insertion_point(field_get:MSG.ChatData_.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatData_::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.ChatData_.name)
 }
 inline void ChatData_::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.ChatData_.name)
 }
 inline void ChatData_::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.name)
 }
 inline ::std::string* ChatData_::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.ChatData_.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ChatData_::release_name() {
   // @@protoc_insertion_point(field_release:MSG.ChatData_.name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatData_::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.name)
 }
 
-// required string groupName = 3;
-inline bool ChatData_::has_groupname() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void ChatData_::set_has_groupname() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void ChatData_::clear_has_groupname() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional string groupName = 3;
 inline void ChatData_::clear_groupname() {
   groupname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_groupname();
 }
 inline const ::std::string& ChatData_::groupname() const {
   // @@protoc_insertion_point(field_get:MSG.ChatData_.groupName)
   return groupname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatData_::set_groupname(const ::std::string& value) {
-  set_has_groupname();
+  
   groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.ChatData_.groupName)
 }
 inline void ChatData_::set_groupname(const char* value) {
-  set_has_groupname();
+  
   groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.ChatData_.groupName)
 }
 inline void ChatData_::set_groupname(const char* value, size_t size) {
-  set_has_groupname();
+  
   groupname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.groupName)
 }
 inline ::std::string* ChatData_::mutable_groupname() {
-  set_has_groupname();
+  
   // @@protoc_insertion_point(field_mutable:MSG.ChatData_.groupName)
   return groupname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ChatData_::release_groupname() {
   // @@protoc_insertion_point(field_release:MSG.ChatData_.groupName)
-  clear_has_groupname();
+  
   return groupname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatData_::set_allocated_groupname(::std::string* groupname) {
   if (groupname != NULL) {
-    set_has_groupname();
+    
   } else {
-    clear_has_groupname();
+    
   }
   groupname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), groupname);
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.groupName)
 }
 
-// required string language = 4;
-inline bool ChatData_::has_language() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void ChatData_::set_has_language() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void ChatData_::clear_has_language() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional string language = 4;
 inline void ChatData_::clear_language() {
   language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_language();
 }
 inline const ::std::string& ChatData_::language() const {
   // @@protoc_insertion_point(field_get:MSG.ChatData_.language)
   return language_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatData_::set_language(const ::std::string& value) {
-  set_has_language();
+  
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.ChatData_.language)
 }
 inline void ChatData_::set_language(const char* value) {
-  set_has_language();
+  
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.ChatData_.language)
 }
 inline void ChatData_::set_language(const char* value, size_t size) {
-  set_has_language();
+  
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.language)
 }
 inline ::std::string* ChatData_::mutable_language() {
-  set_has_language();
+  
   // @@protoc_insertion_point(field_mutable:MSG.ChatData_.language)
   return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ChatData_::release_language() {
   // @@protoc_insertion_point(field_release:MSG.ChatData_.language)
-  clear_has_language();
+  
   return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatData_::set_allocated_language(::std::string* language) {
   if (language != NULL) {
-    set_has_language();
+    
   } else {
-    clear_has_language();
+    
   }
   language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.language)
 }
 
-// required string chat = 5;
-inline bool ChatData_::has_chat() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void ChatData_::set_has_chat() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void ChatData_::clear_has_chat() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional string chat = 5;
 inline void ChatData_::clear_chat() {
   chat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_chat();
 }
 inline const ::std::string& ChatData_::chat() const {
   // @@protoc_insertion_point(field_get:MSG.ChatData_.chat)
   return chat_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatData_::set_chat(const ::std::string& value) {
-  set_has_chat();
+  
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.ChatData_.chat)
 }
 inline void ChatData_::set_chat(const char* value) {
-  set_has_chat();
+  
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.ChatData_.chat)
 }
 inline void ChatData_::set_chat(const char* value, size_t size) {
-  set_has_chat();
+  
   chat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.ChatData_.chat)
 }
 inline ::std::string* ChatData_::mutable_chat() {
-  set_has_chat();
+  
   // @@protoc_insertion_point(field_mutable:MSG.ChatData_.chat)
   return chat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ChatData_::release_chat() {
   // @@protoc_insertion_point(field_release:MSG.ChatData_.chat)
-  clear_has_chat();
+  
   return chat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatData_::set_allocated_chat(::std::string* chat) {
   if (chat != NULL) {
-    set_has_chat();
+    
   } else {
-    clear_has_chat();
+    
   }
   chat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), chat);
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatData_.chat)
 }
 
-// required uint64 regDate = 6;
-inline bool ChatData_::has_regdate() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void ChatData_::set_has_regdate() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void ChatData_::clear_has_regdate() {
-  _has_bits_[0] &= ~0x00000020u;
-}
+// optional uint64 regDate = 6;
 inline void ChatData_::clear_regdate() {
   regdate_ = GOOGLE_ULONGLONG(0);
-  clear_has_regdate();
 }
 inline ::google::protobuf::uint64 ChatData_::regdate() const {
   // @@protoc_insertion_point(field_get:MSG.ChatData_.regDate)
   return regdate_;
 }
 inline void ChatData_::set_regdate(::google::protobuf::uint64 value) {
-  set_has_regdate();
+  
   regdate_ = value;
   // @@protoc_insertion_point(field_set:MSG.ChatData_.regDate)
 }
@@ -3387,79 +2835,59 @@ inline void ChatData_::set_regdate(::google::protobuf::uint64 value) {
 
 // ChatRoom_
 
-// required uint64 rid = 1;
-inline bool ChatRoom_::has_rid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void ChatRoom_::set_has_rid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void ChatRoom_::clear_has_rid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 rid = 1;
 inline void ChatRoom_::clear_rid() {
   rid_ = GOOGLE_ULONGLONG(0);
-  clear_has_rid();
 }
 inline ::google::protobuf::uint64 ChatRoom_::rid() const {
   // @@protoc_insertion_point(field_get:MSG.ChatRoom_.rid)
   return rid_;
 }
 inline void ChatRoom_::set_rid(::google::protobuf::uint64 value) {
-  set_has_rid();
+  
   rid_ = value;
   // @@protoc_insertion_point(field_set:MSG.ChatRoom_.rid)
 }
 
-// required string name = 2;
-inline bool ChatRoom_::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void ChatRoom_::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void ChatRoom_::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string name = 2;
 inline void ChatRoom_::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& ChatRoom_::name() const {
   // @@protoc_insertion_point(field_get:MSG.ChatRoom_.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatRoom_::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.ChatRoom_.name)
 }
 inline void ChatRoom_::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.ChatRoom_.name)
 }
 inline void ChatRoom_::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.ChatRoom_.name)
 }
 inline ::std::string* ChatRoom_::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.ChatRoom_.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ChatRoom_::release_name() {
   // @@protoc_insertion_point(field_release:MSG.ChatRoom_.name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatRoom_::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatRoom_.name)
@@ -3499,79 +2927,59 @@ ChatRoom_::chats() const {
 
 // ChatChannel_
 
-// required uint64 cid = 1;
-inline bool ChatChannel_::has_cid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void ChatChannel_::set_has_cid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void ChatChannel_::clear_has_cid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 cid = 1;
 inline void ChatChannel_::clear_cid() {
   cid_ = GOOGLE_ULONGLONG(0);
-  clear_has_cid();
 }
 inline ::google::protobuf::uint64 ChatChannel_::cid() const {
   // @@protoc_insertion_point(field_get:MSG.ChatChannel_.cid)
   return cid_;
 }
 inline void ChatChannel_::set_cid(::google::protobuf::uint64 value) {
-  set_has_cid();
+  
   cid_ = value;
   // @@protoc_insertion_point(field_set:MSG.ChatChannel_.cid)
 }
 
-// required string name = 2;
-inline bool ChatChannel_::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void ChatChannel_::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void ChatChannel_::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string name = 2;
 inline void ChatChannel_::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& ChatChannel_::name() const {
   // @@protoc_insertion_point(field_get:MSG.ChatChannel_.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatChannel_::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.ChatChannel_.name)
 }
 inline void ChatChannel_::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.ChatChannel_.name)
 }
 inline void ChatChannel_::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.ChatChannel_.name)
 }
 inline ::std::string* ChatChannel_::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.ChatChannel_.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ChatChannel_::release_name() {
   // @@protoc_insertion_point(field_release:MSG.ChatChannel_.name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ChatChannel_::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.ChatChannel_.name)
@@ -3611,199 +3019,129 @@ ChatChannel_::chats() const {
 
 // CharData_
 
-// required uint64 cid = 1;
-inline bool CharData_::has_cid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void CharData_::set_has_cid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void CharData_::clear_has_cid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 cid = 1;
 inline void CharData_::clear_cid() {
   cid_ = GOOGLE_ULONGLONG(0);
-  clear_has_cid();
 }
 inline ::google::protobuf::uint64 CharData_::cid() const {
   // @@protoc_insertion_point(field_get:MSG.CharData_.cid)
   return cid_;
 }
 inline void CharData_::set_cid(::google::protobuf::uint64 value) {
-  set_has_cid();
+  
   cid_ = value;
   // @@protoc_insertion_point(field_set:MSG.CharData_.cid)
 }
 
-// required uint64 uid = 2;
-inline bool CharData_::has_uid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void CharData_::set_has_uid() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void CharData_::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint64 uid = 2;
 inline void CharData_::clear_uid() {
   uid_ = GOOGLE_ULONGLONG(0);
-  clear_has_uid();
 }
 inline ::google::protobuf::uint64 CharData_::uid() const {
   // @@protoc_insertion_point(field_get:MSG.CharData_.uid)
   return uid_;
 }
 inline void CharData_::set_uid(::google::protobuf::uint64 value) {
-  set_has_uid();
+  
   uid_ = value;
   // @@protoc_insertion_point(field_set:MSG.CharData_.uid)
 }
 
 // optional uint32 slotNo = 3;
-inline bool CharData_::has_slotno() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void CharData_::set_has_slotno() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void CharData_::clear_has_slotno() {
-  _has_bits_[0] &= ~0x00000004u;
-}
 inline void CharData_::clear_slotno() {
   slotno_ = 0u;
-  clear_has_slotno();
 }
 inline ::google::protobuf::uint32 CharData_::slotno() const {
   // @@protoc_insertion_point(field_get:MSG.CharData_.slotNo)
   return slotno_;
 }
 inline void CharData_::set_slotno(::google::protobuf::uint32 value) {
-  set_has_slotno();
+  
   slotno_ = value;
   // @@protoc_insertion_point(field_set:MSG.CharData_.slotNo)
 }
 
 // optional uint32 typeNo = 4;
-inline bool CharData_::has_typeno() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void CharData_::set_has_typeno() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void CharData_::clear_has_typeno() {
-  _has_bits_[0] &= ~0x00000008u;
-}
 inline void CharData_::clear_typeno() {
   typeno_ = 0u;
-  clear_has_typeno();
 }
 inline ::google::protobuf::uint32 CharData_::typeno() const {
   // @@protoc_insertion_point(field_get:MSG.CharData_.typeNo)
   return typeno_;
 }
 inline void CharData_::set_typeno(::google::protobuf::uint32 value) {
-  set_has_typeno();
+  
   typeno_ = value;
   // @@protoc_insertion_point(field_set:MSG.CharData_.typeNo)
 }
 
 // optional uint32 level = 5;
-inline bool CharData_::has_level() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void CharData_::set_has_level() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void CharData_::clear_has_level() {
-  _has_bits_[0] &= ~0x00000010u;
-}
 inline void CharData_::clear_level() {
   level_ = 0u;
-  clear_has_level();
 }
 inline ::google::protobuf::uint32 CharData_::level() const {
   // @@protoc_insertion_point(field_get:MSG.CharData_.level)
   return level_;
 }
 inline void CharData_::set_level(::google::protobuf::uint32 value) {
-  set_has_level();
+  
   level_ = value;
   // @@protoc_insertion_point(field_set:MSG.CharData_.level)
 }
 
 // optional uint32 tier = 6;
-inline bool CharData_::has_tier() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void CharData_::set_has_tier() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void CharData_::clear_has_tier() {
-  _has_bits_[0] &= ~0x00000020u;
-}
 inline void CharData_::clear_tier() {
   tier_ = 0u;
-  clear_has_tier();
 }
 inline ::google::protobuf::uint32 CharData_::tier() const {
   // @@protoc_insertion_point(field_get:MSG.CharData_.tier)
   return tier_;
 }
 inline void CharData_::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
+  
   tier_ = value;
   // @@protoc_insertion_point(field_set:MSG.CharData_.tier)
 }
 
 // optional string regDate = 7;
-inline bool CharData_::has_regdate() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void CharData_::set_has_regdate() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void CharData_::clear_has_regdate() {
-  _has_bits_[0] &= ~0x00000040u;
-}
 inline void CharData_::clear_regdate() {
   regdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_regdate();
 }
 inline const ::std::string& CharData_::regdate() const {
   // @@protoc_insertion_point(field_get:MSG.CharData_.regDate)
   return regdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharData_::set_regdate(const ::std::string& value) {
-  set_has_regdate();
+  
   regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.CharData_.regDate)
 }
 inline void CharData_::set_regdate(const char* value) {
-  set_has_regdate();
+  
   regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.CharData_.regDate)
 }
 inline void CharData_::set_regdate(const char* value, size_t size) {
-  set_has_regdate();
+  
   regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.CharData_.regDate)
 }
 inline ::std::string* CharData_::mutable_regdate() {
-  set_has_regdate();
+  
   // @@protoc_insertion_point(field_mutable:MSG.CharData_.regDate)
   return regdate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CharData_::release_regdate() {
   // @@protoc_insertion_point(field_release:MSG.CharData_.regDate)
-  clear_has_regdate();
+  
   return regdate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharData_::set_allocated_regdate(::std::string* regdate) {
   if (regdate != NULL) {
-    set_has_regdate();
+    
   } else {
-    clear_has_regdate();
+    
   }
   regdate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), regdate);
   // @@protoc_insertion_point(field_set_allocated:MSG.CharData_.regDate)
@@ -3813,127 +3151,87 @@ inline void CharData_::set_allocated_regdate(::std::string* regdate) {
 
 // DungeonData_
 
-// required uint64 uid = 1;
-inline bool DungeonData_::has_uid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void DungeonData_::set_has_uid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void DungeonData_::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 uid = 1;
 inline void DungeonData_::clear_uid() {
   uid_ = GOOGLE_ULONGLONG(0);
-  clear_has_uid();
 }
 inline ::google::protobuf::uint64 DungeonData_::uid() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonData_.uid)
   return uid_;
 }
 inline void DungeonData_::set_uid(::google::protobuf::uint64 value) {
-  set_has_uid();
+  
   uid_ = value;
   // @@protoc_insertion_point(field_set:MSG.DungeonData_.uid)
 }
 
-// required uint32 dungeonNo = 2;
-inline bool DungeonData_::has_dungeonno() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void DungeonData_::set_has_dungeonno() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void DungeonData_::clear_has_dungeonno() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 dungeonNo = 2;
 inline void DungeonData_::clear_dungeonno() {
   dungeonno_ = 0u;
-  clear_has_dungeonno();
 }
 inline ::google::protobuf::uint32 DungeonData_::dungeonno() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonData_.dungeonNo)
   return dungeonno_;
 }
 inline void DungeonData_::set_dungeonno(::google::protobuf::uint32 value) {
-  set_has_dungeonno();
+  
   dungeonno_ = value;
   // @@protoc_insertion_point(field_set:MSG.DungeonData_.dungeonNo)
 }
 
-// required uint32 dungeonTier = 3;
-inline bool DungeonData_::has_dungeontier() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void DungeonData_::set_has_dungeontier() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void DungeonData_::clear_has_dungeontier() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 dungeonTier = 3;
 inline void DungeonData_::clear_dungeontier() {
   dungeontier_ = 0u;
-  clear_has_dungeontier();
 }
 inline ::google::protobuf::uint32 DungeonData_::dungeontier() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonData_.dungeonTier)
   return dungeontier_;
 }
 inline void DungeonData_::set_dungeontier(::google::protobuf::uint32 value) {
-  set_has_dungeontier();
+  
   dungeontier_ = value;
   // @@protoc_insertion_point(field_set:MSG.DungeonData_.dungeonTier)
 }
 
 // optional string updateDate = 4;
-inline bool DungeonData_::has_updatedate() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void DungeonData_::set_has_updatedate() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void DungeonData_::clear_has_updatedate() {
-  _has_bits_[0] &= ~0x00000008u;
-}
 inline void DungeonData_::clear_updatedate() {
   updatedate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_updatedate();
 }
 inline const ::std::string& DungeonData_::updatedate() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonData_.updateDate)
   return updatedate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonData_::set_updatedate(const ::std::string& value) {
-  set_has_updatedate();
+  
   updatedate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.DungeonData_.updateDate)
 }
 inline void DungeonData_::set_updatedate(const char* value) {
-  set_has_updatedate();
+  
   updatedate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.DungeonData_.updateDate)
 }
 inline void DungeonData_::set_updatedate(const char* value, size_t size) {
-  set_has_updatedate();
+  
   updatedate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.DungeonData_.updateDate)
 }
 inline ::std::string* DungeonData_::mutable_updatedate() {
-  set_has_updatedate();
+  
   // @@protoc_insertion_point(field_mutable:MSG.DungeonData_.updateDate)
   return updatedate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* DungeonData_::release_updatedate() {
   // @@protoc_insertion_point(field_release:MSG.DungeonData_.updateDate)
-  clear_has_updatedate();
+  
   return updatedate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonData_::set_allocated_updatedate(::std::string* updatedate) {
   if (updatedate != NULL) {
-    set_has_updatedate();
+    
   } else {
-    clear_has_updatedate();
+    
   }
   updatedate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), updatedate);
   // @@protoc_insertion_point(field_set_allocated:MSG.DungeonData_.updateDate)
@@ -3973,75 +3271,44 @@ DungeonData_::monsters() const {
 
 // BattleData__Attack
 
-// required uint32 no = 1;
-inline bool BattleData__Attack::has_no() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void BattleData__Attack::set_has_no() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void BattleData__Attack::clear_has_no() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 no = 1;
 inline void BattleData__Attack::clear_no() {
   no_ = 0u;
-  clear_has_no();
 }
 inline ::google::protobuf::uint32 BattleData__Attack::no() const {
   // @@protoc_insertion_point(field_get:MSG.BattleData_.Attack.no)
   return no_;
 }
 inline void BattleData__Attack::set_no(::google::protobuf::uint32 value) {
-  set_has_no();
+  
   no_ = value;
   // @@protoc_insertion_point(field_set:MSG.BattleData_.Attack.no)
 }
 
-// required uint32 damage = 2;
-inline bool BattleData__Attack::has_damage() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void BattleData__Attack::set_has_damage() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void BattleData__Attack::clear_has_damage() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 damage = 2;
 inline void BattleData__Attack::clear_damage() {
   damage_ = 0u;
-  clear_has_damage();
 }
 inline ::google::protobuf::uint32 BattleData__Attack::damage() const {
   // @@protoc_insertion_point(field_get:MSG.BattleData_.Attack.damage)
   return damage_;
 }
 inline void BattleData__Attack::set_damage(::google::protobuf::uint32 value) {
-  set_has_damage();
+  
   damage_ = value;
   // @@protoc_insertion_point(field_set:MSG.BattleData_.Attack.damage)
 }
 
-// required .MSG.BattleData_.AttackResult result = 3;
-inline bool BattleData__Attack::has_result() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void BattleData__Attack::set_has_result() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void BattleData__Attack::clear_has_result() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional .MSG.BattleData_.AttackResult result = 3;
 inline void BattleData__Attack::clear_result() {
   result_ = 0;
-  clear_has_result();
 }
 inline ::MSG::BattleData__AttackResult BattleData__Attack::result() const {
   // @@protoc_insertion_point(field_get:MSG.BattleData_.Attack.result)
   return static_cast< ::MSG::BattleData__AttackResult >(result_);
 }
 inline void BattleData__Attack::set_result(::MSG::BattleData__AttackResult value) {
-  assert(::MSG::BattleData__AttackResult_IsValid(value));
-  set_has_result();
+  
   result_ = value;
   // @@protoc_insertion_point(field_set:MSG.BattleData_.Attack.result)
 }
@@ -4050,26 +3317,16 @@ inline void BattleData__Attack::set_result(::MSG::BattleData__AttackResult value
 
 // BattleData_
 
-// required uint32 srcNo = 1;
-inline bool BattleData_::has_srcno() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void BattleData_::set_has_srcno() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void BattleData_::clear_has_srcno() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 srcNo = 1;
 inline void BattleData_::clear_srcno() {
   srcno_ = 0u;
-  clear_has_srcno();
 }
 inline ::google::protobuf::uint32 BattleData_::srcno() const {
   // @@protoc_insertion_point(field_get:MSG.BattleData_.srcNo)
   return srcno_;
 }
 inline void BattleData_::set_srcno(::google::protobuf::uint32 value) {
-  set_has_srcno();
+  
   srcno_ = value;
   // @@protoc_insertion_point(field_set:MSG.BattleData_.srcNo)
 }
@@ -4104,27 +3361,16 @@ BattleData_::targets() const {
   return targets_;
 }
 
-// required .MSG.BattleData_.Team team = 3;
-inline bool BattleData_::has_team() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void BattleData_::set_has_team() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void BattleData_::clear_has_team() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional .MSG.BattleData_.Team team = 3;
 inline void BattleData_::clear_team() {
   team_ = 0;
-  clear_has_team();
 }
 inline ::MSG::BattleData__Team BattleData_::team() const {
   // @@protoc_insertion_point(field_get:MSG.BattleData_.team)
   return static_cast< ::MSG::BattleData__Team >(team_);
 }
 inline void BattleData_::set_team(::MSG::BattleData__Team value) {
-  assert(::MSG::BattleData__Team_IsValid(value));
-  set_has_team();
+  
   team_ = value;
   // @@protoc_insertion_point(field_set:MSG.BattleData_.team)
 }
@@ -4133,50 +3379,30 @@ inline void BattleData_::set_team(::MSG::BattleData__Team value) {
 
 // DungeonPlayData_
 
-// required uint64 lid = 1;
-inline bool DungeonPlayData_::has_lid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void DungeonPlayData_::set_has_lid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void DungeonPlayData_::clear_has_lid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint64 lid = 1;
 inline void DungeonPlayData_::clear_lid() {
   lid_ = GOOGLE_ULONGLONG(0);
-  clear_has_lid();
 }
 inline ::google::protobuf::uint64 DungeonPlayData_::lid() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonPlayData_.lid)
   return lid_;
 }
 inline void DungeonPlayData_::set_lid(::google::protobuf::uint64 value) {
-  set_has_lid();
+  
   lid_ = value;
   // @@protoc_insertion_point(field_set:MSG.DungeonPlayData_.lid)
 }
 
-// required uint64 uid = 2;
-inline bool DungeonPlayData_::has_uid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void DungeonPlayData_::set_has_uid() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void DungeonPlayData_::clear_has_uid() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint64 uid = 2;
 inline void DungeonPlayData_::clear_uid() {
   uid_ = GOOGLE_ULONGLONG(0);
-  clear_has_uid();
 }
 inline ::google::protobuf::uint64 DungeonPlayData_::uid() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonPlayData_.uid)
   return uid_;
 }
 inline void DungeonPlayData_::set_uid(::google::protobuf::uint64 value) {
-  set_has_uid();
+  
   uid_ = value;
   // @@protoc_insertion_point(field_set:MSG.DungeonPlayData_.uid)
 }
@@ -4271,55 +3497,45 @@ DungeonPlayData_::mobs() const {
   return mobs_;
 }
 
-// required string regDate = 6;
-inline bool DungeonPlayData_::has_regdate() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void DungeonPlayData_::set_has_regdate() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void DungeonPlayData_::clear_has_regdate() {
-  _has_bits_[0] &= ~0x00000020u;
-}
+// optional string regDate = 6;
 inline void DungeonPlayData_::clear_regdate() {
   regdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_regdate();
 }
 inline const ::std::string& DungeonPlayData_::regdate() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonPlayData_.regDate)
   return regdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonPlayData_::set_regdate(const ::std::string& value) {
-  set_has_regdate();
+  
   regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.DungeonPlayData_.regDate)
 }
 inline void DungeonPlayData_::set_regdate(const char* value) {
-  set_has_regdate();
+  
   regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.DungeonPlayData_.regDate)
 }
 inline void DungeonPlayData_::set_regdate(const char* value, size_t size) {
-  set_has_regdate();
+  
   regdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.DungeonPlayData_.regDate)
 }
 inline ::std::string* DungeonPlayData_::mutable_regdate() {
-  set_has_regdate();
+  
   // @@protoc_insertion_point(field_mutable:MSG.DungeonPlayData_.regDate)
   return regdate_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* DungeonPlayData_::release_regdate() {
   // @@protoc_insertion_point(field_release:MSG.DungeonPlayData_.regDate)
-  clear_has_regdate();
+  
   return regdate_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonPlayData_::set_allocated_regdate(::std::string* regdate) {
   if (regdate != NULL) {
-    set_has_regdate();
+    
   } else {
-    clear_has_regdate();
+    
   }
   regdate_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), regdate);
   // @@protoc_insertion_point(field_set_allocated:MSG.DungeonPlayData_.regDate)

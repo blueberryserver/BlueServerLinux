@@ -129,7 +129,7 @@
     <Link>
       <LibraryDependencies>BlueCore;boost_system;boost_thread;boost_filesystem;pthread;protobuf;mysqlcppconn</LibraryDependencies>
       <AdditionalDependencies>$(StlAdditionalDependencies);%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);/home/ubuntu/projects/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);/home/ubuntu/projects/BlueCore/lib</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
       <CppLanguageStandard>c++14</CppLanguageStandard>

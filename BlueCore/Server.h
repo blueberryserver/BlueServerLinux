@@ -11,8 +11,8 @@ template<typename T>
 class Server
 {
 public:
-	Server() {}
-	virtual ~Server() {}
+	Server() = default;
+	virtual ~Server() = default;
 	
 	void start(short port_)
 	{

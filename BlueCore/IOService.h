@@ -16,33 +16,32 @@ public:
 	template <typename CompletionHandler>
 	void post(BOOST_ASIO_MOVE_ARG(CompletionHandler) handler_)
 	{
-		_ioService.post(handler_);
+		_ioService.post(_strandForJob.wrap(handler_));
 	}
 
 	template <typename CompletionHandler>
 	void asyncJob(BOOST_ASIO_MOVE_ARG(CompletionHandler) handler_)
 	{
-		auto h = [handler_]()
-		{
-			handler_->onExecute();
-			delete handler_;
-		};
-		_ioService.post(h);
+		_ioService.post(
+			[handler_]()
+			{
+				handler_->onExecute();
+				delete handler_;
+			}
+		);
 	}
 
 	template <typename CompletionHandler>
 	void asyncWait(std::shared_ptr<boost::asio::deadline_timer>& t_, BOOST_ASIO_MOVE_ARG(CompletionHandler) handler_)
 	{
-		auto h = [handler_](const boost::system::error_code& err_)
-		{
-			handler_->onExecute();
-			delete handler_;
-		};
-
-		t_->async_wait(h);
+		t_->async_wait(_strandForTimer.wrap(
+			[handler_](const boost::system::error_code& err_)
+			{
+				handler_->onExecute();
+				delete handler_;
+			})
+		);
 	}
-
-
 
 	void stop()
 	{
@@ -52,7 +51,7 @@ public:
 	}
 
 
-	io_service& getIO()
+	io_context& getIO()
 	{
 		return _ioService;
 	}
@@ -60,8 +59,10 @@ public:
 	DECLARE_MGR(IOService)
 
 private:
-	io_service _ioService;
-	io_service::work _worker;
+	io_context _ioService{};
+	io_context::strand _strandForJob{ _ioService };
+	io_context::strand _strandForTimer{ _ioService };
+	io_context::work _worker{ _ioService };
 	boost::thread_group _pool;
 };
 

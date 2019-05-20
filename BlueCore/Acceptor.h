@@ -12,9 +12,9 @@ template<typename T>
 class Acceptor
 {
 public:
-	Acceptor(boost::asio::io_service& io_, short port_)
-		:_acceptor(io_, tcp::endpoint(tcp::v4(), port_)) {}
-	~Acceptor() {}
+	Acceptor(boost::asio::io_context& io_, short port_)
+		: _acceptor(io_, tcp::endpoint(tcp::v4(), port_)) {}
+	~Acceptor() = default;
 	void start()
 	{
 		_acceptor.set_option(tcp::acceptor::reuse_address(true));
@@ -30,20 +30,14 @@ public:
 private:
 	void asyncAccept()
 	{
-		auto session = std::make_shared<T>(_acceptor.get_io_service());
-		_acceptor.async_accept(session->socket(), std::bind(&Acceptor::onAccept, this, session, std::placeholders::_1));
+		_acceptor.async_accept([this](boost::system::error_code ec_, tcp::socket socket_) {
+			if (!ec_)
+			{
+				std::make_shared<T>(std::move(socket_))->onAcceptComplete();
+			}
+			asyncAccept();
+		});			
 	}
-
-	void onAccept(std::shared_ptr<T> session_, boost::system::error_code errCode_)
-	{
-		if (!errCode_)
-		{
-			session_->onAcceptComplete();
-		}
-
-		asyncAccept();
-	}
-
 
 private:
 	tcp::acceptor _acceptor;

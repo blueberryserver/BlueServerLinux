@@ -73,14 +73,6 @@ class Char_CharacterTable : public ::google::protobuf::Message /* @@protoc_inser
     return *this;
   }
 
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
   static const ::google::protobuf::Descriptor* descriptor();
   static const Char_CharacterTable& default_instance();
 
@@ -129,15 +121,13 @@ class Char_CharacterTable : public ::google::protobuf::Message /* @@protoc_inser
 
   // accessors -------------------------------------------------------
 
-  // required uint32 No = 1;
-  bool has_no() const;
+  // optional uint32 No = 1;
   void clear_no();
   static const int kNoFieldNumber = 1;
   ::google::protobuf::uint32 no() const;
   void set_no(::google::protobuf::uint32 value);
 
-  // required string Name = 2;
-  bool has_name() const;
+  // optional string Name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -148,8 +138,7 @@ class Char_CharacterTable : public ::google::protobuf::Message /* @@protoc_inser
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required uint32 AttackRange = 3;
-  bool has_attackrange() const;
+  // optional uint32 AttackRange = 3;
   void clear_attackrange();
   static const int kAttackRangeFieldNumber = 3;
   ::google::protobuf::uint32 attackrange() const;
@@ -157,22 +146,13 @@ class Char_CharacterTable : public ::google::protobuf::Message /* @@protoc_inser
 
   // @@protoc_insertion_point(class_scope:MSG.Char.CharacterTable)
  private:
-  inline void set_has_no();
-  inline void clear_has_no();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_attackrange();
-  inline void clear_has_attackrange();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::uint32 no_;
   ::google::protobuf::uint32 attackrange_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -192,14 +172,6 @@ class Char : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   inline Char& operator=(const Char& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -252,8 +224,7 @@ class Char : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -278,14 +249,12 @@ class Char : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
 
   // @@protoc_insertion_point(class_scope:MSG.Char)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::Char_CharacterTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -305,14 +274,6 @@ class Product_ProductTable : public ::google::protobuf::Message /* @@protoc_inse
   inline Product_ProductTable& operator=(const Product_ProductTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -363,15 +324,13 @@ class Product_ProductTable : public ::google::protobuf::Message /* @@protoc_inse
 
   // accessors -------------------------------------------------------
 
-  // required uint32 No = 1;
-  bool has_no() const;
+  // optional uint32 No = 1;
   void clear_no();
   static const int kNoFieldNumber = 1;
   ::google::protobuf::uint32 no() const;
   void set_no(::google::protobuf::uint32 value);
 
-  // required string ProductCode = 2;
-  bool has_productcode() const;
+  // optional string ProductCode = 2;
   void clear_productcode();
   static const int kProductCodeFieldNumber = 2;
   const ::std::string& productcode() const;
@@ -382,15 +341,13 @@ class Product_ProductTable : public ::google::protobuf::Message /* @@protoc_inse
   ::std::string* release_productcode();
   void set_allocated_productcode(::std::string* productcode);
 
-  // required uint32 CharNo = 3;
-  bool has_charno() const;
+  // optional uint32 CharNo = 3;
   void clear_charno();
   static const int kCharNoFieldNumber = 3;
   ::google::protobuf::uint32 charno() const;
   void set_charno(::google::protobuf::uint32 value);
 
-  // required string VCType = 4;
-  bool has_vctype() const;
+  // optional string VCType = 4;
   void clear_vctype();
   static const int kVCTypeFieldNumber = 4;
   const ::std::string& vctype() const;
@@ -401,8 +358,7 @@ class Product_ProductTable : public ::google::protobuf::Message /* @@protoc_inse
   ::std::string* release_vctype();
   void set_allocated_vctype(::std::string* vctype);
 
-  // required uint32 Value = 5;
-  bool has_value() const;
+  // optional uint32 Value = 5;
   void clear_value();
   static const int kValueFieldNumber = 5;
   ::google::protobuf::uint32 value() const;
@@ -410,28 +366,15 @@ class Product_ProductTable : public ::google::protobuf::Message /* @@protoc_inse
 
   // @@protoc_insertion_point(class_scope:MSG.Product.ProductTable)
  private:
-  inline void set_has_no();
-  inline void clear_has_no();
-  inline void set_has_productcode();
-  inline void clear_has_productcode();
-  inline void set_has_charno();
-  inline void clear_has_charno();
-  inline void set_has_vctype();
-  inline void clear_has_vctype();
-  inline void set_has_value();
-  inline void clear_has_value();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr productcode_;
   ::google::protobuf::uint32 no_;
   ::google::protobuf::uint32 charno_;
   ::google::protobuf::internal::ArenaStringPtr vctype_;
   ::google::protobuf::uint32 value_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -451,14 +394,6 @@ class Product : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   inline Product& operator=(const Product& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -511,8 +446,7 @@ class Product : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -537,14 +471,12 @@ class Product : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // @@protoc_insertion_point(class_scope:MSG.Product)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::Product_ProductTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -564,14 +496,6 @@ class WarriorStat_WarriorStatTable : public ::google::protobuf::Message /* @@pro
   inline WarriorStat_WarriorStatTable& operator=(const WarriorStat_WarriorStatTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -622,36 +546,31 @@ class WarriorStat_WarriorStatTable : public ::google::protobuf::Message /* @@pro
 
   // accessors -------------------------------------------------------
 
-  // required uint32 Level = 1;
-  bool has_level() const;
+  // optional uint32 Level = 1;
   void clear_level();
   static const int kLevelFieldNumber = 1;
   ::google::protobuf::uint32 level() const;
   void set_level(::google::protobuf::uint32 value);
 
-  // required uint32 Exp = 2;
-  bool has_exp() const;
+  // optional uint32 Exp = 2;
   void clear_exp();
   static const int kExpFieldNumber = 2;
   ::google::protobuf::uint32 exp() const;
   void set_exp(::google::protobuf::uint32 value);
 
-  // required uint32 Atk = 3;
-  bool has_atk() const;
+  // optional uint32 Atk = 3;
   void clear_atk();
   static const int kAtkFieldNumber = 3;
   ::google::protobuf::uint32 atk() const;
   void set_atk(::google::protobuf::uint32 value);
 
-  // required uint32 Def = 4;
-  bool has_def() const;
+  // optional uint32 Def = 4;
   void clear_def();
   static const int kDefFieldNumber = 4;
   ::google::protobuf::uint32 def() const;
   void set_def(::google::protobuf::uint32 value);
 
-  // required uint32 Hp = 5;
-  bool has_hp() const;
+  // optional uint32 Hp = 5;
   void clear_hp();
   static const int kHpFieldNumber = 5;
   ::google::protobuf::uint32 hp() const;
@@ -659,28 +578,15 @@ class WarriorStat_WarriorStatTable : public ::google::protobuf::Message /* @@pro
 
   // @@protoc_insertion_point(class_scope:MSG.WarriorStat.WarriorStatTable)
  private:
-  inline void set_has_level();
-  inline void clear_has_level();
-  inline void set_has_exp();
-  inline void clear_has_exp();
-  inline void set_has_atk();
-  inline void clear_has_atk();
-  inline void set_has_def();
-  inline void clear_has_def();
-  inline void set_has_hp();
-  inline void clear_has_hp();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 level_;
   ::google::protobuf::uint32 exp_;
   ::google::protobuf::uint32 atk_;
   ::google::protobuf::uint32 def_;
   ::google::protobuf::uint32 hp_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -700,14 +606,6 @@ class WarriorStat : public ::google::protobuf::Message /* @@protoc_insertion_poi
   inline WarriorStat& operator=(const WarriorStat& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -760,8 +658,7 @@ class WarriorStat : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -786,14 +683,12 @@ class WarriorStat : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // @@protoc_insertion_point(class_scope:MSG.WarriorStat)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::WarriorStat_WarriorStatTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -813,14 +708,6 @@ class ArcherStat_ArcherStatTable : public ::google::protobuf::Message /* @@proto
   inline ArcherStat_ArcherStatTable& operator=(const ArcherStat_ArcherStatTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -871,36 +758,31 @@ class ArcherStat_ArcherStatTable : public ::google::protobuf::Message /* @@proto
 
   // accessors -------------------------------------------------------
 
-  // required uint32 Level = 1;
-  bool has_level() const;
+  // optional uint32 Level = 1;
   void clear_level();
   static const int kLevelFieldNumber = 1;
   ::google::protobuf::uint32 level() const;
   void set_level(::google::protobuf::uint32 value);
 
-  // required uint32 Exp = 2;
-  bool has_exp() const;
+  // optional uint32 Exp = 2;
   void clear_exp();
   static const int kExpFieldNumber = 2;
   ::google::protobuf::uint32 exp() const;
   void set_exp(::google::protobuf::uint32 value);
 
-  // required uint32 Atk = 3;
-  bool has_atk() const;
+  // optional uint32 Atk = 3;
   void clear_atk();
   static const int kAtkFieldNumber = 3;
   ::google::protobuf::uint32 atk() const;
   void set_atk(::google::protobuf::uint32 value);
 
-  // required uint32 Def = 4;
-  bool has_def() const;
+  // optional uint32 Def = 4;
   void clear_def();
   static const int kDefFieldNumber = 4;
   ::google::protobuf::uint32 def() const;
   void set_def(::google::protobuf::uint32 value);
 
-  // required uint32 Hp = 5;
-  bool has_hp() const;
+  // optional uint32 Hp = 5;
   void clear_hp();
   static const int kHpFieldNumber = 5;
   ::google::protobuf::uint32 hp() const;
@@ -908,28 +790,15 @@ class ArcherStat_ArcherStatTable : public ::google::protobuf::Message /* @@proto
 
   // @@protoc_insertion_point(class_scope:MSG.ArcherStat.ArcherStatTable)
  private:
-  inline void set_has_level();
-  inline void clear_has_level();
-  inline void set_has_exp();
-  inline void clear_has_exp();
-  inline void set_has_atk();
-  inline void clear_has_atk();
-  inline void set_has_def();
-  inline void clear_has_def();
-  inline void set_has_hp();
-  inline void clear_has_hp();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 level_;
   ::google::protobuf::uint32 exp_;
   ::google::protobuf::uint32 atk_;
   ::google::protobuf::uint32 def_;
   ::google::protobuf::uint32 hp_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -949,14 +818,6 @@ class ArcherStat : public ::google::protobuf::Message /* @@protoc_insertion_poin
   inline ArcherStat& operator=(const ArcherStat& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1009,8 +870,7 @@ class ArcherStat : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -1035,14 +895,12 @@ class ArcherStat : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // @@protoc_insertion_point(class_scope:MSG.ArcherStat)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::ArcherStat_ArcherStatTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -1062,14 +920,6 @@ class CharTier_CharTierTable : public ::google::protobuf::Message /* @@protoc_in
   inline CharTier_CharTierTable& operator=(const CharTier_CharTierTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1120,15 +970,13 @@ class CharTier_CharTierTable : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
-  // required uint32 Tier = 1;
-  bool has_tier() const;
+  // optional uint32 Tier = 1;
   void clear_tier();
   static const int kTierFieldNumber = 1;
   ::google::protobuf::uint32 tier() const;
   void set_tier(::google::protobuf::uint32 value);
 
-  // required string Buff1Type = 2;
-  bool has_buff1type() const;
+  // optional string Buff1Type = 2;
   void clear_buff1type();
   static const int kBuff1TypeFieldNumber = 2;
   const ::std::string& buff1type() const;
@@ -1139,8 +987,7 @@ class CharTier_CharTierTable : public ::google::protobuf::Message /* @@protoc_in
   ::std::string* release_buff1type();
   void set_allocated_buff1type(::std::string* buff1type);
 
-  // required string Buff1Value = 3;
-  bool has_buff1value() const;
+  // optional string Buff1Value = 3;
   void clear_buff1value();
   static const int kBuff1ValueFieldNumber = 3;
   const ::std::string& buff1value() const;
@@ -1151,8 +998,7 @@ class CharTier_CharTierTable : public ::google::protobuf::Message /* @@protoc_in
   ::std::string* release_buff1value();
   void set_allocated_buff1value(::std::string* buff1value);
 
-  // required string Buff2Type = 4;
-  bool has_buff2type() const;
+  // optional string Buff2Type = 4;
   void clear_buff2type();
   static const int kBuff2TypeFieldNumber = 4;
   const ::std::string& buff2type() const;
@@ -1163,8 +1009,7 @@ class CharTier_CharTierTable : public ::google::protobuf::Message /* @@protoc_in
   ::std::string* release_buff2type();
   void set_allocated_buff2type(::std::string* buff2type);
 
-  // required string Buff2Value = 5;
-  bool has_buff2value() const;
+  // optional string Buff2Value = 5;
   void clear_buff2value();
   static const int kBuff2ValueFieldNumber = 5;
   const ::std::string& buff2value() const;
@@ -1175,8 +1020,7 @@ class CharTier_CharTierTable : public ::google::protobuf::Message /* @@protoc_in
   ::std::string* release_buff2value();
   void set_allocated_buff2value(::std::string* buff2value);
 
-  // required string Buff3Type = 6;
-  bool has_buff3type() const;
+  // optional string Buff3Type = 6;
   void clear_buff3type();
   static const int kBuff3TypeFieldNumber = 6;
   const ::std::string& buff3type() const;
@@ -1187,8 +1031,7 @@ class CharTier_CharTierTable : public ::google::protobuf::Message /* @@protoc_in
   ::std::string* release_buff3type();
   void set_allocated_buff3type(::std::string* buff3type);
 
-  // required string Buff3Value = 7;
-  bool has_buff3value() const;
+  // optional string Buff3Value = 7;
   void clear_buff3value();
   static const int kBuff3ValueFieldNumber = 7;
   const ::std::string& buff3value() const;
@@ -1201,27 +1044,9 @@ class CharTier_CharTierTable : public ::google::protobuf::Message /* @@protoc_in
 
   // @@protoc_insertion_point(class_scope:MSG.CharTier.CharTierTable)
  private:
-  inline void set_has_tier();
-  inline void clear_has_tier();
-  inline void set_has_buff1type();
-  inline void clear_has_buff1type();
-  inline void set_has_buff1value();
-  inline void clear_has_buff1value();
-  inline void set_has_buff2type();
-  inline void clear_has_buff2type();
-  inline void set_has_buff2value();
-  inline void clear_has_buff2value();
-  inline void set_has_buff3type();
-  inline void clear_has_buff3type();
-  inline void set_has_buff3value();
-  inline void clear_has_buff3value();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr buff1type_;
   ::google::protobuf::internal::ArenaStringPtr buff1value_;
   ::google::protobuf::internal::ArenaStringPtr buff2type_;
@@ -1229,6 +1054,7 @@ class CharTier_CharTierTable : public ::google::protobuf::Message /* @@protoc_in
   ::google::protobuf::internal::ArenaStringPtr buff3type_;
   ::google::protobuf::internal::ArenaStringPtr buff3value_;
   ::google::protobuf::uint32 tier_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -1248,14 +1074,6 @@ class CharTier : public ::google::protobuf::Message /* @@protoc_insertion_point(
   inline CharTier& operator=(const CharTier& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1308,8 +1126,7 @@ class CharTier : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -1334,14 +1151,12 @@ class CharTier : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // @@protoc_insertion_point(class_scope:MSG.CharTier)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::CharTier_CharTierTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -1361,14 +1176,6 @@ class DungeonTier_DungeonTierTable : public ::google::protobuf::Message /* @@pro
   inline DungeonTier_DungeonTierTable& operator=(const DungeonTier_DungeonTierTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1419,15 +1226,13 @@ class DungeonTier_DungeonTierTable : public ::google::protobuf::Message /* @@pro
 
   // accessors -------------------------------------------------------
 
-  // required uint32 Tier = 1;
-  bool has_tier() const;
+  // optional uint32 Tier = 1;
   void clear_tier();
   static const int kTierFieldNumber = 1;
   ::google::protobuf::uint32 tier() const;
   void set_tier(::google::protobuf::uint32 value);
 
-  // required string Buff1Type = 2;
-  bool has_buff1type() const;
+  // optional string Buff1Type = 2;
   void clear_buff1type();
   static const int kBuff1TypeFieldNumber = 2;
   const ::std::string& buff1type() const;
@@ -1438,8 +1243,7 @@ class DungeonTier_DungeonTierTable : public ::google::protobuf::Message /* @@pro
   ::std::string* release_buff1type();
   void set_allocated_buff1type(::std::string* buff1type);
 
-  // required string Buff1Value = 3;
-  bool has_buff1value() const;
+  // optional string Buff1Value = 3;
   void clear_buff1value();
   static const int kBuff1ValueFieldNumber = 3;
   const ::std::string& buff1value() const;
@@ -1450,8 +1254,7 @@ class DungeonTier_DungeonTierTable : public ::google::protobuf::Message /* @@pro
   ::std::string* release_buff1value();
   void set_allocated_buff1value(::std::string* buff1value);
 
-  // required string Buff2Type = 4;
-  bool has_buff2type() const;
+  // optional string Buff2Type = 4;
   void clear_buff2type();
   static const int kBuff2TypeFieldNumber = 4;
   const ::std::string& buff2type() const;
@@ -1462,8 +1265,7 @@ class DungeonTier_DungeonTierTable : public ::google::protobuf::Message /* @@pro
   ::std::string* release_buff2type();
   void set_allocated_buff2type(::std::string* buff2type);
 
-  // required string Buff2Value = 5;
-  bool has_buff2value() const;
+  // optional string Buff2Value = 5;
   void clear_buff2value();
   static const int kBuff2ValueFieldNumber = 5;
   const ::std::string& buff2value() const;
@@ -1474,8 +1276,7 @@ class DungeonTier_DungeonTierTable : public ::google::protobuf::Message /* @@pro
   ::std::string* release_buff2value();
   void set_allocated_buff2value(::std::string* buff2value);
 
-  // required string Buff3Type = 6;
-  bool has_buff3type() const;
+  // optional string Buff3Type = 6;
   void clear_buff3type();
   static const int kBuff3TypeFieldNumber = 6;
   const ::std::string& buff3type() const;
@@ -1486,8 +1287,7 @@ class DungeonTier_DungeonTierTable : public ::google::protobuf::Message /* @@pro
   ::std::string* release_buff3type();
   void set_allocated_buff3type(::std::string* buff3type);
 
-  // required string Buff3Value = 7;
-  bool has_buff3value() const;
+  // optional string Buff3Value = 7;
   void clear_buff3value();
   static const int kBuff3ValueFieldNumber = 7;
   const ::std::string& buff3value() const;
@@ -1500,27 +1300,9 @@ class DungeonTier_DungeonTierTable : public ::google::protobuf::Message /* @@pro
 
   // @@protoc_insertion_point(class_scope:MSG.DungeonTier.DungeonTierTable)
  private:
-  inline void set_has_tier();
-  inline void clear_has_tier();
-  inline void set_has_buff1type();
-  inline void clear_has_buff1type();
-  inline void set_has_buff1value();
-  inline void clear_has_buff1value();
-  inline void set_has_buff2type();
-  inline void clear_has_buff2type();
-  inline void set_has_buff2value();
-  inline void clear_has_buff2value();
-  inline void set_has_buff3type();
-  inline void clear_has_buff3type();
-  inline void set_has_buff3value();
-  inline void clear_has_buff3value();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr buff1type_;
   ::google::protobuf::internal::ArenaStringPtr buff1value_;
   ::google::protobuf::internal::ArenaStringPtr buff2type_;
@@ -1528,6 +1310,7 @@ class DungeonTier_DungeonTierTable : public ::google::protobuf::Message /* @@pro
   ::google::protobuf::internal::ArenaStringPtr buff3type_;
   ::google::protobuf::internal::ArenaStringPtr buff3value_;
   ::google::protobuf::uint32 tier_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -1547,14 +1330,6 @@ class DungeonTier : public ::google::protobuf::Message /* @@protoc_insertion_poi
   inline DungeonTier& operator=(const DungeonTier& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1607,8 +1382,7 @@ class DungeonTier : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -1633,14 +1407,12 @@ class DungeonTier : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // @@protoc_insertion_point(class_scope:MSG.DungeonTier)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::DungeonTier_DungeonTierTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -1660,14 +1432,6 @@ class MobAStat_MobAStatTable : public ::google::protobuf::Message /* @@protoc_in
   inline MobAStat_MobAStatTable& operator=(const MobAStat_MobAStatTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1718,36 +1482,31 @@ class MobAStat_MobAStatTable : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
-  // required uint32 Level = 1;
-  bool has_level() const;
+  // optional uint32 Level = 1;
   void clear_level();
   static const int kLevelFieldNumber = 1;
   ::google::protobuf::uint32 level() const;
   void set_level(::google::protobuf::uint32 value);
 
-  // required uint32 Exp = 2;
-  bool has_exp() const;
+  // optional uint32 Exp = 2;
   void clear_exp();
   static const int kExpFieldNumber = 2;
   ::google::protobuf::uint32 exp() const;
   void set_exp(::google::protobuf::uint32 value);
 
-  // required uint32 Atk = 3;
-  bool has_atk() const;
+  // optional uint32 Atk = 3;
   void clear_atk();
   static const int kAtkFieldNumber = 3;
   ::google::protobuf::uint32 atk() const;
   void set_atk(::google::protobuf::uint32 value);
 
-  // required uint32 Def = 4;
-  bool has_def() const;
+  // optional uint32 Def = 4;
   void clear_def();
   static const int kDefFieldNumber = 4;
   ::google::protobuf::uint32 def() const;
   void set_def(::google::protobuf::uint32 value);
 
-  // required uint32 Hp = 5;
-  bool has_hp() const;
+  // optional uint32 Hp = 5;
   void clear_hp();
   static const int kHpFieldNumber = 5;
   ::google::protobuf::uint32 hp() const;
@@ -1755,28 +1514,15 @@ class MobAStat_MobAStatTable : public ::google::protobuf::Message /* @@protoc_in
 
   // @@protoc_insertion_point(class_scope:MSG.MobAStat.MobAStatTable)
  private:
-  inline void set_has_level();
-  inline void clear_has_level();
-  inline void set_has_exp();
-  inline void clear_has_exp();
-  inline void set_has_atk();
-  inline void clear_has_atk();
-  inline void set_has_def();
-  inline void clear_has_def();
-  inline void set_has_hp();
-  inline void clear_has_hp();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 level_;
   ::google::protobuf::uint32 exp_;
   ::google::protobuf::uint32 atk_;
   ::google::protobuf::uint32 def_;
   ::google::protobuf::uint32 hp_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -1796,14 +1542,6 @@ class MobAStat : public ::google::protobuf::Message /* @@protoc_insertion_point(
   inline MobAStat& operator=(const MobAStat& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1856,8 +1594,7 @@ class MobAStat : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -1882,14 +1619,12 @@ class MobAStat : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // @@protoc_insertion_point(class_scope:MSG.MobAStat)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::MobAStat_MobAStatTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -1909,14 +1644,6 @@ class MobBStat_MobBStatTable : public ::google::protobuf::Message /* @@protoc_in
   inline MobBStat_MobBStatTable& operator=(const MobBStat_MobBStatTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -1967,36 +1694,31 @@ class MobBStat_MobBStatTable : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
-  // required uint32 Level = 1;
-  bool has_level() const;
+  // optional uint32 Level = 1;
   void clear_level();
   static const int kLevelFieldNumber = 1;
   ::google::protobuf::uint32 level() const;
   void set_level(::google::protobuf::uint32 value);
 
-  // required uint32 Exp = 2;
-  bool has_exp() const;
+  // optional uint32 Exp = 2;
   void clear_exp();
   static const int kExpFieldNumber = 2;
   ::google::protobuf::uint32 exp() const;
   void set_exp(::google::protobuf::uint32 value);
 
-  // required uint32 Atk = 3;
-  bool has_atk() const;
+  // optional uint32 Atk = 3;
   void clear_atk();
   static const int kAtkFieldNumber = 3;
   ::google::protobuf::uint32 atk() const;
   void set_atk(::google::protobuf::uint32 value);
 
-  // required uint32 Def = 4;
-  bool has_def() const;
+  // optional uint32 Def = 4;
   void clear_def();
   static const int kDefFieldNumber = 4;
   ::google::protobuf::uint32 def() const;
   void set_def(::google::protobuf::uint32 value);
 
-  // required uint32 Hp = 5;
-  bool has_hp() const;
+  // optional uint32 Hp = 5;
   void clear_hp();
   static const int kHpFieldNumber = 5;
   ::google::protobuf::uint32 hp() const;
@@ -2004,28 +1726,15 @@ class MobBStat_MobBStatTable : public ::google::protobuf::Message /* @@protoc_in
 
   // @@protoc_insertion_point(class_scope:MSG.MobBStat.MobBStatTable)
  private:
-  inline void set_has_level();
-  inline void clear_has_level();
-  inline void set_has_exp();
-  inline void clear_has_exp();
-  inline void set_has_atk();
-  inline void clear_has_atk();
-  inline void set_has_def();
-  inline void clear_has_def();
-  inline void set_has_hp();
-  inline void clear_has_hp();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 level_;
   ::google::protobuf::uint32 exp_;
   ::google::protobuf::uint32 atk_;
   ::google::protobuf::uint32 def_;
   ::google::protobuf::uint32 hp_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -2045,14 +1754,6 @@ class MobBStat : public ::google::protobuf::Message /* @@protoc_insertion_point(
   inline MobBStat& operator=(const MobBStat& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -2105,8 +1806,7 @@ class MobBStat : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -2131,14 +1831,12 @@ class MobBStat : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // @@protoc_insertion_point(class_scope:MSG.MobBStat)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::MobBStat_MobBStatTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -2158,14 +1856,6 @@ class MobCStat_MobCStatTable : public ::google::protobuf::Message /* @@protoc_in
   inline MobCStat_MobCStatTable& operator=(const MobCStat_MobCStatTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -2216,36 +1906,31 @@ class MobCStat_MobCStatTable : public ::google::protobuf::Message /* @@protoc_in
 
   // accessors -------------------------------------------------------
 
-  // required uint32 Level = 1;
-  bool has_level() const;
+  // optional uint32 Level = 1;
   void clear_level();
   static const int kLevelFieldNumber = 1;
   ::google::protobuf::uint32 level() const;
   void set_level(::google::protobuf::uint32 value);
 
-  // required uint32 Exp = 2;
-  bool has_exp() const;
+  // optional uint32 Exp = 2;
   void clear_exp();
   static const int kExpFieldNumber = 2;
   ::google::protobuf::uint32 exp() const;
   void set_exp(::google::protobuf::uint32 value);
 
-  // required uint32 Atk = 3;
-  bool has_atk() const;
+  // optional uint32 Atk = 3;
   void clear_atk();
   static const int kAtkFieldNumber = 3;
   ::google::protobuf::uint32 atk() const;
   void set_atk(::google::protobuf::uint32 value);
 
-  // required uint32 Def = 4;
-  bool has_def() const;
+  // optional uint32 Def = 4;
   void clear_def();
   static const int kDefFieldNumber = 4;
   ::google::protobuf::uint32 def() const;
   void set_def(::google::protobuf::uint32 value);
 
-  // required uint32 Hp = 5;
-  bool has_hp() const;
+  // optional uint32 Hp = 5;
   void clear_hp();
   static const int kHpFieldNumber = 5;
   ::google::protobuf::uint32 hp() const;
@@ -2253,28 +1938,15 @@ class MobCStat_MobCStatTable : public ::google::protobuf::Message /* @@protoc_in
 
   // @@protoc_insertion_point(class_scope:MSG.MobCStat.MobCStatTable)
  private:
-  inline void set_has_level();
-  inline void clear_has_level();
-  inline void set_has_exp();
-  inline void clear_has_exp();
-  inline void set_has_atk();
-  inline void clear_has_atk();
-  inline void set_has_def();
-  inline void clear_has_def();
-  inline void set_has_hp();
-  inline void clear_has_hp();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::uint32 level_;
   ::google::protobuf::uint32 exp_;
   ::google::protobuf::uint32 atk_;
   ::google::protobuf::uint32 def_;
   ::google::protobuf::uint32 hp_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -2294,14 +1966,6 @@ class MobCStat : public ::google::protobuf::Message /* @@protoc_insertion_point(
   inline MobCStat& operator=(const MobCStat& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -2354,8 +2018,7 @@ class MobCStat : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -2380,14 +2043,12 @@ class MobCStat : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // @@protoc_insertion_point(class_scope:MSG.MobCStat)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::MobCStat_MobCStatTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -2407,14 +2068,6 @@ class Dungeon_DungeonTable : public ::google::protobuf::Message /* @@protoc_inse
   inline Dungeon_DungeonTable& operator=(const Dungeon_DungeonTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -2465,15 +2118,13 @@ class Dungeon_DungeonTable : public ::google::protobuf::Message /* @@protoc_inse
 
   // accessors -------------------------------------------------------
 
-  // required uint32 No = 1;
-  bool has_no() const;
+  // optional uint32 No = 1;
   void clear_no();
   static const int kNoFieldNumber = 1;
   ::google::protobuf::uint32 no() const;
   void set_no(::google::protobuf::uint32 value);
 
-  // required string Name = 2;
-  bool has_name() const;
+  // optional string Name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -2484,36 +2135,31 @@ class Dungeon_DungeonTable : public ::google::protobuf::Message /* @@protoc_inse
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required uint32 Level = 3;
-  bool has_level() const;
+  // optional uint32 Level = 3;
   void clear_level();
   static const int kLevelFieldNumber = 3;
   ::google::protobuf::uint32 level() const;
   void set_level(::google::protobuf::uint32 value);
 
-  // required uint32 Reward = 4;
-  bool has_reward() const;
+  // optional uint32 Reward = 4;
   void clear_reward();
   static const int kRewardFieldNumber = 4;
   ::google::protobuf::uint32 reward() const;
   void set_reward(::google::protobuf::uint32 value);
 
-  // required uint32 MobALv = 5;
-  bool has_mobalv() const;
+  // optional uint32 MobALv = 5;
   void clear_mobalv();
   static const int kMobALvFieldNumber = 5;
   ::google::protobuf::uint32 mobalv() const;
   void set_mobalv(::google::protobuf::uint32 value);
 
-  // required uint32 MobBLv = 6;
-  bool has_mobblv() const;
+  // optional uint32 MobBLv = 6;
   void clear_mobblv();
   static const int kMobBLvFieldNumber = 6;
   ::google::protobuf::uint32 mobblv() const;
   void set_mobblv(::google::protobuf::uint32 value);
 
-  // required uint32 MobCLv = 7;
-  bool has_mobclv() const;
+  // optional uint32 MobCLv = 7;
   void clear_mobclv();
   static const int kMobCLvFieldNumber = 7;
   ::google::protobuf::uint32 mobclv() const;
@@ -2521,27 +2167,9 @@ class Dungeon_DungeonTable : public ::google::protobuf::Message /* @@protoc_inse
 
   // @@protoc_insertion_point(class_scope:MSG.Dungeon.DungeonTable)
  private:
-  inline void set_has_no();
-  inline void clear_has_no();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_level();
-  inline void clear_has_level();
-  inline void set_has_reward();
-  inline void clear_has_reward();
-  inline void set_has_mobalv();
-  inline void clear_has_mobalv();
-  inline void set_has_mobblv();
-  inline void clear_has_mobblv();
-  inline void set_has_mobclv();
-  inline void clear_has_mobclv();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::uint32 no_;
   ::google::protobuf::uint32 level_;
@@ -2549,6 +2177,7 @@ class Dungeon_DungeonTable : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::uint32 mobalv_;
   ::google::protobuf::uint32 mobblv_;
   ::google::protobuf::uint32 mobclv_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -2568,14 +2197,6 @@ class Dungeon : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   inline Dungeon& operator=(const Dungeon& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -2628,8 +2249,7 @@ class Dungeon : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -2654,14 +2274,12 @@ class Dungeon : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // @@protoc_insertion_point(class_scope:MSG.Dungeon)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::Dungeon_DungeonTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -2681,14 +2299,6 @@ class Item_ItemTable : public ::google::protobuf::Message /* @@protoc_insertion_
   inline Item_ItemTable& operator=(const Item_ItemTable& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -2739,15 +2349,13 @@ class Item_ItemTable : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // required uint32 No = 1;
-  bool has_no() const;
+  // optional uint32 No = 1;
   void clear_no();
   static const int kNoFieldNumber = 1;
   ::google::protobuf::uint32 no() const;
   void set_no(::google::protobuf::uint32 value);
 
-  // required string Name = 2;
-  bool has_name() const;
+  // optional string Name = 2;
   void clear_name();
   static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
@@ -2758,8 +2366,7 @@ class Item_ItemTable : public ::google::protobuf::Message /* @@protoc_insertion_
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required string Category = 3;
-  bool has_category() const;
+  // optional string Category = 3;
   void clear_category();
   static const int kCategoryFieldNumber = 3;
   const ::std::string& category() const;
@@ -2770,15 +2377,13 @@ class Item_ItemTable : public ::google::protobuf::Message /* @@protoc_insertion_
   ::std::string* release_category();
   void set_allocated_category(::std::string* category);
 
-  // required uint32 CharNo = 4;
-  bool has_charno() const;
+  // optional uint32 CharNo = 4;
   void clear_charno();
   static const int kCharNoFieldNumber = 4;
   ::google::protobuf::uint32 charno() const;
   void set_charno(::google::protobuf::uint32 value);
 
-  // required string Stat = 5;
-  bool has_stat() const;
+  // optional string Stat = 5;
   void clear_stat();
   static const int kStatFieldNumber = 5;
   const ::std::string& stat() const;
@@ -2789,8 +2394,7 @@ class Item_ItemTable : public ::google::protobuf::Message /* @@protoc_insertion_
   ::std::string* release_stat();
   void set_allocated_stat(::std::string* stat);
 
-  // required uint32 Value = 6;
-  bool has_value() const;
+  // optional uint32 Value = 6;
   void clear_value();
   static const int kValueFieldNumber = 6;
   ::google::protobuf::uint32 value() const;
@@ -2798,31 +2402,16 @@ class Item_ItemTable : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // @@protoc_insertion_point(class_scope:MSG.Item.ItemTable)
  private:
-  inline void set_has_no();
-  inline void clear_has_no();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_category();
-  inline void clear_has_category();
-  inline void set_has_charno();
-  inline void clear_has_charno();
-  inline void set_has_stat();
-  inline void clear_has_stat();
-  inline void set_has_value();
-  inline void clear_has_value();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::uint32 no_;
   ::google::protobuf::uint32 charno_;
   ::google::protobuf::internal::ArenaStringPtr category_;
   ::google::protobuf::internal::ArenaStringPtr stat_;
   ::google::protobuf::uint32 value_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -2842,14 +2431,6 @@ class Item : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   inline Item& operator=(const Item& from) {
     CopyFrom(from);
     return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
@@ -2902,8 +2483,7 @@ class Item : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
 
   // accessors -------------------------------------------------------
 
-  // required string TableName = 1;
-  bool has_tablename() const;
+  // optional string TableName = 1;
   void clear_tablename();
   static const int kTableNameFieldNumber = 1;
   const ::std::string& tablename() const;
@@ -2928,14 +2508,12 @@ class Item : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
 
   // @@protoc_insertion_point(class_scope:MSG.Item)
  private:
-  inline void set_has_tablename();
-  inline void clear_has_tablename();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
+  bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr tablename_;
   ::google::protobuf::RepeatedPtrField< ::MSG::Item_ItemTable > data_;
+  mutable int _cached_size_;
   friend void  protobuf_AddDesc_SimTable_2eproto();
   friend void protobuf_AssignDesc_SimTable_2eproto();
   friend void protobuf_ShutdownFile_SimTable_2eproto();
@@ -2951,104 +2529,74 @@ class Item : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Char_CharacterTable
 
-// required uint32 No = 1;
-inline bool Char_CharacterTable::has_no() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Char_CharacterTable::set_has_no() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Char_CharacterTable::clear_has_no() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 No = 1;
 inline void Char_CharacterTable::clear_no() {
   no_ = 0u;
-  clear_has_no();
 }
 inline ::google::protobuf::uint32 Char_CharacterTable::no() const {
   // @@protoc_insertion_point(field_get:MSG.Char.CharacterTable.No)
   return no_;
 }
 inline void Char_CharacterTable::set_no(::google::protobuf::uint32 value) {
-  set_has_no();
+  
   no_ = value;
   // @@protoc_insertion_point(field_set:MSG.Char.CharacterTable.No)
 }
 
-// required string Name = 2;
-inline bool Char_CharacterTable::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Char_CharacterTable::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Char_CharacterTable::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string Name = 2;
 inline void Char_CharacterTable::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& Char_CharacterTable::name() const {
   // @@protoc_insertion_point(field_get:MSG.Char.CharacterTable.Name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Char_CharacterTable::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Char.CharacterTable.Name)
 }
 inline void Char_CharacterTable::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Char.CharacterTable.Name)
 }
 inline void Char_CharacterTable::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Char.CharacterTable.Name)
 }
 inline ::std::string* Char_CharacterTable::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Char.CharacterTable.Name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Char_CharacterTable::release_name() {
   // @@protoc_insertion_point(field_release:MSG.Char.CharacterTable.Name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Char_CharacterTable::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.Char.CharacterTable.Name)
 }
 
-// required uint32 AttackRange = 3;
-inline bool Char_CharacterTable::has_attackrange() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Char_CharacterTable::set_has_attackrange() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Char_CharacterTable::clear_has_attackrange() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 AttackRange = 3;
 inline void Char_CharacterTable::clear_attackrange() {
   attackrange_ = 0u;
-  clear_has_attackrange();
 }
 inline ::google::protobuf::uint32 Char_CharacterTable::attackrange() const {
   // @@protoc_insertion_point(field_get:MSG.Char.CharacterTable.AttackRange)
   return attackrange_;
 }
 inline void Char_CharacterTable::set_attackrange(::google::protobuf::uint32 value) {
-  set_has_attackrange();
+  
   attackrange_ = value;
   // @@protoc_insertion_point(field_set:MSG.Char.CharacterTable.AttackRange)
 }
@@ -3057,55 +2605,45 @@ inline void Char_CharacterTable::set_attackrange(::google::protobuf::uint32 valu
 
 // Char
 
-// required string TableName = 1;
-inline bool Char::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Char::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Char::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void Char::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& Char::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.Char.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Char::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Char.TableName)
 }
 inline void Char::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Char.TableName)
 }
 inline void Char::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Char.TableName)
 }
 inline ::std::string* Char::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Char.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Char::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.Char.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Char::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.Char.TableName)
@@ -3145,182 +2683,132 @@ Char::data() const {
 
 // Product_ProductTable
 
-// required uint32 No = 1;
-inline bool Product_ProductTable::has_no() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Product_ProductTable::set_has_no() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Product_ProductTable::clear_has_no() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 No = 1;
 inline void Product_ProductTable::clear_no() {
   no_ = 0u;
-  clear_has_no();
 }
 inline ::google::protobuf::uint32 Product_ProductTable::no() const {
   // @@protoc_insertion_point(field_get:MSG.Product.ProductTable.No)
   return no_;
 }
 inline void Product_ProductTable::set_no(::google::protobuf::uint32 value) {
-  set_has_no();
+  
   no_ = value;
   // @@protoc_insertion_point(field_set:MSG.Product.ProductTable.No)
 }
 
-// required string ProductCode = 2;
-inline bool Product_ProductTable::has_productcode() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Product_ProductTable::set_has_productcode() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Product_ProductTable::clear_has_productcode() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string ProductCode = 2;
 inline void Product_ProductTable::clear_productcode() {
   productcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_productcode();
 }
 inline const ::std::string& Product_ProductTable::productcode() const {
   // @@protoc_insertion_point(field_get:MSG.Product.ProductTable.ProductCode)
   return productcode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Product_ProductTable::set_productcode(const ::std::string& value) {
-  set_has_productcode();
+  
   productcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Product.ProductTable.ProductCode)
 }
 inline void Product_ProductTable::set_productcode(const char* value) {
-  set_has_productcode();
+  
   productcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Product.ProductTable.ProductCode)
 }
 inline void Product_ProductTable::set_productcode(const char* value, size_t size) {
-  set_has_productcode();
+  
   productcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Product.ProductTable.ProductCode)
 }
 inline ::std::string* Product_ProductTable::mutable_productcode() {
-  set_has_productcode();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Product.ProductTable.ProductCode)
   return productcode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Product_ProductTable::release_productcode() {
   // @@protoc_insertion_point(field_release:MSG.Product.ProductTable.ProductCode)
-  clear_has_productcode();
+  
   return productcode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Product_ProductTable::set_allocated_productcode(::std::string* productcode) {
   if (productcode != NULL) {
-    set_has_productcode();
+    
   } else {
-    clear_has_productcode();
+    
   }
   productcode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), productcode);
   // @@protoc_insertion_point(field_set_allocated:MSG.Product.ProductTable.ProductCode)
 }
 
-// required uint32 CharNo = 3;
-inline bool Product_ProductTable::has_charno() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Product_ProductTable::set_has_charno() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Product_ProductTable::clear_has_charno() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 CharNo = 3;
 inline void Product_ProductTable::clear_charno() {
   charno_ = 0u;
-  clear_has_charno();
 }
 inline ::google::protobuf::uint32 Product_ProductTable::charno() const {
   // @@protoc_insertion_point(field_get:MSG.Product.ProductTable.CharNo)
   return charno_;
 }
 inline void Product_ProductTable::set_charno(::google::protobuf::uint32 value) {
-  set_has_charno();
+  
   charno_ = value;
   // @@protoc_insertion_point(field_set:MSG.Product.ProductTable.CharNo)
 }
 
-// required string VCType = 4;
-inline bool Product_ProductTable::has_vctype() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void Product_ProductTable::set_has_vctype() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void Product_ProductTable::clear_has_vctype() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional string VCType = 4;
 inline void Product_ProductTable::clear_vctype() {
   vctype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_vctype();
 }
 inline const ::std::string& Product_ProductTable::vctype() const {
   // @@protoc_insertion_point(field_get:MSG.Product.ProductTable.VCType)
   return vctype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Product_ProductTable::set_vctype(const ::std::string& value) {
-  set_has_vctype();
+  
   vctype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Product.ProductTable.VCType)
 }
 inline void Product_ProductTable::set_vctype(const char* value) {
-  set_has_vctype();
+  
   vctype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Product.ProductTable.VCType)
 }
 inline void Product_ProductTable::set_vctype(const char* value, size_t size) {
-  set_has_vctype();
+  
   vctype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Product.ProductTable.VCType)
 }
 inline ::std::string* Product_ProductTable::mutable_vctype() {
-  set_has_vctype();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Product.ProductTable.VCType)
   return vctype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Product_ProductTable::release_vctype() {
   // @@protoc_insertion_point(field_release:MSG.Product.ProductTable.VCType)
-  clear_has_vctype();
+  
   return vctype_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Product_ProductTable::set_allocated_vctype(::std::string* vctype) {
   if (vctype != NULL) {
-    set_has_vctype();
+    
   } else {
-    clear_has_vctype();
+    
   }
   vctype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), vctype);
   // @@protoc_insertion_point(field_set_allocated:MSG.Product.ProductTable.VCType)
 }
 
-// required uint32 Value = 5;
-inline bool Product_ProductTable::has_value() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void Product_ProductTable::set_has_value() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void Product_ProductTable::clear_has_value() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional uint32 Value = 5;
 inline void Product_ProductTable::clear_value() {
   value_ = 0u;
-  clear_has_value();
 }
 inline ::google::protobuf::uint32 Product_ProductTable::value() const {
   // @@protoc_insertion_point(field_get:MSG.Product.ProductTable.Value)
   return value_;
 }
 inline void Product_ProductTable::set_value(::google::protobuf::uint32 value) {
-  set_has_value();
+  
   value_ = value;
   // @@protoc_insertion_point(field_set:MSG.Product.ProductTable.Value)
 }
@@ -3329,55 +2817,45 @@ inline void Product_ProductTable::set_value(::google::protobuf::uint32 value) {
 
 // Product
 
-// required string TableName = 1;
-inline bool Product::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Product::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Product::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void Product::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& Product::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.Product.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Product::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Product.TableName)
 }
 inline void Product::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Product.TableName)
 }
 inline void Product::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Product.TableName)
 }
 inline ::std::string* Product::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Product.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Product::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.Product.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Product::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.Product.TableName)
@@ -3417,122 +2895,72 @@ Product::data() const {
 
 // WarriorStat_WarriorStatTable
 
-// required uint32 Level = 1;
-inline bool WarriorStat_WarriorStatTable::has_level() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void WarriorStat_WarriorStatTable::set_has_level() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void WarriorStat_WarriorStatTable::clear_has_level() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 Level = 1;
 inline void WarriorStat_WarriorStatTable::clear_level() {
   level_ = 0u;
-  clear_has_level();
 }
 inline ::google::protobuf::uint32 WarriorStat_WarriorStatTable::level() const {
   // @@protoc_insertion_point(field_get:MSG.WarriorStat.WarriorStatTable.Level)
   return level_;
 }
 inline void WarriorStat_WarriorStatTable::set_level(::google::protobuf::uint32 value) {
-  set_has_level();
+  
   level_ = value;
   // @@protoc_insertion_point(field_set:MSG.WarriorStat.WarriorStatTable.Level)
 }
 
-// required uint32 Exp = 2;
-inline bool WarriorStat_WarriorStatTable::has_exp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void WarriorStat_WarriorStatTable::set_has_exp() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void WarriorStat_WarriorStatTable::clear_has_exp() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 Exp = 2;
 inline void WarriorStat_WarriorStatTable::clear_exp() {
   exp_ = 0u;
-  clear_has_exp();
 }
 inline ::google::protobuf::uint32 WarriorStat_WarriorStatTable::exp() const {
   // @@protoc_insertion_point(field_get:MSG.WarriorStat.WarriorStatTable.Exp)
   return exp_;
 }
 inline void WarriorStat_WarriorStatTable::set_exp(::google::protobuf::uint32 value) {
-  set_has_exp();
+  
   exp_ = value;
   // @@protoc_insertion_point(field_set:MSG.WarriorStat.WarriorStatTable.Exp)
 }
 
-// required uint32 Atk = 3;
-inline bool WarriorStat_WarriorStatTable::has_atk() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void WarriorStat_WarriorStatTable::set_has_atk() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void WarriorStat_WarriorStatTable::clear_has_atk() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 Atk = 3;
 inline void WarriorStat_WarriorStatTable::clear_atk() {
   atk_ = 0u;
-  clear_has_atk();
 }
 inline ::google::protobuf::uint32 WarriorStat_WarriorStatTable::atk() const {
   // @@protoc_insertion_point(field_get:MSG.WarriorStat.WarriorStatTable.Atk)
   return atk_;
 }
 inline void WarriorStat_WarriorStatTable::set_atk(::google::protobuf::uint32 value) {
-  set_has_atk();
+  
   atk_ = value;
   // @@protoc_insertion_point(field_set:MSG.WarriorStat.WarriorStatTable.Atk)
 }
 
-// required uint32 Def = 4;
-inline bool WarriorStat_WarriorStatTable::has_def() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void WarriorStat_WarriorStatTable::set_has_def() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void WarriorStat_WarriorStatTable::clear_has_def() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional uint32 Def = 4;
 inline void WarriorStat_WarriorStatTable::clear_def() {
   def_ = 0u;
-  clear_has_def();
 }
 inline ::google::protobuf::uint32 WarriorStat_WarriorStatTable::def() const {
   // @@protoc_insertion_point(field_get:MSG.WarriorStat.WarriorStatTable.Def)
   return def_;
 }
 inline void WarriorStat_WarriorStatTable::set_def(::google::protobuf::uint32 value) {
-  set_has_def();
+  
   def_ = value;
   // @@protoc_insertion_point(field_set:MSG.WarriorStat.WarriorStatTable.Def)
 }
 
-// required uint32 Hp = 5;
-inline bool WarriorStat_WarriorStatTable::has_hp() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void WarriorStat_WarriorStatTable::set_has_hp() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void WarriorStat_WarriorStatTable::clear_has_hp() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional uint32 Hp = 5;
 inline void WarriorStat_WarriorStatTable::clear_hp() {
   hp_ = 0u;
-  clear_has_hp();
 }
 inline ::google::protobuf::uint32 WarriorStat_WarriorStatTable::hp() const {
   // @@protoc_insertion_point(field_get:MSG.WarriorStat.WarriorStatTable.Hp)
   return hp_;
 }
 inline void WarriorStat_WarriorStatTable::set_hp(::google::protobuf::uint32 value) {
-  set_has_hp();
+  
   hp_ = value;
   // @@protoc_insertion_point(field_set:MSG.WarriorStat.WarriorStatTable.Hp)
 }
@@ -3541,55 +2969,45 @@ inline void WarriorStat_WarriorStatTable::set_hp(::google::protobuf::uint32 valu
 
 // WarriorStat
 
-// required string TableName = 1;
-inline bool WarriorStat::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void WarriorStat::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void WarriorStat::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void WarriorStat::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& WarriorStat::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.WarriorStat.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void WarriorStat::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.WarriorStat.TableName)
 }
 inline void WarriorStat::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.WarriorStat.TableName)
 }
 inline void WarriorStat::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.WarriorStat.TableName)
 }
 inline ::std::string* WarriorStat::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.WarriorStat.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* WarriorStat::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.WarriorStat.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void WarriorStat::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.WarriorStat.TableName)
@@ -3629,122 +3047,72 @@ WarriorStat::data() const {
 
 // ArcherStat_ArcherStatTable
 
-// required uint32 Level = 1;
-inline bool ArcherStat_ArcherStatTable::has_level() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void ArcherStat_ArcherStatTable::set_has_level() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void ArcherStat_ArcherStatTable::clear_has_level() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 Level = 1;
 inline void ArcherStat_ArcherStatTable::clear_level() {
   level_ = 0u;
-  clear_has_level();
 }
 inline ::google::protobuf::uint32 ArcherStat_ArcherStatTable::level() const {
   // @@protoc_insertion_point(field_get:MSG.ArcherStat.ArcherStatTable.Level)
   return level_;
 }
 inline void ArcherStat_ArcherStatTable::set_level(::google::protobuf::uint32 value) {
-  set_has_level();
+  
   level_ = value;
   // @@protoc_insertion_point(field_set:MSG.ArcherStat.ArcherStatTable.Level)
 }
 
-// required uint32 Exp = 2;
-inline bool ArcherStat_ArcherStatTable::has_exp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void ArcherStat_ArcherStatTable::set_has_exp() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void ArcherStat_ArcherStatTable::clear_has_exp() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 Exp = 2;
 inline void ArcherStat_ArcherStatTable::clear_exp() {
   exp_ = 0u;
-  clear_has_exp();
 }
 inline ::google::protobuf::uint32 ArcherStat_ArcherStatTable::exp() const {
   // @@protoc_insertion_point(field_get:MSG.ArcherStat.ArcherStatTable.Exp)
   return exp_;
 }
 inline void ArcherStat_ArcherStatTable::set_exp(::google::protobuf::uint32 value) {
-  set_has_exp();
+  
   exp_ = value;
   // @@protoc_insertion_point(field_set:MSG.ArcherStat.ArcherStatTable.Exp)
 }
 
-// required uint32 Atk = 3;
-inline bool ArcherStat_ArcherStatTable::has_atk() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void ArcherStat_ArcherStatTable::set_has_atk() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void ArcherStat_ArcherStatTable::clear_has_atk() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 Atk = 3;
 inline void ArcherStat_ArcherStatTable::clear_atk() {
   atk_ = 0u;
-  clear_has_atk();
 }
 inline ::google::protobuf::uint32 ArcherStat_ArcherStatTable::atk() const {
   // @@protoc_insertion_point(field_get:MSG.ArcherStat.ArcherStatTable.Atk)
   return atk_;
 }
 inline void ArcherStat_ArcherStatTable::set_atk(::google::protobuf::uint32 value) {
-  set_has_atk();
+  
   atk_ = value;
   // @@protoc_insertion_point(field_set:MSG.ArcherStat.ArcherStatTable.Atk)
 }
 
-// required uint32 Def = 4;
-inline bool ArcherStat_ArcherStatTable::has_def() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void ArcherStat_ArcherStatTable::set_has_def() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void ArcherStat_ArcherStatTable::clear_has_def() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional uint32 Def = 4;
 inline void ArcherStat_ArcherStatTable::clear_def() {
   def_ = 0u;
-  clear_has_def();
 }
 inline ::google::protobuf::uint32 ArcherStat_ArcherStatTable::def() const {
   // @@protoc_insertion_point(field_get:MSG.ArcherStat.ArcherStatTable.Def)
   return def_;
 }
 inline void ArcherStat_ArcherStatTable::set_def(::google::protobuf::uint32 value) {
-  set_has_def();
+  
   def_ = value;
   // @@protoc_insertion_point(field_set:MSG.ArcherStat.ArcherStatTable.Def)
 }
 
-// required uint32 Hp = 5;
-inline bool ArcherStat_ArcherStatTable::has_hp() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void ArcherStat_ArcherStatTable::set_has_hp() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void ArcherStat_ArcherStatTable::clear_has_hp() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional uint32 Hp = 5;
 inline void ArcherStat_ArcherStatTable::clear_hp() {
   hp_ = 0u;
-  clear_has_hp();
 }
 inline ::google::protobuf::uint32 ArcherStat_ArcherStatTable::hp() const {
   // @@protoc_insertion_point(field_get:MSG.ArcherStat.ArcherStatTable.Hp)
   return hp_;
 }
 inline void ArcherStat_ArcherStatTable::set_hp(::google::protobuf::uint32 value) {
-  set_has_hp();
+  
   hp_ = value;
   // @@protoc_insertion_point(field_set:MSG.ArcherStat.ArcherStatTable.Hp)
 }
@@ -3753,55 +3121,45 @@ inline void ArcherStat_ArcherStatTable::set_hp(::google::protobuf::uint32 value)
 
 // ArcherStat
 
-// required string TableName = 1;
-inline bool ArcherStat::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void ArcherStat::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void ArcherStat::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void ArcherStat::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& ArcherStat::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.ArcherStat.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ArcherStat::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.ArcherStat.TableName)
 }
 inline void ArcherStat::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.ArcherStat.TableName)
 }
 inline void ArcherStat::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.ArcherStat.TableName)
 }
 inline ::std::string* ArcherStat::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.ArcherStat.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ArcherStat::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.ArcherStat.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ArcherStat::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.ArcherStat.TableName)
@@ -3841,349 +3199,279 @@ ArcherStat::data() const {
 
 // CharTier_CharTierTable
 
-// required uint32 Tier = 1;
-inline bool CharTier_CharTierTable::has_tier() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void CharTier_CharTierTable::set_has_tier() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void CharTier_CharTierTable::clear_has_tier() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 Tier = 1;
 inline void CharTier_CharTierTable::clear_tier() {
   tier_ = 0u;
-  clear_has_tier();
 }
 inline ::google::protobuf::uint32 CharTier_CharTierTable::tier() const {
   // @@protoc_insertion_point(field_get:MSG.CharTier.CharTierTable.Tier)
   return tier_;
 }
 inline void CharTier_CharTierTable::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
+  
   tier_ = value;
   // @@protoc_insertion_point(field_set:MSG.CharTier.CharTierTable.Tier)
 }
 
-// required string Buff1Type = 2;
-inline bool CharTier_CharTierTable::has_buff1type() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void CharTier_CharTierTable::set_has_buff1type() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void CharTier_CharTierTable::clear_has_buff1type() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string Buff1Type = 2;
 inline void CharTier_CharTierTable::clear_buff1type() {
   buff1type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff1type();
 }
 inline const ::std::string& CharTier_CharTierTable::buff1type() const {
   // @@protoc_insertion_point(field_get:MSG.CharTier.CharTierTable.Buff1Type)
   return buff1type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_buff1type(const ::std::string& value) {
-  set_has_buff1type();
+  
   buff1type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.CharTier.CharTierTable.Buff1Type)
 }
 inline void CharTier_CharTierTable::set_buff1type(const char* value) {
-  set_has_buff1type();
+  
   buff1type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.CharTier.CharTierTable.Buff1Type)
 }
 inline void CharTier_CharTierTable::set_buff1type(const char* value, size_t size) {
-  set_has_buff1type();
+  
   buff1type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.CharTier.CharTierTable.Buff1Type)
 }
 inline ::std::string* CharTier_CharTierTable::mutable_buff1type() {
-  set_has_buff1type();
+  
   // @@protoc_insertion_point(field_mutable:MSG.CharTier.CharTierTable.Buff1Type)
   return buff1type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CharTier_CharTierTable::release_buff1type() {
   // @@protoc_insertion_point(field_release:MSG.CharTier.CharTierTable.Buff1Type)
-  clear_has_buff1type();
+  
   return buff1type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_allocated_buff1type(::std::string* buff1type) {
   if (buff1type != NULL) {
-    set_has_buff1type();
+    
   } else {
-    clear_has_buff1type();
+    
   }
   buff1type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff1type);
   // @@protoc_insertion_point(field_set_allocated:MSG.CharTier.CharTierTable.Buff1Type)
 }
 
-// required string Buff1Value = 3;
-inline bool CharTier_CharTierTable::has_buff1value() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void CharTier_CharTierTable::set_has_buff1value() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void CharTier_CharTierTable::clear_has_buff1value() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional string Buff1Value = 3;
 inline void CharTier_CharTierTable::clear_buff1value() {
   buff1value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff1value();
 }
 inline const ::std::string& CharTier_CharTierTable::buff1value() const {
   // @@protoc_insertion_point(field_get:MSG.CharTier.CharTierTable.Buff1Value)
   return buff1value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_buff1value(const ::std::string& value) {
-  set_has_buff1value();
+  
   buff1value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.CharTier.CharTierTable.Buff1Value)
 }
 inline void CharTier_CharTierTable::set_buff1value(const char* value) {
-  set_has_buff1value();
+  
   buff1value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.CharTier.CharTierTable.Buff1Value)
 }
 inline void CharTier_CharTierTable::set_buff1value(const char* value, size_t size) {
-  set_has_buff1value();
+  
   buff1value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.CharTier.CharTierTable.Buff1Value)
 }
 inline ::std::string* CharTier_CharTierTable::mutable_buff1value() {
-  set_has_buff1value();
+  
   // @@protoc_insertion_point(field_mutable:MSG.CharTier.CharTierTable.Buff1Value)
   return buff1value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CharTier_CharTierTable::release_buff1value() {
   // @@protoc_insertion_point(field_release:MSG.CharTier.CharTierTable.Buff1Value)
-  clear_has_buff1value();
+  
   return buff1value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_allocated_buff1value(::std::string* buff1value) {
   if (buff1value != NULL) {
-    set_has_buff1value();
+    
   } else {
-    clear_has_buff1value();
+    
   }
   buff1value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff1value);
   // @@protoc_insertion_point(field_set_allocated:MSG.CharTier.CharTierTable.Buff1Value)
 }
 
-// required string Buff2Type = 4;
-inline bool CharTier_CharTierTable::has_buff2type() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void CharTier_CharTierTable::set_has_buff2type() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void CharTier_CharTierTable::clear_has_buff2type() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional string Buff2Type = 4;
 inline void CharTier_CharTierTable::clear_buff2type() {
   buff2type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff2type();
 }
 inline const ::std::string& CharTier_CharTierTable::buff2type() const {
   // @@protoc_insertion_point(field_get:MSG.CharTier.CharTierTable.Buff2Type)
   return buff2type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_buff2type(const ::std::string& value) {
-  set_has_buff2type();
+  
   buff2type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.CharTier.CharTierTable.Buff2Type)
 }
 inline void CharTier_CharTierTable::set_buff2type(const char* value) {
-  set_has_buff2type();
+  
   buff2type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.CharTier.CharTierTable.Buff2Type)
 }
 inline void CharTier_CharTierTable::set_buff2type(const char* value, size_t size) {
-  set_has_buff2type();
+  
   buff2type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.CharTier.CharTierTable.Buff2Type)
 }
 inline ::std::string* CharTier_CharTierTable::mutable_buff2type() {
-  set_has_buff2type();
+  
   // @@protoc_insertion_point(field_mutable:MSG.CharTier.CharTierTable.Buff2Type)
   return buff2type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CharTier_CharTierTable::release_buff2type() {
   // @@protoc_insertion_point(field_release:MSG.CharTier.CharTierTable.Buff2Type)
-  clear_has_buff2type();
+  
   return buff2type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_allocated_buff2type(::std::string* buff2type) {
   if (buff2type != NULL) {
-    set_has_buff2type();
+    
   } else {
-    clear_has_buff2type();
+    
   }
   buff2type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff2type);
   // @@protoc_insertion_point(field_set_allocated:MSG.CharTier.CharTierTable.Buff2Type)
 }
 
-// required string Buff2Value = 5;
-inline bool CharTier_CharTierTable::has_buff2value() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void CharTier_CharTierTable::set_has_buff2value() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void CharTier_CharTierTable::clear_has_buff2value() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional string Buff2Value = 5;
 inline void CharTier_CharTierTable::clear_buff2value() {
   buff2value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff2value();
 }
 inline const ::std::string& CharTier_CharTierTable::buff2value() const {
   // @@protoc_insertion_point(field_get:MSG.CharTier.CharTierTable.Buff2Value)
   return buff2value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_buff2value(const ::std::string& value) {
-  set_has_buff2value();
+  
   buff2value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.CharTier.CharTierTable.Buff2Value)
 }
 inline void CharTier_CharTierTable::set_buff2value(const char* value) {
-  set_has_buff2value();
+  
   buff2value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.CharTier.CharTierTable.Buff2Value)
 }
 inline void CharTier_CharTierTable::set_buff2value(const char* value, size_t size) {
-  set_has_buff2value();
+  
   buff2value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.CharTier.CharTierTable.Buff2Value)
 }
 inline ::std::string* CharTier_CharTierTable::mutable_buff2value() {
-  set_has_buff2value();
+  
   // @@protoc_insertion_point(field_mutable:MSG.CharTier.CharTierTable.Buff2Value)
   return buff2value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CharTier_CharTierTable::release_buff2value() {
   // @@protoc_insertion_point(field_release:MSG.CharTier.CharTierTable.Buff2Value)
-  clear_has_buff2value();
+  
   return buff2value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_allocated_buff2value(::std::string* buff2value) {
   if (buff2value != NULL) {
-    set_has_buff2value();
+    
   } else {
-    clear_has_buff2value();
+    
   }
   buff2value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff2value);
   // @@protoc_insertion_point(field_set_allocated:MSG.CharTier.CharTierTable.Buff2Value)
 }
 
-// required string Buff3Type = 6;
-inline bool CharTier_CharTierTable::has_buff3type() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void CharTier_CharTierTable::set_has_buff3type() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void CharTier_CharTierTable::clear_has_buff3type() {
-  _has_bits_[0] &= ~0x00000020u;
-}
+// optional string Buff3Type = 6;
 inline void CharTier_CharTierTable::clear_buff3type() {
   buff3type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff3type();
 }
 inline const ::std::string& CharTier_CharTierTable::buff3type() const {
   // @@protoc_insertion_point(field_get:MSG.CharTier.CharTierTable.Buff3Type)
   return buff3type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_buff3type(const ::std::string& value) {
-  set_has_buff3type();
+  
   buff3type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.CharTier.CharTierTable.Buff3Type)
 }
 inline void CharTier_CharTierTable::set_buff3type(const char* value) {
-  set_has_buff3type();
+  
   buff3type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.CharTier.CharTierTable.Buff3Type)
 }
 inline void CharTier_CharTierTable::set_buff3type(const char* value, size_t size) {
-  set_has_buff3type();
+  
   buff3type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.CharTier.CharTierTable.Buff3Type)
 }
 inline ::std::string* CharTier_CharTierTable::mutable_buff3type() {
-  set_has_buff3type();
+  
   // @@protoc_insertion_point(field_mutable:MSG.CharTier.CharTierTable.Buff3Type)
   return buff3type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CharTier_CharTierTable::release_buff3type() {
   // @@protoc_insertion_point(field_release:MSG.CharTier.CharTierTable.Buff3Type)
-  clear_has_buff3type();
+  
   return buff3type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_allocated_buff3type(::std::string* buff3type) {
   if (buff3type != NULL) {
-    set_has_buff3type();
+    
   } else {
-    clear_has_buff3type();
+    
   }
   buff3type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff3type);
   // @@protoc_insertion_point(field_set_allocated:MSG.CharTier.CharTierTable.Buff3Type)
 }
 
-// required string Buff3Value = 7;
-inline bool CharTier_CharTierTable::has_buff3value() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void CharTier_CharTierTable::set_has_buff3value() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void CharTier_CharTierTable::clear_has_buff3value() {
-  _has_bits_[0] &= ~0x00000040u;
-}
+// optional string Buff3Value = 7;
 inline void CharTier_CharTierTable::clear_buff3value() {
   buff3value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff3value();
 }
 inline const ::std::string& CharTier_CharTierTable::buff3value() const {
   // @@protoc_insertion_point(field_get:MSG.CharTier.CharTierTable.Buff3Value)
   return buff3value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_buff3value(const ::std::string& value) {
-  set_has_buff3value();
+  
   buff3value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.CharTier.CharTierTable.Buff3Value)
 }
 inline void CharTier_CharTierTable::set_buff3value(const char* value) {
-  set_has_buff3value();
+  
   buff3value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.CharTier.CharTierTable.Buff3Value)
 }
 inline void CharTier_CharTierTable::set_buff3value(const char* value, size_t size) {
-  set_has_buff3value();
+  
   buff3value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.CharTier.CharTierTable.Buff3Value)
 }
 inline ::std::string* CharTier_CharTierTable::mutable_buff3value() {
-  set_has_buff3value();
+  
   // @@protoc_insertion_point(field_mutable:MSG.CharTier.CharTierTable.Buff3Value)
   return buff3value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CharTier_CharTierTable::release_buff3value() {
   // @@protoc_insertion_point(field_release:MSG.CharTier.CharTierTable.Buff3Value)
-  clear_has_buff3value();
+  
   return buff3value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier_CharTierTable::set_allocated_buff3value(::std::string* buff3value) {
   if (buff3value != NULL) {
-    set_has_buff3value();
+    
   } else {
-    clear_has_buff3value();
+    
   }
   buff3value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff3value);
   // @@protoc_insertion_point(field_set_allocated:MSG.CharTier.CharTierTable.Buff3Value)
@@ -4193,55 +3481,45 @@ inline void CharTier_CharTierTable::set_allocated_buff3value(::std::string* buff
 
 // CharTier
 
-// required string TableName = 1;
-inline bool CharTier::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void CharTier::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void CharTier::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void CharTier::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& CharTier::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.CharTier.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.CharTier.TableName)
 }
 inline void CharTier::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.CharTier.TableName)
 }
 inline void CharTier::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.CharTier.TableName)
 }
 inline ::std::string* CharTier::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.CharTier.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CharTier::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.CharTier.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CharTier::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.CharTier.TableName)
@@ -4281,349 +3559,279 @@ CharTier::data() const {
 
 // DungeonTier_DungeonTierTable
 
-// required uint32 Tier = 1;
-inline bool DungeonTier_DungeonTierTable::has_tier() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void DungeonTier_DungeonTierTable::set_has_tier() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void DungeonTier_DungeonTierTable::clear_has_tier() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 Tier = 1;
 inline void DungeonTier_DungeonTierTable::clear_tier() {
   tier_ = 0u;
-  clear_has_tier();
 }
 inline ::google::protobuf::uint32 DungeonTier_DungeonTierTable::tier() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonTier.DungeonTierTable.Tier)
   return tier_;
 }
 inline void DungeonTier_DungeonTierTable::set_tier(::google::protobuf::uint32 value) {
-  set_has_tier();
+  
   tier_ = value;
   // @@protoc_insertion_point(field_set:MSG.DungeonTier.DungeonTierTable.Tier)
 }
 
-// required string Buff1Type = 2;
-inline bool DungeonTier_DungeonTierTable::has_buff1type() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void DungeonTier_DungeonTierTable::set_has_buff1type() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void DungeonTier_DungeonTierTable::clear_has_buff1type() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string Buff1Type = 2;
 inline void DungeonTier_DungeonTierTable::clear_buff1type() {
   buff1type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff1type();
 }
 inline const ::std::string& DungeonTier_DungeonTierTable::buff1type() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonTier.DungeonTierTable.Buff1Type)
   return buff1type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_buff1type(const ::std::string& value) {
-  set_has_buff1type();
+  
   buff1type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.DungeonTier.DungeonTierTable.Buff1Type)
 }
 inline void DungeonTier_DungeonTierTable::set_buff1type(const char* value) {
-  set_has_buff1type();
+  
   buff1type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.DungeonTier.DungeonTierTable.Buff1Type)
 }
 inline void DungeonTier_DungeonTierTable::set_buff1type(const char* value, size_t size) {
-  set_has_buff1type();
+  
   buff1type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.DungeonTier.DungeonTierTable.Buff1Type)
 }
 inline ::std::string* DungeonTier_DungeonTierTable::mutable_buff1type() {
-  set_has_buff1type();
+  
   // @@protoc_insertion_point(field_mutable:MSG.DungeonTier.DungeonTierTable.Buff1Type)
   return buff1type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* DungeonTier_DungeonTierTable::release_buff1type() {
   // @@protoc_insertion_point(field_release:MSG.DungeonTier.DungeonTierTable.Buff1Type)
-  clear_has_buff1type();
+  
   return buff1type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_allocated_buff1type(::std::string* buff1type) {
   if (buff1type != NULL) {
-    set_has_buff1type();
+    
   } else {
-    clear_has_buff1type();
+    
   }
   buff1type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff1type);
   // @@protoc_insertion_point(field_set_allocated:MSG.DungeonTier.DungeonTierTable.Buff1Type)
 }
 
-// required string Buff1Value = 3;
-inline bool DungeonTier_DungeonTierTable::has_buff1value() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void DungeonTier_DungeonTierTable::set_has_buff1value() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void DungeonTier_DungeonTierTable::clear_has_buff1value() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional string Buff1Value = 3;
 inline void DungeonTier_DungeonTierTable::clear_buff1value() {
   buff1value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff1value();
 }
 inline const ::std::string& DungeonTier_DungeonTierTable::buff1value() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonTier.DungeonTierTable.Buff1Value)
   return buff1value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_buff1value(const ::std::string& value) {
-  set_has_buff1value();
+  
   buff1value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.DungeonTier.DungeonTierTable.Buff1Value)
 }
 inline void DungeonTier_DungeonTierTable::set_buff1value(const char* value) {
-  set_has_buff1value();
+  
   buff1value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.DungeonTier.DungeonTierTable.Buff1Value)
 }
 inline void DungeonTier_DungeonTierTable::set_buff1value(const char* value, size_t size) {
-  set_has_buff1value();
+  
   buff1value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.DungeonTier.DungeonTierTable.Buff1Value)
 }
 inline ::std::string* DungeonTier_DungeonTierTable::mutable_buff1value() {
-  set_has_buff1value();
+  
   // @@protoc_insertion_point(field_mutable:MSG.DungeonTier.DungeonTierTable.Buff1Value)
   return buff1value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* DungeonTier_DungeonTierTable::release_buff1value() {
   // @@protoc_insertion_point(field_release:MSG.DungeonTier.DungeonTierTable.Buff1Value)
-  clear_has_buff1value();
+  
   return buff1value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_allocated_buff1value(::std::string* buff1value) {
   if (buff1value != NULL) {
-    set_has_buff1value();
+    
   } else {
-    clear_has_buff1value();
+    
   }
   buff1value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff1value);
   // @@protoc_insertion_point(field_set_allocated:MSG.DungeonTier.DungeonTierTable.Buff1Value)
 }
 
-// required string Buff2Type = 4;
-inline bool DungeonTier_DungeonTierTable::has_buff2type() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void DungeonTier_DungeonTierTable::set_has_buff2type() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void DungeonTier_DungeonTierTable::clear_has_buff2type() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional string Buff2Type = 4;
 inline void DungeonTier_DungeonTierTable::clear_buff2type() {
   buff2type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff2type();
 }
 inline const ::std::string& DungeonTier_DungeonTierTable::buff2type() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonTier.DungeonTierTable.Buff2Type)
   return buff2type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_buff2type(const ::std::string& value) {
-  set_has_buff2type();
+  
   buff2type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.DungeonTier.DungeonTierTable.Buff2Type)
 }
 inline void DungeonTier_DungeonTierTable::set_buff2type(const char* value) {
-  set_has_buff2type();
+  
   buff2type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.DungeonTier.DungeonTierTable.Buff2Type)
 }
 inline void DungeonTier_DungeonTierTable::set_buff2type(const char* value, size_t size) {
-  set_has_buff2type();
+  
   buff2type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.DungeonTier.DungeonTierTable.Buff2Type)
 }
 inline ::std::string* DungeonTier_DungeonTierTable::mutable_buff2type() {
-  set_has_buff2type();
+  
   // @@protoc_insertion_point(field_mutable:MSG.DungeonTier.DungeonTierTable.Buff2Type)
   return buff2type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* DungeonTier_DungeonTierTable::release_buff2type() {
   // @@protoc_insertion_point(field_release:MSG.DungeonTier.DungeonTierTable.Buff2Type)
-  clear_has_buff2type();
+  
   return buff2type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_allocated_buff2type(::std::string* buff2type) {
   if (buff2type != NULL) {
-    set_has_buff2type();
+    
   } else {
-    clear_has_buff2type();
+    
   }
   buff2type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff2type);
   // @@protoc_insertion_point(field_set_allocated:MSG.DungeonTier.DungeonTierTable.Buff2Type)
 }
 
-// required string Buff2Value = 5;
-inline bool DungeonTier_DungeonTierTable::has_buff2value() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void DungeonTier_DungeonTierTable::set_has_buff2value() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void DungeonTier_DungeonTierTable::clear_has_buff2value() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional string Buff2Value = 5;
 inline void DungeonTier_DungeonTierTable::clear_buff2value() {
   buff2value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff2value();
 }
 inline const ::std::string& DungeonTier_DungeonTierTable::buff2value() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonTier.DungeonTierTable.Buff2Value)
   return buff2value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_buff2value(const ::std::string& value) {
-  set_has_buff2value();
+  
   buff2value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.DungeonTier.DungeonTierTable.Buff2Value)
 }
 inline void DungeonTier_DungeonTierTable::set_buff2value(const char* value) {
-  set_has_buff2value();
+  
   buff2value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.DungeonTier.DungeonTierTable.Buff2Value)
 }
 inline void DungeonTier_DungeonTierTable::set_buff2value(const char* value, size_t size) {
-  set_has_buff2value();
+  
   buff2value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.DungeonTier.DungeonTierTable.Buff2Value)
 }
 inline ::std::string* DungeonTier_DungeonTierTable::mutable_buff2value() {
-  set_has_buff2value();
+  
   // @@protoc_insertion_point(field_mutable:MSG.DungeonTier.DungeonTierTable.Buff2Value)
   return buff2value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* DungeonTier_DungeonTierTable::release_buff2value() {
   // @@protoc_insertion_point(field_release:MSG.DungeonTier.DungeonTierTable.Buff2Value)
-  clear_has_buff2value();
+  
   return buff2value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_allocated_buff2value(::std::string* buff2value) {
   if (buff2value != NULL) {
-    set_has_buff2value();
+    
   } else {
-    clear_has_buff2value();
+    
   }
   buff2value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff2value);
   // @@protoc_insertion_point(field_set_allocated:MSG.DungeonTier.DungeonTierTable.Buff2Value)
 }
 
-// required string Buff3Type = 6;
-inline bool DungeonTier_DungeonTierTable::has_buff3type() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void DungeonTier_DungeonTierTable::set_has_buff3type() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void DungeonTier_DungeonTierTable::clear_has_buff3type() {
-  _has_bits_[0] &= ~0x00000020u;
-}
+// optional string Buff3Type = 6;
 inline void DungeonTier_DungeonTierTable::clear_buff3type() {
   buff3type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff3type();
 }
 inline const ::std::string& DungeonTier_DungeonTierTable::buff3type() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonTier.DungeonTierTable.Buff3Type)
   return buff3type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_buff3type(const ::std::string& value) {
-  set_has_buff3type();
+  
   buff3type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.DungeonTier.DungeonTierTable.Buff3Type)
 }
 inline void DungeonTier_DungeonTierTable::set_buff3type(const char* value) {
-  set_has_buff3type();
+  
   buff3type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.DungeonTier.DungeonTierTable.Buff3Type)
 }
 inline void DungeonTier_DungeonTierTable::set_buff3type(const char* value, size_t size) {
-  set_has_buff3type();
+  
   buff3type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.DungeonTier.DungeonTierTable.Buff3Type)
 }
 inline ::std::string* DungeonTier_DungeonTierTable::mutable_buff3type() {
-  set_has_buff3type();
+  
   // @@protoc_insertion_point(field_mutable:MSG.DungeonTier.DungeonTierTable.Buff3Type)
   return buff3type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* DungeonTier_DungeonTierTable::release_buff3type() {
   // @@protoc_insertion_point(field_release:MSG.DungeonTier.DungeonTierTable.Buff3Type)
-  clear_has_buff3type();
+  
   return buff3type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_allocated_buff3type(::std::string* buff3type) {
   if (buff3type != NULL) {
-    set_has_buff3type();
+    
   } else {
-    clear_has_buff3type();
+    
   }
   buff3type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff3type);
   // @@protoc_insertion_point(field_set_allocated:MSG.DungeonTier.DungeonTierTable.Buff3Type)
 }
 
-// required string Buff3Value = 7;
-inline bool DungeonTier_DungeonTierTable::has_buff3value() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void DungeonTier_DungeonTierTable::set_has_buff3value() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void DungeonTier_DungeonTierTable::clear_has_buff3value() {
-  _has_bits_[0] &= ~0x00000040u;
-}
+// optional string Buff3Value = 7;
 inline void DungeonTier_DungeonTierTable::clear_buff3value() {
   buff3value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_buff3value();
 }
 inline const ::std::string& DungeonTier_DungeonTierTable::buff3value() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonTier.DungeonTierTable.Buff3Value)
   return buff3value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_buff3value(const ::std::string& value) {
-  set_has_buff3value();
+  
   buff3value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.DungeonTier.DungeonTierTable.Buff3Value)
 }
 inline void DungeonTier_DungeonTierTable::set_buff3value(const char* value) {
-  set_has_buff3value();
+  
   buff3value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.DungeonTier.DungeonTierTable.Buff3Value)
 }
 inline void DungeonTier_DungeonTierTable::set_buff3value(const char* value, size_t size) {
-  set_has_buff3value();
+  
   buff3value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.DungeonTier.DungeonTierTable.Buff3Value)
 }
 inline ::std::string* DungeonTier_DungeonTierTable::mutable_buff3value() {
-  set_has_buff3value();
+  
   // @@protoc_insertion_point(field_mutable:MSG.DungeonTier.DungeonTierTable.Buff3Value)
   return buff3value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* DungeonTier_DungeonTierTable::release_buff3value() {
   // @@protoc_insertion_point(field_release:MSG.DungeonTier.DungeonTierTable.Buff3Value)
-  clear_has_buff3value();
+  
   return buff3value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier_DungeonTierTable::set_allocated_buff3value(::std::string* buff3value) {
   if (buff3value != NULL) {
-    set_has_buff3value();
+    
   } else {
-    clear_has_buff3value();
+    
   }
   buff3value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buff3value);
   // @@protoc_insertion_point(field_set_allocated:MSG.DungeonTier.DungeonTierTable.Buff3Value)
@@ -4633,55 +3841,45 @@ inline void DungeonTier_DungeonTierTable::set_allocated_buff3value(::std::string
 
 // DungeonTier
 
-// required string TableName = 1;
-inline bool DungeonTier::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void DungeonTier::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void DungeonTier::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void DungeonTier::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& DungeonTier::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.DungeonTier.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.DungeonTier.TableName)
 }
 inline void DungeonTier::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.DungeonTier.TableName)
 }
 inline void DungeonTier::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.DungeonTier.TableName)
 }
 inline ::std::string* DungeonTier::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.DungeonTier.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* DungeonTier::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.DungeonTier.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void DungeonTier::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.DungeonTier.TableName)
@@ -4721,122 +3919,72 @@ DungeonTier::data() const {
 
 // MobAStat_MobAStatTable
 
-// required uint32 Level = 1;
-inline bool MobAStat_MobAStatTable::has_level() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void MobAStat_MobAStatTable::set_has_level() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void MobAStat_MobAStatTable::clear_has_level() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 Level = 1;
 inline void MobAStat_MobAStatTable::clear_level() {
   level_ = 0u;
-  clear_has_level();
 }
 inline ::google::protobuf::uint32 MobAStat_MobAStatTable::level() const {
   // @@protoc_insertion_point(field_get:MSG.MobAStat.MobAStatTable.Level)
   return level_;
 }
 inline void MobAStat_MobAStatTable::set_level(::google::protobuf::uint32 value) {
-  set_has_level();
+  
   level_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobAStat.MobAStatTable.Level)
 }
 
-// required uint32 Exp = 2;
-inline bool MobAStat_MobAStatTable::has_exp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void MobAStat_MobAStatTable::set_has_exp() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void MobAStat_MobAStatTable::clear_has_exp() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 Exp = 2;
 inline void MobAStat_MobAStatTable::clear_exp() {
   exp_ = 0u;
-  clear_has_exp();
 }
 inline ::google::protobuf::uint32 MobAStat_MobAStatTable::exp() const {
   // @@protoc_insertion_point(field_get:MSG.MobAStat.MobAStatTable.Exp)
   return exp_;
 }
 inline void MobAStat_MobAStatTable::set_exp(::google::protobuf::uint32 value) {
-  set_has_exp();
+  
   exp_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobAStat.MobAStatTable.Exp)
 }
 
-// required uint32 Atk = 3;
-inline bool MobAStat_MobAStatTable::has_atk() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void MobAStat_MobAStatTable::set_has_atk() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void MobAStat_MobAStatTable::clear_has_atk() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 Atk = 3;
 inline void MobAStat_MobAStatTable::clear_atk() {
   atk_ = 0u;
-  clear_has_atk();
 }
 inline ::google::protobuf::uint32 MobAStat_MobAStatTable::atk() const {
   // @@protoc_insertion_point(field_get:MSG.MobAStat.MobAStatTable.Atk)
   return atk_;
 }
 inline void MobAStat_MobAStatTable::set_atk(::google::protobuf::uint32 value) {
-  set_has_atk();
+  
   atk_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobAStat.MobAStatTable.Atk)
 }
 
-// required uint32 Def = 4;
-inline bool MobAStat_MobAStatTable::has_def() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void MobAStat_MobAStatTable::set_has_def() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void MobAStat_MobAStatTable::clear_has_def() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional uint32 Def = 4;
 inline void MobAStat_MobAStatTable::clear_def() {
   def_ = 0u;
-  clear_has_def();
 }
 inline ::google::protobuf::uint32 MobAStat_MobAStatTable::def() const {
   // @@protoc_insertion_point(field_get:MSG.MobAStat.MobAStatTable.Def)
   return def_;
 }
 inline void MobAStat_MobAStatTable::set_def(::google::protobuf::uint32 value) {
-  set_has_def();
+  
   def_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobAStat.MobAStatTable.Def)
 }
 
-// required uint32 Hp = 5;
-inline bool MobAStat_MobAStatTable::has_hp() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void MobAStat_MobAStatTable::set_has_hp() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void MobAStat_MobAStatTable::clear_has_hp() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional uint32 Hp = 5;
 inline void MobAStat_MobAStatTable::clear_hp() {
   hp_ = 0u;
-  clear_has_hp();
 }
 inline ::google::protobuf::uint32 MobAStat_MobAStatTable::hp() const {
   // @@protoc_insertion_point(field_get:MSG.MobAStat.MobAStatTable.Hp)
   return hp_;
 }
 inline void MobAStat_MobAStatTable::set_hp(::google::protobuf::uint32 value) {
-  set_has_hp();
+  
   hp_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobAStat.MobAStatTable.Hp)
 }
@@ -4845,55 +3993,45 @@ inline void MobAStat_MobAStatTable::set_hp(::google::protobuf::uint32 value) {
 
 // MobAStat
 
-// required string TableName = 1;
-inline bool MobAStat::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void MobAStat::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void MobAStat::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void MobAStat::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& MobAStat::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.MobAStat.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void MobAStat::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.MobAStat.TableName)
 }
 inline void MobAStat::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.MobAStat.TableName)
 }
 inline void MobAStat::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.MobAStat.TableName)
 }
 inline ::std::string* MobAStat::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.MobAStat.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* MobAStat::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.MobAStat.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void MobAStat::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.MobAStat.TableName)
@@ -4933,122 +4071,72 @@ MobAStat::data() const {
 
 // MobBStat_MobBStatTable
 
-// required uint32 Level = 1;
-inline bool MobBStat_MobBStatTable::has_level() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void MobBStat_MobBStatTable::set_has_level() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void MobBStat_MobBStatTable::clear_has_level() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 Level = 1;
 inline void MobBStat_MobBStatTable::clear_level() {
   level_ = 0u;
-  clear_has_level();
 }
 inline ::google::protobuf::uint32 MobBStat_MobBStatTable::level() const {
   // @@protoc_insertion_point(field_get:MSG.MobBStat.MobBStatTable.Level)
   return level_;
 }
 inline void MobBStat_MobBStatTable::set_level(::google::protobuf::uint32 value) {
-  set_has_level();
+  
   level_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobBStat.MobBStatTable.Level)
 }
 
-// required uint32 Exp = 2;
-inline bool MobBStat_MobBStatTable::has_exp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void MobBStat_MobBStatTable::set_has_exp() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void MobBStat_MobBStatTable::clear_has_exp() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 Exp = 2;
 inline void MobBStat_MobBStatTable::clear_exp() {
   exp_ = 0u;
-  clear_has_exp();
 }
 inline ::google::protobuf::uint32 MobBStat_MobBStatTable::exp() const {
   // @@protoc_insertion_point(field_get:MSG.MobBStat.MobBStatTable.Exp)
   return exp_;
 }
 inline void MobBStat_MobBStatTable::set_exp(::google::protobuf::uint32 value) {
-  set_has_exp();
+  
   exp_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobBStat.MobBStatTable.Exp)
 }
 
-// required uint32 Atk = 3;
-inline bool MobBStat_MobBStatTable::has_atk() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void MobBStat_MobBStatTable::set_has_atk() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void MobBStat_MobBStatTable::clear_has_atk() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 Atk = 3;
 inline void MobBStat_MobBStatTable::clear_atk() {
   atk_ = 0u;
-  clear_has_atk();
 }
 inline ::google::protobuf::uint32 MobBStat_MobBStatTable::atk() const {
   // @@protoc_insertion_point(field_get:MSG.MobBStat.MobBStatTable.Atk)
   return atk_;
 }
 inline void MobBStat_MobBStatTable::set_atk(::google::protobuf::uint32 value) {
-  set_has_atk();
+  
   atk_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobBStat.MobBStatTable.Atk)
 }
 
-// required uint32 Def = 4;
-inline bool MobBStat_MobBStatTable::has_def() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void MobBStat_MobBStatTable::set_has_def() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void MobBStat_MobBStatTable::clear_has_def() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional uint32 Def = 4;
 inline void MobBStat_MobBStatTable::clear_def() {
   def_ = 0u;
-  clear_has_def();
 }
 inline ::google::protobuf::uint32 MobBStat_MobBStatTable::def() const {
   // @@protoc_insertion_point(field_get:MSG.MobBStat.MobBStatTable.Def)
   return def_;
 }
 inline void MobBStat_MobBStatTable::set_def(::google::protobuf::uint32 value) {
-  set_has_def();
+  
   def_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobBStat.MobBStatTable.Def)
 }
 
-// required uint32 Hp = 5;
-inline bool MobBStat_MobBStatTable::has_hp() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void MobBStat_MobBStatTable::set_has_hp() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void MobBStat_MobBStatTable::clear_has_hp() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional uint32 Hp = 5;
 inline void MobBStat_MobBStatTable::clear_hp() {
   hp_ = 0u;
-  clear_has_hp();
 }
 inline ::google::protobuf::uint32 MobBStat_MobBStatTable::hp() const {
   // @@protoc_insertion_point(field_get:MSG.MobBStat.MobBStatTable.Hp)
   return hp_;
 }
 inline void MobBStat_MobBStatTable::set_hp(::google::protobuf::uint32 value) {
-  set_has_hp();
+  
   hp_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobBStat.MobBStatTable.Hp)
 }
@@ -5057,55 +4145,45 @@ inline void MobBStat_MobBStatTable::set_hp(::google::protobuf::uint32 value) {
 
 // MobBStat
 
-// required string TableName = 1;
-inline bool MobBStat::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void MobBStat::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void MobBStat::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void MobBStat::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& MobBStat::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.MobBStat.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void MobBStat::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.MobBStat.TableName)
 }
 inline void MobBStat::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.MobBStat.TableName)
 }
 inline void MobBStat::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.MobBStat.TableName)
 }
 inline ::std::string* MobBStat::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.MobBStat.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* MobBStat::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.MobBStat.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void MobBStat::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.MobBStat.TableName)
@@ -5145,122 +4223,72 @@ MobBStat::data() const {
 
 // MobCStat_MobCStatTable
 
-// required uint32 Level = 1;
-inline bool MobCStat_MobCStatTable::has_level() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void MobCStat_MobCStatTable::set_has_level() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void MobCStat_MobCStatTable::clear_has_level() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 Level = 1;
 inline void MobCStat_MobCStatTable::clear_level() {
   level_ = 0u;
-  clear_has_level();
 }
 inline ::google::protobuf::uint32 MobCStat_MobCStatTable::level() const {
   // @@protoc_insertion_point(field_get:MSG.MobCStat.MobCStatTable.Level)
   return level_;
 }
 inline void MobCStat_MobCStatTable::set_level(::google::protobuf::uint32 value) {
-  set_has_level();
+  
   level_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobCStat.MobCStatTable.Level)
 }
 
-// required uint32 Exp = 2;
-inline bool MobCStat_MobCStatTable::has_exp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void MobCStat_MobCStatTable::set_has_exp() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void MobCStat_MobCStatTable::clear_has_exp() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional uint32 Exp = 2;
 inline void MobCStat_MobCStatTable::clear_exp() {
   exp_ = 0u;
-  clear_has_exp();
 }
 inline ::google::protobuf::uint32 MobCStat_MobCStatTable::exp() const {
   // @@protoc_insertion_point(field_get:MSG.MobCStat.MobCStatTable.Exp)
   return exp_;
 }
 inline void MobCStat_MobCStatTable::set_exp(::google::protobuf::uint32 value) {
-  set_has_exp();
+  
   exp_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobCStat.MobCStatTable.Exp)
 }
 
-// required uint32 Atk = 3;
-inline bool MobCStat_MobCStatTable::has_atk() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void MobCStat_MobCStatTable::set_has_atk() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void MobCStat_MobCStatTable::clear_has_atk() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 Atk = 3;
 inline void MobCStat_MobCStatTable::clear_atk() {
   atk_ = 0u;
-  clear_has_atk();
 }
 inline ::google::protobuf::uint32 MobCStat_MobCStatTable::atk() const {
   // @@protoc_insertion_point(field_get:MSG.MobCStat.MobCStatTable.Atk)
   return atk_;
 }
 inline void MobCStat_MobCStatTable::set_atk(::google::protobuf::uint32 value) {
-  set_has_atk();
+  
   atk_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobCStat.MobCStatTable.Atk)
 }
 
-// required uint32 Def = 4;
-inline bool MobCStat_MobCStatTable::has_def() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void MobCStat_MobCStatTable::set_has_def() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void MobCStat_MobCStatTable::clear_has_def() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional uint32 Def = 4;
 inline void MobCStat_MobCStatTable::clear_def() {
   def_ = 0u;
-  clear_has_def();
 }
 inline ::google::protobuf::uint32 MobCStat_MobCStatTable::def() const {
   // @@protoc_insertion_point(field_get:MSG.MobCStat.MobCStatTable.Def)
   return def_;
 }
 inline void MobCStat_MobCStatTable::set_def(::google::protobuf::uint32 value) {
-  set_has_def();
+  
   def_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobCStat.MobCStatTable.Def)
 }
 
-// required uint32 Hp = 5;
-inline bool MobCStat_MobCStatTable::has_hp() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void MobCStat_MobCStatTable::set_has_hp() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void MobCStat_MobCStatTable::clear_has_hp() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional uint32 Hp = 5;
 inline void MobCStat_MobCStatTable::clear_hp() {
   hp_ = 0u;
-  clear_has_hp();
 }
 inline ::google::protobuf::uint32 MobCStat_MobCStatTable::hp() const {
   // @@protoc_insertion_point(field_get:MSG.MobCStat.MobCStatTable.Hp)
   return hp_;
 }
 inline void MobCStat_MobCStatTable::set_hp(::google::protobuf::uint32 value) {
-  set_has_hp();
+  
   hp_ = value;
   // @@protoc_insertion_point(field_set:MSG.MobCStat.MobCStatTable.Hp)
 }
@@ -5269,55 +4297,45 @@ inline void MobCStat_MobCStatTable::set_hp(::google::protobuf::uint32 value) {
 
 // MobCStat
 
-// required string TableName = 1;
-inline bool MobCStat::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void MobCStat::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void MobCStat::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void MobCStat::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& MobCStat::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.MobCStat.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void MobCStat::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.MobCStat.TableName)
 }
 inline void MobCStat::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.MobCStat.TableName)
 }
 inline void MobCStat::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.MobCStat.TableName)
 }
 inline ::std::string* MobCStat::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.MobCStat.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* MobCStat::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.MobCStat.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void MobCStat::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.MobCStat.TableName)
@@ -5357,200 +4375,130 @@ MobCStat::data() const {
 
 // Dungeon_DungeonTable
 
-// required uint32 No = 1;
-inline bool Dungeon_DungeonTable::has_no() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Dungeon_DungeonTable::set_has_no() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Dungeon_DungeonTable::clear_has_no() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 No = 1;
 inline void Dungeon_DungeonTable::clear_no() {
   no_ = 0u;
-  clear_has_no();
 }
 inline ::google::protobuf::uint32 Dungeon_DungeonTable::no() const {
   // @@protoc_insertion_point(field_get:MSG.Dungeon.DungeonTable.No)
   return no_;
 }
 inline void Dungeon_DungeonTable::set_no(::google::protobuf::uint32 value) {
-  set_has_no();
+  
   no_ = value;
   // @@protoc_insertion_point(field_set:MSG.Dungeon.DungeonTable.No)
 }
 
-// required string Name = 2;
-inline bool Dungeon_DungeonTable::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Dungeon_DungeonTable::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Dungeon_DungeonTable::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string Name = 2;
 inline void Dungeon_DungeonTable::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& Dungeon_DungeonTable::name() const {
   // @@protoc_insertion_point(field_get:MSG.Dungeon.DungeonTable.Name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Dungeon_DungeonTable::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Dungeon.DungeonTable.Name)
 }
 inline void Dungeon_DungeonTable::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Dungeon.DungeonTable.Name)
 }
 inline void Dungeon_DungeonTable::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Dungeon.DungeonTable.Name)
 }
 inline ::std::string* Dungeon_DungeonTable::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Dungeon.DungeonTable.Name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Dungeon_DungeonTable::release_name() {
   // @@protoc_insertion_point(field_release:MSG.Dungeon.DungeonTable.Name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Dungeon_DungeonTable::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.Dungeon.DungeonTable.Name)
 }
 
-// required uint32 Level = 3;
-inline bool Dungeon_DungeonTable::has_level() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Dungeon_DungeonTable::set_has_level() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Dungeon_DungeonTable::clear_has_level() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional uint32 Level = 3;
 inline void Dungeon_DungeonTable::clear_level() {
   level_ = 0u;
-  clear_has_level();
 }
 inline ::google::protobuf::uint32 Dungeon_DungeonTable::level() const {
   // @@protoc_insertion_point(field_get:MSG.Dungeon.DungeonTable.Level)
   return level_;
 }
 inline void Dungeon_DungeonTable::set_level(::google::protobuf::uint32 value) {
-  set_has_level();
+  
   level_ = value;
   // @@protoc_insertion_point(field_set:MSG.Dungeon.DungeonTable.Level)
 }
 
-// required uint32 Reward = 4;
-inline bool Dungeon_DungeonTable::has_reward() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void Dungeon_DungeonTable::set_has_reward() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void Dungeon_DungeonTable::clear_has_reward() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional uint32 Reward = 4;
 inline void Dungeon_DungeonTable::clear_reward() {
   reward_ = 0u;
-  clear_has_reward();
 }
 inline ::google::protobuf::uint32 Dungeon_DungeonTable::reward() const {
   // @@protoc_insertion_point(field_get:MSG.Dungeon.DungeonTable.Reward)
   return reward_;
 }
 inline void Dungeon_DungeonTable::set_reward(::google::protobuf::uint32 value) {
-  set_has_reward();
+  
   reward_ = value;
   // @@protoc_insertion_point(field_set:MSG.Dungeon.DungeonTable.Reward)
 }
 
-// required uint32 MobALv = 5;
-inline bool Dungeon_DungeonTable::has_mobalv() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void Dungeon_DungeonTable::set_has_mobalv() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void Dungeon_DungeonTable::clear_has_mobalv() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional uint32 MobALv = 5;
 inline void Dungeon_DungeonTable::clear_mobalv() {
   mobalv_ = 0u;
-  clear_has_mobalv();
 }
 inline ::google::protobuf::uint32 Dungeon_DungeonTable::mobalv() const {
   // @@protoc_insertion_point(field_get:MSG.Dungeon.DungeonTable.MobALv)
   return mobalv_;
 }
 inline void Dungeon_DungeonTable::set_mobalv(::google::protobuf::uint32 value) {
-  set_has_mobalv();
+  
   mobalv_ = value;
   // @@protoc_insertion_point(field_set:MSG.Dungeon.DungeonTable.MobALv)
 }
 
-// required uint32 MobBLv = 6;
-inline bool Dungeon_DungeonTable::has_mobblv() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void Dungeon_DungeonTable::set_has_mobblv() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void Dungeon_DungeonTable::clear_has_mobblv() {
-  _has_bits_[0] &= ~0x00000020u;
-}
+// optional uint32 MobBLv = 6;
 inline void Dungeon_DungeonTable::clear_mobblv() {
   mobblv_ = 0u;
-  clear_has_mobblv();
 }
 inline ::google::protobuf::uint32 Dungeon_DungeonTable::mobblv() const {
   // @@protoc_insertion_point(field_get:MSG.Dungeon.DungeonTable.MobBLv)
   return mobblv_;
 }
 inline void Dungeon_DungeonTable::set_mobblv(::google::protobuf::uint32 value) {
-  set_has_mobblv();
+  
   mobblv_ = value;
   // @@protoc_insertion_point(field_set:MSG.Dungeon.DungeonTable.MobBLv)
 }
 
-// required uint32 MobCLv = 7;
-inline bool Dungeon_DungeonTable::has_mobclv() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void Dungeon_DungeonTable::set_has_mobclv() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void Dungeon_DungeonTable::clear_has_mobclv() {
-  _has_bits_[0] &= ~0x00000040u;
-}
+// optional uint32 MobCLv = 7;
 inline void Dungeon_DungeonTable::clear_mobclv() {
   mobclv_ = 0u;
-  clear_has_mobclv();
 }
 inline ::google::protobuf::uint32 Dungeon_DungeonTable::mobclv() const {
   // @@protoc_insertion_point(field_get:MSG.Dungeon.DungeonTable.MobCLv)
   return mobclv_;
 }
 inline void Dungeon_DungeonTable::set_mobclv(::google::protobuf::uint32 value) {
-  set_has_mobclv();
+  
   mobclv_ = value;
   // @@protoc_insertion_point(field_set:MSG.Dungeon.DungeonTable.MobCLv)
 }
@@ -5559,55 +4507,45 @@ inline void Dungeon_DungeonTable::set_mobclv(::google::protobuf::uint32 value) {
 
 // Dungeon
 
-// required string TableName = 1;
-inline bool Dungeon::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Dungeon::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Dungeon::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void Dungeon::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& Dungeon::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.Dungeon.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Dungeon::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Dungeon.TableName)
 }
 inline void Dungeon::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Dungeon.TableName)
 }
 inline void Dungeon::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Dungeon.TableName)
 }
 inline ::std::string* Dungeon::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Dungeon.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Dungeon::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.Dungeon.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Dungeon::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.Dungeon.TableName)
@@ -5647,236 +4585,176 @@ Dungeon::data() const {
 
 // Item_ItemTable
 
-// required uint32 No = 1;
-inline bool Item_ItemTable::has_no() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Item_ItemTable::set_has_no() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Item_ItemTable::clear_has_no() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional uint32 No = 1;
 inline void Item_ItemTable::clear_no() {
   no_ = 0u;
-  clear_has_no();
 }
 inline ::google::protobuf::uint32 Item_ItemTable::no() const {
   // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.No)
   return no_;
 }
 inline void Item_ItemTable::set_no(::google::protobuf::uint32 value) {
-  set_has_no();
+  
   no_ = value;
   // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.No)
 }
 
-// required string Name = 2;
-inline bool Item_ItemTable::has_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Item_ItemTable::set_has_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Item_ItemTable::clear_has_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+// optional string Name = 2;
 inline void Item_ItemTable::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name();
 }
 inline const ::std::string& Item_ItemTable::name() const {
   // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Item_ItemTable::set_name(const ::std::string& value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Name)
 }
 inline void Item_ItemTable::set_name(const char* value) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Item.ItemTable.Name)
 }
 inline void Item_ItemTable::set_name(const char* value, size_t size) {
-  set_has_name();
+  
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Item.ItemTable.Name)
 }
 inline ::std::string* Item_ItemTable::mutable_name() {
-  set_has_name();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Item.ItemTable.Name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Item_ItemTable::release_name() {
   // @@protoc_insertion_point(field_release:MSG.Item.ItemTable.Name)
-  clear_has_name();
+  
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Item_ItemTable::set_allocated_name(::std::string* name) {
   if (name != NULL) {
-    set_has_name();
+    
   } else {
-    clear_has_name();
+    
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:MSG.Item.ItemTable.Name)
 }
 
-// required string Category = 3;
-inline bool Item_ItemTable::has_category() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Item_ItemTable::set_has_category() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Item_ItemTable::clear_has_category() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+// optional string Category = 3;
 inline void Item_ItemTable::clear_category() {
   category_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_category();
 }
 inline const ::std::string& Item_ItemTable::category() const {
   // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Category)
   return category_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Item_ItemTable::set_category(const ::std::string& value) {
-  set_has_category();
+  
   category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Category)
 }
 inline void Item_ItemTable::set_category(const char* value) {
-  set_has_category();
+  
   category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Item.ItemTable.Category)
 }
 inline void Item_ItemTable::set_category(const char* value, size_t size) {
-  set_has_category();
+  
   category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Item.ItemTable.Category)
 }
 inline ::std::string* Item_ItemTable::mutable_category() {
-  set_has_category();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Item.ItemTable.Category)
   return category_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Item_ItemTable::release_category() {
   // @@protoc_insertion_point(field_release:MSG.Item.ItemTable.Category)
-  clear_has_category();
+  
   return category_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Item_ItemTable::set_allocated_category(::std::string* category) {
   if (category != NULL) {
-    set_has_category();
+    
   } else {
-    clear_has_category();
+    
   }
   category_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), category);
   // @@protoc_insertion_point(field_set_allocated:MSG.Item.ItemTable.Category)
 }
 
-// required uint32 CharNo = 4;
-inline bool Item_ItemTable::has_charno() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void Item_ItemTable::set_has_charno() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void Item_ItemTable::clear_has_charno() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+// optional uint32 CharNo = 4;
 inline void Item_ItemTable::clear_charno() {
   charno_ = 0u;
-  clear_has_charno();
 }
 inline ::google::protobuf::uint32 Item_ItemTable::charno() const {
   // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.CharNo)
   return charno_;
 }
 inline void Item_ItemTable::set_charno(::google::protobuf::uint32 value) {
-  set_has_charno();
+  
   charno_ = value;
   // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.CharNo)
 }
 
-// required string Stat = 5;
-inline bool Item_ItemTable::has_stat() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void Item_ItemTable::set_has_stat() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void Item_ItemTable::clear_has_stat() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+// optional string Stat = 5;
 inline void Item_ItemTable::clear_stat() {
   stat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_stat();
 }
 inline const ::std::string& Item_ItemTable::stat() const {
   // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Stat)
   return stat_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Item_ItemTable::set_stat(const ::std::string& value) {
-  set_has_stat();
+  
   stat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Stat)
 }
 inline void Item_ItemTable::set_stat(const char* value) {
-  set_has_stat();
+  
   stat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Item.ItemTable.Stat)
 }
 inline void Item_ItemTable::set_stat(const char* value, size_t size) {
-  set_has_stat();
+  
   stat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Item.ItemTable.Stat)
 }
 inline ::std::string* Item_ItemTable::mutable_stat() {
-  set_has_stat();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Item.ItemTable.Stat)
   return stat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Item_ItemTable::release_stat() {
   // @@protoc_insertion_point(field_release:MSG.Item.ItemTable.Stat)
-  clear_has_stat();
+  
   return stat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Item_ItemTable::set_allocated_stat(::std::string* stat) {
   if (stat != NULL) {
-    set_has_stat();
+    
   } else {
-    clear_has_stat();
+    
   }
   stat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), stat);
   // @@protoc_insertion_point(field_set_allocated:MSG.Item.ItemTable.Stat)
 }
 
-// required uint32 Value = 6;
-inline bool Item_ItemTable::has_value() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void Item_ItemTable::set_has_value() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void Item_ItemTable::clear_has_value() {
-  _has_bits_[0] &= ~0x00000020u;
-}
+// optional uint32 Value = 6;
 inline void Item_ItemTable::clear_value() {
   value_ = 0u;
-  clear_has_value();
 }
 inline ::google::protobuf::uint32 Item_ItemTable::value() const {
   // @@protoc_insertion_point(field_get:MSG.Item.ItemTable.Value)
   return value_;
 }
 inline void Item_ItemTable::set_value(::google::protobuf::uint32 value) {
-  set_has_value();
+  
   value_ = value;
   // @@protoc_insertion_point(field_set:MSG.Item.ItemTable.Value)
 }
@@ -5885,55 +4763,45 @@ inline void Item_ItemTable::set_value(::google::protobuf::uint32 value) {
 
 // Item
 
-// required string TableName = 1;
-inline bool Item::has_tablename() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Item::set_has_tablename() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Item::clear_has_tablename() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// optional string TableName = 1;
 inline void Item::clear_tablename() {
   tablename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_tablename();
 }
 inline const ::std::string& Item::tablename() const {
   // @@protoc_insertion_point(field_get:MSG.Item.TableName)
   return tablename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Item::set_tablename(const ::std::string& value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:MSG.Item.TableName)
 }
 inline void Item::set_tablename(const char* value) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:MSG.Item.TableName)
 }
 inline void Item::set_tablename(const char* value, size_t size) {
-  set_has_tablename();
+  
   tablename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:MSG.Item.TableName)
 }
 inline ::std::string* Item::mutable_tablename() {
-  set_has_tablename();
+  
   // @@protoc_insertion_point(field_mutable:MSG.Item.TableName)
   return tablename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Item::release_tablename() {
   // @@protoc_insertion_point(field_release:MSG.Item.TableName)
-  clear_has_tablename();
+  
   return tablename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Item::set_allocated_tablename(::std::string* tablename) {
   if (tablename != NULL) {
-    set_has_tablename();
+    
   } else {
-    clear_has_tablename();
+    
   }
   tablename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tablename);
   // @@protoc_insertion_point(field_set_allocated:MSG.Item.TableName)

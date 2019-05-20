@@ -96,7 +96,9 @@ void UserManager::remove(void* sessionPtr_)
 
 void UserManager::start()
 {
-	doTimer(1000, true, &UserManager::tick);
+	doTimer(1000, true, 
+		[this]() { tick(); }
+	);
 }
 
 void UserManager::stop()

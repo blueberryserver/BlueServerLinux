@@ -15,7 +15,9 @@ using boost::asio::ip::tcp;
 class Session : public std::enable_shared_from_this<Session>
 {
 public:
-	Session(boost::asio::io_service& io_);
+	Session(tcp::socket socket_);
+	//Session(tcp::socket&& socket_);
+	Session(boost::asio::io_context& io_);
 	virtual ~Session();
 
 	// address function
@@ -59,7 +61,7 @@ public:
 	bool isConnected();
 
 	// connection
-	void connect(const char* addr_, short port_);
+	void connect(const std::string& addr_, const std::string& port_);
 
 
 private:
@@ -70,6 +72,8 @@ private:
 	tcp::socket _socket;
 
 protected:
+	// connected
+	//boost::asio::io_context& _io;
 
 	// connecting status
 	std::atomic<bool> _connected;

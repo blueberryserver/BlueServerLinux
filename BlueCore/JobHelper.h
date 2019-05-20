@@ -1,7 +1,8 @@
 #pragma once
+#include <functional>
 namespace BLUE_BERRY {
 
-template<int N>
+template<long unsigned int N>
 struct TupleUnpacker
 {
 	template<class _T, class _Fn, class... _ARGS, class... _TupleARGS, class... _Args>
@@ -44,8 +45,6 @@ void doExecute(_Fn& func_, const std::tuple<_TupleARGS...>& tupleArgs_)
 {
 	TupleUnpacker<sizeof...(_TupleARGS)>::doExecute(func_, tupleArgs_);
 }
-
-
 
 // lamda function to std::function
 template<typename T>

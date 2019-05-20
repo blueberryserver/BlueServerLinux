@@ -1,25 +1,23 @@
 #pragma once
-#include "../BlueCore/Session.h"
+#include "../BlueCore/Session.h"	
 #include "../BlueCore/MsgHandler.h"
 #include "../BlueCore/MemoryPool.h"
 
 namespace BLUE_BERRY
 {
+using boost::asio::ip::tcp;
 
 class BlueSession : public Session
 {
 	enum { CLOSED = 10000, };
 public:
-	BlueSession(boost::asio::io_service& io_);
+	BlueSession(tcp::socket socket_);
+	BlueSession(boost::asio::io_context& io_);
 	virtual ~BlueSession();
 
 	// io complete function
 	virtual void onClose() override;
-	//virtual void onRecvComplete(boost::system::error_code errCode_, std::size_t length_);
-	//virtual void onSendComplete(boost::system::error_code errCode_, std::size_t length_);
 	virtual void onAcceptComplete() override;
-	//virtual void onConnectComplete(boost::system::error_code errCode_);
-
 
 	// recv data proc
 	virtual void recvPacketProc() override;
@@ -27,6 +25,7 @@ public:
 
 	// setting handler
 	virtual void setMsgHandler(MsgHandler<Session>* handler_);
+
 DECLARE_NEW_DELETE
 private:
 	MsgHandler<Session>* _msgHandler;

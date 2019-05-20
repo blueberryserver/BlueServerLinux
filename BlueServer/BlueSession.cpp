@@ -12,10 +12,13 @@ void BlueSession::setMsgHandler(MsgHandler<Session>* handler_)
 	_msgHandler = handler_;
 }
 
-BlueSession::BlueSession(boost::asio::io_service& io_)
-	: Session(io_), _msgHandler(DefaultHandler::getDefaultHandler())
+BlueSession::BlueSession(tcp::socket socket_)
+	: Session(std::move(socket_)), _msgHandler(DefaultHandler::getDefaultHandler())
 {}
 
+BlueSession::BlueSession(boost::asio::io_context& io_)
+	: Session(io_), _msgHandler(DefaultHandler::getDefaultHandler())
+{}
 
 BlueSession::~BlueSession()
 {
@@ -41,7 +44,7 @@ void BlueSession::recvPacketProc()
 	Packet packet(rBufferPoint, recvBuffSize);
 	while (packet.next())
 	{
-		_msgHandler->execute(shared_from_this(), packet.getId(), packet.getData(), packet.getDataLength());
+		if (_msgHandler) _msgHandler->execute(shared_from_this(), packet.getId(), packet.getData(), packet.getDataLength());
 		_recvBuff->remove(packet.getPacketLength());
 	}
 }

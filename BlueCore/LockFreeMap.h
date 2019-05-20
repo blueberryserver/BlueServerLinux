@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 namespace BLUE_BERRY {
 
 template<typename _Key, typename _Value, typename _HashKey = std::hash<_Key> >

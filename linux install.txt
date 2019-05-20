@@ -4,28 +4,30 @@ sudo apt-get install openssh-server g++ gdb gdbserver
 sudo service ssh start
 
 
+--install boost lib
 
--- install boost lib
-sudo apt-get install libboost-all-dev
+sudo apt-get update
+sudo apt-get install build-essential g++ python-dev autotools-dev libicu-dev build-essential libbz2-dev libboost-all-dev
+
+wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
+
+tar xvjf boost_1_70_0.tar.bz2
+cd boost_1_70_0
+
+./bootstrap.sh --prefix=/usr/local
+
+sudo ./b2 install
+
+dpkg -s libboost-dev | grep 'Version'
 
 
-install path lib
-	/usr/lib/x86_64-linux-gnu$
-
-install path include
-	/usr/include/boost/
 
 
--- mysql connect
-apt-get install libmysqlcppconn-dev
+--install  protocal buffer
 
-
-wget https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
 wget https://github.com/google/protobuf/releases/download/v3.0.0/protobuf-cpp-3.0.0.tar.gz
 
-
-tar -xf protobuf-2.6.1.tar.gz
-
+tar -xf protobuf-cpp-3.0.0.tar.gz
 
 sudo ./configure
 
@@ -36,8 +38,8 @@ sudo make check
 sudo make install
 
 
--- check install
-protoc --version
+--install mysql connect
+apt-get install libmysqlcppconn-dev
 
 
 sudo ldconfig
@@ -46,10 +48,13 @@ protoc --version
 
 
 
-
 /etc/ls.so.conf.d/
 
 create file (bluecore.conf) and setting library path
+
+
+
+/home/ubuntu/projects/Bluecore/lib
 
 
 
