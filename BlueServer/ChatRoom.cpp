@@ -42,7 +42,14 @@ ChatRoom::ChatRoom(const char* name_)
 	:_rid(_genRoomId++), _name(name_)
 {
 	LOG(L_INFO_, " ", "room", _name, "rid", (double)_rid);
-	_redis->setChannelMsgJob(makePostJob(this, &ChatRoom::msgProc));
+
+	auto& reply = _redis.get()->_reply;
+	_redis->setChannelMsgJob(makePostJob(
+		[this, &reply]() mutable { this->msgProc(reply); }
+		)
+	);
+
+
 	_redis->subscribe(std::vector<std::string>({ _name, }));
 
 }
@@ -87,7 +94,10 @@ void ChatRoom::publishEnter(uint64_t uid_, const char * name_)
 		LOG(L_INFO_, "Redis", "publish", _name, "reply", reply_);
 	});
 
-	SyncJobManager::getSyncJobManager()->addJob(key, makePostJobStatic(publishFunc), nullptr);
+	auto& reply = _redis.get()->_reply;
+	SyncJobManager::getSyncJobManager()->addJob(key, makePostJob(
+		[name = _name, &reply]() mutable { LOG(L_INFO_, "Redis", "publish", name, "reply", reply); }
+		), nullptr);
 }
 
 void ChatRoom::publishLeave(uint64_t uid_, const char * name_)
@@ -106,11 +116,10 @@ void ChatRoom::publishLeave(uint64_t uid_, const char * name_)
 	std::string jsonDump;
 	Json(data).dump(jsonDump);
 	auto key = _redis->publish(_name.c_str(), jsonDump.c_str());
-	auto publishFunc = CapturedLamdaToFuncObj([=](_RedisReply reply_) -> void {
-		LOG(L_INFO_, "Redis", "publish", _name, "reply", reply_);
-	});
-
-	SyncJobManager::getSyncJobManager()->addJob(key, makePostJobStatic(publishFunc), nullptr);
+	auto& reply = _redis.get()->_reply;
+	SyncJobManager::getSyncJobManager()->addJob(key, makePostJob(
+		[name = _name, &reply]() mutable { LOG(L_INFO_, "Redis", "publish", name, "reply", reply); }
+	), nullptr);
 }
 
 void ChatRoom::publishChat(MSG::ChatData_ & chat_)
@@ -132,7 +141,10 @@ void ChatRoom::publishChat(MSG::ChatData_ & chat_)
 		LOG(L_INFO_, "Redis", "publish", _name, "reply", reply_);
 	});
 
-	SyncJobManager::getSyncJobManager()->addJob(key, makePostJobStatic(publishFunc), nullptr);
+	auto& reply = _redis.get()->_reply;
+	SyncJobManager::getSyncJobManager()->addJob(key, makePostJob(
+		[name = _name, &reply]() mutable { LOG(L_INFO_, "Redis", "publish", name, "reply", reply);	}
+		), nullptr);
 }
 
 

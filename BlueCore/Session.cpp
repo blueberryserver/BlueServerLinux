@@ -157,7 +157,8 @@ void Session::postRecv()
 
 	_socket.async_receive(
 		boost::asio::buffer(buff, bufferSize),
-		std::bind(&Session::onRecvComplete, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
+		[sharedThis = shared_from_this()](auto ec, auto len) { sharedThis->onRecvComplete(ec, len); }
+		);
 }
 
 void Session::postSend()
@@ -212,7 +213,8 @@ void Session::postSend()
 
 	_socket.async_send(
 		boost::asio::buffer(buff, buffSize),
-		std::bind(&Session::onSendComplete, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
+		[sharedThis = shared_from_this()](auto ec, auto len) { sharedThis->onSendComplete(ec, len); }
+		);
 }
 
 

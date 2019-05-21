@@ -102,6 +102,7 @@ public:
 private:
 	int _serverNo;
 	std::shared_ptr< RedisConnection<Session> > _con;
+
 };
 
 }

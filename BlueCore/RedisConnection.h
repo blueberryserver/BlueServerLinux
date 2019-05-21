@@ -24,13 +24,15 @@ public:
 		_SSession = std::make_shared<T>(io_);
 		_SubSession = std::make_shared<T>(io_);
 
-		_MSession->setPacketProcHandler(std::bind(&RedisConnection::recvPacketProc, this, std::placeholders::_1));
-		_SSession->setPacketProcHandler(std::bind(&RedisConnection::recvPacketProc, this, std::placeholders::_1));
-		_SubSession->setPacketProcHandler(std::bind(&RedisConnection::recvPacketProcByPublish, this, std::placeholders::_1));
+		_MSession->setPacketProcHandler([this](auto buf_) { this->recvPacketProc(buf_); });
+		_SSession->setPacketProcHandler([this](auto buf_) { this->recvPacketProc(buf_); });
+		_SubSession->setPacketProcHandler([this](auto buf_) { this->recvPacketProcByPublish(buf_); });
 
 	}
 	~RedisConnection()
 	{}
+public:
+	_RedisReply _reply;
 
 private:
 	TPtr _MSession;	// master session
@@ -38,7 +40,6 @@ private:
 
 	TPtr _SubSession;	// subscribe session
 	Callback* _channelMsgJob;
-
 
 	LockFreeQueue<size_t, 65536> _keys;
 	std::unordered_map<size_t, std::promise<_RedisReply>> _promises;
@@ -136,28 +137,29 @@ public:
 			auto cmd = buff_->getReadableBuffer();
 			LOG(L_DEBUG_, "replay", "origin str", std::string(cmd, recvBuffSize));
 
-			_RedisReply reply;
-			if (true == redisReplyParsing(reply, cmd, recvBuffSize, len))
+			//_RedisReply reply;
+			_reply.clear();
+			if (true == redisReplyParsing(_reply, cmd, recvBuffSize, len))
 			{
 				// debuging reply log write
-				if (reply._type == REPY_INTEGER)
+				if (_reply._type == REPY_INTEGER)
 				{
-					LOG(L_DEBUG_, "replay", "result", (int)reply._integer);
+					LOG(L_DEBUG_, "replay", "result", (int)_reply._integer);
 				}
-				else if (reply._type == REPY_STRING || reply._type == REPY_ERROR || reply._type == REPY_BULKSTRING)
+				else if (_reply._type == REPY_STRING || _reply._type == REPY_ERROR || _reply._type == REPY_BULKSTRING)
 				{
-					LOG(L_DEBUG_, "replay", "result", &reply._string[0]);
+					LOG(L_DEBUG_, "replay", "result", &_reply._string[0]);
 				}
-				else if (reply._type == REPY_NIL)
+				else if (_reply._type == REPY_NIL)
 				{
 					LOG(L_DEBUG_, "replay", "result", "nil");
 				}
-				else if (reply._type == REPY_ARRAY)
+				else if (_reply._type == REPY_ARRAY)
 				{
-					LOG(L_DEBUG_, "replay", "array", reply.to_json());
+					LOG(L_DEBUG_, "replay", "array", _reply.to_json());
 				}
 
-				executePostJobNoDelete(_channelMsgJob, reply);
+				_channelMsgJob->execute();
 			}
 
 			recvBuffSize -= len;
@@ -182,7 +184,6 @@ public:
 		result_ = _promises[key].get_future();
 		return true;
 	}
-
 	bool auth(const char* pw_, std::future<_RedisReply>& result_)
 	{
 		if (false == _MSession->isConnected()) return false;
@@ -198,7 +199,6 @@ public:
 		result_ = _promises[key].get_future();
 		return true;
 	}
-
 
 	bool zadd(const char* key_, int score_, const char* value_, std::future<_RedisReply>& result_)
 	{
@@ -390,7 +390,6 @@ public:
 
 	}
 
-
 	bool hset(const char* key_, const char* field_, const char* value_, std::future<_RedisReply>& result_)
 	{
 		std::stringstream ss;
@@ -575,7 +574,6 @@ public:
 		return true;
 
 	}
-
 
 	// expire key
 	bool expire(const char* key_, int timeOut_, std::future<_RedisReply>& result_)

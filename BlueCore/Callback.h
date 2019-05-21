@@ -8,85 +8,31 @@ class Callback
 {
 public:
 	virtual ~Callback() {}
-	virtual void execute(void* param_) {}
+	virtual void execute() {}
 };
 
 
-template<typename T, typename... A>
+template<typename T>
 class PostJob : public Callback
 {
-	typedef void(T::*MemberFunc)(A...);
-	typedef std::tuple<A...> TupleArgs;
-
 public:
-	explicit PostJob(T* t_, MemberFunc func_)
-		: _t(t_), _memFunc(func_) {}
-	virtual ~PostJob() { _memFunc = nullptr; }
+	explicit PostJob(T lamda_)
+		: _lamda(lamda_) {}
+	virtual ~PostJob() = default;
 
-	virtual void execute(void* param_)
+	virtual void execute()
 	{
-		doExecute(_t, _memFunc, *reinterpret_cast<TupleArgs*>(param_));
+		_lamda();
 	}
 
 public:
-	T* _t;
-	MemberFunc _memFunc;
-	TupleArgs _args;
+	T _lamda;
 };
 
-template<class T, class... A>
-static decltype(auto) makePostJob(T* t_, void (T::*func_)(A...))
+template<class T>
+static decltype(auto) makePostJob(T lamda_)
 {
-	return new PostJob<T, A...>(static_cast<T*>(t_), func_);
+	return new PostJob<T>(lamda_);
 }
-
-template<typename... A>
-class PostJobStatic : public Callback
-{
-	typedef std::tuple<A...> TupleArgs;
-
-public:
-	explicit PostJobStatic(std::function<void(A...)> func_)
-		: _func(func_) {}
-	virtual ~PostJobStatic() { _func = nullptr; }
-
-	virtual void execute(void* param_)
-	{
-		doExecute(_func, *reinterpret_cast<TupleArgs*>(param_));
-	}
-
-public:
-	//Func _func;
-	std::function<void(A...)> _func;
-	TupleArgs _args;
-};
-
-template<class... A>
-static decltype(auto) makePostJobStatic(void (*func_)(A...))
-{
-	return new PostJobStatic<A...>(func_);
-}
-
-template<class... A>
-static decltype(auto) makePostJobStatic( std::function<void(A...)> func_)
-{
-	return new PostJobStatic<A...>(func_);
-}
-
-template<typename T, typename... A>
-static void executePostJob(T* t_, A... a_)
-{
-	std::tuple<A...> args(std::forward<A>(a_)...);
-	t_->execute(reinterpret_cast<void*>(&args));
-	delete t_;
-}
-
-template<typename T, typename... A>
-static void executePostJobNoDelete(T* t_, A... a_)
-{
-	std::tuple<A...> args(std::forward<A>(a_)...);
-	t_->execute(reinterpret_cast<void*>(&args));
-}
-
 
 }

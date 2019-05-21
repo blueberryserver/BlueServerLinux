@@ -1,3 +1,4 @@
+#include <boost/optional.hpp>
 #include "GameHandler.h"
 #include "cpp/game.pb.h"
 #include "cpp/SimTable.pb.h"
@@ -115,25 +116,27 @@ DEFINE_HANDLER(GameHandler, SessionPtr, CreateCharReq)
 
 	// search character table 
 	MSG::Char character; json2Proto(table["Char"], character);
-	bool find = false; MSG::Char::CharacterTable* characterTable = nullptr;
-	for (auto i = 0; i < character.data_size(); i++)
+
+	// to boost::optional 
+	auto result = [req, character](void) mutable -> boost::optional<SharedPtr<MSG::Char::CharacterTable>> 
 	{
-		auto data = character.mutable_data(i);
-		if (data->no() == req.charno())
+		for (auto i = 0; i < character.data_size(); i++)
 		{
-			characterTable = data;
-			find = true;
-			break;
+			auto data = character.mutable_data(i);
+			if (data->no() == req.charno())
+			{
+				return SharedPtr<MSG::Char::CharacterTable>(data);
+			}
 		}
-	}
-	
-	if (find == false)
+		return {};
+	}();
+
+	if (!result)
 	{
 		MSG::CreateCharAns ans;
 		ans.set_err(MSG::ERR_ARGUMENT_FAIL);
 		session_->SendPacket(MSG::CREATECHAR_ANS, &ans);
 		return true;
-
 	}
 
 	MSG::CharData_ charData;
@@ -519,17 +522,20 @@ DEFINE_HANDLER(GameHandler, SessionPtr, TierupCharReq)
 	}
 
 	MSG::CharTier tier; json2Proto(table["CharTier"], tier);
-	MSG::CharTier::CharTierTable* charTierTable = nullptr;
-	int tierUpCost = 200;
-	for (auto i = 0; i < tier.data_size(); i++)
+	auto result = [tier, charData](void) mutable ->boost::optional< SharedPtr<MSG::CharTier::CharTierTable>>
 	{
-		auto data = tier.mutable_data(i);
-		if (data->tier() == charData->tier())
+		for (auto i = 0; i < tier.data_size(); i++)
 		{
-			charTierTable = data;
+			auto data = tier.mutable_data(i);
+			if (data->tier() == charData->tier())
+			{
+				return SharedPtr< MSG::CharTier::CharTierTable>(data);
+			}
 		}
-	}
+		return {};
+	}();
 
+	int tierUpCost = 200;
 	if ((int)userData->vc2() < tierUpCost)
 	{
 		MSG::LevelupCharAns ans;

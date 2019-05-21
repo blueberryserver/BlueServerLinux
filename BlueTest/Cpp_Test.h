@@ -161,7 +161,7 @@ std::string funcTest2(int a, int b, int c)
 
 TEST(Cpp, Task)
 {
-	std::packaged_task<std::string()> myTask(std::bind(funcTest2, 10, 20, 30));
+	std::packaged_task<std::string()> myTask([]() { funcTest2(10, 20, 30); });
 	std::future<std::string> myFuture = myTask.get_future();
 	std::async(std::launch::async, std::move(myTask));
 

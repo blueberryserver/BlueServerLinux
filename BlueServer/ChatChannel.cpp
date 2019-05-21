@@ -32,7 +32,11 @@ ChatChannel::ChatChannel(const char * counrty_)
 	: _country(counrty_)
 {
 	LOG(L_INFO_, " ", "channel", _country);
-	_redis->setChannelMsgJob(makePostJob(this, &ChatChannel::channelMsgProc));
+	auto& reply = _redis.get()->_reply;
+	_redis->setChannelMsgJob(makePostJob(
+		[this, &reply]() mutable { this->channelMsgProc(reply); }
+		)
+	);
 	_redis->subscribe(std::vector<std::string>({ _country, }));
 	
 }
@@ -69,11 +73,10 @@ void ChatChannel::publishEnter(uint64_t uid_, const char * name_)
 	std::string jsonDump;
 	Json(data).dump(jsonDump);
 	auto key = _redis->publish(_country.c_str(), jsonDump.c_str());
-	auto publishFunc = CapturedLamdaToFuncObj([=](_RedisReply reply_) -> void {
-		LOG(L_INFO_, "Redis", "publish", _country, "reply", reply_);
-	});
-
-	SyncJobManager::getSyncJobManager()->addJob(key, makePostJobStatic(publishFunc), nullptr);
+	auto& reply = _redis.get()->_reply;
+	SyncJobManager::getSyncJobManager()->addJob(key, makePostJob(
+		[country = _country, &reply]() mutable { LOG(L_INFO_, "Redis", "publish", country, "reply", reply); }
+		), nullptr);
 }
 
 void ChatChannel::publishLeave(uint64_t uid_, const char * name_)
@@ -95,7 +98,10 @@ void ChatChannel::publishLeave(uint64_t uid_, const char * name_)
 		LOG(L_INFO_, "Redis", "publish", _country, "reply", reply_);
 	});
 
-	SyncJobManager::getSyncJobManager()->addJob(key, makePostJobStatic(publishFunc), nullptr);
+	auto& reply = _redis.get()->_reply;
+	SyncJobManager::getSyncJobManager()->addJob(key, makePostJob(
+		[country = _country, &reply]() mutable { LOG(L_INFO_, "Redis", "publish", country, "reply", reply); }
+		), nullptr);
 }
 
 void ChatChannel::publishChat(MSG::ChatData_ & chat_)
@@ -118,8 +124,10 @@ void ChatChannel::publishChat(MSG::ChatData_ & chat_)
 	auto publishFunc = CapturedLamdaToFuncObj([=](_RedisReply reply_) -> void {
 		LOG(L_INFO_, "Redis", "publish", _country, "reply", reply_);
 	});
-
-	SyncJobManager::getSyncJobManager()->addJob(key, makePostJobStatic(publishFunc), nullptr);
+	auto& reply = _redis.get()->_reply;
+	SyncJobManager::getSyncJobManager()->addJob(key, makePostJob(
+		[country = _country, &reply]() mutable { LOG(L_INFO_, "Redis", "publish", country, "reply", reply); }
+		), nullptr);
 }
 
 

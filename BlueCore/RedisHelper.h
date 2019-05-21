@@ -20,13 +20,21 @@ class _RedisReply : public JsonValue
 {
 public:
 	_RedisReply() = default;
-	virtual ~_RedisReply() {}
+	virtual ~_RedisReply() = default;
 	// add move operator
 
-	REPLY_TYPE _type;
-	int64_t _integer;
-	std::string _string;
+	REPLY_TYPE _type { REPY_NIL };
+	int64_t _integer { 0 };
+	std::string _string {};
 	std::vector<_RedisReply> _array;
+
+	void clear()
+	{
+		_type = REPY_NIL;
+		_integer = 0;
+		_string = {};
+		_array.clear();
+	}
 
 	virtual Json::Type type() const
 	{

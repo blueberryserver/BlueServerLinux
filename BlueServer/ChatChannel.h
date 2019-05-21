@@ -40,8 +40,7 @@ private:
 
 	std::vector<MSG::ChatData_> _chatDatas;
 
-	RedisClientPtr _redis;
-
+	RedisClientPtr _redis;	
 };
 
 DECLARE_SMART_PTR(ChatChannel)
