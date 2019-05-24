@@ -30,8 +30,10 @@ void GlobalLoading()
 	Logger::getLogger()->start();
 
 	RedisPool::setRedisPool(new RedisPool(1));
-	RedisPool::getRedisPool()->connect(IOService::getIOService()->getIO(), 0, "127.0.0.1", 6379, 0);
+	RedisPool::getRedisPool()->connect(IOService::getIOService()->getIO(), 0, "127.0.0.1", "6379", 0);
 	
+	LOG(L_INFO_, "connect wait");
+	std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 }
 
 void GlobalUnloading()
@@ -67,6 +69,7 @@ static void RedisReplay2(_RedisReply reply_)
 TEST(Redis, Simple)
 {
 	GlobalLoading();
+	/*
 	{
 
 		RedisClientPtr rclient;
@@ -96,18 +99,34 @@ TEST(Redis, Simple)
 		//
 		std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 	}
+	*/
 
 	{
-		auto conn = std::make_shared< RedisConnection<Session> >(IOService::getIOService()->getIO());
-		auto result = conn->connect("127.0.0.1", 6379);
+		//auto conn = std::make_shared< RedisConnection<Session> >(IOService::getIOService()->getIO());
+		//auto result = conn->connect("127.0.0.1", "6379");
+
+		RedisClientPtr rclient;
 
 		std::future<_RedisReply> resultReply;
-		auto r = conn->select(1, std::ref(resultReply));
+		auto r = rclient->select(1, std::ref(resultReply));
 
 		auto reply = resultReply.get();
 		{
 			LOG(L_INFO_, "Future", "replay", reply);
 		}
+
+		r = rclient->hset("test_key", "f", "v", std::ref(resultReply));
+		reply = resultReply.get();
+		{
+			LOG(L_INFO_, "Future", "replay", reply);
+		}
+
+		r = rclient->hget("test_key", "f", std::ref(resultReply));
+		reply = resultReply.get();
+		{
+			LOG(L_INFO_, "Future", "replay", reply);
+		}
+
 	}
 
 	GlobalUnloading();

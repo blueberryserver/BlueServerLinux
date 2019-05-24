@@ -45,7 +45,7 @@ Session::~Session()
 
 void Session::onRecvComplete(boost::system::error_code errCode_, std::size_t length_)
 {
-	if (errCode_ != boost::asio::error::operation_aborted )
+	if (errCode_ == boost::asio::error::operation_aborted )
 	{
 		LOG(L_DEBUG_, "Disconnect", "socket", (int)_socket.native_handle(), "length", (int)length_);
 		_connected.store(false);
