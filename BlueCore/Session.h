@@ -50,7 +50,7 @@ public:
 	}
 
 	// recv data proc
-	void setPacketProcHandler(std::function<void(CircularBuffer*)> handler_) { _packetProc = handler_; }
+	void setPacketProcHandler(std::function<void(CircularBufferPtr)> handler_) { _packetProc = handler_; }
 
 	// send data
 	void send(BufferHelperPtr sendBuff_);
@@ -79,7 +79,7 @@ protected:
 	std::atomic<bool> _connected;
 
 	// recv buffer
-	CircularBuffer* _recvBuff;
+	CircularBufferPtr _recvBuff;
 
 	// reserved send buff queue
 	LockFreeQueue<BufferHelperPtr, 65536> _reservedSendBuffs;
@@ -89,13 +89,13 @@ protected:
 	std::atomic<bool> _sending;
 
 	// send buffer
-	CircularBuffer* _sendBuff;
+	CircularBufferPtr _sendBuff;
 
 	// packet proc func
-	std::function<void(CircularBuffer*)> _packetProc;
+	std::function<void(SharedPtr<CircularBuffer>)> _packetProc;
 
 };
-//typedef std::shared_ptr<Session> SessionPtr;
+
 DECLARE_SMART_PTR(Session);
 
 }

@@ -1,19 +1,21 @@
 #pragma once
 #include <functional>
 #include <memory>
+#include "Packet.h"
 #include "Macro.h"
+#include "ThreadUtil.h"
 
 namespace BLUE_BERRY
 {
 
-template< typename T >
+template< typename _T, typename _P = Packet >
 class MsgHandler
 {
 public:
 	virtual ~MsgHandler() {}
 
 	enum { MAX_MSG_ID = 0xffff - 1, };
-	typedef std::function<bool(std::shared_ptr<T>, char*, unsigned short)> MSG_HANDLER_FUNCTION;
+	typedef std::function<bool(SharedPtr<_T>, char*, unsigned short)> MSG_HANDLER_FUNCTION;
 
 	MSG_HANDLER_FUNCTION _table[MAX_MSG_ID];
 public:
@@ -22,7 +24,8 @@ public:
 		_table[id_] = func_;
 	}
 
-	virtual bool execute(std::shared_ptr<T> session_, unsigned short id_, char* buff_, unsigned short  len_) { return false; }
+	virtual bool execute(SharedPtr<_T> session_, const _P& packet_) { return false; }
+	virtual bool execute(SharedPtr<_T> session_) { return false; }
 };
 
 #define REGIST_HANDLER(id___, func___) _table[id___] = func___
@@ -30,7 +33,6 @@ public:
 #define CC_NAMESPACE_NS(class___) ::class___
 #define DEFINE_HANDLER(class___, session___, function___) bool class___ CC_NAMESPACE_NS(function___) (session___ session_, char* body_, unsigned short len_)
 
-template<typename T>
-using SharedPtr = std::shared_ptr<T>;
-//ex) SharedPtr<Object> ptr;
+#define MSG_PARSING(__msg__, __body__, __len__) __msg__ req; req.ParseFromArray(__body__, __len__);
+
 }

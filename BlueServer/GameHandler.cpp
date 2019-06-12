@@ -46,7 +46,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, CreateCharReq)
 	}
 
 	// update time out
-	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
+	user->setPingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count());
 
 	// get table
 	auto table = JsonFileLoader::getJsonFileLoader()->get("SimTable.json");
@@ -225,7 +225,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, PlayDungeonReq)
 	}
 
 	// update time out
-	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
+	user->setPingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count());
 
 	// get table
 	auto table = JsonFileLoader::getJsonFileLoader()->get("SimTable.json");
@@ -378,7 +378,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, LevelupCharReq)
 	}
 
 	// update time out
-	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
+	user->setPingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count());
 
 	// get table
 	auto table = JsonFileLoader::getJsonFileLoader()->get("SimTable.json");
@@ -496,7 +496,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, TierupCharReq)
 	}
 
 	// update time out
-	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
+	user->setPingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count());
 
 	// get table
 	auto table = JsonFileLoader::getJsonFileLoader()->get("SimTable.json");
@@ -613,7 +613,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, BattleLogReq)
 	}
 
 	// update time out
-	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
+	user->setPingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count());
 	auto userData = user->getData();
 
 	MSG::BattleLogAns ans;
@@ -655,7 +655,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, BattleLogReq)
 			for (auto i = 0; i < charCount; ++i)
 			{
 				auto charData = dataIt.mutable_chars(i);
-				auto battleObj = new BattleObj( charData->level(), charData->typeno(), charData->tier() );
+				auto battleObj = std::make_shared<BattleObj>( charData->level(), charData->typeno(), charData->tier() );
 				battle.addBattleObj(battleObj, MSG::BattleData_::ALLY);
 			}
 
@@ -663,7 +663,7 @@ DEFINE_HANDLER(GameHandler, SessionPtr, BattleLogReq)
 			for (auto i = 0; i < mobCount; ++i)
 			{
 				auto mobData = dataIt.mutable_mobs(i);
-				auto battleObj = new BattleObj(mobData->level(), mobData->typeno(), mobData->tier());
+				auto battleObj = std::make_shared<BattleObj>(mobData->level(), mobData->typeno(), mobData->tier());
 				battle.addBattleObj(battleObj, MSG::BattleData_::ENEMY);
 			}
 			battle.replay();

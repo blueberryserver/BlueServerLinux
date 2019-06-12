@@ -1,12 +1,10 @@
 #pragma once
 namespace BLUE_BERRY
 {
-
 #define SEND_BUFFER_SIZE 65535
-
-class Header
+struct Header
 {
-public:
+
 	short _len;
 	short _id;
 };
@@ -27,7 +25,7 @@ public:
 
 	}
 	//explicit Packet(int id_, char* sendDataBuff_, size_t sendDataBuffLen_);
-	~Packet() {}
+	~Packet() = default;
 
 	bool next()
 	{
@@ -47,17 +45,14 @@ public:
 			_curId = -1;
 		}
 
-		// 잘못된 패킷 길이 확인
+		// wrong packet length
 		if (_curPacketLen < sizeof(Header) || _curPacketLen > SEND_BUFFER_SIZE)
 		{
-			// 애러 패킷 크기 애러
 			//___Log->write(Log::CONS_FILE_LOG, "packet header length error type: ", header->_id, " len: ", header->_len);
-			//연결 종료
 			//disconnect();
 			return false;
 		}
 
-		// 패킷 길이와 받은 버퍼 길이 확인
 		if (_curPacketLen > _restBuffLen)
 		{
 			return false;
@@ -67,25 +62,22 @@ public:
 	}
 
 
-	short getId()
+	short getId() const
 	{
 		return _curId;
 	}
 
-	char* getData()
+	char* getData() const
 	{
-		// 패킷 = 헤더 + 데이터
 		auto data = _curPacketBuff + sizeof(Header);
-
-		// 데이터
 		return data;
 	}
 
-	unsigned short getDataLength()
+	unsigned short getDataLength() const
 	{
 		return static_cast<unsigned short>(_curPacketLen - sizeof(Header));
 	}
-	unsigned short getPacketLength()
+	unsigned short getPacketLength() const
 	{
 		return static_cast<unsigned short>(_curPacketLen);
 	}

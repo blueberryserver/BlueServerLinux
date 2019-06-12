@@ -27,7 +27,7 @@ BlueSession::~BlueSession()
 
 void BlueSession::onClose()
 {
-	_msgHandler->execute(shared_from_this(), CLOSED, nullptr, 0);
+	_msgHandler->execute(shared_from_this());
 }
 
 void BlueSession::onAcceptComplete()
@@ -44,7 +44,7 @@ void BlueSession::recvPacketProc()
 	Packet packet(rBufferPoint, recvBuffSize);
 	while (packet.next())
 	{
-		if (_msgHandler) _msgHandler->execute(shared_from_this(), packet.getId(), packet.getData(), packet.getDataLength());
+		if (_msgHandler) _msgHandler->execute(shared_from_this(), packet);
 		_recvBuff->remove(packet.getPacketLength());
 	}
 }

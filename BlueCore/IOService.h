@@ -13,32 +13,33 @@ public:
 	IOService(unsigned long threadCount_ = 0);
 	virtual ~IOService();
 
-	template <typename CompletionHandler>
-	void post(BOOST_ASIO_MOVE_ARG(CompletionHandler) handler_)
+	// sync job
+	template <typename _T>
+	void syncJob(_T&& handler_)
 	{
 		_ioService.post(_strandForJob.wrap(handler_));
 	}
 
-	template <typename CompletionHandler>
-	void asyncJob(BOOST_ASIO_MOVE_ARG(CompletionHandler) handler_)
+	// async job
+	template <typename _T>
+	void asyncJob(_T&& handler_)
 	{
 		_ioService.post(
 			[handler_]()
 			{
 				handler_->onExecute();
-				delete handler_;
 			}
 		);
 	}
 
-	template <typename CompletionHandler>
-	void asyncWait(std::shared_ptr<boost::asio::deadline_timer>& t_, BOOST_ASIO_MOVE_ARG(CompletionHandler) handler_)
+	// wait time job
+	template <typename _T>
+	void asyncWait(std::shared_ptr<boost::asio::deadline_timer>& t_, _T&& handler_)
 	{
 		t_->async_wait(_strandForTimer.wrap(
 			[handler_](const boost::system::error_code& err_)
 			{
 				handler_->onExecute();
-				delete handler_;
 			})
 		);
 	}
@@ -63,7 +64,7 @@ private:
 	io_context::strand _strandForJob{ _ioService };
 	io_context::strand _strandForTimer{ _ioService };
 	io_context::work _worker{ _ioService };
-	boost::thread_group _pool;
+	boost::thread_group _pool{};
 };
 
 EXTERN_MGR(IOService);

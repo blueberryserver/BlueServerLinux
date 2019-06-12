@@ -142,5 +142,27 @@ TEST(Cpp, UniquePtr)
 		p->isAchive();
 	}(ptr);
 
-	ptr->isAchive();
+	if (ptr) ptr->isAchive();
+
+	char buffer[1023] = { 0, };
+	auto ptr2 = std::unique_ptr<char>{ buffer };
+	ptr2.release();
+}
+
+class Doc {
+	bool _is{};
+	double _rank{};
+	int _i{};
+};
+
+class Doc2 {
+	double _rank{};
+	int _i{};
+	bool _is{};
+};
+
+TEST(Cpp, MemoryAlign)
+{
+	std::cout << "Doc size: " << sizeof(Doc) << std::endl;
+	std::cout << "Doc2 size: " << sizeof(Doc2) << std::endl;
 }

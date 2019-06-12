@@ -9,13 +9,10 @@ namespace BLUE_BERRY {
 class Buffer
 {
 public:
-	// 메모리 크기
 	size_t _size;
-	// 메모리 시작 주소
 	char* _start;
-	// 초기 버퍼 시작 주소
+	// base pos
 	char* _base;
-	// 참조 카운트
 	std::atomic<long> _refCount;
 
 public:
@@ -24,17 +21,17 @@ public:
 	{
 		_refCount.store(1);
 		auto ptr = this; ++ptr;
-		// buffer 시작 주소 저장
+		// save base pos
 		_base = reinterpret_cast<char*>(ptr);
 		_start = _base;
-		// 메모리 정렬 기준 시작 주소 설정
+		// setting align address
 		if ((__int64_t)_start % MEMORY_ALLOCATION_ALIGNMENT != 0)
 		{
 			_start += MEMORY_ALLOCATION_ALIGNMENT - ((__int64_t)_start % MEMORY_ALLOCATION_ALIGNMENT);
 		}
 	}
 
-	~Buffer() {}
+	~Buffer() = default;
 
 	size_t getFreeSize() const
 	{
@@ -44,7 +41,7 @@ public:
 	{
 		_start += size_;
 
-		// 16 바이트 정렬
+		// memory address align
 		if ((__int64_t)_start % MEMORY_ALLOCATION_ALIGNMENT != 0)
 		{
 			_start += MEMORY_ALLOCATION_ALIGNMENT - ((__int64_t)_start % MEMORY_ALLOCATION_ALIGNMENT);
@@ -54,7 +51,8 @@ public:
 	{
 		_refCount.store(1);
 		_start = _base;
-		// 메모리 정렬 기준 시작 주소 설정
+
+		// memory address align
 		if ((__int64_t)_start % MEMORY_ALLOCATION_ALIGNMENT != 0)
 		{
 			_start += MEMORY_ALLOCATION_ALIGNMENT - ((__int64_t)_start % MEMORY_ALLOCATION_ALIGNMENT);
@@ -68,7 +66,7 @@ public:
 
 	void decRefCount();
 
-	// 스레드 로컬 스토리지(TLS) 함수
+	// TLS
 	DECLARE_TLS(Buffer)
 };
 EXTERN_TLS(Buffer)
@@ -105,7 +103,7 @@ public:
 	DECLARE_MGR(BufferPool)
 };
 
-// 버퍼 보조 클래스
+// buffer helper
 class BufferHelper
 {
 private:
@@ -118,24 +116,28 @@ public:
 
 	explicit BufferHelper(size_t size_) : _start(nullptr), _len(size_), _pos(nullptr)
 	{
+		// check tls buffer 
 		auto buffer = Buffer::getTLSBuffer();
 		if (buffer == nullptr)
 		{
+			// aquire new buffer and set tls buff
 			Buffer::setTLSBuffer(BufferPool::getBufferPool()->aquire());
 			buffer = Buffer::getTLSBuffer();
 		}
 
-		// 필요한 버퍼 크기 확인
+		// check require size
 		if (buffer->getFreeSize() < _len)
 		{
+			// check now using
 			if (buffer->_refCount.load() > 1)
 			{
-
+				// aquire new buffer and set tls buff
 				Buffer::setTLSBuffer(BufferPool::getBufferPool()->aquire());
 				buffer = Buffer::getTLSBuffer();
 			}
 			else
 			{
+				// nobody use buffer clear
 				buffer->clear();
 			}
 		}
@@ -152,7 +154,7 @@ public:
 		_buffer->decRefCount();
 	}
 
-	// 패킷 해더 추출
+	// extract header
 	template<class HEADER>
 	HEADER* getHeader()
 	{
@@ -160,7 +162,7 @@ public:
 		return reinterpret_cast<HEADER*>(_start);
 	}
 
-	// 패킷 바디 추출
+	// extract body
 	template<class HEADER>
 	char* getBody()
 	{
@@ -169,7 +171,6 @@ public:
 		return reinterpret_cast<char*>(header);
 	}
 
-	// 버퍼 쓰기
 	template<class T>
 	void write(T value_)
 	{
@@ -185,7 +186,6 @@ public:
 		_pos += len_;
 	}
 
-	// 버퍼 읽기
 	template<class T>
 	bool read(T& value_)
 	{

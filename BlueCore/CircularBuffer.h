@@ -3,35 +3,34 @@
 
 #include "MemoryPool.h"
 namespace BLUE_BERRY {
-	// 64k 버퍼 크기
+// buffer size 64k 
 #define DEFAULT_CIRCULAR_BUFFER_SIZE 65535
 class CircularBuffer
 {
 private:
 
 private:
-	// 버퍼 시작 포인터
+	// start pos
 	char* _start;
-	// 버퍼 끝 포인터
+	// end pos
 	char* _end;
-	// a지역 포인터
+	// A region pos
 	char* _a;
-	// a지역 크기
+	// A region size
 	size_t _aSize;
 
-	// b지역 포인터
+	// B region pos
 	char* _b;
-	// b지역 크기
+	// B region size
 	size_t _bSize;
 
 public:
 	CircularBuffer(size_t size_ = DEFAULT_CIRCULAR_BUFFER_SIZE)
 	{
 		_start = static_cast<char*>( MemoryPool::getMemoryPool()->alloc(size_) );
-		//_start = static_cast<char*>( malloc(size_));
 		_end = _start + size_;
 
-		// 처음 a만 사용
+		// first use A region 
 		_a = _start;
 		_b = nullptr;
 		_aSize = 0;
@@ -40,35 +39,29 @@ public:
 	~CircularBuffer()
 	{
 		MemoryPool::getMemoryPool()->free(static_cast<void*>(_start));
-		//free(_start);
 	}
 
 	size_t getFreeSize()
 	{
 		if (_b != nullptr)
 		{
-			// b지역 남은 버퍼 크기
+			// B region rest size
 			return _a - _b - _bSize;
 		}
 		else
 		{
-			// b지역 사용 안할 경우
-
-			// a지역 남은 버퍼의 크기가 미사용 버퍼 보다 작을 경우
+			// A region rest buffer size < not used size(B region)
 			if ((_end - _a - _aSize) < (size_t)(_a - _start))
 			{
-				// 미사용 중인 버퍼에 b 지역 할당
-				// 이제 a지역은 할당 하지 않음
-
+				// B region assign
 				_b = _start;
 
-				// b지역 남은 버퍼 크기
+				// B region rest size
 				return _a - _b - _bSize;
 			}
 			else
 			{
-				// a 지역만 사용하는 경우
-				//남은 버퍼 크기
+				//A region rest size
 				return _end - _a - _aSize;
 			}
 		}
@@ -90,7 +83,7 @@ public:
 	// write
 	char* getWritableBuffer()
 	{
-		// b 우선 확인
+		// first B region check
 		if (_b != nullptr)
 			return _b + _bSize;
 		else
@@ -100,7 +93,7 @@ public:
 	// read
 	char* getReadableBuffer()
 	{
-		// a 우선 확인
+		// first A region check
 		if (_aSize > 0)
 			return _a;
 		else
@@ -160,4 +153,5 @@ public:
 	}
 };
 
+DECLARE_SMART_PTR(CircularBuffer);
 }

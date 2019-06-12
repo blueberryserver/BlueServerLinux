@@ -14,7 +14,6 @@ enum
 	MEMORY_ALLOCATION_ALIGNMENT = 16,
 };
 
-// 메모리 해더(사이즈 정보 저장)
 class MemoryHeader
 {
 public:
@@ -26,9 +25,9 @@ public:
 template<class _Header = MemoryHeader>
 inline void* allocMemoryHeader(_Header* header_, size_t size_)
 {
-	// 메모리 해더 생성자 호출
+	// construct call
 	new (header_)_Header(size_);
-	// 해더 다음 데이터 메모리 주소 반환
+	// move data address
 	return ++header_;
 }
 
@@ -37,10 +36,11 @@ inline _Header* freeMemoryHeader(void* mem_)
 {
 	_Header* header = (_Header*)mem_;
 
-	// 데이터 메모리 주소에서 해더 메모리 주소로 이동
+	// move header address
 	--header;
 	return header;
 }
+
 
 class MemoryPool
 {
@@ -94,13 +94,6 @@ class MemoryPool
 			{
 				std::this_thread::sleep_for(std::chrono::milliseconds(10));
 			}
-
-			//if (_pool[getThreadId()] == nullptr)
-			//{
-			//	return;
-			//}
-			//
-			//_pool[getThreadId()]->free(mem_);
 		}
 
 	};
@@ -162,14 +155,14 @@ public:
 
 	void free(void* mem_)
 	{
-		// 메모리 해더 획득
+		// move header address
 		MemoryHeader* header = (MemoryHeader*)mem_;
 		--header;
 
 		size_t chunkSize = header->_size;
 		size_t index = (chunkSize / CHUNK_TABLE_SIZE);
 
-		// 메모리 풀 테이블에 없음
+		// check chunk table
 		if (index > CHUNK_TABLE_SIZE || _chunkTable[index] == nullptr)
 		{
 			auto header = freeMemoryHeader(mem_);

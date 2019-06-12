@@ -7,32 +7,30 @@ namespace BLUE_BERRY
 class Callback
 {
 public:
-	virtual ~Callback() {}
-	virtual void execute() {}
+	virtual void execute() = 0;
 };
 
 
-template<typename T>
+template<typename _T>
 class PostJob : public Callback
 {
 public:
-	explicit PostJob(T lamda_)
+	explicit PostJob(_T lamda_)
 		: _lamda(lamda_) {}
-	virtual ~PostJob() = default;
 
-	virtual void execute()
+	virtual void execute() override
 	{
 		_lamda();
 	}
 
 public:
-	T _lamda;
+	_T _lamda;
 };
 
-template<class T>
-static decltype(auto) makePostJob(T lamda_)
+template<class _T>
+static decltype(auto) makePostJob(_T lamda_)
 {
-	return new PostJob<T>(lamda_);
+	return std::make_shared<PostJob<_T>>(lamda_);
 }
 
 }

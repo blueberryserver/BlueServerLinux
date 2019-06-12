@@ -16,24 +16,23 @@ DEFINE_MGR(DefaultHandler)
 
 DefaultHandler::DefaultHandler()
 {
-
 	REGIST_HANDLER(MSG::PING_REQ, PingReq);
 	REGIST_HANDLER(MSG::CLOSED, Closed);
 }
 
 
-bool DefaultHandler::execute(SessionPtr session_, unsigned short id_, char * buff_, unsigned short len_)
+bool DefaultHandler::execute(SessionPtr session_, const Packet& packet_)
 {
-	if (id_ >= MAX_MSG_ID || _table[id_] == NULL)
+	auto id = packet_.getId();
+	if ( id >= MAX_MSG_ID || _table[id] == NULL)
 		return false;
 
-	return _table[id_](session_, buff_, len_);
+	return _table[id](session_, packet_.getData(), packet_.getDataLength());
 }
 
 DEFINE_HANDLER(DefaultHandler, SessionPtr, PingReq)
 {
-	MSG::PingReq req;
-	req.ParseFromArray(body_, len_);
+	MSG_PARSING(MSG::PingReq, body_, len_);
 	LOG(L_INFO_, "recv packet", "key", req.sessionkey(), "time", DateTime::getCurrentDateTime().formatLocal());
 
 	// find user by session key
@@ -47,7 +46,7 @@ DEFINE_HANDLER(DefaultHandler, SessionPtr, PingReq)
 	}
 
 	// update session key time out
-	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
+	user->setPingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count());
 	if (user->getSession() == nullptr || user->getSession() != session_)
 	{
 		user->setSession(session_);

@@ -1,6 +1,5 @@
 #include "IOService.h"
 
-
 namespace BLUE_BERRY
 {
 
@@ -10,8 +9,8 @@ IOService::IOService(unsigned long threadCount_)
 {
 	if (threadCount_ == 0)
 	{
-		// test setting
-		threadCount_ = 4;
+		// defaul setting(cpu count * 2)
+		threadCount_ = std::thread::hardware_concurrency() * 2;
 	}
 
 	for (unsigned long i = 0; i < threadCount_; ++i)

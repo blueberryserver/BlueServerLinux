@@ -96,7 +96,6 @@ void FileWriter::writeJson(const LogData* data_)
 	jMap["level"] = std::to_string(data_->_level);
 	jMap["desc"] = data_->_desc;
 
-
 	jMap["param"]= data_->_objects;
 
 	Json Log = jMap;

@@ -17,7 +17,7 @@ User::User()
 }
 
 User::User(const MSG::UserData_& data_)
-	: _data(data_), _pingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count())	// 60 second
+	: _data(data_), _pingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count())	// 60 second
 {
 	auto key = std::hash<std::string>()(toJson(data_).dump());
 	_sessionKey = std::to_string(key);
@@ -25,7 +25,7 @@ User::User(const MSG::UserData_& data_)
 }
 
 User::User(const Json& data_)
-	: _pingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count())
+	: _pingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count())
 {
 	google::protobuf::util::JsonStringToMessage(data_.dump(), &_data);
 

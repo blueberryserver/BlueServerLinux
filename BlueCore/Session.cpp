@@ -10,8 +10,8 @@ namespace BLUE_BERRY
 Session::Session(tcp::socket socket_)
 	: _socket(std::move(socket_)), _packetProc(nullptr)
 {
-	_recvBuff = new CircularBuffer();
-	_sendBuff = new CircularBuffer();
+	_recvBuff = std::make_shared<CircularBuffer>();
+	_sendBuff = std::make_shared<CircularBuffer>();
 	_reservedSendBuffCount.store(0);
 	_sending.store(false);
 	_connected.store(false);
@@ -20,8 +20,8 @@ Session::Session(tcp::socket socket_)
 Session::Session(boost::asio::io_context& io_)
 	:_socket(io_), _packetProc(nullptr)
 {
-	_recvBuff = new CircularBuffer();
-	_sendBuff = new CircularBuffer();
+	_recvBuff = std::make_shared<CircularBuffer>();
+	_sendBuff = std::make_shared<CircularBuffer>();
 	_reservedSendBuffCount.store(0);
 	_sending.store(false);
 	_connected.store(false);
@@ -30,8 +30,6 @@ Session::Session(boost::asio::io_context& io_)
 Session::~Session()
 {
 	//std::cout << "destory session" << std::endl;
-	delete _recvBuff;
-	delete _sendBuff;
 	
 	std::vector<BufferHelperPtr> tempBuffers; tempBuffers.reserve(1024);
 	if (_reservedSendBuffs.popAll(tempBuffers) == true)

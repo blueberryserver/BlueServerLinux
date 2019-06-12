@@ -39,7 +39,7 @@ private:
 	TPtr _SSession;	// slave session
 
 	TPtr _SubSession;	// subscribe session
-	Callback* _channelMsgJob;
+	SharedPtr<Callback> _channelMsgJob;
 
 	LockFreeQueue<size_t, 65536> _keys;
 	std::unordered_map<size_t, std::promise<_RedisReply>> _promises;
@@ -76,7 +76,7 @@ public:
 	}
 
 	// buffer proc
-	void recvPacketProc(CircularBuffer* buff_)
+	void recvPacketProc(CircularBufferPtr buff_)
 	{
 		size_t recvBuffSize = buff_->getContiguiousBytes();
 
@@ -126,8 +126,8 @@ public:
 		}
 	}
 
-	void setChannelMsgJob(Callback* job_) { _channelMsgJob = job_; }
-	void recvPacketProcByPublish(CircularBuffer* buff_)
+	void setChannelMsgJob(SharedPtr<Callback> job_) { _channelMsgJob = job_; }
+	void recvPacketProcByPublish(CircularBufferPtr buff_)
 	{
 		size_t recvBuffSize = buff_->getContiguiousBytes();
 

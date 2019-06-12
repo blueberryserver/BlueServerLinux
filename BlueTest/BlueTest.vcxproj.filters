@@ -16,6 +16,8 @@
     <ClInclude Include="Cpp_Test.h" />
     <ClInclude Include="Boost_Test.h" />
     <ClInclude Include="fmt_Test.h" />
+    <ClInclude Include="Range_Test.h" />
+    <ClInclude Include="Thread_Test.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="cpp">

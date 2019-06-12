@@ -1,5 +1,5 @@
 #include <string.h>
-
+#include "fmtlib/format.h"
 #include "DateTime.h"
 #include "StringUtil.h"
 
@@ -7,13 +7,13 @@ namespace BLUE_BERRY
 {
 
 DateTime::DateTime() : _nanoSecTime(0) {}
-DateTime::DateTime(const std::chrono::nanoseconds time_) : _nanoSecTime(time_) {}
+DateTime::DateTime(const nanoseconds time_) : _nanoSecTime(time_) {}
 DateTime::DateTime(const std::time_t time_)
 {
-	auto tp = std::chrono::system_clock::from_time_t(time_);
+	auto tp = system_clock::from_time_t(time_);
 	_nanoSecTime = tp.time_since_epoch();
 }
-DateTime::DateTime(const std::chrono::system_clock::time_point time_)
+DateTime::DateTime(const system_clock::time_point time_)
 {
 	_nanoSecTime = time_.time_since_epoch();
 }
@@ -29,7 +29,7 @@ DateTime::DateTime(int year_, int month_, int day_, int hour_, int min_, int sec
 	time.tm_min = min_;
 	time.tm_sec = sec_;
 	auto t = mktime(&time);
-	auto tp = std::chrono::system_clock::from_time_t(t);
+	auto tp = system_clock::from_time_t(t);
 	_nanoSecTime = tp.time_since_epoch();
 }
 
@@ -63,7 +63,7 @@ DateTime::DateTime(const char* time_)
 		}
 	}
 	auto t = mktime(&time);
-	auto tp = std::chrono::system_clock::from_time_t(t);
+	auto tp = system_clock::from_time_t(t);
 	_nanoSecTime = tp.time_since_epoch();
 
 }
@@ -100,60 +100,56 @@ bool DateTime::operator>=(const DateTime& time_)
 	return _nanoSecTime >= time_._nanoSecTime;
 }
 
-_milliseconds DateTime::operator-(const DateTime & time_)
+milliseconds DateTime::operator-(const DateTime & time_)
 {
-	return std::chrono::duration_cast<_milliseconds>(_nanoSecTime - time_._nanoSecTime);
+	return duration_cast<milliseconds>(_nanoSecTime - time_._nanoSecTime);
 }
 
 std::string DateTime::format() const
 {
-	std::chrono::system_clock::time_point tp( std::chrono::duration_cast<_seconds>(_nanoSecTime));
-	std::time_t time = std::chrono::system_clock::to_time_t(tp);
-	tm* gmt = gmtime(&time);
+	system_clock::time_point tp( duration_cast<seconds>(_nanoSecTime));
+	std::time_t time = system_clock::to_time_t(tp);
+	tm* t = gmtime(&time);
 
-	char buff[64] = { 0, };
-	sprintf(buff, "%04d-%02d-%02d %02d:%02d:%02d",
-		gmt->tm_year + 1900, gmt->tm_mon + 1, gmt->tm_mday, gmt->tm_hour, gmt->tm_min, gmt->tm_sec);
-	return std::string(buff);
+	return fmt::format("{0:04}-{1:02}-{2:02} {3:02}:{4:02}:{5:02}",
+		t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
 }
 
 std::string DateTime::formatLocal() const
 {
-	std::chrono::system_clock::time_point tp(std::chrono::duration_cast<_seconds>(_nanoSecTime));
-	std::time_t time = std::chrono::system_clock::to_time_t(tp);
-	tm* gmt = localtime(&time);
+	system_clock::time_point tp(duration_cast<seconds>(_nanoSecTime));
+	std::time_t time = system_clock::to_time_t(tp);
+	tm* t = localtime(&time);
 
-	char buff[64] = { 0, };
-	sprintf(buff, "%04d-%02d-%02d %02d:%02d:%02d",
-		gmt->tm_year + 1900, gmt->tm_mon + 1, gmt->tm_mday, gmt->tm_hour, gmt->tm_min, gmt->tm_sec);
-	return std::string(buff);
+	return fmt::format("{0:04}-{1:02}-{2:02} {3:02}:{4:02}:{5:02}", 
+		t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
 }
 
 DateTime DateTime::getCurrentDateTime()
 {
-	return DateTime(std::chrono::system_clock::now());
+	return DateTime(system_clock::now());
 }
 
 
 int DateTime::getGMTOff()
 {
-	std::time_t t = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+	std::time_t t = system_clock::to_time_t(system_clock::now());
 	return (int)( localtime(&t)->tm_gmtoff / 3600 );
 }
 
 int64_t DateTime::GetTickCount()
 {
-	return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	return duration_cast<microseconds>(system_clock::now().time_since_epoch()).count();
 }
 
 int64_t DateTime::GetTickCountM()
 {
-	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	return duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
 }
 
 uint32_t DateTime::GetTickCount32()
 {
-	auto tick = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	auto tick = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
 	tick <<= 32; tick >>= 32;
 	return static_cast<uint32_t>(tick);
 }

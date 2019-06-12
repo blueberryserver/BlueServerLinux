@@ -8,11 +8,11 @@ namespace BLUE_BERRY
 class Battle
 {
 public:
-	Battle();
+	Battle() = default;
 	Battle(std::vector<MSG::CharData_*>& chars_, unsigned int dungeonNo_, int tier_);
 	virtual ~Battle();
 
-	void addBattleObj(BattleObj* obj_, MSG::BattleData_::Team team_);
+	void addBattleObj(BattleObjPtr obj_, MSG::BattleData_::Team team_);
 
 	void addBattleData(MSG::BattleData_* battleData_);
 
@@ -23,7 +23,7 @@ public:
 
 	const std::vector< MSG::BattleData_* >& getBattleData() { return _battleDatas; }
 
-	const std::vector<BattleObj*>& getMonsterData() { return _enemy; }
+	const std::vector<BattleObjPtr>& getMonsterData() { return _enemy; }
 
 	int getReward() { return _reward; }
 
@@ -36,11 +36,11 @@ private:
 	unsigned int _tier;
 	int _reward;
 	// 플레이어 캐릭터
-	std::vector<BattleObj*> _ally;
+	std::vector<BattleObjPtr> _ally;
 
 
 	// 몬스터 캐릭터
-	std::vector<BattleObj*> _enemy;
+	std::vector<BattleObjPtr> _enemy;
 
 
 	// 전투 플레이 히스토리

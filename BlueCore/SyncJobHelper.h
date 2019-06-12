@@ -20,7 +20,7 @@ class Job;
 class SyncJobHelper
 {
 public:
-	explicit SyncJobHelper(size_t key_, Callback* post_, Job* timeOut_)
+	explicit SyncJobHelper(size_t key_, SharedPtr<Callback> post_, SharedPtr<Job> timeOut_)
 		: _hashKey(key_), _postJob(post_), _timeOutJob(timeOut_), _timeOut(false)
 	{
 		_waitTime = DateTime::GetTickCount() + 3000 * 1000;
@@ -30,9 +30,9 @@ public:
 	// request identify
 	size_t _hashKey;
 	// post job
-	Callback* _postJob;
+	SharedPtr<Callback> _postJob;
 	// time out job
-	Job* _timeOutJob;
+	SharedPtr<Job> _timeOutJob;
 	// is timeout
 	bool _timeOut;
 
@@ -84,26 +84,26 @@ public:
 		LOG(L_DEBUG_, "add job", "count", (int)_jobs.size(), "key", (int)job_->_hashKey);
 	}
 
-	void addJob(size_t key_, Callback* post_, Job* timeOut_)
+	void addJob(size_t key_, SharedPtr<Callback> post_, SharedPtr<Job> timeOut_)
 	{
 		addJob(std::make_shared<SyncJobHelper>(key_, post_, timeOut_));
 	}
 
-	template<typename _T>
-	bool getPostJob(size_t hashKey_, Callback*& postJob_)
-	{
-		std::lock_guard<std::recursive_mutex> guard(_mtx);
+	//template<typename _T>
+	//bool getPostJob(size_t hashKey_, SharedPtr<Callback>& postJob_)
+	//{
+	//	std::lock_guard<std::recursive_mutex> guard(_mtx);
 
-		auto it = _jobs.find(hashKey_);
-		if (it != _jobs.end())
-		{
-			postJob_ = it->second->_postJob;
-			_jobs.erase(it);
-			LOG(L_DEBUG_, "delete job", "count", (int)_jobs.size());
-			return true;
-		}
-		return false;
-	}
+	//	auto it = _jobs.find(hashKey_);
+	//	if (it != _jobs.end())
+	//	{
+	//		postJob_ = it->second->_postJob;
+	//		_jobs.erase(it);
+	//		LOG(L_DEBUG_, "delete job", "count", (int)_jobs.size());
+	//		return true;
+	//	}
+	//	return false;
+	//}
 
 public:
 	std::atomic<bool> _running;

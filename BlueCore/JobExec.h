@@ -4,57 +4,57 @@
 namespace BLUE_BERRY 
 {
 
-template<class _T>
-static Job* makeAsyncJob(_T lamda_)
+template<typename _T>
+static decltype(auto) makeAsyncJob(_T lamda_)
 {
-	auto job = new AsyncJobLamda<_T>(lamda_);
-	return job;
+	return std::make_shared<AsyncJobLamda<_T>>(lamda_);
 }
 
-template<class _Timer, class _T>
-static Job* makeTimerJob(int time_, _Timer timer_, _T lamda_)
+template<typename _Timer, typename _T>
+static decltype(auto) makeTimerJob(int time_, _Timer timer_, _T lamda_)
 {
-	auto job = new TimerJobLamda<_Timer, _T>(time_, timer_, lamda_);
-	return job;
+	return std::make_shared<TimerJobLamda<_Timer, _T>>(time_, timer_, lamda_);
 }
 
 class JobExec
 {
 public:
-	virtual ~JobExec() {}
-
 	template<class _T>
 	void doAsync(_T lamda_)
 	{
-		auto job = makeAsyncJob(lamda_);
-		IOService::getIOService()->asyncJob(job);
+		IOService::getIOService()->asyncJob(makeAsyncJob(lamda_));
 	}
-
 };
 
 
 class TimerExec
 {
 public:
-	TimerExec() {}
-	virtual ~TimerExec() {}
-
-	template<class _T>
+	template<typename _T>
 	void doTimer(long time_, bool repeat_, _T lamda)
 	{
 		auto t = std::make_shared<boost::asio::deadline_timer>(IOService::getIOService()->getIO());
 		t->expires_from_now(boost::posix_time::milliseconds(time_));
 		if (repeat_ == false) time_ = 0;
 
-		auto job = makeTimerJob((int)time_, t, lamda);
-		IOService::getIOService()->asyncWait(t, job);
+		IOService::getIOService()->asyncWait(t, makeTimerJob((int)time_, t, lamda));
 	}
 };
 
-template<class _T>
+template<typename _T>
 static void asyncJob(_T lamda_)
 {
-	IOService::getIOService()->asyncJob(new AsyncJobLamda<_T>(lamda_));
+	IOService::getIOService()->asyncJob(makeAsyncJob(lamda_));
+}
+
+template<typename _T>
+static void asyncWait(long time_, bool repeat_, _T lamda_)
+{
+	auto t = std::make_shared<boost::asio::deadline_timer>(IOService::getIOService()->getIO());
+	t->expires_from_now(boost::posix_time::milliseconds(time_));
+	if (repeat_ == false) time_ = 0;
+
+	IOService::getIOService()->asyncWait(t, makeTimerJob((int)time_, t, lamda_));
 }
 
 }

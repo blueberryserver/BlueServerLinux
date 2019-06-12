@@ -64,7 +64,11 @@ Battle::Battle(std::vector<MSG::CharData_*>& chars_, unsigned int dungeonNo_, in
 		}
 		auto charTier = 0;
 		if (charTierTable != nullptr) charTier = charTierTable->tier();
-		BattleObj* obj = new BattleObj(statTable->level(), characterTable->no(), charTier/*, statTable->atk(), statTable->def(), statTable->hp(), characterTable->attackrange()*/);
+		auto obj = std::make_shared<BattleObj>(
+			statTable->level(), 
+			characterTable->no(), 
+			charTier
+			/*, statTable->atk(), statTable->def(), statTable->hp(), characterTable->attackrange()*/);
 		_ally.push_back(obj);
 	}
 
@@ -135,7 +139,10 @@ Battle::Battle(std::vector<MSG::CharData_*>& chars_, unsigned int dungeonNo_, in
 
 			if (characterTable != nullptr)
 			{
-				BattleObj* obj = new BattleObj(mobAStatTable->level(), characterTable->no(), tier_/*, mobAStatTable->atk(), mobAStatTable->def(), mobAStatTable->hp(), characterTable->attackrange()*/);
+				auto obj = std::make_shared<BattleObj>(
+					mobAStatTable->level(), 
+					characterTable->no(), 
+					tier_/*, mobAStatTable->atk(), mobAStatTable->def(), mobAStatTable->hp(), characterTable->attackrange()*/);
 				_enemy.push_back(obj);
 			}
 		}
@@ -155,7 +162,10 @@ Battle::Battle(std::vector<MSG::CharData_*>& chars_, unsigned int dungeonNo_, in
 
 			if (characterTable != nullptr)
 			{
-				BattleObj* obj = new BattleObj(mobAStatTable->level(), characterTable->no(), tier_/*, mobBStatTable->atk(), mobBStatTable->def(), mobBStatTable->hp(), characterTable->attackrange()*/);
+				auto obj = std::make_shared<BattleObj>(
+					mobAStatTable->level(), 
+					characterTable->no(), 
+					tier_/*, mobBStatTable->atk(), mobBStatTable->def(), mobBStatTable->hp(), characterTable->attackrange()*/);
 				_enemy.push_back(obj);
 			}
 		}
@@ -175,7 +185,10 @@ Battle::Battle(std::vector<MSG::CharData_*>& chars_, unsigned int dungeonNo_, in
 
 			if (characterTable != nullptr)
 			{
-				BattleObj* obj = new BattleObj(mobAStatTable->level(), characterTable->no(), tier_/*, mobCStatTable->atk(), mobCStatTable->def(), mobCStatTable->hp(), characterTable->attackrange()*/);
+				auto obj = std::make_shared<BattleObj>(
+					mobAStatTable->level(), 
+					characterTable->no(), 
+					tier_/*, mobCStatTable->atk(), mobCStatTable->def(), mobCStatTable->hp(), characterTable->attackrange()*/);
 				_enemy.push_back(obj);
 			}
 		}
@@ -184,12 +197,7 @@ Battle::Battle(std::vector<MSG::CharData_*>& chars_, unsigned int dungeonNo_, in
 	_reward = dungeonTable->reward() * ( _tier + 1);
 }
 
-Battle::Battle()
-{
-
-}
-
-void Battle::addBattleObj(BattleObj* obj_, MSG::BattleData_::Team team_)
+void Battle::addBattleObj(BattleObjPtr obj_, MSG::BattleData_::Team team_)
 {
 	if (team_ == MSG::BattleData_::ALLY)
 	{
@@ -209,15 +217,9 @@ void Battle::addBattleData(MSG::BattleData_* battleData_)
 
 Battle::~Battle()
 {
-	for (auto it : _ally)
-	{
-		delete it;
-	}
+	_ally.clear();
 
-	for (auto it : _enemy)
-	{
-		delete it;
-	}
+	_enemy.clear();
 
 
 	for (auto it : _battleDatas)
@@ -253,8 +255,8 @@ void Battle::play()
 	// 공격 팀(아군 부터 공격 시작)
 	MSG::BattleData_::Team attackTeam = MSG::BattleData_::ALLY;
 
-	std::vector<BattleObj*>* attackTeamObjs = nullptr;
-	std::vector<BattleObj*>* defenceTeamObjs = nullptr;
+	std::vector<BattleObjPtr>* attackTeamObjs = nullptr;
+	std::vector<BattleObjPtr>* defenceTeamObjs = nullptr;
 
 	for (int turn = 0; turn < maxTurnCount; ++turn)
 	{
@@ -303,8 +305,7 @@ void Battle::play()
 				std::shuffle(temp.begin(), temp.end(), g);
 				targetSlot = *temp.begin();
 
-				BattleObj* target = nullptr;
-				target = (*defenceTeamObjs)[targetSlot];
+				auto target = (*defenceTeamObjs)[targetSlot];
 				if (target != nullptr)
 				{
 					// 공격력 산출
@@ -325,11 +326,15 @@ void Battle::play()
 					if (target->isAlive()) attackInfo->set_result(MSG::BattleData_::ALIVE);
 					else attackInfo->set_result(MSG::BattleData_::DEAD);
 
-					LOG(L_INFO_, "defence", "slot1", targetSlot, "damage", damage, "hp", target->getCurHp(), "result", MSG::BattleData_::AttackResult_Name(attackInfo->result()));
+					LOG(L_INFO_, "defence", 
+						"slot1", targetSlot, 
+						"damage", damage, 
+						"hp", target->getCurHp(), 
+						"result", MSG::BattleData_::AttackResult_Name(attackInfo->result()));
 				}
 
 
-				BattleObj* target2 = nullptr;
+				BattleObjPtr target2;
 				int target2Slot = -1;
 				if (range == 2)
 				{
@@ -373,7 +378,11 @@ void Battle::play()
 						if (target2->isAlive()) attackInfo->set_result(MSG::BattleData_::ALIVE);
 						else attackInfo->set_result(MSG::BattleData_::DEAD);
 
-						LOG(L_INFO_, "defence", "slot2", target2Slot, "damage", damage, "hp", target2->getCurHp(), "result", MSG::BattleData_::AttackResult_Name(attackInfo->result()));
+						LOG(L_INFO_, "defence", 
+							"slot2", target2Slot, 
+							"damage", damage, 
+							"hp", target2->getCurHp(), 
+							"result", MSG::BattleData_::AttackResult_Name(attackInfo->result()));
 					}
 				}
 
@@ -404,7 +413,9 @@ void Battle::play()
 	}
 
 	auto winnerTeam = winner();
-	LOG(L_INFO_, "battle", "winner", MSG::BattleData_::Team_Name(winnerTeam), "count", (int)_battleDatas.size());
+	LOG(L_INFO_, "battle", 
+		"winner", MSG::BattleData_::Team_Name(winnerTeam), 
+		"count", (int)_battleDatas.size());
 }
 
 void Battle::replay()
@@ -423,8 +434,8 @@ void Battle::replay()
 	}
 	
 	MSG::BattleData_::Team attackTeam = MSG::BattleData_::ENEMY;
-	std::vector<BattleObj*>* attackTeamObjs = nullptr;
-	std::vector<BattleObj*>* defenceTeamObjs = nullptr;
+	std::vector<BattleObjPtr>* attackTeamObjs = nullptr;
+	std::vector<BattleObjPtr>* defenceTeamObjs = nullptr;
 
 	int turn = 0;
 	for (auto battle : _battleDatas)
@@ -432,7 +443,9 @@ void Battle::replay()
 		if (battle->team() != attackTeam)
 		{
 			attackTeam = battle->team();
-			LOG(L_INFO_, "battle", "turn", turn, "attack team", MSG::BattleData_::Team_Name(attackTeam));
+			LOG(L_INFO_, "battle", 
+				"turn", turn, 
+				"attack team", MSG::BattleData_::Team_Name(attackTeam));
 			turn++;
 			if (attackTeam == MSG::BattleData_::ALLY)
 			{
@@ -455,11 +468,17 @@ void Battle::replay()
 			auto target = battle->mutable_targets(i);
 			auto targetObj = (*defenceTeamObjs)[target->no()];
 			targetObj->changeHp(-(int)target->damage());
-			LOG(L_INFO_, "defence", "slot1", (int)target->no(), "damage", (int)target->damage(), "hp", targetObj->getCurHp(), "result", MSG::BattleData_::AttackResult_Name(target->result()));
+			LOG(L_INFO_, "defence", 
+				"slot1", (int)target->no(), 
+				"damage", (int)target->damage(), 
+				"hp", targetObj->getCurHp(), 
+				"result", MSG::BattleData_::AttackResult_Name(target->result()));
 		}
 	}
 	auto winnerTeam = winner();
-	LOG(L_INFO_, "battle", "winner", MSG::BattleData_::Team_Name(winnerTeam), "count", (int)_battleDatas.size());
+	LOG(L_INFO_, "battle", 
+		"winner", MSG::BattleData_::Team_Name(winnerTeam), 
+		"count", (int)_battleDatas.size());
 
 }
 

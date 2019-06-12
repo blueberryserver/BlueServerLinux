@@ -43,7 +43,7 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, ChatReq)
 	}
 
 	// update time out
-	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
+	user->setPingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count());
 
 	// create chat data
 	MSG::ChatData_ data;
@@ -97,7 +97,7 @@ DEFINE_HANDLER(ChatHandler, SessionPtr, CreateChatRoomReq)
 	}
 
 	// update time out
-	user->setPingTime(DateTime::GetTickCount() + std::chrono::duration_cast<_microseconds>(_minutes(2)).count());
+	user->setPingTime(DateTime::GetTickCount() + duration_cast<microseconds>(minutes(2)).count());
 
 	auto room = ChatRoomManager::getChatRoomManager()->findRoom(req.name());
 	if (room == nullptr)

@@ -260,5 +260,7 @@ private:
 	int _curHp;
 };
 
+DECLARE_SMART_PTR(BattleObj);
+
 
 }

@@ -11,9 +11,9 @@ class Job
 public:
 	// for repeated job
 	std::atomic<long> _executedCount;
-	int _repeat;
+
 public:
-	Job() : _executedCount(0), _repeat(0) {}
+	Job() : _executedCount(0) {}
 	virtual ~Job() {}
 
 	// 작업 실행
@@ -24,10 +24,9 @@ public:
 	{
 		return _executedCount.compare_exchange_strong(count_, 0);
 	}
-	virtual Job* clone() = 0;
 };
 
-template<class _T>
+template<typename _T>
 class AsyncJobLamda : public Job
 {
 public:
@@ -43,25 +42,17 @@ public:
 		_lamda();
 		_executedCount.fetch_add(1);
 	}
-
-	Job* clone()
-	{
-		return new AsyncJobLamda(_lamda);
-	}
-
 };
 
-template<class _Timer, class _T>
+template<typename _Timer, typename _T>
 class TimerJobLamda : public Job
 {
 public:
 	_Timer _t;
 	_T _lamda;
-	explicit TimerJobLamda(int repeat_, _Timer t_, _T lamda_)
-		: _t(t_), _lamda(lamda_) 
-	{
-		_repeat = repeat_;
-	}
+	int _expireTime;
+	explicit TimerJobLamda(int expireTime_, _Timer t_, _T lamda_)
+		: _t(t_), _lamda(lamda_), _expireTime(expireTime_) {}
 
 	virtual ~TimerJobLamda() = default;
 
@@ -70,17 +61,11 @@ public:
 		_lamda();
 		_executedCount.fetch_add(1);
 
-		if (_repeat > 0)
+		if (_expireTime > 0)
 		{
-			_t->expires_from_now(boost::posix_time::milliseconds(_repeat));
-			auto job = clone();
-			IOService::getIOService()->asyncWait(_t, job);
+			_t->expires_from_now(boost::posix_time::milliseconds(_expireTime));
+			IOService::getIOService()->asyncWait(_t, makeTimerJob((int)_expireTime, _t, _lamda));
 		}
-	}
-
-	Job* clone()
-	{
-		return new TimerJobLamda(_repeat, _t, _lamda);
 	}
 };
 

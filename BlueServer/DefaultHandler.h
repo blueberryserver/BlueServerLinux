@@ -7,12 +7,12 @@
 
 namespace BLUE_BERRY
 {
-class DefaultHandler : public MsgHandler<Session>
+class DefaultHandler : public MsgHandler<Session, Packet>
 {
 public:
 	DefaultHandler();
 
-	virtual bool execute(SessionPtr session_, unsigned short id_, char* buff_, unsigned short len_) override;
+	virtual bool execute(SessionPtr session_, const Packet& packet_) override;
 
 public:
 

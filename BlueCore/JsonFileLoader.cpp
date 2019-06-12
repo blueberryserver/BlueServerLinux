@@ -2,6 +2,7 @@
 #include <fstream>
 #include "JsonFileLoader.h"
 #include "DateTime.h"
+#include "ThreadUtil.h"
 
 namespace BLUE_BERRY
 {
@@ -18,7 +19,9 @@ JsonFileLoader::~JsonFileLoader()
 
 void JsonFileLoader::start()
 {
-	doTimer(std::chrono::duration_cast<_seconds>(_minutes(1)).count(), true, 
+	doTimer(
+		duration_cast<seconds>(minutes(1)).count(), 
+		true, 
 		[this]() {this->tick(); }
 	);
 }
@@ -49,11 +52,7 @@ bool JsonFileLoader::insert(const char * jsonFilePath_)
 
 Json JsonFileLoader::get(const char* name_)
 {
-	std::lock_guard<std::recursive_mutex> guard(_mtx);
-	//auto it = _jsonDatas.find(std::string(path_));
-	//if (it != _jsonDatas.end()) return it->second;
-	//return Json();
-
+	LOCK_R(_mtx);
 	for (auto it : _jsonDatas)
 	{
 		auto path = it.first;
@@ -72,7 +71,7 @@ Json JsonFileLoader::get(const char* name_)
 
 void JsonFileLoader::tick()
 {
-	std::lock_guard<std::recursive_mutex> guard(_mtx);
+	LOCK_R(_mtx);
 	for (auto it : _jsonDatas)
 	{
 		auto path = it.first;

@@ -144,6 +144,9 @@
     <Link>
       <LibraryDependencies>boost_system;boost_thread;boost_filesystem;pthread</LibraryDependencies>
     </Link>
+    <RemotePostBuildEvent>
+      <Command>cp /home/ubuntu/projects/BlueCore/lib/libBlueCore.so /home/ubuntu/projects/BlueTest/bin/x64/Debug/libBlueCore.so</Command>
+    </RemotePostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
